@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "@angular-material-extensions/select-country": {
+      "projectType": "library",
+      "root": "projects/angular-material-extensions/select-country",
+      "sourceRoot": "projects/angular-material-extensions/select-country/src",
+      "prefix": "mat",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-material-extensions/select-country/tsconfig.lib.json",
+            "project": "projects/angular-material-extensions/select-country/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-material-extensions/select-country/src/test.ts",
+            "tsConfig": "projects/angular-material-extensions/select-country/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-material-extensions/select-country/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-material-extensions/select-country/tsconfig.lib.json",
+              "projects/angular-material-extensions/select-country/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "select-county"
 }
