@@ -12,13 +12,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "build" : ""
+    "build": ""
   },
   "peerDependencies": {
     "@angular/common": "^8.2.13",
     "@angular/core": "^8.2.13",
     "@angular/cdk": "~8.2.3",
-    "@angular/material": "~8.2.3"
+    "@angular/material": "~8.2.3",
+    "rxjs": "^6.5.3"
   },
   "engines": {
     "node": ">=10.0.0"

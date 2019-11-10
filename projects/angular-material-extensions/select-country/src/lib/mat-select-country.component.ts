@@ -1,6 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {MatAutocompleteSelectedEvent} from '@angular/material';
 
 /**
  * Country interface ISO 3166
@@ -12,6 +15,11 @@ export interface Country {
   numericCode: string;
 }
 
+/**
+ * @author Anthony Nahas
+ * @since 11.19
+ * @version 1.0
+ */
 @Component({
   selector: 'mat-select-country',
   templateUrl: 'mat-select-country.component.html',
@@ -19,18 +27,36 @@ export interface Country {
 })
 export class MatSelectCountryComponent implements OnInit {
 
+  @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
+
+  countryFormControl = new FormControl();
+  selectedCountry: Country;
   countries: Country[] = COUNTRIES_DB;
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  // @Input() menuItems: MatMenuButtonItem[] = [];
-  @Input() height: string;
-
-  @Output() onCountrySelected: EventEmitter<string> = new EventEmitter<string>();
-
-  // selectedMenuItem: MatMenuButtonItem;
+  filteredOptions: Observable<Country[]>;
 
   ngOnInit() {
+    this.filteredOptions = this.countryFormControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): Country[] {
+    const filterValue = value.toLowerCase();
+
+    return this.countries.filter((option: Country) =>
+      option.name.toLowerCase().includes(filterValue)
+      || option.alpha2Code.toLowerCase().includes(filterValue)
+      || option.alpha3Code.toLowerCase().includes(filterValue)
+    );
   }
 
 
+  onOptionsSelected($event: MatAutocompleteSelectedEvent) {
+    this.selectedCountry = this.countries.find(country => country.name === $event.option.value);
+    console.log('selected Country:', this.selectedCountry);
+    this.onCountrySelected.emit(this.selectedCountry);
+    // this.selectedCountry = $event.option as Country;
+  }
 }
