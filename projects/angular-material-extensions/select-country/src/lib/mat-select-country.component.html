@@ -1,0 +1,14 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-icon class="mr-12 s-20 secondary-text" matSuffix svgIcon="de"></mat-icon>
+    <input type="text" placeholder="Select country" aria-label="country"
+           matInput [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let country of countries" [value]="country.name">
+        <mat-icon [svgIcon]="country.alpha2Code.toLowerCase()"></mat-icon>
+        <small>{{country.alpha3Code}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
