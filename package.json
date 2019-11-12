@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod",
     "build:lib": "ng build @angular-material-extensions/select-country",
     "build:lib:Watch": "ng build @angular-material-extensions/select-country --watch",
+    "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -37,6 +39,7 @@
     "@angular/cli": "~8.3.17",
     "@angular/compiler-cli": "~8.2.13",
     "@angular/language-service": "~8.2.13",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
