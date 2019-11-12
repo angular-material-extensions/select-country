@@ -1,10 +1,10 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width" appearance="outline">
+<form>
+  <mat-form-field [appearance]="appearance">
     <mat-icon class="mr-12 s-20 secondary-text" matSuffix
               [svgIcon]="selectedCountry?.alpha2Code.toLowerCase()"></mat-icon>
     <input type="text" placeholder="Select country" aria-label="country"
            matInput [formControl]="countryFormControl"
-           [matAutocomplete]="auto">
+           [matAutocomplete]="auto" [disabled]="true">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
       <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>

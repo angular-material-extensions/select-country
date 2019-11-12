@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {MatAutocompleteSelectedEvent} from '@angular/material';
+import {MatAutocompleteSelectedEvent, MatFormFieldAppearance} from '@angular/material';
 
 /**
  * Country interface ISO 3166
@@ -27,6 +27,8 @@ export interface Country {
 })
 export class MatSelectCountryComponent implements OnInit {
 
+  @Input() appearance: MatFormFieldAppearance;
+  @Input() disabled: boolean;
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
   countryFormControl = new FormControl();

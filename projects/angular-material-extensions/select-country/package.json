@@ -2,6 +2,7 @@
   "name": "@angular-material-extensions/select-country",
   "description": "Angular Material component that allow users to select a county or nationality ",
   "version": "0.0.1",
+  "homepage": "https://github.com/angular-material-extensions/select-country.git",
   "author": {
     "name": "anthonynahas",
     "url": "https://github.com/anthonynahas"
@@ -11,12 +12,34 @@
     "url": "https://github.com/angular-material-extensions/select-country.git"
   },
   "license": "MIT",
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "ng",
+    "library",
+    "angular",
+    "material",
+    "material design",
+    "ssr",
+    "select country",
+    "countries",
+    "nationality",
+    "languages"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular-material-extensions/select-country/issues"
+  },
   "scripts": {
-    "build": ""
+    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country",
+    "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
+    "postbuild": "npm run build:schematics && npm run resync:schematics",
+    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag select-country_v$PACKAGE_VERSION && git push --tags"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.13",
     "@angular/core": "^8.2.13",
+    "@angular/forms": "^8.2.13",
+    "@angular/platform-browser": "^8.2.13",
     "@angular/cdk": "~8.2.3",
     "@angular/material": "~8.2.3",
     "rxjs": "^6.5.3"

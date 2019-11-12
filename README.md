@@ -17,7 +17,6 @@
 [![devDependency Status](https://david-dm.org/angular-material-extensions/select-country/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/select-country#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/select-country.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/select-country.svg?style=flat-square)](https://github.com/angular-material-extensions/select-country/blob/master/LICENSE)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/gdi2290/awesome-angular)
 
 
 <p align="center">
@@ -147,10 +146,18 @@ export class OtherModule {
 
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| password           | `Input() `  | string    | - |  the password to calculate its strength
+| appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
+| onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
-| onStrengthChanged  | Output() | `number`    | - | emits the strength of the provided password in % e.g: 20%, 40%, 60%, 80% or 100%
 
+```typescript
+interface Country {
+  name: string;
+  alpha2Code: string;
+  alpha3Code: string;
+  numericCode: string;
+}
+```
 
 
 <a name="usage"/>
