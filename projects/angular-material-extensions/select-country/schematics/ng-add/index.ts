@@ -29,6 +29,7 @@ export function addPackageJsonDependencies(): Rule {
         type: NodeDependencyType.Default, version: loadPackageVersionGracefully()
           || '1.0.0', name: '@angular-material-extensions/select-country'
       },
+      {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'}
     ];
 
     dependencies.forEach(dependency => {
@@ -87,7 +88,7 @@ export function getPackageVersionFromPackageJson(tree: Tree, name: string): stri
 function addLibAssetsToAssets(options: any) {
   return (host: Tree, context: SchematicContext) => {
     const lib = '@angular-material-extensions/select-country';
-    const assetPath = 'node_modules/@angular-material-extensions/select-country/assets/';
+    const assetPath = 'node_modules/svg-country-flags/svg';
 
     try {
       const angularJsonFile = host.read('angular.json');
@@ -102,7 +103,7 @@ function addLibAssetsToAssets(options: any) {
         assets.push({
           glob: '**/*',
           input: assetPath,
-          output: './assets/'
+          output: 'assets/svg-country-flags/svg'
         });
         host.overwrite('angular.json', JSON.stringify(angularJsonFileObject, null, 2));
         context.logger.log('info', `✅️ Added "${lib}" icons to assets`);

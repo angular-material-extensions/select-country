@@ -32,7 +32,8 @@
     "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
-    "postbuild": "npm run build:schematics && npm run resync:schematics",
+    "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/select-country/",
+    "postbuild": "npm run build:schematics && resync:readme && npm run resync:schematics",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag select-country_v$PACKAGE_VERSION && git push --tags"
   },
   "peerDependencies": {
