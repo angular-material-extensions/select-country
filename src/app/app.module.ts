@@ -7,12 +7,14 @@ import {MatSelectCountryModule} from '@angular-material-extensions/select-countr
 import {HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
