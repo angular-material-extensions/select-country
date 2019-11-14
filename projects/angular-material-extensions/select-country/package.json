@@ -2,7 +2,7 @@
   "name": "@angular-material-extensions/select-country",
   "description": "Angular Material component that allow users to select a county or nationality ",
   "version": "0.1.0",
-  "homepage": "https://github.com/angular-material-extensions/select-country.git",
+  "homepage": "https://angular-material-extensions.github.io/select-country",
   "author": {
     "name": "anthonynahas",
     "url": "https://github.com/anthonynahas"
@@ -33,8 +33,7 @@
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
     "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/select-country/",
-    "postbuild": "npm run build:schematics && resync:readme && npm run resync:schematics",
-    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag select-country_v$PACKAGE_VERSION && git push --tags"
+    "postbuild": "npm run build:schematics && resync:readme && npm run resync:schematics"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.13",
