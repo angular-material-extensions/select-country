@@ -38,10 +38,10 @@
     "release": "../../../node_modules/.bin/release-it"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.13",
-    "@angular/core": "^8.2.13",
-    "@angular/forms": "^8.2.13",
-    "@angular/platform-browser": "^8.2.13",
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/forms": "^8.2.14",
+    "@angular/platform-browser": "^8.2.14",
     "@angular/cdk": "~8.2.3",
     "@angular/material": "~8.2.3",
     "rxjs": "^6.5.3"
