@@ -1,3 +1,10 @@
+## [0.1.10](https://github.com/angular-material-extensions/select-country/compare/0.1.9...0.1.10) (2019-11-14)
+
+
+### Bug Fixes
+
+* **project:** enhanced the npm script ([6ee590d](https://github.com/angular-material-extensions/select-country/commit/6ee590dd98d26db58710648a6c027be6eb3bfb0e))
+
 ## [0.1.9](https://github.com/angular-material-extensions/select-country/compare/0.1.8...0.1.9) (2019-11-14)
 
 
