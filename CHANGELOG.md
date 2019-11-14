@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/angular-material-extensions/select-country/compare/0.1.1...0.1.2) (2019-11-14)
+
+
+### Bug Fixes
+
+* **package:** adjust the path of changelog for release-it ([173d34f](https://github.com/angular-material-extensions/select-country/commit/173d34f6642191169b695974b32a133d532f9bea))
+* **package:** minor ([b344b13](https://github.com/angular-material-extensions/select-country/commit/b344b1325753c033119e4bc825e8a5b18b912180))
+* **package:** minor ([2fe7e2b](https://github.com/angular-material-extensions/select-country/commit/2fe7e2b7e754bb34bf077232f59446d2e46d5421))
+
 ## [0.1.1](https://github.com/angular-material-extensions/select-country/compare/0.1.0...0.1.1) (2019-11-14)
 
 
