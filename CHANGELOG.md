@@ -1,3 +1,13 @@
+## [0.1.3](https://github.com/angular-material-extensions/select-country/compare/0.1.2...0.1.3) (2019-11-14)
+
+
+### Bug Fixes
+
+* **lib:** updated npm scripts ([c358b35](https://github.com/angular-material-extensions/select-country/commit/c358b35c8c846db7221e9a2d2a066f4a78db7357))
+* **package:** adjusted the npm scripts ([ea25a23](https://github.com/angular-material-extensions/select-country/commit/ea25a2363da7351199526ed55cd55b0a83422099))
+* **package:** adjusted the peer deps of the lib ([8ce9b3a](https://github.com/angular-material-extensions/select-country/commit/8ce9b3a73496992133587382213c5ab07670aa54))
+* **project:** updated angular and other deps ([b852328](https://github.com/angular-material-extensions/select-country/commit/b8523280dae8d1f4b19cedc4c43ead3e27272a66))
+
 ## [0.1.2](https://github.com/angular-material-extensions/select-country/compare/0.1.1...0.1.2) (2019-11-14)
 
 
