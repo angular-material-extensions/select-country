@@ -34,7 +34,7 @@
     "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
     "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/select-country/",
     "postbuild": "npm run build:schematics && resync:readme && npm run resync:schematics",
-    "release": "npx release-it"
+    "release": "../../../node_modules/.bin/release-it"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.13",
