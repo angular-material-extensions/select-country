@@ -57,9 +57,7 @@
     },
     "npm": {
       "publish": true,
-      "publishPath": "../../../dist/",
-      "access": null,
-      "otp": null
+      "publishPath": "../../../dist/angular-material-extensions/select-country"
     },
     "publishConfig": {
       "access": "public"
