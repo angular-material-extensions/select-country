@@ -1,3 +1,10 @@
+## [0.1.11](https://github.com/angular-material-extensions/select-country/compare/0.1.10...0.1.11) (2019-11-14)
+
+
+### Bug Fixes
+
+* **project:** minor ([7118804](https://github.com/angular-material-extensions/select-country/commit/711880464bbe7211c1fcbfc46c83169430996a77))
+
 ## [0.1.10](https://github.com/angular-material-extensions/select-country/compare/0.1.9...0.1.10) (2019-11-14)
 
 
