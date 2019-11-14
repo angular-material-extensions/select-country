@@ -1,3 +1,10 @@
+## [0.1.13](https://github.com/angular-material-extensions/select-country/compare/0.1.12...0.1.13) (2019-11-14)
+
+
+### Bug Fixes
+
+* **project:** updated the hook of git release ([06d50cc](https://github.com/angular-material-extensions/select-country/commit/06d50cc4e37a36634940a57102d2aac5ecfc04e0))
+
 
 
 ## [0.1.12](https://github.com/angular-material-extensions/select-country/compare/0.1.11...0.1.12) (2019-11-14)
