@@ -1,7 +1,7 @@
 {
   "name": "@angular-material-extensions/select-country",
   "description": "Angular Material component that allow users to select a county or nationality ",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://angular-material-extensions.github.io/select-country",
   "author": {
     "name": "anthonynahas",
