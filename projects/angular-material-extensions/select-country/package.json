@@ -50,5 +50,21 @@
   },
   "engines": {
     "node": ">=10.0.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "../../../CHANGELOG.md"
+      }
+    },
+    "hooks": {
+      "after:git:changelog": "git commit -a -m \"Updating CHANGELOG.md for v${version} \" && git push",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
+      "before:npm": "echo building the library..."
+    }
   }
 }

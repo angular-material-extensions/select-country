@@ -1,3 +1,10 @@
+## [0.1.4](https://github.com/angular-material-extensions/select-country/compare/0.1.3...0.1.4) (2019-11-14)
+
+
+### Bug Fixes
+
+* **project:** enhanced the release-it workflow ([89b71c9](https://github.com/angular-material-extensions/select-country/commit/89b71c992e687111abeb5e0fdc1de6e1fb28f08b))
+
 ## [0.1.3](https://github.com/angular-material-extensions/select-country/compare/0.1.2...0.1.3) (2019-11-14)
 
 
