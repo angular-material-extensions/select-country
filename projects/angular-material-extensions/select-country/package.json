@@ -31,6 +31,7 @@
   "scripts": {
     "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "clean": "rm -rf ../../../dist",
     "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
     "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/select-country/",
     "postbuild": "npm run build:schematics && npm run resync:readme && npm run resync:schematics",
@@ -69,6 +70,9 @@
       }
     },
     "hooks": {
+      "before:init": [
+        "npm run clean"
+      ],
       "after:bump": "echo \"building lib v${version}... \" && npm run build",
       "after:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -a -m \"Updating CHANGELOG.md for v${version} \" && git push",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
