@@ -1,7 +1,7 @@
 {
   "name": "@angular-material-extensions/select-country",
   "description": "Angular Material component that allow users to select a county or nationality ",
-  "version": "0.1.12",
+  "version": "0.1.11",
   "homepage": "https://angular-material-extensions.github.io/select-country",
   "author": {
     "name": "anthonynahas",
@@ -74,7 +74,7 @@
         "npm run clean"
       ],
       "after:bump": "echo \"building lib v${version}... \" && npm run build",
-      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git add .",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"Updating CHANGELOG.md for v${version} \" ../../../CHANGELOG.md",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
       "before:npm": "echo building the library..."
     }
