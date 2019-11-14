@@ -55,6 +55,15 @@
     "github": {
       "release": true
     },
+    "npm": {
+      "publish": true,
+      "publishPath": "../../../dist/",
+      "access": null,
+      "otp": null
+    },
+    "publishConfig": {
+      "access": "public"
+    },
     "plugins": {
       "@release-it/conventional-changelog": {
         "preset": "angular",
@@ -62,7 +71,7 @@
       }
     },
     "hooks": {
-      "after:git:changelog": "git commit -a -m \"Updating CHANGELOG.md for v${version} \" && git push",
+      "after:conventional-changelog": "git commit -a -m \"Updating CHANGELOG.md for v${version} \" && git push",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
       "before:npm": "echo building the library..."
     }
