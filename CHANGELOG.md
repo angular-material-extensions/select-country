@@ -1,3 +1,19 @@
+# [0.2.0](https://github.com/angular-material-extensions/select-country/compare/0.1.13...0.2.0) (2019-11-17)
+
+
+### Bug Fixes
+
+* **demo:** updated rxjs to v6.5.3 ([1eb40ed](https://github.com/angular-material-extensions/select-country/commit/1eb40ed80b32400531c24621a3e79dccf6b250d0))
+* **demo:** updated the demo app ([81ef394](https://github.com/angular-material-extensions/select-country/commit/81ef394998e1506cc1a490af18472adc11f24a58))
+* **project:** updated the demo app ([1d84386](https://github.com/angular-material-extensions/select-country/commit/1d843868bc5a26cb6bc10902bf324e76151087cb))
+* **project:** updated the project's deps ([4d24aae](https://github.com/angular-material-extensions/select-country/commit/4d24aae5d2244f2d9f391cadae9c9db7e60751a8))
+
+
+### Features
+
+* **package:** added label and placeHolder inputs to the component ([da53880](https://github.com/angular-material-extensions/select-country/commit/da53880551e7992cddea1b9728b3332a6b3a5481))
+* **package:** added readonly input ([aa5ed2c](https://github.com/angular-material-extensions/select-country/commit/aa5ed2c881ced52ed794724ba08d1477d4f87036))
+
 ## [0.1.13](https://github.com/angular-material-extensions/select-country/compare/0.1.12...0.1.13) (2019-11-14)
 
 
