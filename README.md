@@ -190,7 +190,7 @@ add the `<mat-select-country>` element to your template:
 
 <p align="center">
   <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
-   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/assets/v0.2.0/example2.png">
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example2.png">
 </p>
 
 
