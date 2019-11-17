@@ -37,7 +37,7 @@
     "express": "^4.15.2",
     "hammerjs": "^2.0.8",
     "ngx-markdown": "^8.2.1",
-    "rxjs": "~6.4.0",
+    "rxjs": "~6.5.3",
     "svg-country-flags": "^1.2.6",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
