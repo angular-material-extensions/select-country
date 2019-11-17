@@ -1,14 +1,15 @@
 <form>
   <mat-form-field [appearance]="appearance">
+    <mat-label *ngIf="label">{{label}}</mat-label>
     <mat-icon class="mr-12 s-20 secondary-text" matSuffix
               [svgIcon]="selectedCountry?.alpha2Code.toLowerCase()"></mat-icon>
-    <input type="text" placeholder="Select country" aria-label="country"
+    <input type="text" [placeholder]="placeHolder" aria-label="country"
            matInput [formControl]="countryFormControl"
            [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
       <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
-        <small>{{country?.alpha3Code}}</small>
+        <small>{{country?.name}} - {{country?.alpha3Code}}</small>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
