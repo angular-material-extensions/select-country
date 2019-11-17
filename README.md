@@ -10,7 +10,6 @@
 [![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/select-country)
 [![docs: typedoc](https://img.shields.io/badge/docs-typedoc-4D0080.svg)](https://angular-material-extensions.github.io/select-country/doc/index.html)
 [![Join the chat at https://gitter.im/angular-material-extensions/Lobby](https://badges.gitter.im/angular-material-extensions/Lobby.svg)](https://gitter.im/angular-material-extensions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![CircleCI branch](https://img.shields.io/circleci/project/github/angular-material-extensions/select-country/master.svg?label=circleci)](https://circleci.com/gh/angular-material-extensions/select-country)
 [![Build Status](https://travis-ci.org/angular-material-extensions/select-country.svg?branch=master)](https://travis-ci.org/angular-material-extensions/select-country)
 [![codecov](https://codecov.io/gh/angular-material-extensions/select-country/branch/master/graph/badge.svg)](https://codecov.io/gh/angular-material-extensions/select-country)
 [![dependency Status](https://david-dm.org/angular-material-extensions/select-country/status.svg)](https://david-dm.org/angular-material-extensions/select-country)
@@ -105,7 +104,9 @@ npm install --save @angular-material-extensions/select-country
 ```
 
 
-## Import the library
+### Import the library
+
+If you installed the library via angular schematics, you can skip this step
 
 Once installed you need to import the main module:
 ```js
@@ -147,6 +148,8 @@ export class OtherModule {
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
 | appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
+| disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
+| disabled      | `Input()`  | `boolean`    | - |  Whether the component is read only
 | onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
 
@@ -174,12 +177,21 @@ add the `<mat-select-country>` element to your template:
 
 <a name="run-demo-app-locally"/>
 
-### [ Run Demo App Locally](https://github.com/angular-material-extensions/select-country/tree/master/docs/INSTRUCTIONS_DEMO.md)
+###  Run Demo App Locally
 
 
-<a name="development"/>
+Build the library
 
-### [Development](https://github.com/angular-material-extensions/select-country/tree/master/docs/INSTRUCTIONS_DEV.md)
+```bash
+$ npm run build:lib
+```
+
+Serve the demo app
+
+```bash
+$ npm start
+```
+
 
 
 ## Other Angular Libraries
@@ -187,8 +199,8 @@ add the `<mat-select-country>` element to your template:
 - [ngx-linkifyjs](https://github.com/AnthonyNahas/ngx-linkifyjs)
 - [@firebaseui/ng-bootstrap](https://github.com/firebaseui/ng-bootstrap)
 - [@angular-material-extensions/password-strength](https://github.com/angular-material-extensions/password-strength)
-- [@angular-material-extensions/link-preview](https://github.com/angular-material-extensions/link-preview)
 - [@angular-material-extensions/google-maps-autocomplete](https://github.com/angular-material-extensions/google-maps-autocomplete)
+- [@angular-material-extensions/link-preview](https://github.com/angular-material-extensions/link-preview)
 - [@angular-material-extensions/pages](https://github.com/angular-material-extensions/pages)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
 - [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
