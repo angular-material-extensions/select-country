@@ -1,3 +1,5 @@
+## [0.2.1](https://github.com/angular-material-extensions/select-country/compare/0.2.0...0.2.1) (2019-11-17)
+
 # [0.2.0](https://github.com/angular-material-extensions/select-country/compare/0.1.13...0.2.0) (2019-11-17)
 
 
