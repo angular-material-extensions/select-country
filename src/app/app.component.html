@@ -166,7 +166,7 @@
 
   .terminal {
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     border-radius: 6px;
     padding-top: 45px;
@@ -392,7 +392,7 @@
     </a>
 
     <a class="card" target="_blank" rel="noopener"
-       href="https://www.npmjs.com/package/@angular-material-extensions/contacts">
+       href="https://www.npmjs.com/package/@angular-material-extensions/select-country">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
         <path d="M3,3V21H21V3H3M6,6H18V18H15V9H12V18H6V6Z"/>
       </svg>
@@ -417,27 +417,25 @@
       <pre>ng add @angular-material-extensions/select-country</pre>
     </div>
 
-    <markdown src="assets/md/import.md"></markdown>
-
   </div>
 
-  <div>
+  <!--  <div class="text-center">-->
 
-    <!-- Usage -->
-    <h2>Usage</h2>
-    <p>Try it now</p>
+  <!-- Usage -->
+  <h2>Usage</h2>
 
-    <div fxLayoutAlign="center">
-      <mat-select-country appearance="outline"
-                          (onCountrySelected)="onCountrySelected($event)">
-      </mat-select-country>
-    </div>
-
-    <markdown src="assets/md/e1.md"></markdown>
-
-    <p>For more info, please read the official readme - see the link below</p>
-
+  <div fxLayoutAlign="center">
+    <mat-select-country appearance="outline"
+                        label="Country"
+                        (onCountrySelected)="onCountrySelected($event)">
+    </mat-select-country>
   </div>
+
+  <markdown src="assets/md/e1.md"></markdown>
+
+  <p>For more info, please read the official readme - see the links above GITHUB - DOCS - NPM</p>
+
+  <!--  </div>-->
 
   <!-- Next Steps -->
   <h2>Next Steps</h2>
@@ -618,8 +616,8 @@
 
   <!-- Footer -->
   <footer>
-    Love Angular?&nbsp;
-    <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
+    Love this library?&nbsp;
+    <a href="https://github.com/angular-material-extensions/select-country" target="_blank" rel="noopener"> Give our repo a star.
       <div class="github-star-badge">
         <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none"/>
@@ -628,7 +626,7 @@
         Star
       </div>
     </a>
-    <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+    <a href="https://github.com/angular-material-extensions/select-country" target="_blank" rel="noopener">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/>
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -654,7 +652,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<mat-select-country appearance="outline"
-                    (onCountrySelected)="onCountrySelected($event)">
-</mat-select-country>
 <router-outlet></router-outlet>
