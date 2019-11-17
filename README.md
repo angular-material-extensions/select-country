@@ -38,7 +38,6 @@ by starring :star: and sharing it :loudspeaker:
 - [API](#api)
 - [Usage](#usage)
 - [Run Demo App Locally](#run-demo-app-locally)
-- [Development](#development)
 - [Other Angular Libraries](#other-angular-libraries)
 - [Support](#support)
 - [License](#license)
