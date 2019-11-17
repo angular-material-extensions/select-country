@@ -29,6 +29,8 @@ export class MatSelectCountryComponent implements OnInit {
 
   @Input() appearance: MatFormFieldAppearance;
   @Input() disabled: boolean;
+  @Input() readonly: boolean;
+
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
   countryFormControl = new FormControl();

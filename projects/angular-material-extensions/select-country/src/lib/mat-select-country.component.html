@@ -4,7 +4,7 @@
               [svgIcon]="selectedCountry?.alpha2Code.toLowerCase()"></mat-icon>
     <input type="text" placeholder="Select country" aria-label="country"
            matInput [formControl]="countryFormControl"
-           [matAutocomplete]="auto" [disabled]="true">
+           [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
       <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
