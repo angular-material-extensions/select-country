@@ -304,7 +304,15 @@
   />
   <span>@angular-material-extensions/select-country</span>
   <div class="spacer"></div>
-  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+  <a aria-label="Github repository" target="_blank" rel="noopener"
+     href="https://github.com/angular-material-extensions">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+      <path
+        d="M12,2C6.48,2 2,6.48 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12C22,6.48 17.52,2 12,2Z"/>
+    </svg>
+  </a>
+  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/ngAnthonyy"
+     title="Twitter">
 
     <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 400 400">
@@ -438,8 +446,8 @@
   <!--  </div>-->
 
   <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
+  <h2 style="margin-top: 4rem">Next Steps</h2>
+  <p>What do you want to do next with your app? Here are some awesome suggested libraries for you!</p>
 
   <input type="hidden" #selection>
 
@@ -449,7 +457,7 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       </svg>
 
-      <span>New Component</span>
+      <span>ngx-auth-firebaseui</span>
     </div>
 
     <div class="card card-small" (click)="selection.value = 'material'" tabindex="0">
@@ -457,7 +465,7 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       </svg>
 
-      <span>Angular Material</span>
+      <span>password-strength</span>
     </div>
 
     <div class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
@@ -465,7 +473,7 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       </svg>
 
-      <span>Add Dependency</span>
+      <span>google-maps-autocomplete</span>
     </div>
 
     <div class="card card-small" (click)="selection.value = 'test'" tabindex="0">
@@ -473,7 +481,7 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       </svg>
 
-      <span>Run and Watch Tests</span>
+      <span>pages</span>
     </div>
 
     <div class="card card-small" (click)="selection.value = 'build'" tabindex="0">
@@ -481,116 +489,69 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       </svg>
 
-      <span>Build for Production</span>
+      <span>links-preview</span>
     </div>
   </div>
 
   <!-- Terminal -->
   <div class="terminal" [ngSwitch]="selection.value">
-    <pre *ngSwitchDefault>ng generate component xyz</pre>
-    <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-    <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-    <pre *ngSwitchCase="'test'">ng test</pre>
-    <pre *ngSwitchCase="'build'">ng build --prod</pre>
+    <pre *ngSwitchDefault>ng add ngx-auth-firebaseui</pre>
+    <pre *ngSwitchCase="'material'">ng add @angular-material-extensions/password-strength</pre>
+    <pre *ngSwitchCase="'dependency'">ng add @angular-material-extensions/google-maps-autocomplete </pre>
+    <pre *ngSwitchCase="'test'">ng add @angular-material-extensions/pages</pre>
+    <pre *ngSwitchCase="'build'">ng add @angular-material-extensions/links-preview </pre>
   </div>
 
   <!-- Links -->
   <div class="card-container">
-    <a class="circle-link" title="Animations" href="https://angular.io/guide/animations" target="_blank"
+    <a class="circle-link" title="Other awesome libraries" href="https://github.com/angular-material-extensions" target="_blank"
        rel="noopener">
-      <svg id="Group_20" data-name="Group 20" xmlns="http://www.w3.org/2000/svg" width="21.813" height="23.453"
-           viewBox="0 0 21.813 23.453">
-        <path id="Path_15" data-name="Path 15"
-              d="M4099.584,972.736h0l-10.882,3.9,1.637,14.4,9.245,5.153,9.245-5.153,1.686-14.4Z"
-              transform="translate(-4088.702 -972.736)" fill="#ffa726"/>
-        <path id="Path_16" data-name="Path 16" d="M4181.516,972.736v23.453l9.245-5.153,1.686-14.4Z"
-              transform="translate(-4170.633 -972.736)" fill="#fb8c00"/>
-        <path id="Path_17" data-name="Path 17" d="M4137.529,1076.127l-7.7-3.723,4.417-2.721,7.753,3.723Z"
-              transform="translate(-4125.003 -1058.315)" fill="#ffe0b2"/>
-        <path id="Path_18" data-name="Path 18" d="M4137.529,1051.705l-7.7-3.723,4.417-2.721,7.753,3.723Z"
-              transform="translate(-4125.003 -1036.757)" fill="#fff3e0"/>
-        <path id="Path_19" data-name="Path 19" d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z"
-              transform="translate(-4125.003 -1015.199)" fill="#fff"/>
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="rgb(40,53,147)" d="M12,2.5L20.84,5.65L19.5,17.35L12,21.5L4.5,17.35L3.16,5.65L12,2.5M12,4.6L6.47,17H8.53L9.64,14.22H14.34L15.45,17H17.5L12,4.6M13.62,12.5H10.39L12,8.63L13.62,12.5Z" />
       </svg>
     </a>
 
-    <a class="circle-link" title="CLI" href="https://cli.angular.io/" target="_blank" rel="noopener">
-      <svg alt="Angular CLI Logo" xmlns="http://www.w3.org/2000/svg" width="21.762" height="23.447"
-           viewBox="0 0 21.762 23.447">
-        <g id="Group_21" data-name="Group 21" transform="translate(0)">
-          <path id="Path_20" data-name="Path 20"
-                d="M2660.313,313.618h0l-10.833,3.9,1.637,14.4,9.2,5.152,9.244-5.152,1.685-14.4Z"
-                transform="translate(-2649.48 -313.618)" fill="#37474f"/>
-          <path id="Path_21" data-name="Path 21" d="M2741.883,313.618v23.447l9.244-5.152,1.685-14.4Z"
-                transform="translate(-2731.05 -313.618)" fill="#263238"/>
-          <path id="Path_22" data-name="Path 22"
-                d="M2692.293,379.169h11.724V368.618h-11.724Zm11.159-.6h-10.608v-9.345h10.621v9.345Z"
-                transform="translate(-2687.274 -362.17)" fill="#fff"/>
-          <path id="Path_23" data-name="Path 23" d="M2709.331,393.688l.4.416,2.265-2.28-2.294-2.294-.4.4,1.893,1.893Z"
-                transform="translate(-2702.289 -380.631)" fill="#fff"/>
-          <rect id="Rectangle_12" data-name="Rectangle 12" width="3.517" height="0.469"
-                transform="translate(9.709 13.744)" fill="#fff"/>
-        </g>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Augury" href="https://augury.rangle.io/" target="_blank" rel="noopener">
-      <svg alt="Angular Augury Logo" xmlns="http://www.w3.org/2000/svg" width="21.81" height="23.447"
-           viewBox="0 0 21.81 23.447">
-        <defs>
-          <clipPath id="clip-path">
-            <rect id="Rectangle_13" data-name="Rectangle 13" width="10.338" height="10.27" fill="none"/>
-          </clipPath>
-        </defs>
-        <g id="Group_25" data-name="Group 25" transform="translate(0)">
-          <path id="Path_24" data-name="Path 24"
-                d="M3780.155,311.417h0l-10.881,3.9,1.637,14.4,9.244,5.152,9.244-5.152,1.685-14.4Z"
-                transform="translate(-3769.274 -311.417)" fill="#4a3493"/>
-          <path id="Path_25" data-name="Path 25" d="M3862.088,311.417v23.447l9.244-5.152,1.685-14.4Z"
-                transform="translate(-3851.207 -311.417)" fill="#311b92"/>
-          <g id="Group_24" data-name="Group 24" transform="translate(6.194 6.73)" opacity="0.5">
-            <g id="Group_23" data-name="Group 23" transform="translate(0 0)">
-              <g id="Group_22" data-name="Group 22" clip-path="url(#clip-path)">
-                <path id="Path_26" data-name="Path 26"
-                      d="M3832.4,373.252a5.168,5.168,0,1,1-5.828-4.383,5.216,5.216,0,0,1,2.574.3,3.017,3.017,0,1,0,3.252,4.086Z"
-                      transform="translate(-3822.107 -368.821)" fill="#fff"/>
-              </g>
-            </g>
-          </g>
-          <path id="Path_27" data-name="Path 27"
-                d="M3830.582,370.848a5.162,5.162,0,1,1-3.254-4.086,3.017,3.017,0,1,0,3.252,4.086Z"
-                transform="translate(-3814.311 -359.969)" fill="#fff"/>
-        </g>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Protractor" href="https://www.protractortest.org/" target="_blank" rel="noopener">
-      <svg alt="Angular Protractor Logo" xmlns="http://www.w3.org/2000/svg" width="21.81" height="23.447"
-           viewBox="0 0 21.81 23.447">
-        <g id="Group_26" data-name="Group 26" transform="translate(0)">
-          <path id="Path_28" data-name="Path 28"
-                d="M4620.155,311.417h0l-10.881,3.9,1.637,14.4,9.244,5.152,9.244-5.152,1.685-14.4Z"
-                transform="translate(-4609.274 -311.417)" fill="#e13439"/>
-          <path id="Path_29" data-name="Path 29" d="M4702.088,311.417v23.447l9.244-5.152,1.685-14.4Z"
-                transform="translate(-4691.207 -311.417)" fill="#b52f32"/>
-          <path id="Path_30" data-name="Path 30"
-                d="M4651.044,369.58v-.421h1.483a7.6,7.6,0,0,0-2.106-5.052l-1.123,1.123-.3-.3,1.122-1.121a7.588,7.588,0,0,0-4.946-2.055v1.482h-.421v-1.485a7.589,7.589,0,0,0-5.051,2.058l1.122,1.121-.3.3-1.123-1.123a7.591,7.591,0,0,0-2.106,5.052h1.482v.421h-1.489v1.734h15.241V369.58Zm-10.966-.263a4.835,4.835,0,0,1,9.67,0Z"
-                transform="translate(-4634.008 -355.852)" fill="#fff"/>
-        </g>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular"
+    <a class="circle-link" title="Anthony Nahas on Twitter" href="https://twitter.com/ngAnthonyy"
        target="_blank" rel="noopener">
-      <svg alt="Meetup Logo" xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447"
-           viewBox="0 0 24.607 23.447">
-        <path id="logo--mSwarm"
-              d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z"
-              transform="translate(0 0.123)" fill="#f64060"/>
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="#1DA1F2" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
       </svg>
     </a>
 
-    <a class="circle-link" title="Join the Conversation on Gitter" href="https://gitter.im/angular/angular"
+    <a class="circle-link" title="Anthony Nahas on Xing" href="https://www.xing.com/profile/Anthony_Nahas2"
+       target="_blank" rel="noopener">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="#026466"
+              d="M17.67,2C17.24,2 17.05,2.27 16.9,2.55C16.9,2.55 10.68,13.57 10.5,13.93L14.58,21.45C14.72,21.71 14.94,22 15.38,22H18.26C18.44,22 18.57,21.93 18.64,21.82C18.72,21.69 18.72,21.53 18.64,21.37L14.57,13.92L20.96,2.63C21.04,2.47 21.04,2.31 20.97,2.18C20.89,2.07 20.76,2 20.58,2M5.55,5.95C5.38,5.95 5.23,6 5.16,6.13C5.08,6.26 5.09,6.41 5.18,6.57L7.12,9.97L4.06,15.37C4,15.53 4,15.69 4.06,15.82C4.13,15.94 4.26,16 4.43,16H7.32C7.75,16 7.96,15.72 8.11,15.45C8.11,15.45 11.1,10.16 11.22,9.95L9.24,6.5C9.1,6.24 8.88,5.95 8.43,5.95"/>
+      </svg>
+    </a>
+
+    <a class="circle-link" title="Anthony Nahas on Reddit" href="https://www.reddit.com/user/anthonynahas"
+       target="_blank" rel="noopener">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="#ff4500"
+              d="M22,12.14C22,10.92 21,9.96 19.81,9.96C19.22,9.96 18.68,10.19 18.29,10.57C16.79,9.5 14.72,8.79 12.43,8.7L13.43,4L16.7,4.71C16.73,5.53 17.41,6.19 18.25,6.19C19.11,6.19 19.81,5.5 19.81,4.63C19.81,3.77 19.11,3.08 18.25,3.08C17.65,3.08 17.11,3.43 16.86,3.95L13.22,3.18C13.11,3.16 13,3.18 12.93,3.24C12.84,3.29 12.79,3.38 12.77,3.5L11.66,8.72C9.33,8.79 7.23,9.5 5.71,10.58C5.32,10.21 4.78,10 4.19,10C2.97,10 2,10.96 2,12.16C2,13.06 2.54,13.81 3.29,14.15C3.25,14.37 3.24,14.58 3.24,14.81C3.24,18.18 7.16,20.93 12,20.93C16.84,20.93 20.76,18.2 20.76,14.81C20.76,14.6 20.75,14.37 20.71,14.15C21.46,13.81 22,13.04 22,12.14M7,13.7C7,12.84 7.68,12.14 8.54,12.14C9.4,12.14 10.1,12.84 10.1,13.7A1.56,1.56 0 0,1 8.54,15.26C7.68,15.28 7,14.56 7,13.7M15.71,17.84C14.63,18.92 12.59,19 12,19C11.39,19 9.35,18.9 8.29,17.84C8.13,17.68 8.13,17.43 8.29,17.27C8.45,17.11 8.7,17.11 8.86,17.27C9.54,17.95 11,18.18 12,18.18C13,18.18 14.47,17.95 15.14,17.27C15.3,17.11 15.55,17.11 15.71,17.27C15.85,17.43 15.85,17.68 15.71,17.84M15.42,15.28C14.56,15.28 13.86,14.58 13.86,13.72A1.56,1.56 0 0,1 15.42,12.16C16.28,12.16 17,12.86 17,13.72C17,14.56 16.28,15.28 15.42,15.28Z"/>
+      </svg>
+    </a>
+
+    <a class="circle-link" title="LinkedIn" href="https://www.linkedin.com/in/anthony-nahas-926245119/" target="_blank"
+       rel="noopener">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="#2867B2"
+              d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z"/>
+      </svg>
+    </a>
+
+    <a class="circle-link" title="See Author Github Profile" href="https://github.com/AnthonyNahas"
+       target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12,2C6.48,2 2,6.48 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12C22,6.48 17.52,2 12,2Z"/>
+      </svg>
+    </a>
+
+    <a class="circle-link" title="Join the Conversation on Gitter"
+       href="https://gitter.im/angular-material-extensions/Lobby"
        target="_blank" rel="noopener">
       <svg alt="Gitter Logo" xmlns="http://www.w3.org/2000/svg" width="19.447" height="19.447"
            viewBox="0 0 19.447 19.447">
@@ -617,7 +578,8 @@
   <!-- Footer -->
   <footer>
     Love this library?&nbsp;
-    <a href="https://github.com/angular-material-extensions/select-country" target="_blank" rel="noopener"> Give our repo a star.
+    <a href="https://github.com/angular-material-extensions/select-country" target="_blank" rel="noopener"> Give our
+      repo a star.
       <div class="github-star-badge">
         <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none"/>
