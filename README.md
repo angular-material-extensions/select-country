@@ -20,7 +20,12 @@
 
 <p align="center">
   <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
-   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v3.2.0/demo.gif">
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/select-country.gif">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/select-country.png">
 </p>
 
 ## Built by and for developers :heart:
@@ -172,6 +177,21 @@ add the `<mat-select-country>` element to your template:
 <mat-select-country>
 </mat-select-country>
 ```
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example_full.png">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example3.png">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/assets/v0.2.0/example2.png">
+</p>
 
 
 <a name="run-demo-app-locally"/>
