@@ -27,9 +27,10 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default, version: loadPackageVersionGracefully()
-          || '1.0.0', name: '@angular-material-extensions/select-country'
+          || '0.2.2', name: '@angular-material-extensions/select-country'
       },
-      {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'}
+      {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'},
+      {type: NodeDependencyType.Dev, version: '^2.0.0', name: 'schematics-utilities'}
     ];
 
     dependencies.forEach(dependency => {
