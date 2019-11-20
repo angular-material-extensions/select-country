@@ -1,3 +1,16 @@
+# [0.3.0](https://github.com/angular-material-extensions/select-country/compare/0.2.1...0.3.0) (2019-11-20)
+
+
+### Bug Fixes
+
+* **package:** improved the schematics ([55b0660](https://github.com/angular-material-extensions/select-country/commit/55b0660c989f0b8f6cda39e4e50f5f0e067797b7))
+
+
+### Features
+
+* **project:** integration of angular github pages ([466de62](https://github.com/angular-material-extensions/select-country/commit/466de62a467d1cbc67e31d00f4706c165085768d))
+* **project:** integration of ssr and prerender ([1f7817b](https://github.com/angular-material-extensions/select-country/commit/1f7817b409916af23b00f97e57d592d285e6064d))
+
 ## [0.2.1](https://github.com/angular-material-extensions/select-country/compare/0.2.0...0.2.1) (2019-11-17)
 
 # [0.2.0](https://github.com/angular-material-extensions/select-country/compare/0.1.13...0.2.0) (2019-11-17)
