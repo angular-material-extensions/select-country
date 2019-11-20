@@ -1,0 +1,313 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>select-county documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">select-county documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p align="center">
+  <img alt="angular-material-extensions's logo"
+   height="256px" width="256px" style="text-align: center;" 
+   src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
+</p>
+
+<h1 id="angular-material-extensionsselect-country---angular-material-component-that-allow-users-to-select-a-country-or-nationality-with-an-autocomplete-feature---angular-v8-supported-incl-schematics">@angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V8 supported incl. schematics</h1>
+<p><a href="https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country"><img src="https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg" alt="npm version" class="img-responsive"></a>
+<a href="https://angular-material-extensions.github.io/select-country"><img src="https://img.shields.io/badge/demo-online-ed1c46.svg" alt="npm demo" class="img-responsive"></a>
+<a href="https://angular-material-extensions.github.io/select-country/doc/index.html"><img src="https://img.shields.io/badge/docs-typedoc-4D0080.svg" alt="docs: typedoc" class="img-responsive"></a>
+<a href="https://gitter.im/angular-material-extensions/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/angular-material-extensions/Lobby.svg" alt="Join the chat at https://gitter.im/angular-material-extensions/Lobby" class="img-responsive"></a>
+<a href="https://travis-ci.org/angular-material-extensions/select-country"><img src="https://travis-ci.org/angular-material-extensions/select-country.svg?branch=master" alt="Build Status" class="img-responsive"></a>
+<a href="https://codecov.io/gh/angular-material-extensions/select-country"><img src="https://codecov.io/gh/angular-material-extensions/select-country/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a>
+<a href="https://david-dm.org/angular-material-extensions/select-country"><img src="https://david-dm.org/angular-material-extensions/select-country/status.svg" alt="dependency Status" class="img-responsive"></a>
+<a href="https://david-dm.org/angular-material-extensions/select-country#info=devDependencies"><img src="https://david-dm.org/angular-material-extensions/select-country/dev-status.svg?branch=master" alt="devDependency Status" class="img-responsive"></a>
+<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/angular-material-extensions/select-country.svg" alt="Greenkeeper Badge" class="img-responsive"></a>
+<a href="https://github.com/angular-material-extensions/select-country/blob/master/LICENSE"><img src="https://img.shields.io/github/license/angular-material-extensions/select-country.svg?style=flat-square" alt="license" class="img-responsive"></a></p>
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/select-country.gif">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/select-country.png">
+</p>
+
+<h2 id="built-by-and-for-developers-heart">Built by and for developers :heart:</h2>
+<p>Do you have any question or suggestion ? Please do not hesitate to contact us!
+Alternatively, provide a PR | open an appropriate issue <a href="https://github.com/angular-material-extensions/select-country/issues">here</a></p>
+<p>If you like this project, support <a href="https://github.com/angular-material-extensions">angular-material-extensions</a> 
+by starring :star: and sharing it :loudspeaker:</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#run-demo-app-locally">Run Demo App Locally</a></li>
+<li><a href="#other-angular-libraries">Other Angular Libraries</a></li>
+<li><a href="#support">Support</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<a name="demo"/>
+
+<h2 id="demo"><a href="https://angular-material-extensions.github.io/select-country">Demo</a></h2>
+<p>View all the directives and components in action at <a href="https://angular-material-extensions.github.io/select-country">https://angular-material-extensions.github.io/select-country</a></p>
+<a name="components"/>
+
+<h2 id="librarys-components">Library&#39;s components</h2>
+<ul>
+<li><code>&lt;mat-select-country&gt;</code> used to display the main component</li>
+</ul>
+<hr>
+<a name="dependencies"/>
+
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="https://angular.io">Angular</a> developed and tested with <code>8.x</code></li>
+</ul>
+<hr>
+<a name="installation"/>
+
+<h2 id="installation"><a href="https://angular-material-extensions.github.io/select-country/getting-started">Installation</a></h2>
+<h2 id="1-install-via-ng-add-recommended">1. Install via <em>ng add</em>. (Recommended)</h2>
+<p>If Angular Material Design is not setup, just run <code>ng add @angular/material</code> <a href="https://material.angular.io/guide/getting-started">learn more</a></p>
+<p>Now add the library via the <code>angular schematics</code></p>
+<div><pre class="line-numbers"><code class="language-shell">ng add &#64;angular-material-extensions/select-country</code></pre></div><h2 id="2-install-via-npm-alternative">2. Install via <em>npm</em>. (Alternative)</h2>
+<p>Install peer dependencies </p>
+<div><pre class="line-numbers"><code class="language-shell">npm i svg-country-flags -s</code></pre></div><p>then update your <code>angular.json</code> like below (svg-country-flags)</p>
+<div><pre class="line-numbers"><code class="language-json">&quot;assets&quot;: [
+              &quot;src/favicon.ico&quot;,
+              &quot;src/assets&quot;,
+              {
+                &quot;glob&quot;: &quot;**/*&quot;,
+                &quot;input&quot;: &quot;./node_modules/svg-country-flags/svg&quot;,
+                &quot;output&quot;: &quot;src/assets/svg-country-flags/svg&quot;
+              }
+            ],</code></pre></div><p>Now install <code>@angular-material-extensions/select-country</code> via:</p>
+<div><pre class="line-numbers"><code class="language-shell">npm install --save &#64;angular-material-extensions/select-country</code></pre></div><h3 id="import-the-library">Import the library</h3>
+<p>If you installed the library via angular schematics, you can skip this step</p>
+<p>Once installed you need to import the main module:</p>
+<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;</code></pre></div><p>The only remaining part is to list the imported module in your application module. The exact method will be slightly
+different for the root (top-level) module for which you should end up with the code similar to (notice <code>MatSelectCountryModule.forRoot()</code>):</p>
+<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
+
+&#64;NgModule({
+  declarations: [AppComponent, ...],
+  imports: [MatSelectCountryModule.forRoot(), ...],  
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}</code></pre></div><p>Other modules in your application can simply import <code>MatSelectCountryModule</code>:</p>
+<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
+
+&#64;NgModule({
+  declarations: [OtherComponent, ...],
+  imports: [MatSelectCountryModule, ...], 
+})
+export class OtherModule {
+}</code></pre></div><a name="api"/>
+
+<h2 id="api">API</h2>
+<h3 id="mat-select-country--used-to-display-the-main-component---see-the-demo-examples"><code>&lt;mat-select-country&gt;</code>  used to display the main component - <a href="https://angular-material-extensions.github.io/select-country/examples">see the demo examples</a></h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th align="left">option</th>
+<th align="center">bind</th>
+<th align="center">type</th>
+<th align="center">default</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">appearance</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>MatFormFieldAppearance</code></td>
+<td align="center">-</td>
+<td align="left">Possible appearance styles for <code>mat-form-field</code></td>
+</tr>
+<tr>
+<td align="left">disabled</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>boolean</code></td>
+<td align="center">-</td>
+<td align="left">Whether the component is disabled</td>
+</tr>
+<tr>
+<td align="left">disabled</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>boolean</code></td>
+<td align="center">-</td>
+<td align="left">Whether the component is read only</td>
+</tr>
+<tr>
+<td align="left">onCountrySelected</td>
+<td align="center"><code>Output()</code></td>
+<td align="center"><code>EventEmitter&lt;Country&gt;</code></td>
+<td align="center">-</td>
+<td align="left">emits the selected country as object (see the interface below)</td>
+</tr>
+</tbody>
+</table>
+<div><pre class="line-numbers"><code class="language-typescript">interface Country {
+  name: string;
+  alpha2Code: string;
+  alpha3Code: string;
+  numericCode: string;
+}</code></pre></div><a name="usage"/>
+
+<h2 id="usage"><a href="https://angular-material-extensions.github.io/select-country/getting-started">Usage</a></h2>
+<p>add the <code>&lt;mat-select-country&gt;</code> element to your template:</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;mat-select-country&gt;
+&lt;/mat-select-country&gt;</code></pre></div><p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example_full.png">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example3.png">
+</p>
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/example2.png">
+</p>
+
+
+<a name="run-demo-app-locally"/>
+
+<h3 id="run-demo-app-locally">Run Demo App Locally</h3>
+<p>Build the library</p>
+<div><pre class="line-numbers"><code class="language-bash">$ npm run build:lib</code></pre></div><p>Serve the demo app</p>
+<div><pre class="line-numbers"><code class="language-bash">$ npm start</code></pre></div><h2 id="other-angular-libraries">Other Angular Libraries</h2>
+<ul>
+<li><a href="https://github.com/AnthonyNahas/ngx-auth-firebaseui">ngx-auth-firebaseui</a></li>
+<li><a href="https://github.com/AnthonyNahas/ngx-linkifyjs">ngx-linkifyjs</a></li>
+<li><a href="https://github.com/firebaseui/ng-bootstrap">@firebaseui/ng-bootstrap</a></li>
+<li><a href="https://github.com/angular-material-extensions/password-strength">@angular-material-extensions/password-strength</a></li>
+<li><a href="https://github.com/angular-material-extensions/google-maps-autocomplete">@angular-material-extensions/google-maps-autocomplete</a></li>
+<li><a href="https://github.com/angular-material-extensions/link-preview">@angular-material-extensions/link-preview</a></li>
+<li><a href="https://github.com/angular-material-extensions/pages">@angular-material-extensions/pages</a></li>
+<li><a href="https://github.com/angular-material-extensions/contacts">@angular-material-extensions/contacts</a></li>
+<li><a href="https://github.com/angular-material-extensions/faq">@angular-material-extensions/faq</a></li>
+<li><a href="https://github.com/angular-material-extensions/combination-generator">@angular-material-extensions/combination-generator</a></li>
+</ul>
+<hr>
+<a name="support"/>
+
+<h2 id="support">Support</h2>
+<ul>
+<li><p>Drop an email to: <a href="mailto:anthony.na@hotmail.de">Anthony Nahas</a></p>
+</li>
+<li><p>or open an appropriate <a href="https://github.com/angular-material-extensions/select-country/issues">issue</a></p>
+</li>
+<li><p>let us chat on <a href="https://gitter.im/angular-material-extensions/Lobby">Gitter</a></p>
+<p>Built by and for developers :heart: we will help you :punch:</p>
+</li>
+</ul>
+<hr>
+<p><img src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/jetbrains-variant-4_logos/jetbrains-variant-4.png" alt="jetbrains logo" class="img-responsive"></p>
+<p>This project is supported by <a href="https://www.jetbrains.com/">jetbrains</a> with 1 ALL PRODUCTS PACK OS LICENSE incl. <a href="https://www.jetbrains.com/webstorm">webstorm</a></p>
+<hr>
+<a name="license"/>
+
+<h2 id="license">License</h2>
+<p>Copyright (c) 2019 <a href="https://github.com/AnthonyNahas">Anthony Nahas</a>. Licensed under the MIT License (MIT)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
