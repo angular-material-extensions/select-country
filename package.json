@@ -1,5 +1,5 @@
 {
-  "name": "select-county",
+  "name": "select-country",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,9 +7,11 @@
     "build": "ng build",
     "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
     "build:prod": "ng build --prod",
+    "build:prod:ghpages": "ng build --preserve-symlinks --prod --aot --build-optimizer --base-href /select-country/ --deploy-url /select-country/",
     "build:lib": "ng build @angular-material-extensions/select-country",
     "build:lib:Watch": "ng build @angular-material-extensions/select-country --watch",
     "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
+    "deploy": "ng deploy --base-href=/select-country/ --no-build",
     "generate:prerender": "cd dist && node prerender",
     "test": "ng test",
     "lint": "ng lint",
@@ -37,6 +39,7 @@
     "@angular/router": "^8.2.14",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "angular-cli-ghpages": "^0.6.0",
     "express": "^4.15.2",
     "hammerjs": "^2.0.8",
     "ngx-markdown": "^8.2.1",
