@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/angular-material-extensions/select-country/compare/0.3.0...0.3.1) (2019-11-21)
+
+
+### Bug Fixes
+
+* **package:** minor in schematics ([c4e547e](https://github.com/angular-material-extensions/select-country/commit/c4e547e47f5e19cf3c235fed45063ce620eb4773))
+
 # [0.3.0](https://github.com/angular-material-extensions/select-country/compare/0.2.1...0.3.0) (2019-11-20)
 
 
