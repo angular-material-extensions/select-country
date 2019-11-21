@@ -7,7 +7,7 @@ import {
   getWorkspace,
   NodeDependency,
   NodeDependencyType
-} from 'schematics-utilities';
+} from '../helpers';
 
 /** Loads the full version from the given Angular package gracefully. */
 function loadPackageVersionGracefully(): string | null {
@@ -30,7 +30,6 @@ export function addPackageJsonDependencies(): Rule {
           || '0.2.2', name: '@angular-material-extensions/select-country'
       },
       {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'},
-      {type: NodeDependencyType.Dev, version: '^2.0.0', name: 'schematics-utilities'}
     ];
 
     dependencies.forEach(dependency => {
