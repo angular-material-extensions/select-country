@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatSelectCountryComponent } from './mat-select-country.component';
+// import {MatInputModule} from '@angular/material';
 
 describe('SelectCountryComponent', () => {
   let component: MatSelectCountryComponent;
@@ -8,7 +9,8 @@ describe('SelectCountryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatSelectCountryComponent ]
+      declarations: [ MatSelectCountryComponent ],
+      // imports : [MatInputModule]
     })
     .compileComponents();
   }));

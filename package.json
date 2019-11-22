@@ -51,6 +51,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-builders/jest": "^8.3.1",
     "@angular-devkit/build-angular": "^0.803.19",
     "@angular-devkit/build-ng-packagr": "^0.803.19",
     "@angular-devkit/schematics": "^8.3.19",
@@ -63,14 +64,14 @@
     "@schematics/update": "^0.803.19",
     "@types/jasmine": "~3.4.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/jest": "24.0.23",
+    "@types/jest": "^24.0.23",
     "@types/node": "~12.12.8",
     "codelyzer": "^5.2.0",
     "http-server": "^0.11.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "jest": "24.9.0",
-    "jest-preset-angular": "8.0.0",
+    "jest": "^24.9.0",
+    "jest-preset-angular": "^8.0.0",
     "ng-packagr": "^5.4.0",
     "protractor": "~5.4.0",
     "release-it": "^12.4.3",
@@ -78,7 +79,8 @@
     "ts-node": "~8.5.2",
     "tsickle": "^0.37.0",
     "tslint": "~5.20.1",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "webpack": "^4.41.2"
   },
   "greenkeeper": {
     "ignore": [

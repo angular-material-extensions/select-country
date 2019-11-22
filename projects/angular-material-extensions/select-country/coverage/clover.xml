@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1574449351571" clover="3.2.0">
+  <project timestamp="1574449351571" name="All files">
+    <metrics statements="23" coveredstatements="13" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="0" elements="33" coveredelements="13" complexity="0" loc="23" ncloc="23" packages="1" files="3" classes="3"/>
+    <file name="db.ts" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/db.ts">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="3" count="1" type="stmt"/>
+    </file>
+    <file name="mat-select-country.component.html" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/mat-select-country.component.html">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+    </file>
+    <file name="mat-select-country.component.ts" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/mat-select-country.component.ts">
+      <metrics statements="21" coveredstatements="11" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="52" count="0" type="stmt"/>
+      <line num="54" count="0" type="stmt"/>
+      <line num="55" count="0" type="cond" truecount="0" falsecount="3"/>
+      <line num="63" count="0" type="stmt"/>
+      <line num="64" count="0" type="stmt"/>
+      <line num="65" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>

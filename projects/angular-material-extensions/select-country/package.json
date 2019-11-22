@@ -38,7 +38,10 @@
     "prepublish": "npm run build",
     "release:patch": "../../../node_modules/.bin/release-it --patch --ci",
     "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
-    "release:major": "../../../node_modules/.bin/release-it --major --ci"
+    "release:major": "../../../node_modules/.bin/release-it --major --ci",
+    "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/select-country",
+    "test" : "../../../node_modules/.bin/jest --coverage",
+    "test:watch" : "../../../node_modules/.bin/jest --coverage --watch"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
@@ -77,6 +80,23 @@
       "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"Updating CHANGELOG.md for v${version} \" ../../../CHANGELOG.md",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
       "before:npm": "echo building the library..."
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../../src/setup-jest.ts"
+    ],
+    "verbose": true
+  },
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "<rootDir>/tsconfig.spec.json",
+      "stringifyContentPathRegex": "\\.html$",
+      "astTransformers": [
+        "jest-preset-angular/build/InlineFilesTransformer",
+        "jest-preset-angular/build/StripStylesTransformer"
+      ]
     }
   }
 }
