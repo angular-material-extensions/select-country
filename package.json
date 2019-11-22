@@ -13,7 +13,7 @@
     "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
     "deploy": "ng deploy --base-href=/select-country/ --no-build",
     "generate:prerender": "cd dist && node prerender",
-    "test": "ng test",
+    "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
@@ -21,7 +21,8 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run select-country:server:production --bundleDependencies all",
-    "release": "release-it"
+    "release": "release-it",
+    "test:watch": "jest --watch"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/platform-server": "^8.2.14",
     "@angular/router": "^8.2.14",
+    "@briebug/jest-schematic": "^2.1.1",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "angular-cli-ghpages": "^0.6.0",
@@ -61,16 +63,14 @@
     "@schematics/update": "^0.803.19",
     "@types/jasmine": "~3.4.6",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jest": "24.0.23",
     "@types/node": "~12.12.8",
     "codelyzer": "^5.2.0",
     "http-server": "^0.11.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.4.1",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
+    "jest": "24.9.0",
+    "jest-preset-angular": "8.0.0",
     "ng-packagr": "^5.4.0",
     "protractor": "~5.4.0",
     "release-it": "^12.4.3",
@@ -102,5 +102,35 @@
       "@types/jest",
       "@types/node"
     ]
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "roots": [
+      "src"
+    ],
+    "transform": {
+      "^.+\\.(ts|js|html)$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setup-jest.ts"
+    ],
+    "moduleNameMapper": {
+      "@app/(.*)": "<rootDir>/src/app/$1",
+      "@assets/(.*)": "<rootDir>/src/assets/$1",
+      "@core/(.*)": "<rootDir>/src/app/core/$1",
+      "@env": "<rootDir>/src/environments/environment",
+      "@src/(.*)": "<rootDir>/src/src/$1",
+      "@state/(.*)": "<rootDir>/src/app/state/$1"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html$",
+        "astTransformers": [
+          "jest-preset-angular/build/InlineFilesTransformer",
+          "jest-preset-angular/build/StripStylesTransformer"
+        ]
+      }
+    }
   }
 }
