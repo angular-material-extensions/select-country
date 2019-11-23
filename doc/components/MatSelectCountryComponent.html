@@ -727,9 +727,7 @@ export class MatSelectCountryComponent implements OnInit {
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
     this.selectedCountry &#x3D; this.countries.find(country &#x3D;&gt; country.name &#x3D;&#x3D;&#x3D; $event.option.value);
-    console.log(&#x27;selected Country:&#x27;, this.selectedCountry);
     this.onCountrySelected.emit(this.selectedCountry);
-    // this.selectedCountry &#x3D; $event.option as Country;
   }
 }
 </code></pre>

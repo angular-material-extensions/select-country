@@ -58,7 +58,25 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#configPath" title="projects/angular-material-extensions/select-country/schematics/helpers/angular/config.ts"><b>configPath</b>&nbsp;&nbsp;&nbsp;(projects/.../config.ts)</a>
+                        </li>
+                        <li>
                             <a href="#COUNTRIES_DB" title="projects/angular-material-extensions/select-country/src/lib/db.ts"><b>COUNTRIES_DB</b>&nbsp;&nbsp;&nbsp;(projects/.../db.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#htmlSelectorRe" title="projects/angular-material-extensions/select-country/schematics/helpers/angular/validation.ts"><b>htmlSelectorRe</b>&nbsp;&nbsp;&nbsp;(projects/.../validation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#latestVersions" title="projects/angular-material-extensions/select-country/schematics/helpers/angular/latest-versions.ts"><b>latestVersions</b>&nbsp;&nbsp;&nbsp;(projects/.../latest-versions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#mock" title="projects/angular-material-extensions/select-country/src/setup-jest.ts"><b>mock</b>&nbsp;&nbsp;&nbsp;(projects/.../setup-jest.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MODULE_EXT" title="projects/angular-material-extensions/select-country/schematics/helpers/angular/find-module.ts"><b>MODULE_EXT</b>&nbsp;&nbsp;&nbsp;(projects/.../find-module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ROUTING_MODULE_EXT" title="projects/angular-material-extensions/select-country/schematics/helpers/angular/find-module.ts"><b>ROUTING_MODULE_EXT</b>&nbsp;&nbsp;&nbsp;(projects/.../find-module.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -67,6 +85,30 @@
     </table>
 </section>
 
+    <h3>projects/angular-material-extensions/select-country/schematics/helpers/angular/config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="configPath"></a>
+                        <span class="name">
+                            <b>
+                            configPath</b>
+                            <a href="#configPath"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>originalConfigPath</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>projects/angular-material-extensions/select-country/src/lib/db.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -979,6 +1021,131 @@
       numericCode: &#x27;716&#x27;
     },
   ]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-material-extensions/select-country/schematics/helpers/angular/validation.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="htmlSelectorRe"></a>
+                        <span class="name">
+                            <b>
+                            htmlSelectorRe</b>
+                            <a href="#htmlSelectorRe"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>originalHtmlSelectorRe</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-material-extensions/select-country/schematics/helpers/angular/latest-versions.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="latestVersions"></a>
+                        <span class="name">
+                            <b>
+                            latestVersions</b>
+                            <a href="#latestVersions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>originalLatestVersions</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-material-extensions/select-country/src/setup-jest.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mock"></a>
+                        <span class="name">
+                            <b>
+                            mock</b>
+                            <a href="#mock"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {
+  let storage: { [key: string]: string } &#x3D; {};
+  return {
+    getItem: (key: string) &#x3D;&gt; (key in storage ? storage[key] : null),
+    setItem: (key: string, value: string) &#x3D;&gt; (storage[key] &#x3D; value || &#x27;&#x27;),
+    removeItem: (key: string) &#x3D;&gt; delete storage[key],
+    clear: () &#x3D;&gt; (storage &#x3D; {})
+  };
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-material-extensions/select-country/schematics/helpers/angular/find-module.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MODULE_EXT"></a>
+                        <span class="name">
+                            <b>
+                            MODULE_EXT</b>
+                            <a href="#MODULE_EXT"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>ORIGINAL_MODULE_EXT</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ROUTING_MODULE_EXT"></a>
+                        <span class="name">
+                            <b>
+                            ROUTING_MODULE_EXT</b>
+                            <a href="#ROUTING_MODULE_EXT"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>ORIGINAL_ROUTING_MODULE_EXT</code>
                         </td>
                     </tr>
 
