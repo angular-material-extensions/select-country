@@ -1,0 +1,31 @@
+dist: trusty
+sudo: required
+language: node_js
+node_js:
+  - "8"
+
+os:
+  - linux
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - cd projects/angular-material-extensions/select-country && jest --coverage
+
+after_success:
+  - codecov
+
+cache:
+  directories:
+    - node_modules # NPM packages

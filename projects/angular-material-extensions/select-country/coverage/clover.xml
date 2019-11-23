@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1574449351571" clover="3.2.0">
-  <project timestamp="1574449351571" name="All files">
+<coverage generated="1574550290593" clover="3.2.0">
+  <project timestamp="1574550290593" name="All files">
     <metrics statements="23" coveredstatements="13" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="0" elements="33" coveredelements="13" complexity="0" loc="23" ncloc="23" packages="1" files="3" classes="3"/>
     <file name="db.ts" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/db.ts">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

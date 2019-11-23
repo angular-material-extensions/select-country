@@ -32,6 +32,7 @@
     "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "clean": "rm -rf ../../../dist",
+    "lint": "../../../node_modules/.bin/ng lint @angular-material-extensions/select-country",
     "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/select-country/schematics/",
     "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/select-country/",
     "postbuild": "npm run build:schematics && npm run resync:readme && npm run resync:schematics",
@@ -40,8 +41,8 @@
     "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
     "release:major": "../../../node_modules/.bin/release-it --major --ci",
     "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/select-country",
-    "test" : "../../../node_modules/.bin/jest --coverage",
-    "test:watch" : "../../../node_modules/.bin/jest --coverage --watch"
+    "test": "../../../node_modules/.bin/jest --coverage",
+    "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
