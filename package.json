@@ -5,12 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
-    "build:prod": "ng build --prod",
-    "build:prod:ghpages": "ng build --preserve-symlinks --prod --aot --build-optimizer --base-href /select-country/ --deploy-url /select-country/",
+    "build:client-and-server-bundles": "ng build --prod && ng run select-country:server:production --bundleDependencies all",
+    "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run select-country:server:production --bundleDependencies all",
+    "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
     "build:lib": "ng build @angular-material-extensions/select-country",
     "build:lib:Watch": "ng build @angular-material-extensions/select-country --watch",
-    "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
+    "build:prod": "ng build --prod",
+    "build:prod:ghpages": "ng build --preserve-symlinks --prod --aot --build-optimizer --base-href /select-country/ --deploy-url /select-country/",
+    "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
+    "build:prerender:ghpages": "npm run build:client-and-server-bundles:ghpages && npm run compile:server && npm run generate:prerender",
     "deploy": "ng deploy --base-href=/select-country/ --no-build",
     "generate:prerender": "cd dist && node prerender",
     "test": "jest",
@@ -20,7 +23,6 @@
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run select-country:server:production --bundleDependencies all",
     "release": "release-it",
     "test:watch": "jest --watch"
   },
@@ -81,7 +83,8 @@
     "tsickle": "^0.37.0",
     "tslint": "~5.20.1",
     "typescript": "~3.5.3",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "greenkeeper": {
     "ignore": [
