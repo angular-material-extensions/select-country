@@ -44,6 +44,7 @@
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "angular-cli-ghpages": "^0.6.0",
+    "angulartics2": "^8.1.0",
     "express": "^4.15.2",
     "hammerjs": "^2.0.8",
     "ngx-markdown": "^8.2.1",

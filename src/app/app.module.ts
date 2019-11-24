@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserModule} from '@angular/platform-browser';
+import { Angulartics2Module } from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {BrowserModule} from '@angular/platform-browser';
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
+    Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
     MatSelectCountryModule,
   ],
