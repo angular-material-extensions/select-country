@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {debounceTime, map, startWith} from 'rxjs/operators';
 import {MatAutocompleteSelectedEvent, MatFormFieldAppearance} from '@angular/material';
 
 /**
@@ -44,6 +44,7 @@ export class MatSelectCountryComponent implements OnInit {
     this.filteredOptions = this.countryFormControl.valueChanges
       .pipe(
         startWith(''),
+        debounceTime(300),
         map(value => this._filter(value))
       );
   }
