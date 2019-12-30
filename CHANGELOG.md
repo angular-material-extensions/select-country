@@ -1,3 +1,15 @@
+## [0.3.2](https://github.com/angular-material-extensions/select-country/compare/0.3.1...0.3.2) (2019-12-30)
+
+
+### Bug Fixes
+
+* **package:** added debounce time to the component ([7374ae0](https://github.com/angular-material-extensions/select-country/commit/7374ae00a100b99eaaa894d0cb48bbbd77280a8c))
+* **package:** updated angular and other dependencies ([fa6852d](https://github.com/angular-material-extensions/select-country/commit/fa6852d4131af029be8a886a3d58412567df6f3e))
+* **package:** updated gitignore file ([51914b6](https://github.com/angular-material-extensions/select-country/commit/51914b62835fd29bc19ebf9a5b59b1256c0cb83c))
+* **package:** updated manifest.json file ([e06d19b](https://github.com/angular-material-extensions/select-country/commit/e06d19b98037747e8719d31e7303e8aee79892a9))
+* **package:** updated metatags ([d6a6731](https://github.com/angular-material-extensions/select-country/commit/d6a673172f763558dacfe97d541f8536a68ba670))
+* **package:** updated the npm scripts for prerendering ([c9ea5e3](https://github.com/angular-material-extensions/select-country/commit/c9ea5e38cbefef844c99001cfa8d98dc6a52eee4))
+
 ## [0.3.1](https://github.com/angular-material-extensions/select-country/compare/0.3.0...0.3.1) (2019-11-21)
 
 
