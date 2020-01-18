@@ -116,32 +116,21 @@ Once installed you need to import the main module:
 ```js
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 ```
-The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice ` MatSelectCountryModule.forRoot()`):
-```js
+
+```typescript
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule.forRoot(), ...],  
+  imports: [MatSelectCountryModule, ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-Other modules in your application can simply import ` MatSelectCountryModule `:
+Other modules in your application like for lazy loading import ` MatSelectCountryModule ` into your feature module:
 
-```js
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
-
-@NgModule({
-  declarations: [OtherComponent, ...],
-  imports: [MatSelectCountryModule, ...], 
-})
-export class OtherModule {
-}
-```
 
 <a name="api"/>
 
@@ -152,8 +141,10 @@ export class OtherModule {
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
 | appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
+| label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
+| placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
-| disabled      | `Input()`  | `boolean`    | - |  Whether the component is read only
+| readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
 | onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
 
@@ -216,15 +207,12 @@ $ npm start
 ## Other Angular Libraries
 - [ngx-auth-firebaseui](https://github.com/AnthonyNahas/ngx-auth-firebaseui)
 - [ngx-linkifyjs](https://github.com/AnthonyNahas/ngx-linkifyjs)
-- [@firebaseui/ng-bootstrap](https://github.com/firebaseui/ng-bootstrap)
 - [@angular-material-extensions/password-strength](https://github.com/angular-material-extensions/password-strength)
 - [@angular-material-extensions/google-maps-autocomplete](https://github.com/angular-material-extensions/google-maps-autocomplete)
 - [@angular-material-extensions/link-preview](https://github.com/angular-material-extensions/link-preview)
+- [@angular-material-extensions/fab-menu](https://github.com/angular-material-extensions/fab-menu)
 - [@angular-material-extensions/pages](https://github.com/angular-material-extensions/pages)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
-- [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
-- [@angular-material-extensions/combination-generator](https://github.com/angular-material-extensions/combination-generator)
-
 ---
 
 <a name="support"/>

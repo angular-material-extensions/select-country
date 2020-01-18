@@ -27,9 +27,9 @@ export interface Country {
 })
 export class MatSelectCountryComponent implements OnInit {
 
-  @Input() placeHolder = 'Select country';
-  @Input() label: string;
   @Input() appearance: MatFormFieldAppearance;
+  @Input() label: string;
+  @Input() placeHolder = 'Select country';
   @Input() disabled: boolean;
   @Input() readonly: boolean;
 
