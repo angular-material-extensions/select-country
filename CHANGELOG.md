@@ -1,3 +1,10 @@
+## [0.3.3](https://github.com/angular-material-extensions/select-country/compare/0.3.2...0.3.3) (2020-01-18)
+
+
+### Bug Fixes
+
+* **package:** updated dependencies ([f6fb12b](https://github.com/angular-material-extensions/select-country/commit/f6fb12b6945fb901460a296300a1229419b88c49))
+
 ## [0.3.2](https://github.com/angular-material-extensions/select-country/compare/0.3.1...0.3.2) (2019-12-30)
 
 
