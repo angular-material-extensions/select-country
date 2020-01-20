@@ -160,7 +160,7 @@ interface Country {
 
 <a name="usage"/>
 
-## [Usage](https://angular-material-extensions.github.io/select-country/getting-started)
+## [Usage](https://angular-material-extensions.github.io/select-country)
 
 add the `<mat-select-country>` element to your template:
 
