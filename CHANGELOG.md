@@ -1,3 +1,10 @@
+# [1.0.0](https://github.com/angular-material-extensions/select-country/compare/0.3.3...1.0.0) (2020-02-08)
+
+
+### Bug Fixes
+
+* **lib:** upgraded the library to angular v9 ([9c0fe78](https://github.com/angular-material-extensions/select-country/commit/9c0fe78650d4e47e1a9c6e8405b20e837bd27dac))
+
 ## [0.3.3](https://github.com/angular-material-extensions/select-country/compare/0.3.2...0.3.3) (2020-01-18)
 
 
