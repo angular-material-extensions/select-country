@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -55,7 +55,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -138,7 +137,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
@@ -150,16 +149,39 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             }
           }
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {}
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "select-country:build",
+            "serverTarget": "select-country:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "select-country:build:production",
+              "serverTarget": "select-country:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "select-country:build:production",
+            "serverTarget": "select-country:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
     },
@@ -174,6 +196,11 @@
           "options": {
             "tsConfig": "projects/angular-material-extensions/select-country/tsconfig.lib.json",
             "project": "projects/angular-material-extensions/select-country/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-material-extensions/select-country/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -199,5 +226,8 @@
       }
     }
   },
-  "defaultProject": "select-country"
+  "defaultProject": "select-country",
+  "cli": {
+    "analytics": "c343e13c-52a4-476c-b27c-263c72b09d52"
+  }
 }

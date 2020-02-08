@@ -3,7 +3,8 @@ import {FormControl} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
 import {Observable} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
-import {MatAutocompleteSelectedEvent, MatFormFieldAppearance} from '@angular/material';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 /**
  * Country interface ISO 3166

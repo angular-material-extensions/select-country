@@ -1,6 +1,10 @@
 import {NgModule} from '@angular/core';
 import {MatSelectCountryComponent} from './mat-select-country.component';
-import {MatAutocompleteModule, MatButtonModule, MatIconModule, MatIconRegistry, MatInputModule, MatMenuModule} from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
