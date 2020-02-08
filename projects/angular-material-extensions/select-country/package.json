@@ -29,7 +29,7 @@
     "url": "https://github.com/angular-material-extensions/select-country/issues"
   },
   "scripts": {
-    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country",
+    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/select-country --prod",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "clean": "rm -rf ../../../dist",
     "lint": "../../../node_modules/.bin/ng lint @angular-material-extensions/select-country",
