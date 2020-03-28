@@ -141,6 +141,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
 | appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
+| country      | `Input()`  | `string`    | - |  Value to be set to the input (possible values are `Country` interface properties, case-insensitive)
 | label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
 | placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled

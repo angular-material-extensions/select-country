@@ -1,4 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
 import {Observable} from 'rxjs';
@@ -26,9 +34,10 @@ export interface Country {
   templateUrl: 'mat-select-country.component.html',
   styleUrls: ['mat-select-country.component.scss']
 })
-export class MatSelectCountryComponent implements OnInit {
+export class MatSelectCountryComponent implements OnInit, OnChanges {
 
   @Input() appearance: MatFormFieldAppearance;
+  @Input() country: string;
   @Input() label: string;
   @Input() placeHolder = 'Select country';
   @Input() disabled: boolean;
@@ -48,6 +57,26 @@ export class MatSelectCountryComponent implements OnInit {
         debounceTime(300),
         map(value => this._filter(value))
       );
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.country) {
+      if (changes.country.currentValue) {
+        const newValue = changes.country.currentValue.toUpperCase();
+        this.selectedCountry = this.countries.find(country =>
+          country.name.toUpperCase() === newValue
+          || country.alpha2Code === newValue
+          || country.alpha3Code === newValue
+          || country.numericCode === newValue
+        );
+        this.countryFormControl.setValue(
+          this.selectedCountry ? this.selectedCountry.name : ''
+        );
+      } else {
+        this.selectedCountry = undefined;
+        this.countryFormControl.setValue('');
+      }
+    }
   }
 
   private _filter(value: string): Country[] {

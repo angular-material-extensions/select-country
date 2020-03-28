@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { SimpleChange } from '@angular/core';
 
 describe('SelectCountryComponent', () => {
   let component: MatSelectCountryComponent;
@@ -84,6 +85,31 @@ describe('SelectCountryComponent', () => {
       alpha3Code: 'DEU',
       numericCode: '276'
     });
+  });
+
+  it('should set correct value', async () => {
+
+    component.ngOnChanges({
+      country: new SimpleChange(undefined, 'de', true)
+    });
+
+    await fixture.whenStable();
+
+    expect(inputElement.value).toMatch('Germany');
+  });
+
+  it('should set empty value', async () => {
+
+    component.ngOnChanges({
+      country: new SimpleChange(undefined, 'de', true)
+    });
+    component.ngOnChanges({
+      country: new SimpleChange('de', undefined, false)
+    });
+
+    await fixture.whenStable();
+
+    expect(inputElement.value).toMatch('');
   });
 });
 
