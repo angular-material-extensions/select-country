@@ -36,7 +36,7 @@
    src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
 </p>
 
-<h1 id="angular-material-extensionsselect-country---angular-material-component-that-allow-users-to-select-a-country-or-nationality-with-an-autocomplete-feature---angular-v8-supported-incl-schematics">@angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V8 supported incl. schematics</h1>
+<h1 id="angular-material-extensionsselect-country---angular-material-component-that-allow-users-to-select-a-country-or-nationality-with-an-autocomplete-feature---angular-v9-supported-incl-schematics">@angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V9 supported incl. schematics</h1>
 <p><a href="https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country"><img src="https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg" alt="npm version" class="img-responsive"></a>
 <a href="https://angular-material-extensions.github.io/select-country"><img src="https://img.shields.io/badge/demo-online-ed1c46.svg" alt="npm demo" class="img-responsive"></a>
 <a href="https://angular-material-extensions.github.io/select-country/doc/index.html"><img src="https://img.shields.io/badge/docs-typedoc-4D0080.svg" alt="docs: typedoc" class="img-responsive"></a>
@@ -90,7 +90,7 @@ by starring :star: and sharing it :loudspeaker:</p>
 
 <h2 id="dependencies">Dependencies</h2>
 <ul>
-<li><a href="https://angular.io">Angular</a> developed and tested with <code>8.x</code></li>
+<li><a href="https://angular.io">Angular</a> developed and tested with <code>9.x</code></li>
 </ul>
 <hr>
 <a name="installation"/>
@@ -114,25 +114,16 @@ by starring :star: and sharing it :loudspeaker:</p>
 <div><pre class="line-numbers"><code class="language-shell">npm install --save &#64;angular-material-extensions/select-country</code></pre></div><h3 id="import-the-library">Import the library</h3>
 <p>If you installed the library via angular schematics, you can skip this step</p>
 <p>Once installed you need to import the main module:</p>
-<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;</code></pre></div><p>The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice <code>MatSelectCountryModule.forRoot()</code>):</p>
-<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
+<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;</code></pre></div><div><pre class="line-numbers"><code class="language-typescript">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
 
 &#64;NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule.forRoot(), ...],  
+  imports: [MatSelectCountryModule, ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}</code></pre></div><p>Other modules in your application can simply import <code>MatSelectCountryModule</code>:</p>
-<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
-
-&#64;NgModule({
-  declarations: [OtherComponent, ...],
-  imports: [MatSelectCountryModule, ...], 
-})
-export class OtherModule {
-}</code></pre></div><a name="api"/>
+}</code></pre></div><p>Other modules in your application like for lazy loading import <code>MatSelectCountryModule</code> into your feature module:</p>
+<a name="api"/>
 
 <h2 id="api">API</h2>
 <h3 id="mat-select-country--used-to-display-the-main-component---see-the-demo-examples"><code>&lt;mat-select-country&gt;</code>  used to display the main component - <a href="https://angular-material-extensions.github.io/select-country/examples">see the demo examples</a></h3>
@@ -155,6 +146,27 @@ export class OtherModule {
 <td align="left">Possible appearance styles for <code>mat-form-field</code></td>
 </tr>
 <tr>
+<td align="left">country</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>string</code></td>
+<td align="center">-</td>
+<td align="left">Value to be set to the input (possible values are <code>Country</code> interface properties, case-insensitive)</td>
+</tr>
+<tr>
+<td align="left">label</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>boolean</code></td>
+<td align="center">-</td>
+<td align="left"><code>mat-form-field</code> label&#39;s text</td>
+</tr>
+<tr>
+<td align="left">placeHolder</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>boolean</code></td>
+<td align="center">-</td>
+<td align="left">input placeholder text</td>
+</tr>
+<tr>
 <td align="left">disabled</td>
 <td align="center"><code>Input()</code></td>
 <td align="center"><code>boolean</code></td>
@@ -162,7 +174,7 @@ export class OtherModule {
 <td align="left">Whether the component is disabled</td>
 </tr>
 <tr>
-<td align="left">disabled</td>
+<td align="left">readonly</td>
 <td align="center"><code>Input()</code></td>
 <td align="center"><code>boolean</code></td>
 <td align="center">-</td>
@@ -184,7 +196,7 @@ export class OtherModule {
   numericCode: string;
 }</code></pre></div><a name="usage"/>
 
-<h2 id="usage"><a href="https://angular-material-extensions.github.io/select-country/getting-started">Usage</a></h2>
+<h2 id="usage"><a href="https://angular-material-extensions.github.io/select-country">Usage</a></h2>
 <p>add the <code>&lt;mat-select-country&gt;</code> element to your template:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;mat-select-country&gt;
 &lt;/mat-select-country&gt;</code></pre></div><p align="center">
@@ -212,14 +224,12 @@ export class OtherModule {
 <ul>
 <li><a href="https://github.com/AnthonyNahas/ngx-auth-firebaseui">ngx-auth-firebaseui</a></li>
 <li><a href="https://github.com/AnthonyNahas/ngx-linkifyjs">ngx-linkifyjs</a></li>
-<li><a href="https://github.com/firebaseui/ng-bootstrap">@firebaseui/ng-bootstrap</a></li>
 <li><a href="https://github.com/angular-material-extensions/password-strength">@angular-material-extensions/password-strength</a></li>
 <li><a href="https://github.com/angular-material-extensions/google-maps-autocomplete">@angular-material-extensions/google-maps-autocomplete</a></li>
 <li><a href="https://github.com/angular-material-extensions/link-preview">@angular-material-extensions/link-preview</a></li>
+<li><a href="https://github.com/angular-material-extensions/fab-menu">@angular-material-extensions/fab-menu</a></li>
 <li><a href="https://github.com/angular-material-extensions/pages">@angular-material-extensions/pages</a></li>
 <li><a href="https://github.com/angular-material-extensions/contacts">@angular-material-extensions/contacts</a></li>
-<li><a href="https://github.com/angular-material-extensions/faq">@angular-material-extensions/faq</a></li>
-<li><a href="https://github.com/angular-material-extensions/combination-generator">@angular-material-extensions/combination-generator</a></li>
 </ul>
 <hr>
 <a name="support"/>

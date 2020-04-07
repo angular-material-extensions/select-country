@@ -70,13 +70,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/MatSelectCountryModule.html" data-type="entity-link">MatSelectCountryModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-MatSelectCountryModule-0375a0d39303792a093316ed8958b201"' : 'data-target="#xs-components-links-module-MatSelectCountryModule-0375a0d39303792a093316ed8958b201"' }>
+                                            'data-target="#components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' : 'data-target="#xs-components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatSelectCountryModule-0375a0d39303792a093316ed8958b201"' :
-                                            'id="xs-components-links-module-MatSelectCountryModule-0375a0d39303792a093316ed8958b201"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' :
+                                            'id="xs-components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' }>
                                             <li class="link">
                                                 <a href="components/MatSelectCountryComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">MatSelectCountryComponent</a>
@@ -117,9 +117,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/AppConfig.html" data-type="entity-link">AppConfig</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/AppShellBuilderOptions.html" data-type="entity-link">AppShellBuilderOptions</a>
                             </li>
                             <li class="link">
@@ -133,9 +130,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/Change.html" data-type="entity-link">Change</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/CliConfig.html" data-type="entity-link">CliConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Country.html" data-type="entity-link">Country</a>

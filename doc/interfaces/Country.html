@@ -229,12 +229,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Input, OnInit, Output} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from &#x27;@angular/core&#x27;;
 import {FormControl} from &#x27;@angular/forms&#x27;;
 import {COUNTRIES_DB} from &#x27;./db&#x27;;
 import {Observable} from &#x27;rxjs&#x27;;
-import {map, startWith} from &#x27;rxjs/operators&#x27;;
-import {MatAutocompleteSelectedEvent, MatFormFieldAppearance} from &#x27;@angular/material&#x27;;
+import {debounceTime, map, startWith} from &#x27;rxjs/operators&#x27;;
+import { MatAutocompleteSelectedEvent } from &#x27;@angular/material/autocomplete&#x27;;
+import { MatFormFieldAppearance } from &#x27;@angular/material/form-field&#x27;;
 
 /**
  * Country interface ISO 3166
@@ -256,11 +265,12 @@ export interface Country {
   templateUrl: &#x27;mat-select-country.component.html&#x27;,
   styleUrls: [&#x27;mat-select-country.component.scss&#x27;]
 })
-export class MatSelectCountryComponent implements OnInit {
+export class MatSelectCountryComponent implements OnInit, OnChanges {
 
-  @Input() placeHolder &#x3D; &#x27;Select country&#x27;;
-  @Input() label: string;
   @Input() appearance: MatFormFieldAppearance;
+  @Input() country: string;
+  @Input() label: string;
+  @Input() placeHolder &#x3D; &#x27;Select country&#x27;;
   @Input() disabled: boolean;
   @Input() readonly: boolean;
 
@@ -275,8 +285,29 @@ export class MatSelectCountryComponent implements OnInit {
     this.filteredOptions &#x3D; this.countryFormControl.valueChanges
       .pipe(
         startWith(&#x27;&#x27;),
+        debounceTime(300),
         map(value &#x3D;&gt; this._filter(value))
       );
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.country) {
+      if (changes.country.currentValue) {
+        const newValue &#x3D; changes.country.currentValue.toUpperCase();
+        this.selectedCountry &#x3D; this.countries.find(country &#x3D;&gt;
+          country.name.toUpperCase() &#x3D;&#x3D;&#x3D; newValue
+          || country.alpha2Code &#x3D;&#x3D;&#x3D; newValue
+          || country.alpha3Code &#x3D;&#x3D;&#x3D; newValue
+          || country.numericCode &#x3D;&#x3D;&#x3D; newValue
+        );
+        this.countryFormControl.setValue(
+          this.selectedCountry ? this.selectedCountry.name : &#x27;&#x27;
+        );
+      } else {
+        this.selectedCountry &#x3D; undefined;
+        this.countryFormControl.setValue(&#x27;&#x27;);
+      }
+    }
   }
 
   private _filter(value: string): Country[] {
