@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4901",
+    "server:prod": "ng serve --prod --port 4902",
     "build": "ng build",
     "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run select-country:server:production --bundleDependencies all",
     "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
