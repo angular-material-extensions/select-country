@@ -1,3 +1,16 @@
+## [1.0.1](https://github.com/angular-material-extensions/select-country/compare/1.0.0...1.0.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* **lib:** updated angular material to v9.2.0 ([bdd9732](https://github.com/angular-material-extensions/select-country/commit/bdd973256eeb14cc3fc50503f92b6ebd83e48ea2))
+* **lib:** updated angular to v9.1.0 ([9104541](https://github.com/angular-material-extensions/select-country/commit/9104541af6de93d7e5a8dff461729fa374d541b9))
+
+
+### Features
+
+* **lib:** added input for mat-select-country value ([cab5fb8](https://github.com/angular-material-extensions/select-country/commit/cab5fb8b3dc77819b628a9912c05b2495ba2f107))
+
 
 
 # [1.0.0](https://github.com/angular-material-extensions/select-country/compare/0.3.3...1.0.0) (2020-02-08)
