@@ -41,6 +41,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
   @Input() label: string;
   @Input() placeHolder = 'Select country';
   @Input() disabled: boolean;
+  @Input() nullable: boolean;
   @Input() readonly: boolean;
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
@@ -89,6 +90,16 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
     );
   }
 
+  onBlur() {
+    if (this.countryFormControl.value || !this.nullable) {
+      this.countryFormControl.setValue(
+        this.selectedCountry ? this.selectedCountry.name : ''
+      );
+    } else if (this.selectedCountry) {
+      this.selectedCountry = null;
+      this.onCountrySelected.emit(null);
+    }
+  }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
     this.selectedCountry = this.countries.find(country => country.name === $event.option.value);
