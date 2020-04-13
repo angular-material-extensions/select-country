@@ -39,11 +39,11 @@ describe('SelectCountryComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load 148 countries', () => {
-    expect(component.countries.length).toEqual(148);
+  it('should load 151 countries', () => {
+    expect(component.countries.length).toEqual(151);
   });
 
-  it('should load all countries (148) if the input value is empty', async () => {
+  it('should load all countries (151) if the input value is empty', async () => {
     prepare(inputElement, '');
 
     fixture.detectChanges();
@@ -51,7 +51,7 @@ describe('SelectCountryComponent', () => {
     fixture.detectChanges();
 
     const matOptions = document.querySelectorAll('mat-option');
-    expect(matOptions.length).toEqual(148);
+    expect(matOptions.length).toEqual(151);
   });
 
   it('should load all countries (3) if the input value is equal to `ger` ', async () => {
