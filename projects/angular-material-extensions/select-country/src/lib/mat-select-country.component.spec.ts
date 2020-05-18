@@ -111,6 +111,41 @@ describe('SelectCountryComponent', () => {
 
     expect(inputElement.value).toMatch('');
   });
+
+  it('should rollback input', async () => {
+
+    component.ngOnChanges({
+      country: new SimpleChange(undefined, 'de', true)
+    });
+
+    await fixture.whenStable();
+
+    inputElement.value = 'test';
+    inputElement.dispatchEvent(new Event('input'));
+    inputElement.dispatchEvent(new Event('blur'));
+
+    await fixture.whenStable();
+
+    expect(inputElement.value).toMatch('Germany');
+  });
+
+  it('should reset value', async () => {
+
+    component.nullable = true;
+    component.ngOnChanges({
+      country: new SimpleChange(undefined, 'de', true)
+    });
+
+    await fixture.whenStable();
+
+    inputElement.value = '';
+    inputElement.dispatchEvent(new Event('input'));
+    inputElement.dispatchEvent(new Event('blur'));
+
+    await fixture.whenStable();
+
+    expect(component.selectedCountry).toBeNull();
+  });
 });
 
 function prepare(inputElement: HTMLInputElement, value: string) {

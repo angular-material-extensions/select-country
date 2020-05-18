@@ -145,6 +145,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
 | placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
+| nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
 | readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
 | onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
