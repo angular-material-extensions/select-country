@@ -579,6 +579,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '484'
     },
     {
+      name: 'Moldova',
+      alpha2Code: 'MD',
+      alpha3Code: 'MDA',
+      numericCode: '498'
+    },
+    {
       name: 'Monaco',
       alpha2Code: 'MC',
       alpha3Code: 'MCO',
@@ -661,6 +667,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'PS',
       alpha3Code: 'PSE',
       numericCode: '275'
+    },
+    {
+      name: 'Panama',
+      alpha2Code: 'PA',
+      alpha3Code: 'PAN',
+      numericCode: '591'
     },
     {
       name: 'Paraguay',
@@ -865,6 +877,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'UY',
       alpha3Code: 'URY',
       numericCode: '858'
+    },
+    {
+      name: 'Uzbekistan',
+      alpha2Code: 'UZ',
+      alpha3Code: 'UZB',
+      numericCode: '860'
     },
     {
       name: 'Venezuela',
