@@ -1,3 +1,14 @@
+* fix(lib): updated the dependencies (3bc0cc5)
+* fix(lib): updated angular material and cdk to v9.2.3 (706df7b)
+* fix(lib): updated angular to v9.1.7 (0fd3295)
+* Merge pull request #9 from hrynko/add-value-reset (45090a8)
+* Merge pull request #10 from hrynko/add-countries (3586ce5)
+* chore(lib): added Moldova, Panama and Uzbekistan (2c70f7a)
+* feat(lib): added logic of resetting value on input blur (ee41db8)
+* fix(lib): minor - added prod script (396b2ea)
+* fix(lib): minor - href fixed (5900bb7)
+* fix(lib): support of prerendering (8340714)
+
 ## [1.0.1](https://github.com/angular-material-extensions/select-country/compare/1.0.0...1.0.1) (2020-04-07)
 
 
