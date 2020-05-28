@@ -39,10 +39,22 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '024'
     },
     {
+      name: 'Antigua and Barbuda',
+      alpha2Code: 'AG',
+      alpha3Code: 'ATG',
+      numericCode: '028'
+    },
+    {
       name: 'Argentina',
       alpha2Code: 'AR',
       alpha3Code: 'ARG',
       numericCode: '032'
+    },
+    {
+      name: 'Armenia',
+      alpha2Code: 'AM',
+      alpha3Code: 'ARM',
+      numericCode: '051'
     },
     {
       name: 'Australia',
@@ -159,10 +171,28 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '076'
     },
     {
+      name: 'Brunei',
+      alpha2Code: 'BN',
+      alpha3Code: 'BRN',
+      numericCode: '096'
+    },
+    {
       name: 'Bulgaria',
       alpha2Code: 'BG',
       alpha3Code: 'BGR',
       numericCode: '100'
+    },
+    {
+      name: 'Burkina Faso',
+      alpha2Code: 'BF',
+      alpha3Code: 'BFA',
+      numericCode: '854'
+    },
+    {
+      name: 'Burundi',
+      alpha2Code: 'BI',
+      alpha3Code: 'BDI',
+      numericCode: '108'
     },
     {
       name: 'Cabo Verde',
@@ -195,6 +225,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '140'
     },
     {
+      name: 'Chad',
+      alpha2Code: 'TD',
+      alpha3Code: 'TCD',
+      numericCode: '148'
+    },
+    {
       name: 'Chile',
       alpha2Code: 'CL',
       alpha3Code: 'CHL',
@@ -213,10 +249,16 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '170'
     },
     {
-      name: 'Congo',
+      name: 'Congo (Democratic Republic of the)',
       alpha2Code: 'CD',
       alpha3Code: 'COD',
       numericCode: '180'
+    },
+    {
+      name: 'Congo (Republic of the)',
+      alpha2Code: 'CG',
+      alpha3Code: 'COG',
+      numericCode: '178'
     },
     {
       name: 'Costa Rica',
@@ -261,6 +303,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '208'
     },
     {
+      name: 'Djibouti',
+      alpha2Code: 'DJ',
+      alpha3Code: 'DJI',
+      numericCode: '262'
+    },
+    {
       name: 'Dominica',
       alpha2Code: 'DM',
       alpha3Code: 'DMA',
@@ -297,16 +345,34 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '226'
     },
     {
+      name: 'Eritrea',
+      alpha2Code: 'ER',
+      alpha3Code: 'ERI',
+      numericCode: '232'
+    },
+    {
       name: 'Estonia',
       alpha2Code: 'EE',
       alpha3Code: 'EST',
       numericCode: '233'
     },
     {
+      name: 'Eswatini',
+      alpha2Code: 'SZ',
+      alpha3Code: 'SWZ',
+      numericCode: '748'
+    },
+    {
       name: 'Ethiopia',
       alpha2Code: 'ET',
       alpha3Code: 'ETH',
       numericCode: '231'
+    },
+    {
+      name: 'Fiji',
+      alpha2Code: 'FJ',
+      alpha3Code: 'FJI',
+      numericCode: '242'
     },
     {
       name: 'Finland',
@@ -319,6 +385,18 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'FR',
       alpha3Code: 'FRA',
       numericCode: '250'
+    },
+    {
+      name: 'Gabon',
+      alpha2Code: 'GA',
+      alpha3Code: 'GAB',
+      numericCode: '266'
+    },
+    {
+      name: 'Gambia',
+      alpha2Code: 'GM',
+      alpha3Code: 'GMB',
+      numericCode: '270'
     },
     {
       name: 'Georgia',
@@ -357,10 +435,28 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '312'
     },
     {
+      name: 'Grenada',
+      alpha2Code: 'GD',
+      alpha3Code: 'GRD',
+      numericCode: '308'
+    },
+    {
       name: 'Guatemala',
       alpha2Code: 'GT',
       alpha3Code: 'GTM',
       numericCode: '320'
+    },
+    {
+      name: 'Guinea',
+      alpha2Code: 'GN',
+      alpha3Code: 'GIN',
+      numericCode: '324'
+    },
+    {
+      name: 'Guinea-Bissau',
+      alpha2Code: 'GW',
+      alpha3Code: 'GNB',
+      numericCode: '624'
     },
     {
       name: 'Guyana',
@@ -375,10 +471,16 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '332'
     },
     {
+      name: 'Honduras',
+      alpha2Code: 'HN',
+      alpha3Code: 'HND',
+      numericCode: '340'
+    },
+    {
       name: 'Hong Kong',
       alpha2Code: 'HK',
       alpha3Code: 'HKG',
-      numericCode: ''
+      numericCode: '344'
     },
     {
       name: 'Hungary',
@@ -471,6 +573,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '404'
     },
     {
+      name: 'Kiribati',
+      alpha2Code: 'KI',
+      alpha3Code: 'KIR',
+      numericCode: '296'
+    },
+    {
       name: 'Korea (the Democratic People\'s Republic of)',
       alpha2Code: 'KP',
       alpha3Code: 'PRK',
@@ -495,6 +603,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '417'
     },
     {
+      name: 'Laos',
+      alpha2Code: 'LA',
+      alpha3Code: 'LAO',
+      numericCode: '418'
+    },
+    {
       name: 'Latvia',
       alpha2Code: 'LV',
       alpha3Code: 'LVA',
@@ -505,6 +619,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'LB',
       alpha3Code: 'LBN',
       numericCode: '422'
+    },
+    {
+      name: 'Lesotho',
+      alpha2Code: 'LS',
+      alpha3Code: 'LSO',
+      numericCode: '426'
     },
     {
       name: 'Liberia',
@@ -549,10 +669,16 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '450'
     },
     {
+      name: 'Malawi',
+      alpha2Code: 'MW',
+      alpha3Code: 'MWI',
+      numericCode: '454'
+    },
+    {
       name: 'Malaysia',
       alpha2Code: 'MY',
       alpha3Code: 'MYS',
-      numericCode: ''
+      numericCode: '458'
     },
     {
       name: 'Maldives',
@@ -571,6 +697,18 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'MT',
       alpha3Code: 'MLT',
       numericCode: '470'
+    },
+    {
+      name: 'Mauritania',
+      alpha2Code: 'MR',
+      alpha3Code: 'MRT',
+      numericCode: '478'
+    },
+    {
+      name: 'Mauritius',
+      alpha2Code: 'MU',
+      alpha3Code: 'MUS',
+      numericCode: '480'
     },
     {
       name: 'Mexico',
@@ -609,10 +747,28 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '504'
     },
     {
+      name: 'Mozambique',
+      alpha2Code: 'MZ',
+      alpha3Code: 'MOZ',
+      numericCode: '508'
+    },
+    {
+      name: 'Myanmar',
+      alpha2Code: 'MM',
+      alpha3Code: 'MMR',
+      numericCode: '104'
+    },
+    {
       name: 'Namibia',
       alpha2Code: 'NA',
       alpha3Code: 'NAM',
       numericCode: '516'
+    },
+    {
+      name: 'Nauru',
+      alpha2Code: 'NR',
+      alpha3Code: 'NRU',
+      numericCode: '520'
     },
     {
       name: 'Nepal',
@@ -639,10 +795,22 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '554'
     },
     {
+      name: 'Nicaragua',
+      alpha2Code: 'NI',
+      alpha3Code: 'NIC',
+      numericCode: '558'
+    },
+    {
+      name: 'Niger',
+      alpha2Code: 'NE',
+      alpha3Code: 'NER',
+      numericCode: '562'
+    },
+    {
       name: 'Nigeria',
       alpha2Code: 'NG',
       alpha3Code: 'NGA',
-      numericCode: '556'
+      numericCode: '566'
     },
     {
       name: 'Norway',
@@ -663,6 +831,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '586'
     },
     {
+      name: 'Palau',
+      alpha2Code: 'PW',
+      alpha3Code: 'PLW',
+      numericCode: '585'
+    },
+    {
       name: 'Palestine',
       alpha2Code: 'PS',
       alpha3Code: 'PSE',
@@ -673,6 +847,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'PA',
       alpha3Code: 'PAN',
       numericCode: '591'
+    },
+    {
+      name: 'Papua New Guinea',
+      alpha2Code: 'PG',
+      alpha3Code: 'PNG',
+      numericCode: '598'
     },
     {
       name: 'Paraguay',
@@ -735,10 +915,46 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '643'
     },
     {
+      name: 'Rwanda',
+      alpha2Code: 'RW',
+      alpha3Code: 'RWA',
+      numericCode: '646'
+    },
+    {
+      name: 'Saint Kitts and Nevis',
+      alpha2Code: 'KN',
+      alpha3Code: 'KNA',
+      numericCode: '659'
+    },
+    {
+      name: 'Saint Lucia',
+      alpha2Code: 'LC',
+      alpha3Code: 'LCA',
+      numericCode: '662'
+    },
+    {
+      name: 'Saint Vincent and the Grenadines',
+      alpha2Code: 'VC',
+      alpha3Code: 'VCT',
+      numericCode: '670'
+    },
+    {
+      name: 'Samoa',
+      alpha2Code: 'WS',
+      alpha3Code: 'WSM',
+      numericCode: '882'
+    },
+    {
       name: 'San Marino',
       alpha2Code: 'SM',
       alpha3Code: 'SMR',
       numericCode: '674'
+    },
+    {
+      name: 'Sao Tome and Principe',
+      alpha2Code: 'ST',
+      alpha3Code: 'STP',
+      numericCode: '678'
     },
     {
       name: 'Saudi Arabia',
@@ -759,6 +975,18 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '688'
     },
     {
+      name: 'Seychelles',
+      alpha2Code: 'SC',
+      alpha3Code: 'SYC',
+      numericCode: '690'
+    },
+    {
+      name: 'Sierra Leone',
+      alpha2Code: 'SL',
+      alpha3Code: 'SLE',
+      numericCode: '694'
+    },
+    {
       name: 'Singapore',
       alpha2Code: 'SG',
       alpha3Code: 'SGP',
@@ -777,6 +1005,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '705'
     },
     {
+      name: 'Solomon Islands',
+      alpha2Code: 'SB',
+      alpha3Code: 'SLB',
+      numericCode: '090'
+    },
+    {
       name: 'Somalia',
       alpha2Code: 'SO',
       alpha3Code: 'SOM',
@@ -787,6 +1021,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'ZA',
       alpha3Code: 'ZAF',
       numericCode: '710'
+    },
+    {
+      name: 'South Sudan',
+      alpha2Code: 'SS',
+      alpha3Code: 'SSD',
+      numericCode: '728'
     },
     {
       name: 'Spain',
@@ -805,6 +1045,12 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'SD',
       alpha3Code: 'SDN',
       numericCode: '729'
+    },
+    {
+      name: 'Suriname',
+      alpha2Code: 'SR',
+      alpha3Code: 'SUR',
+      numericCode: '740'
     },
     {
       name: 'Sweden',
@@ -831,10 +1077,46 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '158'
     },
     {
+      name: 'Tajikistan',
+      alpha2Code: 'TJ',
+      alpha3Code: 'TJK',
+      numericCode: '762'
+    },
+    {
+      name: 'Tanzania',
+      alpha2Code: 'TZ',
+      alpha3Code: 'TZA',
+      numericCode: '834'
+    },
+    {
       name: 'Thailand',
       alpha2Code: 'TH',
       alpha3Code: 'THA',
       numericCode: '764'
+    },
+    {
+      name: 'Timor-Leste',
+      alpha2Code: 'TL',
+      alpha3Code: 'TLS',
+      numericCode: '626'
+    },
+    {
+      name: 'Togo',
+      alpha2Code: 'TG',
+      alpha3Code: 'TGO',
+      numericCode: '768'
+    },
+    {
+      name: 'Tonga',
+      alpha2Code: 'TO',
+      alpha3Code: 'TON',
+      numericCode: '776'
+    },
+    {
+      name: 'Trinidad and Tobago',
+      alpha2Code: 'TT',
+      alpha3Code: 'TTO',
+      numericCode: '780'
     },
     {
       name: 'Tunisia',
@@ -847,6 +1129,24 @@ export const COUNTRIES_DB: Country[] =
       alpha2Code: 'TR',
       alpha3Code: 'TUR',
       numericCode: '792'
+    },
+    {
+      name: 'Turkmenistan',
+      alpha2Code: 'TM',
+      alpha3Code: 'TKM',
+      numericCode: '795'
+    },
+    {
+      name: 'Tuvalu',
+      alpha2Code: 'TV',
+      alpha3Code: 'TUV',
+      numericCode: '798'
+    },
+    {
+      name: 'Uganda',
+      alpha2Code: 'UG',
+      alpha3Code: 'UGA',
+      numericCode: '800'
     },
     {
       name: 'Ukraine',
@@ -885,6 +1185,12 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '860'
     },
     {
+      name: 'Vanuatu',
+      alpha2Code: 'VU',
+      alpha3Code: 'VUT',
+      numericCode: '548'
+    },
+    {
       name: 'Venezuela',
       alpha2Code: 'VE',
       alpha3Code: 'VEN',
@@ -903,9 +1209,16 @@ export const COUNTRIES_DB: Country[] =
       numericCode: '887'
     },
     {
+      name: 'Zambia',
+      alpha2Code: 'ZM',
+      alpha3Code: 'ZMB',
+      numericCode: '894'
+    },
+    {
       name: 'Zimbabwe',
       alpha2Code: 'ZW',
       alpha3Code: 'ZWE',
       numericCode: '716'
-    },
-  ];
+    }
+  ]
+;
