@@ -1,3 +1,8 @@
+* fix(lib): updated angular to v9.1.7 (4fda96e)
+* fix(lib): updated the dependencies (cf0efa4)
+* Merge pull request #14 from wendannor/chore/add_missing_countries (d6e7550)
+* chore(countries) add some missing countries (cea5abc)
+
 * fix(lib): updated the dependencies (3bc0cc5)
 * fix(lib): updated angular material and cdk to v9.2.3 (706df7b)
 * fix(lib): updated angular to v9.1.7 (0fd3295)
