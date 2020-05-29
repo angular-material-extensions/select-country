@@ -1,7 +1,7 @@
 {
   "name": "@angular-material-extensions/select-country",
   "description": "Angular Material component that allow users to select a county or nationality ",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://angular-material-extensions.github.io/select-country",
   "author": {
     "name": "anthonynahas",
@@ -40,7 +40,7 @@
     "release:patch": "../../../node_modules/.bin/release-it --patch --ci ",
     "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
     "release:major": "../../../node_modules/.bin/release-it --major --ci --no-git.requireCleanWorkingDir",
-    "release:version": "../../../node_modules/.bin/release-it 1.1.0 --ci --no-git.requireCleanWorkingDir",
+    "release:version": "../../../node_modules/.bin/release-it 1.2.0 --ci --no-git.requireCleanWorkingDir",
     "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/select-country",
     "test": "../../../node_modules/.bin/jest --coverage",
     "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
