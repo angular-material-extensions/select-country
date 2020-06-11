@@ -5,10 +5,10 @@
               [svgIcon]="selectedCountry?.alpha2Code.toLowerCase()"></mat-icon>
     <input type="text" [placeholder]="placeHolder" aria-label="country"
            matInput [formControl]="countryFormControl"
-           [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled"
-           (blur)="onBlur()">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
-      <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
+           [matAutocomplete]="countryAutocomplete" [readonly]="readonly" [disabled]="disabled"
+           (blur)="onBlur()" (input)="inputChanged($event.target.value)">
+    <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()" (optionSelected)="onOptionsSelected($event)">
+      <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
         <small>{{country?.name}} - {{country?.alpha3Code}}</small>
       </mat-option>
