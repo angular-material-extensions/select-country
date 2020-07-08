@@ -22,7 +22,7 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default, version: loadPackageVersionGracefully()
-          || '1.2.1', name: '@angular-material-extensions/select-country'
+          || '1.3.0', name: '@angular-material-extensions/select-country'
       },
       {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'},
     ];

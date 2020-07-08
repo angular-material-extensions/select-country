@@ -1,18 +1,10 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
 import {Observable} from 'rxjs';
 import {debounceTime, map, startWith} from 'rxjs/operators';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
+import {MatFormFieldAppearance} from '@angular/material/form-field';
 
 /**
  * Country interface ISO 3166
@@ -32,10 +24,19 @@ export interface Country {
 @Component({
   selector: 'mat-select-country',
   templateUrl: 'mat-select-country.component.html',
-  styleUrls: ['mat-select-country.component.scss']
+  styleUrls: ['mat-select-country.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MatSelectCountryComponent),
+      multi: true
+    }
+  ]
 })
-export class MatSelectCountryComponent implements OnInit, OnChanges {
+export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValueAccessor {
 
+  // tslint:disable-next-line:variable-name
+  @Input() private _value: Country;
   @Input() appearance: MatFormFieldAppearance;
   @Input() country: string;
   @Input() label: string;
@@ -46,10 +47,23 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
+
   countryFormControl = new FormControl();
-  selectedCountry: Country;
   countries: Country[] = COUNTRIES_DB;
   filteredOptions: Observable<Country[]>;
+
+  propagateChange = (_: any) => {
+  };
+
+
+  get value(): Country {
+    return this._value;
+  }
+
+  set value(value: Country) {
+    this._value = value;
+    this.propagateChange(this._value);
+  }
 
   ngOnInit() {
     this.filteredOptions = this.countryFormControl.valueChanges
@@ -64,18 +78,14 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
     if (changes.country) {
       if (changes.country.currentValue) {
         const newValue = changes.country.currentValue.toUpperCase();
-        this.selectedCountry = this.countries.find(country =>
+        this.value = this.countries.find(country =>
           country.name.toUpperCase() === newValue
           || country.alpha2Code === newValue
           || country.alpha3Code === newValue
           || country.numericCode === newValue
         );
-        this.countryFormControl.setValue(
-          this.selectedCountry ? this.selectedCountry.name : ''
-        );
       } else {
-        this.selectedCountry = undefined;
-        this.countryFormControl.setValue('');
+        this.value = undefined;
       }
     }
   }
@@ -91,18 +101,36 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
   }
 
   onBlur() {
-    if (this.countryFormControl.value || !this.nullable) {
+    if (this.value || !this.nullable) {
       this.countryFormControl.setValue(
-        this.selectedCountry ? this.selectedCountry.name : ''
+        this.value ? this.value.name : ''
       );
-    } else if (this.selectedCountry) {
-      this.selectedCountry = null;
+    } else if (this.value) {
+      this.value = null;
       this.onCountrySelected.emit(null);
     }
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    this.selectedCountry = this.countries.find(country => country.name === $event.option.value);
-    this.onCountrySelected.emit(this.selectedCountry);
+    this.value = this.countries.find(country => country.name === $event.option.value);
+    this.onCountrySelected.emit(this.value);
+  }
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.value = obj;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    // throw new Error('Method not implemented.');
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    // throw new Error('Method not implemented.');
   }
 }

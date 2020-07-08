@@ -79,7 +79,7 @@ describe('SelectCountryComponent', () => {
     optionToClick.click();
     fixture.detectChanges();
 
-    expect(component.selectedCountry).toStrictEqual({
+    expect(component.value).toStrictEqual({
       name: 'Germany',
       alpha2Code: 'DE',
       alpha3Code: 'DEU',
@@ -144,7 +144,7 @@ describe('SelectCountryComponent', () => {
 
     await fixture.whenStable();
 
-    expect(component.selectedCountry).toBeNull();
+    expect(component.value).toBeNull();
   });
 });
 
