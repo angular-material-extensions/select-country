@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/angular-material-extensions/select-country/compare/1.2.1...1.3.0) (2020-07-08)
+
+
+### Bug Fixes
+
+* **demo:** enhanced the demo app ([f17a3d2](https://github.com/angular-material-extensions/select-country/commit/f17a3d23b11f4259f4d549c39b809e3ff6648e1a))
+* **lib:** downgraded angular cli ([c07d650](https://github.com/angular-material-extensions/select-country/commit/c07d650b06ffaec430d6b49f5aed3478ba3c84a9))
+* **lib:** removed HttpClientModule from the library ([0c16689](https://github.com/angular-material-extensions/select-country/commit/0c16689740b114ea5dd200f35e891b607e83c984))
+* **lib:** updated angular to v9.1.11 ([c08d8f7](https://github.com/angular-material-extensions/select-country/commit/c08d8f7c0b9eecb6c836b6313bdf60855a71a687))
+* **project:** minor ([215b69a](https://github.com/angular-material-extensions/select-country/commit/215b69aa499f34a352b020631011d6393535c9d2))
+
 * fix(project): minor (215b69a)
 * Updating CHANGELOG.md for v1.2.1 (d835928)
 * Updating CHANGELOG.md for v1.2.1 (8d4f5c0)
