@@ -229,21 +229,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges
-} from &#x27;@angular/core&#x27;;
-import {FormControl} from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges} from &#x27;@angular/core&#x27;;
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from &#x27;@angular/forms&#x27;;
 import {COUNTRIES_DB} from &#x27;./db&#x27;;
 import {Observable} from &#x27;rxjs&#x27;;
 import {debounceTime, map, startWith} from &#x27;rxjs/operators&#x27;;
-import { MatAutocompleteSelectedEvent } from &#x27;@angular/material/autocomplete&#x27;;
-import { MatFormFieldAppearance } from &#x27;@angular/material/form-field&#x27;;
+import {MatAutocompleteSelectedEvent} from &#x27;@angular/material/autocomplete&#x27;;
+import {MatFormFieldAppearance} from &#x27;@angular/material/form-field&#x27;;
 
 /**
  * Country interface ISO 3166
@@ -263,10 +255,19 @@ export interface Country {
 @Component({
   selector: &#x27;mat-select-country&#x27;,
   templateUrl: &#x27;mat-select-country.component.html&#x27;,
-  styleUrls: [&#x27;mat-select-country.component.scss&#x27;]
+  styleUrls: [&#x27;mat-select-country.component.scss&#x27;],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; MatSelectCountryComponent),
+      multi: true
+    }
+  ]
 })
-export class MatSelectCountryComponent implements OnInit, OnChanges {
+export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValueAccessor {
 
+  // tslint:disable-next-line:variable-name
+  @Input() private _value: Country;
   @Input() appearance: MatFormFieldAppearance;
   @Input() country: string;
   @Input() label: string;
@@ -277,10 +278,23 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
 
   @Output() onCountrySelected: EventEmitter&lt;Country&gt; &#x3D; new EventEmitter&lt;Country&gt;();
 
+
   countryFormControl &#x3D; new FormControl();
-  selectedCountry: Country;
   countries: Country[] &#x3D; COUNTRIES_DB;
   filteredOptions: Observable&lt;Country[]&gt;;
+
+  propagateChange &#x3D; (_: any) &#x3D;&gt; {
+  };
+
+
+  get value(): Country {
+    return this._value;
+  }
+
+  set value(value: Country) {
+    this._value &#x3D; value;
+    this.propagateChange(this._value);
+  }
 
   ngOnInit() {
     this.filteredOptions &#x3D; this.countryFormControl.valueChanges
@@ -295,18 +309,14 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
     if (changes.country) {
       if (changes.country.currentValue) {
         const newValue &#x3D; changes.country.currentValue.toUpperCase();
-        this.selectedCountry &#x3D; this.countries.find(country &#x3D;&gt;
+        this.value &#x3D; this.countries.find(country &#x3D;&gt;
           country.name.toUpperCase() &#x3D;&#x3D;&#x3D; newValue
           || country.alpha2Code &#x3D;&#x3D;&#x3D; newValue
           || country.alpha3Code &#x3D;&#x3D;&#x3D; newValue
           || country.numericCode &#x3D;&#x3D;&#x3D; newValue
         );
-        this.countryFormControl.setValue(
-          this.selectedCountry ? this.selectedCountry.name : &#x27;&#x27;
-        );
       } else {
-        this.selectedCountry &#x3D; undefined;
-        this.countryFormControl.setValue(&#x27;&#x27;);
+        this.value &#x3D; undefined;
       }
     }
   }
@@ -322,19 +332,37 @@ export class MatSelectCountryComponent implements OnInit, OnChanges {
   }
 
   onBlur() {
-    if (this.countryFormControl.value || !this.nullable) {
+    if (this.value || !this.nullable) {
       this.countryFormControl.setValue(
-        this.selectedCountry ? this.selectedCountry.name : &#x27;&#x27;
+        this.value ? this.value.name : &#x27;&#x27;
       );
-    } else if (this.selectedCountry) {
-      this.selectedCountry &#x3D; null;
+    } else if (this.value) {
+      this.value &#x3D; null;
       this.onCountrySelected.emit(null);
     }
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    this.selectedCountry &#x3D; this.countries.find(country &#x3D;&gt; country.name &#x3D;&#x3D;&#x3D; $event.option.value);
-    this.onCountrySelected.emit(this.selectedCountry);
+    this.value &#x3D; this.countries.find(country &#x3D;&gt; country.name &#x3D;&#x3D;&#x3D; $event.option.value);
+    this.onCountrySelected.emit(this.value);
+  }
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.value &#x3D; obj;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange &#x3D; fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    // throw new Error(&#x27;Method not implemented.&#x27;);
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    // throw new Error(&#x27;Method not implemented.&#x27;);
   }
 }
 </code></pre>

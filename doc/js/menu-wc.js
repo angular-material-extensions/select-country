@@ -70,13 +70,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/MatSelectCountryModule.html" data-type="entity-link">MatSelectCountryModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' : 'data-target="#xs-components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' }>
+                                            'data-target="#components-links-module-MatSelectCountryModule-84c7a9b4a45531a7097b58d8086876a3"' : 'data-target="#xs-components-links-module-MatSelectCountryModule-84c7a9b4a45531a7097b58d8086876a3"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' :
-                                            'id="xs-components-links-module-MatSelectCountryModule-5546b92529e431848a8584b94d5d4faf"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatSelectCountryModule-84c7a9b4a45531a7097b58d8086876a3"' :
+                                            'id="xs-components-links-module-MatSelectCountryModule-84c7a9b4a45531a7097b58d8086876a3"' }>
                                             <li class="link">
                                                 <a href="components/MatSelectCountryComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">MatSelectCountryComponent</a>

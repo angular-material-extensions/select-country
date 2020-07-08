@@ -113,12 +113,13 @@ by starring :star: and sharing it :loudspeaker:</p>
             ],</code></pre></div><p>Now install <code>@angular-material-extensions/select-country</code> via:</p>
 <div><pre class="line-numbers"><code class="language-shell">npm install --save &#64;angular-material-extensions/select-country</code></pre></div><h3 id="import-the-library">Import the library</h3>
 <p>If you installed the library via angular schematics, you can skip this step</p>
-<p>Once installed you need to import the main module:</p>
-<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;</code></pre></div><div><pre class="line-numbers"><code class="language-typescript">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;
+<p>Once installed you need to import the main module and the <code>HttpClientModule</code>:</p>
+<div><pre class="line-numbers"><code class="language-js">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;;</code></pre></div><div><pre class="line-numbers"><code class="language-typescript">import { MatSelectCountryModule } from &#39;&#64;angular-material-extensions/select-country&#39;; 
+import {HttpClientModule} from &#39;&#64;angular/common/http&#39;;
 
 &#64;NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule, ...],  
+  imports: [MatSelectCountryModule, HttpClientModule, ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -138,6 +139,13 @@ export class AppModule {
 </tr>
 </thead>
 <tbody>
+<tr>
+<td align="left">value</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>Country</code></td>
+<td align="center">-</td>
+<td align="left">the selected country</td>
+</tr>
 <tr>
 <td align="left">appearance</td>
 <td align="center"><code>Input()</code></td>
