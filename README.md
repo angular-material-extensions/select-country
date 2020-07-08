@@ -112,17 +112,18 @@ npm install --save @angular-material-extensions/select-country
 
 If you installed the library via angular schematics, you can skip this step
 
-Once installed you need to import the main module:
+Once installed you need to import the main module and the `HttpClientModule`:
 ```js
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 ```
 
 ```typescript
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country'; 
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule, ...],  
+  imports: [MatSelectCountryModule, HttpClientModule, ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {

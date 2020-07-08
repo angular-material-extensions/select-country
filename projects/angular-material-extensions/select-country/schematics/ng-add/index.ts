@@ -22,7 +22,7 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default, version: loadPackageVersionGracefully()
-          || '0.2.2', name: '@angular-material-extensions/select-country'
+          || '1.2.1', name: '@angular-material-extensions/select-country'
       },
       {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'},
     ];
@@ -57,8 +57,9 @@ export function addModuleToImports(options: any): Rule {
     const moduleName = `MatSelectCountryModule`;
 
     addModuleImportToRootModule(host, moduleName, '@angular-material-extensions/select-country', project);
-
     context.logger.log('info', `✅️ "${moduleName}" is imported`);
+    addModuleImportToRootModule(host, 'HttpClientModule', '@angular/common/http', project);
+    context.logger.log('info', `✅️ "HttpClientModule" is imported`);
 
     return host;
   };
