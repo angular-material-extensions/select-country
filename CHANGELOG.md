@@ -1,3 +1,7 @@
+* fix(lib): removed HttpClientModule from the library (0c16689)
+* fix(lib): downgraded angular cli (c07d650)
+* fix(lib): updated angular to v9.1.11 (c08d8f7)
+
 * fix(lib): updated angular material and cdk to v9.2.4 (c0ccd87)
 
 * fix(lib): updated angular to v9.1.7 (4fda96e)
