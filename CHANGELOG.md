@@ -1,3 +1,9 @@
+* Release 1.2.1 (ed727df)
+* Updating CHANGELOG.md for v1.2.1 (c0a619d)
+* fix(lib): removed HttpClientModule from the library (0c16689)
+* fix(lib): downgraded angular cli (c07d650)
+* fix(lib): updated angular to v9.1.11 (c08d8f7)
+
 * fix(lib): removed HttpClientModule from the library (0c16689)
 * fix(lib): downgraded angular cli (c07d650)
 * fix(lib): updated angular to v9.1.11 (c08d8f7)
