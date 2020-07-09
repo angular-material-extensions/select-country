@@ -189,6 +189,77 @@ add the `<mat-select-country>` element to your template:
 </p>
 
 
+#### Use the library with reactive forms 
+
+### option 1 with Reactive Forms
+
+```html
+<mat-select-country appearance="outline" 
+                    label="Country"
+                    [formControl]="countryFormControl"
+                    (onCountrySelected)="onCountrySelected($event)">
+</mat-select-country>
+```
+
+### option 2 with Reactive Forms
+
+```html
+<form [formGroup]="countryFormGroup">
+    <div fxLayoutAlign="center">
+      <mat-select-country appearance="outline"
+                          label="Country"
+                          formControlName="country"
+                          (onCountrySelected)="onCountrySelected($event)">
+      </mat-select-country>
+    </div>
+  </form>
+```
+
+```typescript
+import {Component,OnInit} from '@angular/core';
+import {Country} from '@angular-material-extensions/select-country'; 
+import {FormControl} from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit{
+  title = 'select-county';
+
+  countryFormControl = new FormControl();
+  countryFormGroup: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    angulartics2GoogleAnalytics.startTracking();
+  }
+
+  ngOnInit(): void {
+
+    this.countryFormGroup = this.formBuilder.group({
+      country: []
+    });
+    
+    this.countryFormGroup.get('country').valueChanges
+.subscribe(country => console
+.log('this.countryFormGroup.get("country").valueChanges', country));
+
+    this.countryFormControl.valueChanges
+.subscribe(country => console
+.log('this.countryFormControl.valueChanges', country));
+  }
+
+
+  onCountrySelected($event: Country) {
+    console.log($event);
+  }
+}
+
+```
+
+
+
 <a name="run-demo-app-locally"/>
 
 ###  Run Demo App Locally
