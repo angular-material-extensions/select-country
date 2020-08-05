@@ -149,6 +149,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
 | nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
 | readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
+| class  | `Input()` | `string`    | - | Class attribute apply style to input text or validation ignore (optional)
 | onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
 
@@ -208,6 +209,7 @@ add the `<mat-select-country>` element to your template:
     <div fxLayoutAlign="center">
       <mat-select-country appearance="outline"
                           label="Country"
+                          class="className"
                           formControlName="country"
                           (onCountrySelected)="onCountrySelected($event)">
       </mat-select-country>
