@@ -101,7 +101,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   }
 
   onBlur() {
-    if (this.value || !this.nullable) {
+    if (this.countryFormControl.value || !this.nullable) {
       this.countryFormControl.setValue(
         this.value ? this.value.name : ''
       );
