@@ -1,6 +1,5 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 import {MatSelectCountryComponent} from './mat-select-country.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,7 +20,6 @@ import {COUNTRIES_DB} from './db';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatMenuModule,
