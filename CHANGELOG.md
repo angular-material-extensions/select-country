@@ -1,3 +1,16 @@
+## [1.3.1](https://github.com/angular-material-extensions/select-country/compare/1.3.0...1.3.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* **lib:** downgraded ng-packagr related module to v9 [#31](https://github.com/angular-material-extensions/select-country/issues/31) [#25](https://github.com/angular-material-extensions/select-country/issues/25) [#24](https://github.com/angular-material-extensions/select-country/issues/24) [#22](https://github.com/angular-material-extensions/select-country/issues/22) ([2703ff2](https://github.com/angular-material-extensions/select-country/commit/2703ff2d44a06c39617cb7bef5d08f0a8ec4e381))
+* **lib:** fixed control value reset ([14768bc](https://github.com/angular-material-extensions/select-country/commit/14768bcdb385d1e5ef18a6852391f79d78e619d1))
+* **lib:** fixed github.io issue for deployed url ([501ff1f](https://github.com/angular-material-extensions/select-country/commit/501ff1ff203b3fe0e809a6442598af9ab7a3632c))
+* **lib:** minor ([2e3d1fe](https://github.com/angular-material-extensions/select-country/commit/2e3d1febc246a544409311245657a01062b03f55))
+* **lib:** removed again httpclient module from the library ([65a19dd](https://github.com/angular-material-extensions/select-country/commit/65a19dd157bf01b0d77b903d961338a513245fd3))
+* **lib:** updated the dependencies ([d1c5f38](https://github.com/angular-material-extensions/select-country/commit/d1c5f38269c0a60580889d5025c4aa66e61a1fdb))
+* **lib:** updated the dependencies ([7f115c1](https://github.com/angular-material-extensions/select-country/commit/7f115c1a80b9a8b86beec28335294e2533f1f351))
+
 # [1.3.0](https://github.com/angular-material-extensions/select-country/compare/1.2.1...1.3.0) (2020-07-08)
 
 
