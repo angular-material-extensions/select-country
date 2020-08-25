@@ -44,6 +44,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() disabled: boolean;
   @Input() nullable: boolean;
   @Input() readonly: boolean;
+  @Input() class: string;
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 

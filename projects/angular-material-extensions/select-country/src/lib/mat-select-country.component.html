@@ -3,7 +3,7 @@
     <mat-label *ngIf="label">{{label}}</mat-label>
     <mat-icon class="mr-12 s-20 secondary-text" matSuffix
               [svgIcon]="this.value?.alpha2Code.toLowerCase()"></mat-icon>
-    <input type="text" [placeholder]="placeHolder" aria-label="country"
+    <input type="text" [placeholder]="placeHolder" aria-label="country" [class]="class"
            matInput [value]="value?.name"
            [formControl]="countryFormControl"
            [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled"
