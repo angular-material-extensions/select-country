@@ -93,7 +93,7 @@ describe('SelectCountryComponent', () => {
       country: new SimpleChange(undefined, 'de', true)
     });
 
-    await fixture.whenStable();
+    fixture.detectChanges();
 
     expect(inputElement.value).toMatch('Germany');
   });
