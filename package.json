@@ -30,7 +30,8 @@
     "build:ssr": "ng build --prod && ng run select-country:server:production",
     "serve:prerender": "cd dist/browser && http-server",
     "postinstall": "ngcc",
-    "prerender": "ng run select-country:prerender"
+    "prerender": "ng run select-country:prerender",
+    "prerender:ghpages": "ng run select-country:prerender_ghpages"
   },
   "private": true,
   "dependencies": {
