@@ -275,6 +275,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() disabled: boolean;
   @Input() nullable: boolean;
   @Input() readonly: boolean;
+  @Input() class: string;
 
   @Output() onCountrySelected: EventEmitter&lt;Country&gt; &#x3D; new EventEmitter&lt;Country&gt;();
 
@@ -332,7 +333,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   }
 
   onBlur() {
-    if (this.value || !this.nullable) {
+    if (this.countryFormControl.value || !this.nullable) {
       this.countryFormControl.setValue(
         this.value ? this.value.name : &#x27;&#x27;
       );

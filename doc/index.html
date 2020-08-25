@@ -196,6 +196,13 @@ export class AppModule {
 <td align="left">Whether the component is read only</td>
 </tr>
 <tr>
+<td align="left">class</td>
+<td align="center"><code>Input()</code></td>
+<td align="center"><code>string</code></td>
+<td align="center">-</td>
+<td align="left">Class attribute apply style to input text or validation ignore (optional)</td>
+</tr>
+<tr>
 <td align="left">onCountrySelected</td>
 <td align="center"><code>Output()</code></td>
 <td align="center"><code>EventEmitter&lt;Country&gt;</code></td>
@@ -230,7 +237,62 @@ export class AppModule {
 </p>
 
 
-<a name="run-demo-app-locally"/>
+<h4 id="use-the-library-with-reactive-forms">Use the library with reactive forms</h4>
+<h3 id="option-1-with-reactive-forms">option 1 with Reactive Forms</h3>
+<div><pre class="line-numbers"><code class="language-html">&lt;mat-select-country appearance=&quot;outline&quot; 
+                    label=&quot;Country&quot;
+                    [formControl]=&quot;countryFormControl&quot;
+                    (onCountrySelected)=&quot;onCountrySelected($event)&quot;&gt;
+&lt;/mat-select-country&gt;</code></pre></div><h3 id="option-2-with-reactive-forms">option 2 with Reactive Forms</h3>
+<div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;countryFormGroup&quot;&gt;
+    &lt;div fxLayoutAlign=&quot;center&quot;&gt;
+      &lt;mat-select-country appearance=&quot;outline&quot;
+                          label=&quot;Country&quot;
+                          class=&quot;className&quot;
+                          formControlName=&quot;country&quot;
+                          (onCountrySelected)=&quot;onCountrySelected($event)&quot;&gt;
+      &lt;/mat-select-country&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;</code></pre></div><div><pre class="line-numbers"><code class="language-typescript">import {Component,OnInit} from &#39;&#64;angular/core&#39;;
+import {Country} from &#39;&#64;angular-material-extensions/select-country&#39;; 
+import {FormControl} from &#39;&#64;angular/forms&#39;;
+
+&#64;Component({
+  selector: &#39;app-root&#39;,
+  templateUrl: &#39;./app.component.html&#39;,
+  styleUrls: [&#39;./app.component.scss&#39;]
+})
+export class AppComponent implements OnInit{
+  title = &#39;select-county&#39;;
+
+  countryFormControl = new FormControl();
+  countryFormGroup: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    angulartics2GoogleAnalytics.startTracking();
+  }
+
+  ngOnInit(): void {
+
+    this.countryFormGroup = this.formBuilder.group({
+      country: []
+    });
+
+    this.countryFormGroup.get(&#39;country&#39;).valueChanges
+.subscribe(country =&gt; console
+.log(&#39;this.countryFormGroup.get(&quot;country&quot;).valueChanges&#39;, country));
+
+    this.countryFormControl.valueChanges
+.subscribe(country =&gt; console
+.log(&#39;this.countryFormControl.valueChanges&#39;, country));
+  }
+
+
+  onCountrySelected($event: Country) {
+    console.log($event);
+  }
+}
+</code></pre></div><a name="run-demo-app-locally"/>
 
 <h3 id="run-demo-app-locally">Run Demo App Locally</h3>
 <p>Build the library</p>
