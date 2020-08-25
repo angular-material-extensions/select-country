@@ -54,7 +54,7 @@ describe('SelectCountryComponent', () => {
     expect(matOptions.length).toEqual(203);
   });
 
-  it('should load all countries (3) if the input value is equal to `ger` ', async () => {
+  it('should load all countries (4) if the input value is equal to `ger` ', async () => {
 
     prepare(inputElement, 'ger');
     fixture.detectChanges();
@@ -62,7 +62,7 @@ describe('SelectCountryComponent', () => {
     fixture.detectChanges();
 
     const matOptions = document.querySelectorAll('mat-option');
-    expect(matOptions.length).toEqual(3);
+    expect(matOptions.length).toEqual(4);
   });
 
   it('should find only germany ', async () => {
@@ -74,6 +74,8 @@ describe('SelectCountryComponent', () => {
 
     const matOptions = document.querySelectorAll('mat-option');
     expect(matOptions.length).toEqual(1);
+
+    await fixture.whenStable();
 
     const optionToClick = matOptions[0] as HTMLElement;
     optionToClick.click();
