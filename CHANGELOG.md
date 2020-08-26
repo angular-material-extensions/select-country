@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/angular-material-extensions/select-country/compare/1.3.1...2.0.0) (2020-08-26)
+
+
+### Bug Fixes
+
+* **lib:** minor ([58323d8](https://github.com/angular-material-extensions/select-country/commit/58323d864b6f3cf9af013fca9974b817605a69f7))
+* **lib:** minor ([60ce3cc](https://github.com/angular-material-extensions/select-country/commit/60ce3cc684207bf5d7f25a472d71f11ce18126d7))
+* **lib:** minor ([4114362](https://github.com/angular-material-extensions/select-country/commit/411436239a42e0a3e5395cea8d1aa015584fab8e))
+* **lib:** updated the dependencies ([f2a5488](https://github.com/angular-material-extensions/select-country/commit/f2a548864e596ec16c02baf559826f20107473e8))
+* **lib:** upgraded to angular flex layout to v10 ([c2a8826](https://github.com/angular-material-extensions/select-country/commit/c2a88264a5f14c54ad1795cfeab1ae5acc7ad170))
+* **lib:** upgraded to angular material to v10 ([8fbc901](https://github.com/angular-material-extensions/select-country/commit/8fbc901d94dc4f7c7e7d96a4707713627f78a183))
+* **lib:** upgraded to angular v10 ([6909825](https://github.com/angular-material-extensions/select-country/commit/69098257d21838285377384f66e8051aa48e8e83))
+
 ## [1.3.1](https://github.com/angular-material-extensions/select-country/compare/1.3.0...1.3.1) (2020-08-25)
 
 
