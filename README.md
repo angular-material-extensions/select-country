@@ -17,7 +17,6 @@
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/select-country.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/select-country.svg?style=flat-square)](https://github.com/angular-material-extensions/select-country/blob/master/LICENSE)
 
-
 <p align="center">
   <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
    src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v0.2.0/select-country.gif">
@@ -57,7 +56,6 @@ View all the directives and components in action at [https://angular-material-ex
 
 ## Library's components
 - `<mat-select-country>` used to display the main component
-
 
 ---
 
