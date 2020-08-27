@@ -45,6 +45,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() nullable: boolean;
   @Input() readonly: boolean;
   @Input() class: string;
+  @Input() customCountryList: Country[];
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
@@ -67,6 +68,9 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   }
 
   ngOnInit() {
+    if(this.customCountryList){
+      this.countries = this.customCountryList;
+    }
     this.filteredOptions = this.countryFormControl.valueChanges
       .pipe(
         startWith(''),
