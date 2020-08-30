@@ -1,3 +1,13 @@
+# [2.1.0](https://github.com/angular-material-extensions/select-country/compare/2.0.0...2.1.0) (2020-08-30)
+
+
+### Bug Fixes
+
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([a0269ad](https://github.com/angular-material-extensions/select-country/commit/a0269ad961b40d5f1da6d3b54239cec11b33f329))
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([5db8bb8](https://github.com/angular-material-extensions/select-country/commit/5db8bb836093ee4f34104147b3d0dccebdb6d4f2))
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([b3ecbb3](https://github.com/angular-material-extensions/select-country/commit/b3ecbb3dc5e0e76b5c4b3a628ba34649c86e445d))
+* **lib:** updated the dependencies ([1cbc85c](https://github.com/angular-material-extensions/select-country/commit/1cbc85c4a19b339a2057b3c00ec6595a0cdcd862))
+
 # [2.0.0](https://github.com/angular-material-extensions/select-country/compare/1.3.1...2.0.0) (2020-08-26)
 
 
