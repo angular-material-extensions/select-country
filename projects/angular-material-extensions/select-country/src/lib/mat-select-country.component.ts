@@ -1,9 +1,9 @@
-import {Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {COUNTRIES_DB} from './db';
-import {Observable} from 'rxjs';
-import {debounceTime, map, startWith} from 'rxjs/operators';
-import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
+import {fromEvent, Subject, Subscription} from 'rxjs';
+import {debounceTime, startWith, takeUntil} from 'rxjs/operators';
+import {MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {MatFormFieldAppearance} from '@angular/material/form-field';
 
 /**
@@ -33,10 +33,8 @@ export interface Country {
     }
   ]
 })
-export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValueAccessor {
+export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
 
-  // tslint:disable-next-line:variable-name
-  @Input() private _value: Country;
   @Input() appearance: MatFormFieldAppearance;
   @Input() country: string;
   @Input() countries: Country[] = COUNTRIES_DB;
@@ -46,16 +44,19 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() nullable: boolean;
   @Input() readonly: boolean;
   @Input() class: string;
-
+  @Input() itemsLoadSize: number;
+  @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
+  @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
-
-
   countryFormControl = new FormControl();
-  filteredOptions: Observable<Country[]>;
+  filteredOptions: Country[];
+  debounceTime = 300;
+  filterString = '';
+  private modelChanged: Subject<string> = new Subject<string>();
+  private subscription: Subscription;
 
-  propagateChange = (_: any) => {
-  };
-
+  // tslint:disable-next-line:variable-name
+  @Input() private _value: Country;
 
   get value(): Country {
     return this._value;
@@ -66,13 +67,19 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
     this.propagateChange(this._value);
   }
 
+  propagateChange = (_: any) => {
+  };
+
   ngOnInit() {
-    this.filteredOptions = this.countryFormControl.valueChanges
+    this.subscription = this.modelChanged
       .pipe(
         startWith(''),
-        debounceTime(300),
-        map(value => this._filter(value))
-      );
+        debounceTime(this.debounceTime),
+      )
+      .subscribe((value) => {
+        this.filterString = value;
+        this._filter(value);
+      });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -89,16 +96,6 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
         this.value = undefined;
       }
     }
-  }
-
-  private _filter(value: string): Country[] {
-    const filterValue = value.toLowerCase();
-
-    return this.countries.filter((option: Country) =>
-      option.name.toLowerCase().includes(filterValue)
-      || option.alpha2Code.toLowerCase().includes(filterValue)
-      || option.alpha3Code.toLowerCase().includes(filterValue)
-    );
   }
 
   onBlur() {
@@ -133,5 +130,63 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
 
   setDisabledState?(isDisabled: boolean): void {
     // throw new Error('Method not implemented.');
+  }
+
+  autocompleteScroll() {
+    if (this.itemsLoadSize) {
+      setTimeout(() => {
+        if (
+          this.statesAutocompleteRef &&
+          this.autocompleteTrigger &&
+          this.statesAutocompleteRef.panel
+        ) {
+          fromEvent(this.statesAutocompleteRef.panel.nativeElement, 'scroll')
+            .pipe(
+              takeUntil(this.autocompleteTrigger.panelClosingActions)
+            )
+            .subscribe(() => {
+              const scrollTop = this.statesAutocompleteRef.panel.nativeElement
+                .scrollTop;
+              const scrollHeight = this.statesAutocompleteRef.panel.nativeElement
+                .scrollHeight;
+              const elementHeight = this.statesAutocompleteRef.panel.nativeElement
+                .clientHeight;
+              const atBottom = scrollHeight === scrollTop + elementHeight;
+              if (atBottom) {
+                // fetch more data if not filtered
+                if (this.filterString === '') {
+                  const fromIndex = this.filteredOptions.length;
+                  const toIndex: number = +this.filteredOptions.length + +this.itemsLoadSize;
+                  this.filteredOptions = [...this.filteredOptions, ...this.countries.slice(fromIndex, toIndex)];
+                }
+              }
+            });
+        }
+      });
+    }
+
+  }
+
+  inputChanged(value: string): void {
+    this.modelChanged.next(value);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private _filter(value: string) {
+    const filterValue = value.toLowerCase();
+
+    // if not filtered, fetch reduced array
+    if (this.itemsLoadSize && filterValue === '') {
+      this.filteredOptions = this.countries.slice(0, this.itemsLoadSize);
+    } else {
+      this.filteredOptions = this.countries.filter((option: Country) =>
+        option.name.toLowerCase().includes(filterValue)
+        || option.alpha2Code.toLowerCase().includes(filterValue)
+        || option.alpha3Code.toLowerCase().includes(filterValue)
+      );
+    }
   }
 }

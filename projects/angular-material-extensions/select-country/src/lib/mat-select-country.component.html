@@ -1,15 +1,16 @@
 <form>
   <mat-form-field [appearance]="appearance">
     <mat-label *ngIf="label">{{label}}</mat-label>
-    <mat-icon class="mr-12 s-20 secondary-text" matSuffix
-              [svgIcon]="this.value?.alpha2Code.toLowerCase()"></mat-icon>
-    <input type="text" [placeholder]="placeHolder" aria-label="country" [class]="class"
-           matInput [value]="value?.name"
-           [formControl]="countryFormControl"
-           [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled"
-           (blur)="onBlur()">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
-      <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
+    <mat-icon [svgIcon]="this.value?.alpha2Code.toLowerCase()" class="mr-12 s-20 secondary-text"
+              matSuffix></mat-icon>
+    <input (blur)="onBlur()" (input)="inputChanged($event.target.value)" [class]="class" [disabled]="disabled"
+           [formControl]="countryFormControl" [matAutocomplete]="countryAutocomplete"
+           [placeholder]="placeHolder"
+           [readonly]="readonly" [value]="value?.name" aria-label="country"
+           matInput type="text">
+    <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"
+                      (optionSelected)="onOptionsSelected($event)">
+      <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
         <small>{{country?.name}} - {{country?.alpha3Code}}</small>
       </mat-option>

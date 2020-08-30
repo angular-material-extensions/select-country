@@ -144,6 +144,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | country      | `Input()`  | `string`    | - |  Value to be set to the input (possible values are `Country` interface properties, case-insensitive)
 | countries      | `Input()`  | `Country[]`    | All countries stored in the lib |  Countries that should be loaded - predefine the countries that you only need! 
 | label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
+| itemsLoadSize      | `Input()`  | `number`    | - |  the number of countries that should be fetched --> improves the performance
 | placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
 | nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
@@ -307,6 +308,18 @@ Result:
   <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
    src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v2.1.0/predefined.png">
 </p>
+
+
+### Improve performance - use the `itemsLoadSize` property
+
+```html
+<mat-select-country appearance="outline"
+                    label="Country"
+                    [itemsLoadSize]="5">
+</mat-select-country>
+```
+
+only 5 countries will fetched! 
 
 
 
