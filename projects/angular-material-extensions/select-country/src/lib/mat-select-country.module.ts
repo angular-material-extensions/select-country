@@ -38,6 +38,7 @@ export class MatSelectCountryModule {
   constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.registerCountries();
   }
+  
 
   registerCountries() {
     for (const country of COUNTRIES_DB) {

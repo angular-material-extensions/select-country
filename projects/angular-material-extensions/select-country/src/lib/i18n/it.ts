@@ -1,6 +1,6 @@
 import {Country} from '../mat-select-country.component';
 
-export const COUNTRIES_DB: Country[] =
+export const COUNTRIES_DB_IT: Country[] =
   [{
     name: 'Afghanistan',
     alpha2Code: 'AF',
