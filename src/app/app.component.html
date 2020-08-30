@@ -435,6 +435,7 @@
   <div fxLayoutAlign="center">
     <mat-select-country appearance="outline"
                         label="Country"
+                        [countries]="predefinedCountries"
                         (onCountrySelected)="onCountrySelected($event)">
     </mat-select-country>
   </div>

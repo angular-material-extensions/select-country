@@ -19,14 +19,17 @@ import {COUNTRIES_DB} from './db';
   declarations: [MatSelectCountryComponent],
   imports: [
     CommonModule,
+
+    // Forms
     FormsModule,
     ReactiveFormsModule,
+
+    // Material
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
     MatAutocompleteModule,
     MatIconModule
-    // FlexLayoutModule
   ],
   exports: [MatSelectCountryComponent]
 })

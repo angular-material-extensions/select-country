@@ -19,7 +19,7 @@ export interface Country {
 /**
  * @author Anthony Nahas
  * @since 11.19
- * @version 1.0
+ * @version 2.1.0
  */
 @Component({
   selector: 'mat-select-country',
@@ -45,12 +45,12 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() nullable: boolean;
   @Input() readonly: boolean;
   @Input() class: string;
+  @Input() countries: Country[] = COUNTRIES_DB;
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
 
   countryFormControl = new FormControl();
-  countries: Country[] = COUNTRIES_DB;
   filteredOptions: Observable<Country[]>;
 
   propagateChange = (_: any) => {
