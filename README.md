@@ -142,6 +142,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | value      | `Input()`  | `Country`    | - |  the selected country
 | appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
 | country      | `Input()`  | `string`    | - |  Value to be set to the input (possible values are `Country` interface properties, case-insensitive)
+| countries      | `Input()`  | `Country[]`    | All countries stored in the lib |  Countries that should be loaded - predefine the countries that you only need! 
 | label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
 | placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
@@ -257,6 +258,55 @@ export class AppComponent implements OnInit{
 }
 
 ```
+
+
+### Predefine your countries to load
+
+```html
+<mat-select-country appearance="outline"
+                    label="Country"
+                    [countries]="predefinedCountries"
+                    (onCountrySelected)="onCountrySelected($event)">
+</mat-select-country>
+```
+
+```typescript
+import {Country} from '@angular-material-extensions/select-country';
+
+predefinedCountries: Country[] = [
+    {
+      name: 'Germany',
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      numericCode: '276'
+    },
+    {
+      name: 'Greece',
+      alpha2Code: 'GR',
+      alpha3Code: 'GRC',
+      numericCode: '300'
+    },
+    {
+      name: 'France',
+      alpha2Code: 'FR',
+      alpha3Code: 'FRA',
+      numericCode: '250'
+    },
+    {
+      name: 'Belgium',
+      alpha2Code: 'BE',
+      alpha3Code: 'BEL',
+      numericCode: '056'
+    },
+  ];
+```
+
+Result:
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v2.1.0/predefined.png">
+</p>
 
 
 

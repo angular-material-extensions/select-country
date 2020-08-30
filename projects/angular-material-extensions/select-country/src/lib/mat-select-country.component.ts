@@ -39,13 +39,13 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, ControlValu
   @Input() private _value: Country;
   @Input() appearance: MatFormFieldAppearance;
   @Input() country: string;
+  @Input() countries: Country[] = COUNTRIES_DB;
   @Input() label: string;
   @Input() placeHolder = 'Select country';
   @Input() disabled: boolean;
   @Input() nullable: boolean;
   @Input() readonly: boolean;
   @Input() class: string;
-  @Input() countries: Country[] = COUNTRIES_DB;
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 

@@ -452,17 +452,19 @@
     </mat-select-country>
   </div>
 
-  <!--  <form [formGroup]="countryFormGroup">-->
-  <!--    <div fxLayoutAlign="center">-->
-  <!--      <mat-select-country appearance="outline"-->
-  <!--                          label="Country"-->
-  <!--                          formControlName="country"-->
-  <!--                          (onCountrySelected)="onCountrySelected($event)">-->
-  <!--      </mat-select-country>-->
-  <!--    </div>-->
-  <!--  </form>-->
-
   <markdown src="assets/md/e2.md"></markdown>
+
+  <h2 class="div-ex2">Usage with predefined countries</h2>
+
+  <div fxLayoutAlign="center">
+    <mat-select-country appearance="outline"
+                        label="Country"
+                        [countries]="predefinedCountries"
+                        (onCountrySelected)="onCountrySelected($event)">
+    </mat-select-country>
+  </div>
+
+  <markdown src="assets/md/predefined/e1.md"></markdown>
 
   <p>For more info, please read the official readme - see the links above GITHUB - DOCS - NPM</p>
 
