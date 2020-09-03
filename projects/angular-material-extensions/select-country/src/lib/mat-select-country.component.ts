@@ -1,11 +1,22 @@
-import {Component, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  Inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {COUNTRIES_DB} from './db';
 import {fromEvent, Subject, Subscription} from 'rxjs';
 import {debounceTime, startWith, takeUntil} from 'rxjs/operators';
 import {MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {MatFormFieldAppearance} from '@angular/material/form-field';
-
+import {MatSelectCountryDBToken} from './tokens';
 /**
  * Country interface ISO 3166
  */
@@ -37,7 +48,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
 
   @Input() appearance: MatFormFieldAppearance;
   @Input() country: string;
-  @Input() countries: Country[] = COUNTRIES_DB;
+  @Input() countries: Country[];
   @Input() label: string;
   @Input() placeHolder = 'Select country';
   @Input() disabled: boolean;
@@ -58,6 +69,11 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   // tslint:disable-next-line:variable-name
   @Input() private _value: Country;
 
+
+  constructor(@Inject(forwardRef(() => MatSelectCountryDBToken)) public db: Country[]) {
+    console.log('db after MatSelectCountryDBToken', db);
+  }
+
   get value(): Country {
     return this._value;
   }
@@ -71,6 +87,11 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   };
 
   ngOnInit() {
+
+    if (!this.countries) {
+      this.countries = this.db;
+    }
+
     this.subscription = this.modelChanged
       .pipe(
         startWith(''),
