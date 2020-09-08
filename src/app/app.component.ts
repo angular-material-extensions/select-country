@@ -6,10 +6,9 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   title = 'select-county';
 
   countryFormControl = new FormControl();
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
     name: 'Deutschland',
     alpha2Code: 'DE',
     alpha3Code: 'DEU',
-    numericCode: '276'
+    numericCode: '276',
   };
 
   predefinedCountries: Country[] = [
@@ -27,30 +26,32 @@ export class AppComponent implements OnInit {
       name: 'Germany',
       alpha2Code: 'DE',
       alpha3Code: 'DEU',
-      numericCode: '276'
+      numericCode: '276',
     },
     {
       name: 'Greece',
       alpha2Code: 'GR',
       alpha3Code: 'GRC',
-      numericCode: '300'
+      numericCode: '300',
     },
     {
       name: 'France',
       alpha2Code: 'FR',
       alpha3Code: 'FRA',
-      numericCode: '250'
+      numericCode: '250',
     },
     {
       name: 'Belgium',
       alpha2Code: 'BE',
       alpha3Code: 'BEL',
-      numericCode: '056'
-    }
+      numericCode: '056',
+    },
   ];
 
-  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-              private formBuilder: FormBuilder) {
+  constructor(
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    private formBuilder: FormBuilder
+  ) {
     angulartics2GoogleAnalytics.startTracking();
   }
 
@@ -59,20 +60,29 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.countryFormGroup = this.formBuilder.group({
-      country: [{
-        value: {
+      country: [
+        {
           name: 'Deutschland',
           alpha2Code: 'DE',
           alpha3Code: 'DEU',
-          numericCode: '276'
-        }, disabled: false
-      }]
+          numericCode: '276',
+          disabled: false,
+        },
+      ],
     });
 
-    this.countryFormGroup.get('country').valueChanges.subscribe(country => console.log('this.countryFormGroup.get(\'country\').valueChanges', country));
+    this.countryFormGroup
+      .get('country')
+      .valueChanges.subscribe((country) =>
+        console.log(
+          'this.countryFormGroup.get(\'country\').valueChanges',
+          country
+        )
+      );
 
-    this.countryFormControl.valueChanges.subscribe(country => console.log('this.countryFormControl.valueChanges', country));
+    this.countryFormControl.valueChanges.subscribe((country) =>
+      console.log('this.countryFormControl.valueChanges', country)
+    );
   }
 }

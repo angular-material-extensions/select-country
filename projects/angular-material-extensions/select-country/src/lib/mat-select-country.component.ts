@@ -9,7 +9,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
@@ -41,12 +41,12 @@ export interface Country {
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => MatSelectCountryComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
-
+export class MatSelectCountryComponent
+  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
   @Input() appearance: MatFormFieldAppearance;
   @Input() countries: Country[];
   @Input() label: string;
@@ -61,6 +61,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
   // countryFormControl = new FormControl();
@@ -72,8 +73,8 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   private modelChanged: Subject<string> = new Subject<string>();
   private subscription: Subscription;
 
+  // tslint:disable-next-line: variable-name
   private _value: Country;
-
 
   constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string) {
   }
@@ -88,8 +89,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
     this.propagateChange(this._value);
   }
 
-  propagateChange = (_: any) => {
-  };
+  propagateChange = (_: any) => {};
 
   ngOnInit() {
     if (!this.countries) {
@@ -118,11 +118,12 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
     if (changes.country) {
       if (changes.country.currentValue) {
         const newValue = changes.country.currentValue.toUpperCase();
-        this.value = this.countries.find(country =>
-          country.name.toUpperCase() === newValue
-          || country.alpha2Code === newValue
-          || country.alpha3Code === newValue
-          || country.numericCode === newValue
+        this.value = this.countries.find(
+          (country) =>
+            country.name.toUpperCase() === newValue ||
+            country.alpha2Code === newValue ||
+            country.alpha3Code === newValue ||
+            country.numericCode === newValue
         );
       } else {
         this.value = undefined;
@@ -138,7 +139,9 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    this.value = this.countries.find(country => country.name === $event.option.value);
+    this.value = this.countries.find(
+      (country) => country.name === $event.option.value
+    );
     this.onCountrySelected.emit(this.value);
   }
 
@@ -170,30 +173,31 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
           this.statesAutocompleteRef.panel
         ) {
           fromEvent(this.statesAutocompleteRef.panel.nativeElement, 'scroll')
-            .pipe(
-              takeUntil(this.autocompleteTrigger.panelClosingActions)
-            )
+            .pipe(takeUntil(this.autocompleteTrigger.panelClosingActions))
             .subscribe(() => {
               const scrollTop = this.statesAutocompleteRef.panel.nativeElement
                 .scrollTop;
-              const scrollHeight = this.statesAutocompleteRef.panel.nativeElement
-                .scrollHeight;
-              const elementHeight = this.statesAutocompleteRef.panel.nativeElement
-                .clientHeight;
+              const scrollHeight = this.statesAutocompleteRef.panel
+                .nativeElement.scrollHeight;
+              const elementHeight = this.statesAutocompleteRef.panel
+                .nativeElement.clientHeight;
               const atBottom = scrollHeight === scrollTop + elementHeight;
               if (atBottom) {
                 // fetch more data if not filtered
                 if (this.filterString === '') {
                   const fromIndex = this.filteredOptions.length;
-                  const toIndex: number = +this.filteredOptions.length + +this.itemsLoadSize;
-                  this.filteredOptions = [...this.filteredOptions, ...this.countries.slice(fromIndex, toIndex)];
+                  const toIndex: number =
+                    +this.filteredOptions.length + +this.itemsLoadSize;
+                  this.filteredOptions = [
+                    ...this.filteredOptions,
+                    ...this.countries.slice(fromIndex, toIndex),
+                  ];
                 }
               }
             });
         }
       });
     }
-
   }
 
   inputChanged(value: string): void {
@@ -243,10 +247,11 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
     if (this.itemsLoadSize && filterValue === '') {
       this.filteredOptions = this.countries.slice(0, this.itemsLoadSize);
     } else {
-      this.filteredOptions = this.countries.filter((option: Country) =>
-        option.name.toLowerCase().includes(filterValue)
-        || option.alpha2Code.toLowerCase().includes(filterValue)
-        || option.alpha3Code.toLowerCase().includes(filterValue)
+      this.filteredOptions = this.countries.filter(
+        (option: Country) =>
+          option.name.toLowerCase().includes(filterValue) ||
+          option.alpha2Code.toLowerCase().includes(filterValue) ||
+          option.alpha3Code.toLowerCase().includes(filterValue)
       );
     }
   }
