@@ -289,7 +289,7 @@ export const COUNTRIES_DB_CA: Country[] =
       numericCode: '203'
     },
     {
-      name: 'Costa d'Ivori ',
+      name: 'Costa d\'Ivori ',
       alpha2Code: 'CI',
       alpha3Code: 'CIV',
       numericCode: '384'

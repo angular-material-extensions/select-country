@@ -289,7 +289,7 @@ export const COUNTRIES_DB_GL: Country[] =
       numericCode: '203'
     },
     {
-      name: 'Côte d '  Ivoire ',
+      name: 'Côte d\'Ivoire',
       alpha2Code: 'CI',
       alpha3Code: 'CIV',
       numericCode: '384'
