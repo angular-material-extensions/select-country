@@ -1,24 +1,22 @@
-import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {MatSelectCountryComponent} from './mat-select-country.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatMenuModule} from '@angular/material/menu';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
-import {COUNTRIES_DB} from './db';
-import {MatSelectCountryDBToken} from './tokens';
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { DomSanitizer } from '@angular/platform-browser';
+import { COUNTRIES_DB } from './db';
+import { MatSelectCountryComponent } from './mat-select-country.component';
+import { MatSelectCountryLangToken } from './tokens';
 
 export type MatSelectCountrySupportLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
 
 
-// export function loadDB(i18n?: string) {
-//   return import('./i18n/de').then(result => {
-//     return result.COUNTRIES_DB_DE;
-//   });
-// }
+export function loadDB(i18n?: string) {
+  return import('./i18n/de').then(result => result.COUNTRIES_DB_DE);
+}
 
 /**
  * @author Anthony Nahas
@@ -49,18 +47,14 @@ export class MatSelectCountryModule {
     this.registerCountries();
   }
 
-  static forRoot(i18n: MatSelectCountrySupportLanguages = 'de'): ModuleWithProviders<MatSelectCountryModule> {
+  static forRoot(i18n: MatSelectCountrySupportLanguages): ModuleWithProviders<MatSelectCountryModule> {
     return {
       ngModule: MatSelectCountryModule,
       providers:
         [
           {
-            provide: MatSelectCountryDBToken,
-            // useValue: null
-            // useFactory: () => import(`'./i18n/${i18n}'`).then(result => {
-            useFactory: () => import('./i18n/de').then(x => {
-              return x.COUNTRIES_DB_DE;
-            })
+            provide: MatSelectCountryLangToken,
+            useValue: i18n,
           }
         ]
     };

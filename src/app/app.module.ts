@@ -24,7 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     FlexLayoutModule,
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
-    MatSelectCountryModule.forRoot('de'),
+    MatSelectCountryModule.forRoot('fr'),
   ],
   providers: [],
   bootstrap: [AppComponent]

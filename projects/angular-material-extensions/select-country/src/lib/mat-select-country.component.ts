@@ -11,12 +11,13 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {fromEvent, Subject, Subscription} from 'rxjs';
-import {debounceTime, startWith, takeUntil} from 'rxjs/operators';
-import {MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger} from '@angular/material/autocomplete';
-import {MatFormFieldAppearance} from '@angular/material/form-field';
-import {MatSelectCountryDBToken} from './tokens';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { fromEvent, Subject, Subscription } from 'rxjs';
+import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
+import { MatSelectCountryLangToken } from './tokens';
+
 /**
  * Country interface ISO 3166
  */
@@ -59,8 +60,10 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
+
   countryFormControl = new FormControl();
   filteredOptions: Country[];
+  db: Country[];
   debounceTime = 300;
   filterString = '';
   private modelChanged: Subject<string> = new Subject<string>();
@@ -70,8 +73,36 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   @Input() private _value: Country;
 
 
-  constructor(@Inject(forwardRef(() => MatSelectCountryDBToken)) public db: Country[]) {
-    console.log('db after MatSelectCountryDBToken', db);
+  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public lang: string) {
+    console.log('lang', lang);
+    switch (lang) {
+      case 'de':
+        console.log('test');
+        import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
+          this.countries = y;
+          return y;
+        });
+        break;
+      case 'it':
+        import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
+          this.countries = y;
+          return y;
+        });
+        break;
+      case 'fr':
+        import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
+          this.countries = y;
+          return y;
+        });
+        break;
+      default:
+        import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
+          this.countries = y;
+          return y;
+        });
+        break;
+    }
+    console.log('x', this.countries);
   }
 
   get value(): Country {
@@ -86,16 +117,16 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   propagateChange = (_: any) => {
   };
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    if (!this.countries) {
-      this.countries = this.db;
-    }
+    // if (!this.countries) {
+    //   this.countries = await this.db;
+    // }
 
     this.subscription = this.modelChanged
       .pipe(
         startWith(''),
-        debounceTime(this.debounceTime),
+        debounceTime(this.debounceTime)
       )
       .subscribe((value) => {
         this.filterString = value;
