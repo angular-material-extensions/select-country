@@ -48,7 +48,7 @@ export interface Country {
 export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
 
   @Input() appearance: MatFormFieldAppearance;
-  @Input() country: string;
+  @Input() country: Country;
   @Input() countries: Country[];
   @Input() label: string;
   @Input() placeHolder = 'Select country';
@@ -57,52 +57,26 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   @Input() readonly: boolean;
   @Input() class: string;
   @Input() itemsLoadSize: number;
+  @Input() loading: boolean;
+
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
+
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
   countryFormControl = new FormControl();
   filteredOptions: Country[];
   db: Country[];
+  loadingDB: boolean;
   debounceTime = 300;
   filterString = '';
   private modelChanged: Subject<string> = new Subject<string>();
   private subscription: Subscription;
 
-  // tslint:disable-next-line:variable-name
-  @Input() private _value: Country;
+  private _value: Country;
 
 
-  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public lang: string) {
-    console.log('lang', lang);
-    switch (lang) {
-      case 'de':
-        console.log('test');
-        import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
-          this.countries = y;
-          return y;
-        });
-        break;
-      case 'it':
-        import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
-          this.countries = y;
-          return y;
-        });
-        break;
-      case 'fr':
-        import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
-          this.countries = y;
-          return y;
-        });
-        break;
-      default:
-        import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
-          this.countries = y;
-          return y;
-        });
-        break;
-    }
-    console.log('x', this.countries);
+  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string) {
   }
 
   get value(): Country {
@@ -117,11 +91,21 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   propagateChange = (_: any) => {
   };
 
-  async ngOnInit() {
-
-    // if (!this.countries) {
-    //   this.countries = await this.db;
-    // }
+  ngOnInit() {
+    if (!this.countries) {
+      console.log('lang', this.i18n);
+      this.countryFormControl.disable();
+      this.loadingDB = true;
+      this._importLang(this.i18n)
+        .then((res) => {
+          console.log('result', res);
+          console.log('countries', this.countries);
+          if (!this.disabled) {
+            this.countryFormControl.enable();
+          }
+        }).catch((err) => console.error('Error: ' + err))
+        .finally(() => this.loadingDB = false);
+    }
 
     this.subscription = this.modelChanged
       .pipe(
@@ -135,6 +119,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes);
     if (changes.country) {
       if (changes.country.currentValue) {
         const newValue = changes.country.currentValue.toUpperCase();
@@ -147,6 +132,9 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
       } else {
         this.value = undefined;
       }
+    }
+    if (changes.disabled) {
+      changes.disabled.currentValue ? this.countryFormControl.disable() : this.countryFormControl.enable();
     }
   }
 
@@ -225,6 +213,38 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  private _importLang(i18n: string): Promise<any> {
+    switch (i18n) {
+      case 'de':
+        console.log('test');
+        return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'it':
+        return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'es':
+        return import('./i18n/es').then(result => result.COUNTRIES_DB_ES).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'fr':
+        return import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
+          this.countries = y;
+          return y;
+        });
+      default:
+        console.log('running with default');
+        return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => {
+          this.countries = y;
+          return y;
+        });
+    }
   }
 
   private _filter(value: string) {

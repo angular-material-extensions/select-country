@@ -6,17 +6,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer } from '@angular/platform-browser';
-import { COUNTRIES_DB } from './db';
+import { COUNTRIES_DB } from './i18n';
 import { MatSelectCountryComponent } from './mat-select-country.component';
 import { MatSelectCountryLangToken } from './tokens';
 
-export type MatSelectCountrySupportLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
+export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
 
-
-export function loadDB(i18n?: string) {
-  return import('./i18n/de').then(result => result.COUNTRIES_DB_DE);
-}
 
 /**
  * @author Anthony Nahas
@@ -37,7 +34,8 @@ export function loadDB(i18n?: string) {
     MatMenuModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ],
   exports: [MatSelectCountryComponent]
 })
@@ -47,14 +45,14 @@ export class MatSelectCountryModule {
     this.registerCountries();
   }
 
-  static forRoot(i18n: MatSelectCountrySupportLanguages): ModuleWithProviders<MatSelectCountryModule> {
+  static forRoot(i18n: MatSelectCountrySupportedLanguages): ModuleWithProviders<MatSelectCountryModule> {
     return {
       ngModule: MatSelectCountryModule,
       providers:
         [
           {
             provide: MatSelectCountryLangToken,
-            useValue: i18n,
+            useValue: i18n
           }
         ]
     };
@@ -63,9 +61,13 @@ export class MatSelectCountryModule {
   registerCountries() {
     for (const country of COUNTRIES_DB) {
       const countryAlpha2Code = country.alpha2Code.toLowerCase();
-      this.iconRegistry
-        .addSvgIcon(countryAlpha2Code, this.sanitizer
-          .bypassSecurityTrustResourceUrl(`assets/svg-country-flags/svg/${countryAlpha2Code}.svg`));
+      try {
+        this.iconRegistry
+          .addSvgIcon(countryAlpha2Code, this.sanitizer
+            .bypassSecurityTrustResourceUrl(`assets/svg-country-flags/svg/${countryAlpha2Code}.svg`));
+      } catch (err) {
+        console.error('Error: icon not found for ' + countryAlpha2Code, err);
+      }
     }
   }
 

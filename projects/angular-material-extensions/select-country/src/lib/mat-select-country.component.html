@@ -1,19 +1,20 @@
 <form>
-  <mat-form-field [appearance]="appearance">
-    <mat-label *ngIf="label">{{label}}</mat-label>
-    <mat-icon [svgIcon]="this.value?.alpha2Code.toLowerCase()" class="mr-12 s-20 secondary-text"
-              matSuffix></mat-icon>
-    <input (blur)="onBlur()" (input)="inputChanged($event.target.value)" [class]="class" [disabled]="disabled"
-           [formControl]="countryFormControl" [matAutocomplete]="countryAutocomplete"
-           [placeholder]="placeHolder"
-           [readonly]="readonly" [value]="value?.name" aria-label="country"
-           matInput type="text">
-    <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"
-                      (optionSelected)="onOptionsSelected($event)">
-      <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
-        <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
-        <small>{{country?.name}} - {{country?.alpha3Code}}</small>
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+    <mat-form-field [appearance]="appearance">
+        <mat-label *ngIf="label">{{label}}</mat-label>
+        <mat-icon *ngIf="this.value" [svgIcon]="this.value?.alpha2Code?.toLowerCase()" class="mr-12 s-20 secondary-text"
+                  matSuffix></mat-icon>
+        <input (blur)="onBlur()" (input)="inputChanged($event?.target?.value)" [class]="class"
+               [formControl]="countryFormControl" [matAutocomplete]="countryAutocomplete"
+               [placeholder]="placeHolder"
+               [readonly]="readonly" [value]="value?.name" aria-label="country"
+               matInput type="text">
+        <mat-progress-bar *ngIf="this.loadingDB || this.loading" mode="buffer"></mat-progress-bar>
+        <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"
+                          (optionSelected)="onOptionsSelected($event)">
+            <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
+                <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
+                <small>{{country?.name}} - {{country?.alpha3Code}}</small>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 </form>
