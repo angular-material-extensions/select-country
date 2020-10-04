@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Country} from '@angular-material-extensions/select-country';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Country } from '@angular-material-extensions/select-country';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,13 @@ export class AppComponent implements OnInit {
 
   countryFormControl = new FormControl();
   countryFormGroup: FormGroup;
+
+  defaultValue: Country = {
+    name: 'Deutschland',
+    alpha2Code: 'DE',
+    alpha3Code: 'DEU',
+    numericCode: '276'
+  };
 
   predefinedCountries: Country[] = [
     {
@@ -39,7 +46,7 @@ export class AppComponent implements OnInit {
       alpha2Code: 'BE',
       alpha3Code: 'BEL',
       numericCode: '056'
-    },
+    }
   ];
 
   constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,

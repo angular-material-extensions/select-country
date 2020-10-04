@@ -48,7 +48,6 @@ export interface Country {
 export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
 
   @Input() appearance: MatFormFieldAppearance;
-  @Input() country: Country;
   @Input() countries: Country[];
   @Input() label: string;
   @Input() placeHolder = 'Select country';

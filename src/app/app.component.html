@@ -439,6 +439,7 @@
         <mat-select-country appearance="outline"
                             label="Country"
                             [itemsLoadSize]="5"
+                            [country]="defaultValue"
                             (onCountrySelected)="onCountrySelected($event)">
         </mat-select-country>
     </div>
@@ -468,7 +469,7 @@
 
     <markdown src="assets/md/e4.md"></markdown>
 
-    <h2 class="div-ex2">Usage with Reactive Forms</h2>
+    <h2 class="div-ex2">Reactive Forms and default value</h2>
 
     <div fxLayoutAlign="center">
         <form [formGroup]="countryFormGroup">
