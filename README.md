@@ -121,6 +121,24 @@ import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ...],
+  imports: [
+              MatSelectCountryModule.forRoot('de'), // you can use en | de | it | es | fr --> MatSelectCountrySupportedLanguages
+             HttpClientModule, ...],  
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+
+in other modules
+
+```typescript
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country'; 
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+  declarations: [AppComponent, ...],
   imports: [MatSelectCountryModule, HttpClientModule, ...],  
   bootstrap: [AppComponent]
 })
@@ -141,12 +159,12 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
 | value      | `Input()`  | `Country`    | - |  the selected country
 | appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
-| country      | `Input()`  | `string`    | - |  Value to be set to the input (possible values are `Country` interface properties, case-insensitive)
 | countries      | `Input()`  | `Country[]`    | All countries stored in the lib |  Countries that should be loaded - predefine the countries that you only need! 
 | label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
 | itemsLoadSize      | `Input()`  | `number`    | - |  the number of countries that should be fetched --> improves the performance
 | placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
+| loading      | `Input()`  | `boolean`    | - |  Whether the component is loading
 | nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
 | readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
 | class  | `Input()` | `string`    | - | Class attribute apply style to input text or validation ignore (optional)
