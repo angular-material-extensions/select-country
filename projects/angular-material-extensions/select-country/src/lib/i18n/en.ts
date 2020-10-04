@@ -1,4 +1,4 @@
-import {Country} from './mat-select-country.component';
+import { Country } from '../mat-select-country.component';
 
 export const COUNTRIES_DB: Country[] =
   [
