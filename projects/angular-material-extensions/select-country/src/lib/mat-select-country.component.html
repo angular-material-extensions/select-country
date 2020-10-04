@@ -6,7 +6,7 @@
         <input (blur)="onBlur()" (input)="inputChanged($event?.target?.value)" [class]="class"
                [formControl]="countryFormControl" [matAutocomplete]="countryAutocomplete"
                [placeholder]="placeHolder"
-               [readonly]="readonly" [value]="value?.name" aria-label="country"
+               [readonly]="readonly" [value]="this.value?.name" aria-label="country"
                matInput type="text">
         <mat-progress-bar *ngIf="this.loadingDB || this.loading" mode="buffer"></mat-progress-bar>
         <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"

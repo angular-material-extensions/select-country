@@ -83,6 +83,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
     return this._value;
   }
 
+  @Input()
   set value(value: Country) {
     this._value = value;
     this.propagateChange(this._value);
@@ -98,8 +99,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
       this.loadingDB = true;
       this._importLang(this.i18n)
         .then((res) => {
-          console.log('result', res);
-          console.log('countries', this.countries);
+          // console.log('countries', this.countries);
           if (!this.disabled) {
             this.countryFormControl.enable();
           }
@@ -119,7 +119,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
+    // console.log('changes', changes);
     if (changes.country) {
       if (changes.country.currentValue) {
         const newValue = changes.country.currentValue.toUpperCase();
@@ -155,8 +155,10 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   }
 
   writeValue(obj: any): void {
+    console.log('writeValue');
     if (obj) {
       this.value = obj;
+      console.log('writeValue done', this.value);
     }
   }
 

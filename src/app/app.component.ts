@@ -54,7 +54,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     this.countryFormGroup = this.formBuilder.group({
-      country: []
+      country: [{
+        name: 'Deutschland',
+        alpha2Code: 'DE',
+        alpha3Code: 'DEU',
+        numericCode: '276'
+      }]
     });
 
     this.countryFormGroup.get('country').valueChanges.subscribe(country => console.log('this.countryFormGroup.get(\'country\').valueChanges', country));
