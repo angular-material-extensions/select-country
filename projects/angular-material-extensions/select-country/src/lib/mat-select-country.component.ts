@@ -11,7 +11,7 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { fromEvent, Subject, Subscription } from 'rxjs';
@@ -64,7 +64,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
 
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
-  countryFormControl = new FormControl();
+  // countryFormControl = new FormControl();
   filteredOptions: Country[];
   db: Country[];
   loadingDB: boolean;
@@ -95,14 +95,10 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   ngOnInit() {
     if (!this.countries) {
       console.log('lang', this.i18n);
-      this.countryFormControl.disable();
       this.loadingDB = true;
       this._importLang(this.i18n)
         .then((res) => {
           // console.log('countries', this.countries);
-          if (!this.disabled) {
-            this.countryFormControl.enable();
-          }
         }).catch((err) => console.error('Error: ' + err))
         .finally(() => this.loadingDB = false);
     }
@@ -133,17 +129,10 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
         this.value = undefined;
       }
     }
-    if (changes.disabled) {
-      changes.disabled.currentValue ? this.countryFormControl.disable() : this.countryFormControl.enable();
-    }
   }
 
   onBlur() {
-    if (this.countryFormControl.value || !this.nullable) {
-      this.countryFormControl.setValue(
-        this.value ? this.value.name : ''
-      );
-    } else if (this.value) {
+    if (this.value && this.nullable) {
       this.value = null;
       this.onCountrySelected.emit(null);
     }
@@ -158,7 +147,6 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
     console.log('writeValue');
     if (obj) {
       this.value = obj;
-      console.log('writeValue done', this.value);
     }
   }
 
