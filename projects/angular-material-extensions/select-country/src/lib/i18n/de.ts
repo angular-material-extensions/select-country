@@ -811,7 +811,7 @@ export const COUNTRIES_DB_DE: Country[] =
     },
     {
       name: 'Norwegen',
-      alpha2Code: 'NEIN',
+      alpha2Code: 'NO',
       alpha3Code: 'NOR',
       numericCode: '578'
     },
