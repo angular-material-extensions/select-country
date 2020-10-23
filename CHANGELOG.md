@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/angular-material-extensions/select-country/compare/3.0.0...3.0.1) (2020-10-23)
+
+
+### Bug Fixes
+
+* **lib:** added the ability to disable the component using reactive forms [#45](https://github.com/angular-material-extensions/select-country/issues/45) ([19ed988](https://github.com/angular-material-extensions/select-country/commit/19ed988fe7e8b3b9000dba30fa0b27c3e75254c4))
+
 # [3.0.0](https://github.com/angular-material-extensions/select-country/compare/2.2.0...3.0.0) (2020-10-23)
 
 
