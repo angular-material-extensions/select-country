@@ -158,7 +158,7 @@ export class MatSelectCountryComponent implements OnInit, OnChanges, OnDestroy, 
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    // throw new Error('Method not implemented.');
+    this.disabled = isDisabled;
   }
 
   autocompleteScroll() {
