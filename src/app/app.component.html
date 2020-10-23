@@ -439,12 +439,23 @@
         <mat-select-country appearance="outline"
                             label="Country"
                             [itemsLoadSize]="5"
-                            [country]="defaultValue"
                             (onCountrySelected)="onCountrySelected($event)">
         </mat-select-country>
     </div>
 
     <markdown src="assets/md/e1.md"></markdown>
+
+    <h2 class="div-ex2">Default Value</h2>
+
+    <div fxLayoutAlign="center">
+        <mat-select-country appearance="outline"
+                            label="Country"
+                            [value]="defaultValue"
+                            (onCountrySelected)="onCountrySelected($event)">
+        </mat-select-country>
+    </div>
+
+    <markdown src="assets/md/e5.md"></markdown>
 
     <h2 class="div-ex2">Disabled</h2>
 
