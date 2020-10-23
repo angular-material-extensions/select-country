@@ -1,3 +1,24 @@
+# [3.0.0](https://github.com/angular-material-extensions/select-country/compare/2.2.0...3.0.0) (2020-10-23)
+
+
+### Bug Fixes
+
+* **demo:** adapted the demo app to the latest version ([685c50b](https://github.com/angular-material-extensions/select-country/commit/685c50bc781ada08383754a6323ec02d6254a7b9))
+* **demo:** enhanced the demo app [#35](https://github.com/angular-material-extensions/select-country/issues/35) [#46](https://github.com/angular-material-extensions/select-country/issues/46) ([c8b2969](https://github.com/angular-material-extensions/select-country/commit/c8b2969e6122f16218c06982ce08185fd2ab99da))
+* **i18n:** improved i18n feature ([3aee9f5](https://github.com/angular-material-extensions/select-country/commit/3aee9f5abb361ae29deabf6331a9f6442075de6d))
+* **lib:** improved the lib - bug fixes - integration of i18n [#7](https://github.com/angular-material-extensions/select-country/issues/7) [#42](https://github.com/angular-material-extensions/select-country/issues/42) ([62ca478](https://github.com/angular-material-extensions/select-country/commit/62ca478d16f0ae23da4246403175b50a7e3f0aa0))
+* **lib:** integration of the default en language [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([8ac69d6](https://github.com/angular-material-extensions/select-country/commit/8ac69d67572b2f33c4da833199d8bc4dd3b2f770))
+* **lib:** removed country property --> please use `value` [#11](https://github.com/angular-material-extensions/select-country/issues/11) [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([7ad05b5](https://github.com/angular-material-extensions/select-country/commit/7ad05b5a8e4d1c5a7c2a4172cab9a014ef247456))
+* **lib:** solved default country bug [#11](https://github.com/angular-material-extensions/select-country/issues/11) [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([af00b88](https://github.com/angular-material-extensions/select-country/commit/af00b889c8e74f1fc5e731ab897ca6e6587d8cf0))
+* **lib:** solved minor bug [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([7ade997](https://github.com/angular-material-extensions/select-country/commit/7ade997ccc97b3b5402c1e948a3d71aaa34f6046))
+
+
+### Features
+
+* **lib:** added 4 languages support | de fr es it [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([6253d00](https://github.com/angular-material-extensions/select-country/commit/6253d0043689360fa2f81e62b0224f81f6116a32))
+* **lib:** added 4 languages support | de fr es it [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([a3b440b](https://github.com/angular-material-extensions/select-country/commit/a3b440b263c7481fe9d2b63af963f96f705e22aa))
+* **lib:** updated angular to the latest version ([513175a](https://github.com/angular-material-extensions/select-country/commit/513175a059b04ae8de52fb6d6f370b7936681742))
+
 # [2.2.0](https://github.com/angular-material-extensions/select-country/compare/2.1.0...2.2.0) (2020-08-30)
 
 # [2.1.0](https://github.com/angular-material-extensions/select-country/compare/2.0.0...2.1.0) (2020-08-30)
