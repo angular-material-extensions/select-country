@@ -9,11 +9,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { COUNTRIES_DB } from './i18n';
+import { JoinStringsPipe } from './join.pipe';
 import { MatSelectCountryComponent } from './mat-select-country.component';
 import { MatSelectCountryLangToken } from './tokens';
 
 export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
-
 
 /**
  * @author Anthony Nahas
@@ -21,7 +21,10 @@ export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it
  */
 // @dynamic
 @NgModule({
-  declarations: [MatSelectCountryComponent],
+  declarations: [
+    MatSelectCountryComponent,
+    JoinStringsPipe
+  ],
   imports: [
     CommonModule,
 
@@ -35,13 +38,15 @@ export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it
     MatInputModule,
     MatAutocompleteModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
-  exports: [MatSelectCountryComponent]
+  exports: [MatSelectCountryComponent],
 })
 export class MatSelectCountryModule {
-
-  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
     this.registerCountries();
   }
 
@@ -70,5 +75,4 @@ export class MatSelectCountryModule {
       }
     }
   }
-
 }

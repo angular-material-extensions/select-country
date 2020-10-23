@@ -17,7 +17,7 @@
                           (optionSelected)="onOptionsSelected($event)">
             <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
                 <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
-                <small>{{country?.name}} - {{country?.alpha3Code}}</small>
+                <small>{{ [country?.name, country?.alpha3Code] | joinStrings }}</small>
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
