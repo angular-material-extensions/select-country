@@ -63,10 +63,12 @@ export class AppComponent implements OnInit {
     this.countryFormGroup = this.formBuilder.group({
       country: [
         {
-          name: 'Deutschland',
-          alpha2Code: 'DE',
-          alpha3Code: 'DEU',
-          numericCode: '276',
+          value: {
+            name: 'Deutschland',
+            alpha2Code: 'DE',
+            alpha3Code: 'DEU',
+            numericCode: '276',
+          },
           disabled: false,
         },
       ],
