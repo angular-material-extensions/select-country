@@ -1,3 +1,11 @@
+## [3.0.3](https://github.com/angular-material-extensions/select-country/compare/3.0.2...3.0.3) (2020-11-03)
+
+
+### Bug Fixes
+
+* **lib:** removed logs [#49](https://github.com/angular-material-extensions/select-country/issues/49) ([edc19ab](https://github.com/angular-material-extensions/select-country/commit/edc19abf3b606d9650819d50ba5c6a11d2e2b7ea))
+* **lib:** support of required attribute [#48](https://github.com/angular-material-extensions/select-country/issues/48) ([829c7d5](https://github.com/angular-material-extensions/select-country/commit/829c7d582013442fc7f62bfee3a6542d0d13cd03))
+
 ## [3.0.2](https://github.com/angular-material-extensions/select-country/compare/3.0.1...3.0.2) (2020-10-23)
 
 
