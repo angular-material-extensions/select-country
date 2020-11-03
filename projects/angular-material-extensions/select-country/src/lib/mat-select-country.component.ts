@@ -51,6 +51,7 @@ export class MatSelectCountryComponent
   @Input() countries: Country[];
   @Input() label: string;
   @Input() placeHolder = 'Select country';
+  @Input() required: boolean;
   @Input() disabled: boolean;
   @Input() nullable: boolean;
   @Input() readonly: boolean;
@@ -64,7 +65,6 @@ export class MatSelectCountryComponent
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
-  // countryFormControl = new FormControl();
   filteredOptions: Country[];
   db: Country[];
   loadingDB: boolean;
