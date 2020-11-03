@@ -93,7 +93,7 @@ export class MatSelectCountryComponent
 
   ngOnInit() {
     if (!this.countries) {
-      console.log('lang', this.i18n);
+      // console.log('lang', this.i18n);
       this.loadingDB = true;
       this._importLang(this.i18n)
         .then((res) => {
@@ -146,7 +146,6 @@ export class MatSelectCountryComponent
   }
 
   writeValue(obj: any): void {
-    console.log('writeValue');
     if (obj) {
       this.value = obj;
     }
@@ -211,7 +210,6 @@ export class MatSelectCountryComponent
   private _importLang(i18n: string): Promise<any> {
     switch (i18n) {
       case 'de':
-        console.log('test');
         return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
           this.countries = y;
           return y;
@@ -232,7 +230,7 @@ export class MatSelectCountryComponent
           return y;
         });
       default:
-        console.log('running with default');
+        // console.log('running with default');
         return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => {
           this.countries = y;
           return y;
