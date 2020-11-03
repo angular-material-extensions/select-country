@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/angular-material-extensions/select-country/compare/3.0.3...3.0.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* norway alpha2code correctly set ([f42390a](https://github.com/angular-material-extensions/select-country/commit/f42390a90da7561b278d7844889bdd4a44dd8c12))
+
 ## [3.0.3](https://github.com/angular-material-extensions/select-country/compare/3.0.2...3.0.3) (2020-11-03)
 
 
