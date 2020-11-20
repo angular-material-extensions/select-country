@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/angular-material-extensions/select-country/compare/3.0.4...4.0.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* **demo:** upgraded angular flexlayout to v11 ([fc7a45d](https://github.com/angular-material-extensions/select-country/commit/fc7a45d34ab8ee624f3f468e3799fe5e9f0e8540))
+* **lib:** fixed issue related to the schematics ([81eee08](https://github.com/angular-material-extensions/select-country/commit/81eee082d5dff61e8ea774a69bbcfc4ef8696786))
+* **lib:** updated dependencies ([d093dd9](https://github.com/angular-material-extensions/select-country/commit/d093dd91a564ccd1e6f09a15924755dc1a37a7ec))
+* **lib:** upgraded angular material to v11 ([ef9e51e](https://github.com/angular-material-extensions/select-country/commit/ef9e51e1ac21b06d67254f15cb1e5a9190b92fed))
+* **lib:** upgraded angular to v11 ([e7f1851](https://github.com/angular-material-extensions/select-country/commit/e7f18511a46323bf70abfec61945eafcea941209))
+* **lib:** upgraded nguniversal to v11 ([edcf027](https://github.com/angular-material-extensions/select-country/commit/edcf0279f53ba6f711aab0b2c0bade8f38c9d9ac))
+* **lib:** upgraded rxjs to v6.6.3 ([28f0cfa](https://github.com/angular-material-extensions/select-country/commit/28f0cfacd3cdce89a434917a3fa2c2314c061fcd))
+
 ## [3.0.4](https://github.com/angular-material-extensions/select-country/compare/3.0.3...3.0.4) (2020-11-03)
 
 
