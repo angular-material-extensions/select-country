@@ -4,7 +4,7 @@
    src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
 </p>
 
-# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V10 supported incl. schematics
+# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V11 supported incl. schematics
 
 [![npm version](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg)](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country)
 [![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/select-country)
@@ -392,7 +392,7 @@ This project is supported by [jetbrains](https://www.jetbrains.com/) with 1 ALL 
 
 ## License
 
-Copyright (c) 2019 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
+Copyright (c) 2020 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
                                                                                                             <img alt="angular-material-extensions's logo"
                                                                                                              height="92px" width="92px" style="text-align: center;" 
                                                                                                              src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/badge_made-in-germany.svg">
