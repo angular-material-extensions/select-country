@@ -1,7 +1,7 @@
 import {chain, noop, Rule, SchematicContext, Tree} from '@angular-devkit/schematics';
 import {NodePackageInstallTask} from '@angular-devkit/schematics/tasks';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
 import {addPackageJsonDependency, NodeDependency, NodeDependencyType} from '../helpers';
-import {getWorkspace} from '@schematics/angular/utility/config';
 import {addModuleImportToRootModule, getProjectFromWorkspace,} from '@angular/cdk/schematics';
 
 /** Loads the full version from the given Angular package gracefully. */
@@ -46,13 +46,18 @@ export function installPackageJsonDependencies(): Rule {
 }
 
 export function addModuleToImports(options: any): Rule {
-  return (host: Tree, context: SchematicContext) => {
-    const workspace = getWorkspace(host);
-    const project = getProjectFromWorkspace(
-      workspace,
+  // @ts-ignore
+  return async (host: Tree, context: SchematicContext) => {
+    const workspace = await getWorkspace(host);
+    // const project = getProjectFromWorkspace(
+    //   workspace,
       // Takes the first project in case it's not provided by CLI
-      options.project ? options.project : Object.keys(workspace.projects)[0]
-    );
+      // options.project ? options.project : Object.keys(workspace.projects)[0]
+    // );
+
+    // const workspace = await getWorkspace(host);
+    // @ts-ignore
+    const project = getProjectFromWorkspace(workspace, options.project);
 
     const moduleName = `MatSelectCountryModule`;
 
