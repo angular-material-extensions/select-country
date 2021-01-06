@@ -487,7 +487,7 @@ export const COUNTRIES_DB_ES: Country[] =
     },
     {
       name: 'Islandia',
-      alpha2Code: 'ES',
+      alpha2Code: 'IS',
       alpha3Code: 'ISL',
       numericCode: '352'
     },
