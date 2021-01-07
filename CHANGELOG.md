@@ -1,3 +1,11 @@
+## [4.0.2](https://github.com/angular-material-extensions/select-country/compare/4.0.1...4.0.2) (2021-01-07)
+
+
+### Bug Fixes
+
+* **lib:** removed json-utils helper file ([98a6ddc](https://github.com/angular-material-extensions/select-country/commit/98a6ddc7d73011f3bba56f626da4bd623c6521f1))
+* **lib:** updated the dependencies ([a779e00](https://github.com/angular-material-extensions/select-country/commit/a779e002f478e2c1b3db7e3799e8c4006ef37b18))
+
 ## [4.0.1](https://github.com/angular-material-extensions/select-country/compare/4.0.0...4.0.1) (2020-11-20)
 
 # [4.0.0](https://github.com/angular-material-extensions/select-country/compare/3.0.4...4.0.0) (2020-11-20)
