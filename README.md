@@ -101,75 +101,73 @@ then update your `angular.json` like below (svg-country-flags)
 ```
 
 Now install `@angular-material-extensions/select-country` via:
+
 ```shell
 npm install --save @angular-material-extensions/select-country
 ```
-
 
 ### Import the library
 
 If you installed the library via angular schematics, you can skip this step
 
 Once installed you need to import the main module and the `HttpClientModule`:
+
 ```js
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
 ```
 
 ```typescript
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country'; 
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [
               MatSelectCountryModule.forRoot('de'), // you can use en | de | it | es | fr --> MatSelectCountrySupportedLanguages
-             HttpClientModule, ...],  
+             HttpClientModule, ...],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
-
 
 in other modules
 
 ```typescript
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country'; 
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule, HttpClientModule, ...],  
+  imports: [MatSelectCountryModule, HttpClientModule, ...],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-Other modules in your application like for lazy loading import ` MatSelectCountryModule ` into your feature module:
-
+Other modules in your application like for lazy loading import `MatSelectCountryModule` into your feature module:
 
 <a name="api"/>
 
 ## API
 
-### `<mat-select-country>`  used to display the main component - [see the demo examples](https://angular-material-extensions.github.io/select-country/examples)
+### `<mat-select-country>` used to display the main component - [see the demo examples](https://angular-material-extensions.github.io/select-country/examples)
 
-| option | bind  |  type  |   default    | description  |
-|:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| value      | `Input()`  | `Country`    | - |  the selected country
-| appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
-| countries      | `Input()`  | `Country[]`    | All countries stored in the lib |  Countries that should be loaded - predefine the countries that you only need! 
-| label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
-| itemsLoadSize      | `Input()`  | `number`    | - |  the number of countries that should be fetched --> improves the performance
-| placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
-| disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
-| loading      | `Input()`  | `boolean`    | - |  Whether the component is loading
-| nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
-| readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
-| class  | `Input()` | `string`    | - | Class attribute apply style to input text or validation ignore (optional)
-| onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
-
+| option            |    bind    |           type           |             default             | description                                                                                        |
+| :---------------- | :--------: | :----------------------: | :-----------------------------: | :------------------------------------------------------------------------------------------------- | -------- | ---------- | ------ | --------- |
+| value             | `Input()`  |        `Country`         |                -                | the selected country (pass an empty Country object with alpha2 code populated to do alpha2 lookup) |
+| appearance        | `Input()`  | `MatFormFieldAppearance` |                -                | Possible appearance styles for `mat-form-field`                                                    | 'legacy' | 'standard' | 'fill' | 'outline' |
+| countries         | `Input()`  |       `Country[]`        | All countries stored in the lib | Countries that should be loaded - predefine the countries that you only need!                      |
+| label             | `Input()`  |        `boolean`         |                -                | `mat-form-field` label's text                                                                      |
+| itemsLoadSize     | `Input()`  |         `number`         |                -                | the number of countries that should be fetched --> improves the performance                        |
+| placeHolder       | `Input()`  |        `boolean`         |                -                | input placeholder text                                                                             |
+| disabled          | `Input()`  |        `boolean`         |                -                | Whether the component is disabled                                                                  |
+| loading           | `Input()`  |        `boolean`         |                -                | Whether the component is loading                                                                   |
+| nullable          | `Input()`  |        `boolean`         |                -                | Whether the component is able to emit `null`                                                       |
+| readonly          | `Input()`  |        `boolean`         |                -                | Whether the component is read only                                                                 |
+| class             | `Input()`  |         `string`         |                -                | Class attribute apply style to input text or validation ignore (optional)                          |
+| onCountrySelected | `Output()` | `EventEmitter<Country>`  |                -                | emits the selected country as object (see the interface below)                                     |
 
 ```typescript
 interface Country {
