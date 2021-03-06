@@ -18,7 +18,7 @@
         <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
             <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
             <small *ngIf="!showCallingCode">{{ [country?.name, country?.alpha3Code] | joinStrings }}</small>
-            <small *ngIf="showCallingCode">{{ country?.name }} ({{ country?.callingCode }})</small>
+            <small *ngIf="showCallingCode">{{ [country?.name, '(' + country?.callingCode + ')'] | joinStrings:' ' }}</small>
         </mat-option>
     </mat-autocomplete>
 </mat-form-field>
