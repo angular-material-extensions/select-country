@@ -9,7 +9,7 @@
     "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run select-country:server:production --bundleDependencies all",
     "build:docs": "npx compodoc -p projects/angular-material-extensions/select-country/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
     "build:lib": "ng build @angular-material-extensions/select-country",
-    "build:lib:Watch": "ng build @angular-material-extensions/select-country --watch",
+    "build:lib:watch": "ng build @angular-material-extensions/select-country --watch",
     "build:prod": "ng build --prod",
     "build:prod:ghpages": "ng build --preserve-symlinks --prod --aot --build-optimizer --base-href /select-country/ --deploy-url /select-country/",
     "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",

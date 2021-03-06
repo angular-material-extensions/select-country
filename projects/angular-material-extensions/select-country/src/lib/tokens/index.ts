@@ -1,4 +1,3 @@
-import {InjectionToken} from '@angular/core';
-import {Country} from '../mat-select-country.component';
+import { InjectionToken } from '@angular/core';
 
 export const MatSelectCountryLangToken = new InjectionToken<string>('MatSelectCountryLangToken');
