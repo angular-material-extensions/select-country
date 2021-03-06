@@ -7,7 +7,7 @@
            [matAutocomplete]="this.countryAutocomplete"
            [placeholder]="this.placeHolder"
            [readonly]="this.readonly"
-           [value]="this.value?.name"
+           [value]="this.value && showCallingCode ? this.value?.name + ' (' + this.value?.callingCode + ')' : this.value?.name"
            [required]="this.required"
            [disabled]="this.disabled || this.loadingDB"
            aria-label="country"
@@ -17,8 +17,8 @@
                       (optionSelected)="onOptionsSelected($event)">
         <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
             <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
-            <small>{{ [country?.name, country?.alpha3Code] | joinStrings }}</small>
+            <small *ngIf="!showCallingCode">{{ [country?.name, country?.alpha3Code] | joinStrings }}</small>
+            <small *ngIf="showCallingCode">{{ country?.name }} ({{ country?.callingCode }})</small>
         </mat-option>
     </mat-autocomplete>
 </mat-form-field>
-
