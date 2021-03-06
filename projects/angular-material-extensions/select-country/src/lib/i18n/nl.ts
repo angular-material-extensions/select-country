@@ -1,6 +1,6 @@
-import { Country } from '../mat-select-country.component';
+import { Country } from "../mat-select-country.component";
 
-export const COUNTRIES_DB_IT: Country[] = [
+export const COUNTRIES_DB_NL: Country[] = [
   {
     name: 'Afghanistan',
     alpha2Code: 'AF',
@@ -9,28 +9,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+93'
   },
   {
-    name: 'Isole Aland',
+    name: 'Ålandeilanden',
     alpha2Code: 'AX',
     alpha3Code: 'ALA',
     numericCode: '248',
     callingCode: '+358'
   },
   {
-    name: 'Albania',
+    name: 'Albanië',
     alpha2Code: 'AL',
     alpha3Code: 'ALB',
     numericCode: '008',
     callingCode: '+355'
   },
   {
-    name: 'Algeria',
+    name: 'Algerije',
     alpha2Code: 'DZ',
     alpha3Code: 'DZA',
     numericCode: '012',
     callingCode: '+213'
   },
   {
-    name: 'Samoa Americane',
+    name: 'Amerikaans Samoa',
     alpha2Code: 'AS',
     alpha3Code: 'ASM',
     numericCode: '016',
@@ -58,28 +58,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1264'
   },
   {
-    name: 'Antartide',
+    name: 'Antarctica',
     alpha2Code: 'AQ',
     alpha3Code: 'ATA',
     numericCode: '010',
     callingCode: '+672'
   },
   {
-    name: 'Antigua e Barbuda',
+    name: 'Antigua en Barbuda',
     alpha2Code: 'AG',
     alpha3Code: 'ATG',
     numericCode: '028',
     callingCode: '+1268'
   },
   {
-    name: 'Argentina',
+    name: 'Argentinië',
     alpha2Code: 'AR',
     alpha3Code: 'ARG',
     numericCode: '032',
     callingCode: '+54'
   },
   {
-    name: 'Armenia',
+    name: 'Armenië',
     alpha2Code: 'AM',
     alpha3Code: 'ARM',
     numericCode: '051',
@@ -93,28 +93,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+297'
   },
   {
-    name: 'Australia',
+    name: 'Australië',
     alpha2Code: 'AU',
     alpha3Code: 'AUS',
     numericCode: '036',
     callingCode: '+61'
   },
   {
-    name: 'Austria',
+    name: 'Oostenrijk',
     alpha2Code: 'AT',
     alpha3Code: 'AUT',
     numericCode: '040',
     callingCode: '+43'
   },
   {
-    name: 'Azerbaijan',
+    name: 'Azerbeidzjan',
     alpha2Code: 'AZ',
     alpha3Code: 'AZE',
     numericCode: '031',
     callingCode: '+994'
   },
   {
-    name: 'Bahamas',
+    name: 'Bahama’s',
     alpha2Code: 'BS',
     alpha3Code: 'BHS',
     numericCode: '044',
@@ -142,14 +142,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1246'
   },
   {
-    name: 'Bielorussia',
+    name: 'Wit-Rusland',
     alpha2Code: 'BY',
     alpha3Code: 'BLR',
     numericCode: '112',
     callingCode: '+375'
   },
   {
-    name: 'Belgio',
+    name: 'België',
     alpha2Code: 'BE',
     alpha3Code: 'BEL',
     numericCode: '056',
@@ -191,14 +191,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+591'
   },
   {
-    name: 'Bonaire, Saint-Eustache e Saba',
+    name: 'Bonaire, Sint Eustatius en Saba',
     alpha2Code: 'BQ',
     alpha3Code: 'BES',
     numericCode: '535',
     callingCode: '+5997'
   },
   {
-    name: 'Bosnia ed Erzegovina',
+    name: 'Bosnië en Herzegovina',
     alpha2Code: 'BA',
     alpha3Code: 'BIH',
     numericCode: '070',
@@ -212,42 +212,42 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+267'
   },
   {
-    name: 'Isola Bouvet',
+    name: 'Bouveteiland',
     alpha2Code: 'BV',
     alpha3Code: 'BVT',
     numericCode: '074',
     callingCode: '+'
   },
   {
-    name: 'Brasile',
+    name: 'Brazilië',
     alpha2Code: 'BR',
     alpha3Code: 'BRA',
     numericCode: '076',
     callingCode: '+55'
   },
   {
-    name: "Territorio britannico dell'oceano indiano",
+    name: 'Britse Gebieden in de Indische Oceaan',
     alpha2Code: 'IO',
     alpha3Code: 'IOT',
     numericCode: '086',
     callingCode: '+246'
   },
   {
-    name: "Isole minori esterne degli Stati Uniti d'America",
+    name: 'Kleine afgelegen eilanden van de Verenigde Staten',
     alpha2Code: 'UM',
     alpha3Code: 'UMI',
     numericCode: '581',
     callingCode: '+'
   },
   {
-    name: 'Isole Vergini Britanniche',
+    name: 'Britse Maagdeneilanden',
     alpha2Code: 'VG',
     alpha3Code: 'VGB',
     numericCode: '092',
     callingCode: '+1284'
   },
   {
-    name: 'Isole Vergini americane',
+    name: 'Verenigde Staten Maagdeneilanden',
     alpha2Code: 'VI',
     alpha3Code: 'VIR',
     numericCode: '850',
@@ -261,7 +261,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+673'
   },
   {
-    name: 'Bulgaria',
+    name: 'Bulgarije',
     alpha2Code: 'BG',
     alpha3Code: 'BGR',
     numericCode: '100',
@@ -282,14 +282,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+257'
   },
   {
-    name: 'Cambogia',
+    name: 'Cambodja',
     alpha2Code: 'KH',
     alpha3Code: 'KHM',
     numericCode: '116',
     callingCode: '+855'
   },
   {
-    name: 'Camerun',
+    name: 'Kameroen',
     alpha2Code: 'CM',
     alpha3Code: 'CMR',
     numericCode: '120',
@@ -303,56 +303,56 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1'
   },
   {
-    name: 'Capo Verde',
+    name: 'Kaapverdië',
     alpha2Code: 'CV',
     alpha3Code: 'CPV',
     numericCode: '132',
     callingCode: '+238'
   },
   {
-    name: 'Isole Cayman',
+    name: 'Caymaneilanden',
     alpha2Code: 'KY',
     alpha3Code: 'CYM',
     numericCode: '136',
     callingCode: '+1345'
   },
   {
-    name: 'Repubblica Centrafricana',
+    name: 'Centraal-Afrikaanse Republiek',
     alpha2Code: 'CF',
     alpha3Code: 'CAF',
     numericCode: '140',
     callingCode: '+236'
   },
   {
-    name: 'Ciad',
+    name: 'Tsjaad',
     alpha2Code: 'TD',
     alpha3Code: 'TCD',
     numericCode: '148',
     callingCode: '+235'
   },
   {
-    name: 'Cile',
+    name: 'Chili',
     alpha2Code: 'CL',
     alpha3Code: 'CHL',
     numericCode: '152',
     callingCode: '+56'
   },
   {
-    name: 'Cina',
+    name: 'China',
     alpha2Code: 'CN',
     alpha3Code: 'CHN',
     numericCode: '156',
     callingCode: '+86'
   },
   {
-    name: 'Isola di Natale',
+    name: 'Christmaseiland',
     alpha2Code: 'CX',
     alpha3Code: 'CXR',
     numericCode: '162',
     callingCode: '+61'
   },
   {
-    name: 'Isole Cocos e Keeling',
+    name: 'Cocoseilanden',
     alpha2Code: 'CC',
     alpha3Code: 'CCK',
     numericCode: '166',
@@ -366,28 +366,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+57'
   },
   {
-    name: 'Comore',
+    name: 'Comoren',
     alpha2Code: 'KM',
     alpha3Code: 'COM',
     numericCode: '174',
     callingCode: '+269'
   },
   {
-    name: 'Congo',
+    name: 'Congo [Republiek]',
     alpha2Code: 'CG',
     alpha3Code: 'COG',
     numericCode: '178',
     callingCode: '+242'
   },
   {
-    name: 'Congo (Rep. Dem.)',
+    name: 'Congo [DRC]',
     alpha2Code: 'CD',
     alpha3Code: 'COD',
     numericCode: '180',
     callingCode: '+243'
   },
   {
-    name: 'Isole Cook',
+    name: 'Cookeilanden',
     alpha2Code: 'CK',
     alpha3Code: 'COK',
     numericCode: '184',
@@ -401,7 +401,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+506'
   },
   {
-    name: 'Croazia',
+    name: 'Kroatië',
     alpha2Code: 'HR',
     alpha3Code: 'HRV',
     numericCode: '191',
@@ -422,28 +422,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+599'
   },
   {
-    name: 'Cipro',
+    name: 'Cyprus',
     alpha2Code: 'CY',
     alpha3Code: 'CYP',
     numericCode: '196',
     callingCode: '+357'
   },
   {
-    name: 'Repubblica Ceca',
+    name: 'Tsjechië',
     alpha2Code: 'CZ',
     alpha3Code: 'CZE',
     numericCode: '203',
     callingCode: '+420'
   },
   {
-    name: 'Danimarca',
+    name: 'Denemarken',
     alpha2Code: 'DK',
     alpha3Code: 'DNK',
     numericCode: '208',
     callingCode: '+45'
   },
   {
-    name: 'Gibuti',
+    name: 'Djibouti',
     alpha2Code: 'DJ',
     alpha3Code: 'DJI',
     numericCode: '262',
@@ -457,7 +457,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1767'
   },
   {
-    name: 'Repubblica Dominicana',
+    name: 'Dominicaanse Republiek',
     alpha2Code: 'DO',
     alpha3Code: 'DOM',
     numericCode: '214',
@@ -471,7 +471,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+593'
   },
   {
-    name: 'Egitto',
+    name: 'Egypte',
     alpha2Code: 'EG',
     alpha3Code: 'EGY',
     numericCode: '818',
@@ -485,7 +485,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+503'
   },
   {
-    name: 'Guinea Equatoriale',
+    name: 'Equatoriaal-Guinea',
     alpha2Code: 'GQ',
     alpha3Code: 'GNQ',
     numericCode: '226',
@@ -499,70 +499,70 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+291'
   },
   {
-    name: 'Estonia',
+    name: 'Estland',
     alpha2Code: 'EE',
     alpha3Code: 'EST',
     numericCode: '233',
     callingCode: '+372'
   },
   {
-    name: 'Etiopia',
+    name: 'Ethiopië',
     alpha2Code: 'ET',
     alpha3Code: 'ETH',
     numericCode: '231',
     callingCode: '+251'
   },
   {
-    name: 'Isole Falkland o Isole Malvine',
+    name: 'Falklandeilanden [Islas Malvinas]',
     alpha2Code: 'FK',
     alpha3Code: 'FLK',
     numericCode: '238',
     callingCode: '+500'
   },
   {
-    name: 'Isole Far Oer',
+    name: 'Faeröer',
     alpha2Code: 'FO',
     alpha3Code: 'FRO',
     numericCode: '234',
     callingCode: '+298'
   },
   {
-    name: 'Figi',
+    name: 'Fiji',
     alpha2Code: 'FJ',
     alpha3Code: 'FJI',
     numericCode: '242',
     callingCode: '+679'
   },
   {
-    name: 'Finlandia',
+    name: 'Finland',
     alpha2Code: 'FI',
     alpha3Code: 'FIN',
     numericCode: '246',
     callingCode: '+358'
   },
   {
-    name: 'Francia',
+    name: 'Frankrijk',
     alpha2Code: 'FR',
     alpha3Code: 'FRA',
     numericCode: '250',
     callingCode: '+33'
   },
   {
-    name: 'Guyana francese',
+    name: 'Frans-Guyana',
     alpha2Code: 'GF',
     alpha3Code: 'GUF',
     numericCode: '254',
     callingCode: '+594'
   },
   {
-    name: 'Polinesia Francese',
+    name: 'Frans-Polynesië',
     alpha2Code: 'PF',
     alpha3Code: 'PYF',
     numericCode: '258',
     callingCode: '+689'
   },
   {
-    name: 'Territori Francesi del Sud',
+    name: 'Franse Gebieden in de zuidelijke Indische Oceaan',
     alpha2Code: 'TF',
     alpha3Code: 'ATF',
     numericCode: '260',
@@ -583,14 +583,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+220'
   },
   {
-    name: 'Georgia',
+    name: 'Georgië',
     alpha2Code: 'GE',
     alpha3Code: 'GEO',
     numericCode: '268',
     callingCode: '+995'
   },
   {
-    name: 'Germania',
+    name: 'Duitsland',
     alpha2Code: 'DE',
     alpha3Code: 'DEU',
     numericCode: '276',
@@ -604,21 +604,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+233'
   },
   {
-    name: 'Gibilterra',
+    name: 'Gibraltar',
     alpha2Code: 'GI',
     alpha3Code: 'GIB',
     numericCode: '292',
     callingCode: '+350'
   },
   {
-    name: 'Grecia',
+    name: 'Griekenland',
     alpha2Code: 'GR',
     alpha3Code: 'GRC',
     numericCode: '300',
     callingCode: '+30'
   },
   {
-    name: 'Groenlandia',
+    name: 'Groenland',
     alpha2Code: 'GL',
     alpha3Code: 'GRL',
     numericCode: '304',
@@ -632,7 +632,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1473'
   },
   {
-    name: 'Guadeloupa',
+    name: 'Guadeloupe',
     alpha2Code: 'GP',
     alpha3Code: 'GLP',
     numericCode: '312',
@@ -660,14 +660,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+44'
   },
   {
-    name: 'Guinea',
+    name: 'Guinee',
     alpha2Code: 'GN',
     alpha3Code: 'GIN',
     numericCode: '324',
     callingCode: '+224'
   },
   {
-    name: 'Guinea-Bissau',
+    name: 'Guinee-Bissau',
     alpha2Code: 'GW',
     alpha3Code: 'GNB',
     numericCode: '624',
@@ -681,21 +681,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+592'
   },
   {
-    name: 'Haiti',
+    name: 'Haïti',
     alpha2Code: 'HT',
     alpha3Code: 'HTI',
     numericCode: '332',
     callingCode: '+509'
   },
   {
-    name: 'Isole Heard e McDonald',
+    name: 'Heard- en McDonaldeilanden',
     alpha2Code: 'HM',
     alpha3Code: 'HMD',
     numericCode: '334',
     callingCode: '+'
   },
   {
-    name: 'Santa Sede',
+    name: 'Heilige Stoel',
     alpha2Code: 'VA',
     alpha3Code: 'VAT',
     numericCode: '336',
@@ -709,21 +709,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+504'
   },
   {
-    name: 'Hong Kong',
+    name: 'Hongkong',
     alpha2Code: 'HK',
     alpha3Code: 'HKG',
     numericCode: '344',
     callingCode: '+852'
   },
   {
-    name: 'Ungheria',
+    name: 'Hongarije',
     alpha2Code: 'HU',
     alpha3Code: 'HUN',
     numericCode: '348',
     callingCode: '+36'
   },
   {
-    name: 'Islanda',
+    name: 'IJsland',
     alpha2Code: 'IS',
     alpha3Code: 'ISL',
     numericCode: '352',
@@ -737,14 +737,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+91'
   },
   {
-    name: 'Indonesia',
+    name: 'Indonesië',
     alpha2Code: 'ID',
     alpha3Code: 'IDN',
     numericCode: '360',
     callingCode: '+62'
   },
   {
-    name: "Costa D'Avorio",
+    name: 'Ivoorkust',
     alpha2Code: 'CI',
     alpha3Code: 'CIV',
     numericCode: '384',
@@ -758,77 +758,77 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+98'
   },
   {
-    name: 'Iraq',
+    name: 'Irak',
     alpha2Code: 'IQ',
     alpha3Code: 'IRQ',
     numericCode: '368',
     callingCode: '+964'
   },
   {
-    name: 'Irlanda',
+    name: 'Ierland',
     alpha2Code: 'IE',
     alpha3Code: 'IRL',
     numericCode: '372',
     callingCode: '+353'
   },
   {
-    name: 'Isola di Man',
+    name: 'Isle of Man',
     alpha2Code: 'IM',
     alpha3Code: 'IMN',
     numericCode: '833',
     callingCode: '+44'
   },
   {
-    name: 'Israele',
+    name: 'Israël',
     alpha2Code: 'IL',
     alpha3Code: 'ISR',
     numericCode: '376',
     callingCode: '+972'
   },
   {
-    name: 'Italia',
+    name: 'Italië',
     alpha2Code: 'IT',
     alpha3Code: 'ITA',
     numericCode: '380',
     callingCode: '+39'
   },
   {
-    name: 'Giamaica',
+    name: 'Jamaica',
     alpha2Code: 'JM',
     alpha3Code: 'JAM',
     numericCode: '388',
     callingCode: '+1876'
   },
   {
-    name: 'Giappone',
+    name: 'Japan',
     alpha2Code: 'JP',
     alpha3Code: 'JPN',
     numericCode: '392',
     callingCode: '+81'
   },
   {
-    name: 'Isola di Jersey',
+    name: 'Jersey',
     alpha2Code: 'JE',
     alpha3Code: 'JEY',
     numericCode: '832',
     callingCode: '+44'
   },
   {
-    name: 'Giordania',
+    name: 'Jordanië',
     alpha2Code: 'JO',
     alpha3Code: 'JOR',
     numericCode: '400',
     callingCode: '+962'
   },
   {
-    name: 'Kazakistan',
+    name: 'Kazachstan',
     alpha2Code: 'KZ',
     alpha3Code: 'KAZ',
     numericCode: '398',
     callingCode: '+7'
   },
   {
-    name: 'Kenya',
+    name: 'Kenia',
     alpha2Code: 'KE',
     alpha3Code: 'KEN',
     numericCode: '404',
@@ -842,14 +842,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+686'
   },
   {
-    name: 'Kuwait',
+    name: 'Koeweit',
     alpha2Code: 'KW',
     alpha3Code: 'KWT',
     numericCode: '414',
     callingCode: '+965'
   },
   {
-    name: 'Kirghizistan',
+    name: 'Kirgizië',
     alpha2Code: 'KG',
     alpha3Code: 'KGZ',
     numericCode: '417',
@@ -863,14 +863,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+856'
   },
   {
-    name: 'Lettonia',
+    name: 'Letland',
     alpha2Code: 'LV',
     alpha3Code: 'LVA',
     numericCode: '428',
     callingCode: '+371'
   },
   {
-    name: 'Libano',
+    name: 'Libanon',
     alpha2Code: 'LB',
     alpha3Code: 'LBN',
     numericCode: '422',
@@ -891,7 +891,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+231'
   },
   {
-    name: 'Libia',
+    name: 'Libië',
     alpha2Code: 'LY',
     alpha3Code: 'LBY',
     numericCode: '434',
@@ -905,14 +905,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+423'
   },
   {
-    name: 'Lituania',
+    name: 'Litouwen',
     alpha2Code: 'LT',
     alpha3Code: 'LTU',
     numericCode: '440',
     callingCode: '+370'
   },
   {
-    name: 'Lussemburgo',
+    name: 'Luxemburg',
     alpha2Code: 'LU',
     alpha3Code: 'LUX',
     numericCode: '442',
@@ -926,14 +926,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+853'
   },
   {
-    name: 'Macedonia',
+    name: 'Macedonië',
     alpha2Code: 'MK',
     alpha3Code: 'MKD',
     numericCode: '807',
     callingCode: '+389'
   },
   {
-    name: 'Madagascar',
+    name: 'Madagaskar',
     alpha2Code: 'MG',
     alpha3Code: 'MDG',
     numericCode: '450',
@@ -947,14 +947,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+265'
   },
   {
-    name: 'Malesia',
+    name: 'Maleisië',
     alpha2Code: 'MY',
     alpha3Code: 'MYS',
     numericCode: '458',
     callingCode: '+60'
   },
   {
-    name: 'Maldive',
+    name: 'Maldiven',
     alpha2Code: 'MV',
     alpha3Code: 'MDV',
     numericCode: '462',
@@ -975,21 +975,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+356'
   },
   {
-    name: 'Isole Marshall',
+    name: 'Marshalleilanden',
     alpha2Code: 'MH',
     alpha3Code: 'MHL',
     numericCode: '584',
     callingCode: '+692'
   },
   {
-    name: 'Martinica',
+    name: 'Martinique',
     alpha2Code: 'MQ',
     alpha3Code: 'MTQ',
     numericCode: '474',
     callingCode: '+596'
   },
   {
-    name: 'Mauritania',
+    name: 'Mauritanië',
     alpha2Code: 'MR',
     alpha3Code: 'MRT',
     numericCode: '478',
@@ -1010,35 +1010,35 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+262'
   },
   {
-    name: 'Messico',
+    name: 'Mexico',
     alpha2Code: 'MX',
     alpha3Code: 'MEX',
     numericCode: '484',
     callingCode: '+52'
   },
   {
-    name: 'Micronesia',
+    name: 'Micronesië',
     alpha2Code: 'FM',
     alpha3Code: 'FSM',
     numericCode: '583',
     callingCode: '+691'
   },
   {
-    name: 'Moldavia',
+    name: 'Moldavië',
     alpha2Code: 'MD',
     alpha3Code: 'MDA',
     numericCode: '498',
     callingCode: '+373'
   },
   {
-    name: 'Principato di Monaco',
+    name: 'Monaco',
     alpha2Code: 'MC',
     alpha3Code: 'MCO',
     numericCode: '492',
     callingCode: '+377'
   },
   {
-    name: 'Mongolia',
+    name: 'Mongolië',
     alpha2Code: 'MN',
     alpha3Code: 'MNG',
     numericCode: '496',
@@ -1059,28 +1059,28 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+1664'
   },
   {
-    name: 'Marocco',
+    name: 'Marokko',
     alpha2Code: 'MA',
     alpha3Code: 'MAR',
     numericCode: '504',
     callingCode: '+212'
   },
   {
-    name: 'Mozambico',
+    name: 'Mozambique',
     alpha2Code: 'MZ',
     alpha3Code: 'MOZ',
     numericCode: '508',
     callingCode: '+258'
   },
   {
-    name: 'Birmania',
+    name: 'Myanmar',
     alpha2Code: 'MM',
     alpha3Code: 'MMR',
     numericCode: '104',
     callingCode: '+95'
   },
   {
-    name: 'Namibia',
+    name: 'Namibië',
     alpha2Code: 'NA',
     alpha3Code: 'NAM',
     numericCode: '516',
@@ -1101,21 +1101,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+977'
   },
   {
-    name: 'Paesi Bassi',
+    name: 'Nederland',
     alpha2Code: 'NL',
     alpha3Code: 'NLD',
     numericCode: '528',
     callingCode: '+31'
   },
   {
-    name: 'Nuova Caledonia',
+    name: 'Nieuw-Caledonië',
     alpha2Code: 'NC',
     alpha3Code: 'NCL',
     numericCode: '540',
     callingCode: '+687'
   },
   {
-    name: 'Nuova Zelanda',
+    name: 'Nieuw-Zeeland',
     alpha2Code: 'NZ',
     alpha3Code: 'NZL',
     numericCode: '554',
@@ -1150,35 +1150,35 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+683'
   },
   {
-    name: 'Isola Norfolk',
+    name: 'Norfolkeiland',
     alpha2Code: 'NF',
     alpha3Code: 'NFK',
     numericCode: '574',
     callingCode: '+672'
   },
   {
-    name: 'Corea del Nord',
+    name: 'Noord-Korea',
     alpha2Code: 'KP',
     alpha3Code: 'PRK',
     numericCode: '408',
     callingCode: '+850'
   },
   {
-    name: 'Isole Marianne Settentrionali',
+    name: 'Noordelijke Marianeneilanden',
     alpha2Code: 'MP',
     alpha3Code: 'MNP',
     numericCode: '580',
     callingCode: '+1670'
   },
   {
-    name: 'Norvegia',
+    name: 'Noorwegen',
     alpha2Code: 'NO',
     alpha3Code: 'NOR',
     numericCode: '578',
     callingCode: '+47'
   },
   {
-    name: 'oman',
+    name: 'Oman',
     alpha2Code: 'OM',
     alpha3Code: 'OMN',
     numericCode: '512',
@@ -1199,7 +1199,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+680'
   },
   {
-    name: 'Palestina',
+    name: 'Palestijnse gebieden',
     alpha2Code: 'PS',
     alpha3Code: 'PSE',
     numericCode: '275',
@@ -1213,7 +1213,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+507'
   },
   {
-    name: 'Papua Nuova Guinea',
+    name: 'Papoea-Nieuw-Guinea',
     alpha2Code: 'PG',
     alpha3Code: 'PNG',
     numericCode: '598',
@@ -1227,42 +1227,42 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+595'
   },
   {
-    name: 'Perù',
+    name: 'Peru',
     alpha2Code: 'PE',
     alpha3Code: 'PER',
     numericCode: '604',
     callingCode: '+51'
   },
   {
-    name: 'Filippine',
+    name: 'Filipijnen',
     alpha2Code: 'PH',
     alpha3Code: 'PHL',
     numericCode: '608',
     callingCode: '+63'
   },
   {
-    name: 'Isole Pitcairn',
+    name: 'Pitcairneilanden',
     alpha2Code: 'PN',
     alpha3Code: 'PCN',
     numericCode: '612',
     callingCode: '+64'
   },
   {
-    name: 'Polonia',
+    name: 'Polen',
     alpha2Code: 'PL',
     alpha3Code: 'POL',
     numericCode: '616',
     callingCode: '+48'
   },
   {
-    name: 'Portogallo',
+    name: 'Portugal',
     alpha2Code: 'PT',
     alpha3Code: 'PRT',
     numericCode: '620',
     callingCode: '+351'
   },
   {
-    name: 'Porto Rico',
+    name: 'Puerto Rico',
     alpha2Code: 'PR',
     alpha3Code: 'PRI',
     numericCode: '630',
@@ -1283,77 +1283,77 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+383'
   },
   {
-    name: 'Riunione',
+    name: 'Réunion',
     alpha2Code: 'RE',
     alpha3Code: 'REU',
     numericCode: '638',
     callingCode: '+262'
   },
   {
-    name: 'Romania',
+    name: 'Roemenië',
     alpha2Code: 'RO',
     alpha3Code: 'ROU',
     numericCode: '642',
     callingCode: '+40'
   },
   {
-    name: 'Russia',
+    name: 'Rusland',
     alpha2Code: 'RU',
     alpha3Code: 'RUS',
     numericCode: '643',
     callingCode: '+7'
   },
   {
-    name: 'Ruanda',
+    name: 'Rwanda',
     alpha2Code: 'RW',
     alpha3Code: 'RWA',
     numericCode: '646',
     callingCode: '+250'
   },
   {
-    name: 'Antille Francesi',
+    name: 'Saint Barthélemy',
     alpha2Code: 'BL',
     alpha3Code: 'BLM',
     numericCode: '652',
     callingCode: '+590'
   },
   {
-    name: "Sant'Elena",
+    name: 'Sint-Helena',
     alpha2Code: 'SH',
     alpha3Code: 'SHN',
     numericCode: '654',
     callingCode: '+290'
   },
   {
-    name: 'Saint Kitts e Nevis',
+    name: 'Saint Kitts en Nevis',
     alpha2Code: 'KN',
     alpha3Code: 'KNA',
     numericCode: '659',
     callingCode: '+1869'
   },
   {
-    name: 'Santa Lucia',
+    name: 'Saint Lucia',
     alpha2Code: 'LC',
     alpha3Code: 'LCA',
     numericCode: '662',
     callingCode: '+1758'
   },
   {
-    name: 'Saint Martin',
+    name: 'Saint-Martin',
     alpha2Code: 'MF',
     alpha3Code: 'MAF',
     numericCode: '663',
     callingCode: '+590'
   },
   {
-    name: 'Saint-Pierre e Miquelon',
+    name: 'Saint Pierre en Miquelon',
     alpha2Code: 'PM',
     alpha3Code: 'SPM',
     numericCode: '666',
     callingCode: '+508'
   },
   {
-    name: 'Saint Vincent e Grenadine',
+    name: 'Saint Vincent en de Grenadines',
     alpha2Code: 'VC',
     alpha3Code: 'VCT',
     numericCode: '670',
@@ -1374,14 +1374,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+378'
   },
   {
-    name: 'São Tomé e Príncipe',
+    name: 'Sao Tomé en Principe',
     alpha2Code: 'ST',
     alpha3Code: 'STP',
     numericCode: '678',
     callingCode: '+239'
   },
   {
-    name: 'Arabia Saudita',
+    name: 'Saoedi-Arabië',
     alpha2Code: 'SA',
     alpha3Code: 'SAU',
     numericCode: '682',
@@ -1395,14 +1395,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+221'
   },
   {
-    name: 'Serbia',
+    name: 'Servië',
     alpha2Code: 'RS',
     alpha3Code: 'SRB',
     numericCode: '688',
     callingCode: '+381'
   },
   {
-    name: 'Seychelles',
+    name: 'Seychellen',
     alpha2Code: 'SC',
     alpha3Code: 'SYC',
     numericCode: '690',
@@ -1423,70 +1423,70 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+65'
   },
   {
-    name: 'Saint Martin (parte olandese)',
+    name: 'Sint Maarten',
     alpha2Code: 'SX',
     alpha3Code: 'SXM',
     numericCode: '534',
     callingCode: '+1721'
   },
   {
-    name: 'Slovacchia',
+    name: 'Slowakije',
     alpha2Code: 'SK',
     alpha3Code: 'SVK',
     numericCode: '703',
     callingCode: '+421'
   },
   {
-    name: 'Slovenia',
+    name: 'Slovenië',
     alpha2Code: 'SI',
     alpha3Code: 'SVN',
     numericCode: '705',
     callingCode: '+386'
   },
   {
-    name: 'Isole Salomone',
+    name: 'Salomonseilanden',
     alpha2Code: 'SB',
     alpha3Code: 'SLB',
     numericCode: '090',
     callingCode: '+677'
   },
   {
-    name: 'Somalia',
+    name: 'Somalië',
     alpha2Code: 'SO',
     alpha3Code: 'SOM',
     numericCode: '706',
     callingCode: '+252'
   },
   {
-    name: 'Sud Africa',
+    name: 'Zuid-Afrika',
     alpha2Code: 'ZA',
     alpha3Code: 'ZAF',
     numericCode: '710',
     callingCode: '+27'
   },
   {
-    name: 'Georgia del Sud e Isole Sandwich Meridionali',
+    name: 'Zuid-Georgia en Zuidelijke Sandwicheilanden',
     alpha2Code: 'GS',
     alpha3Code: 'SGS',
     numericCode: '239',
     callingCode: '+500'
   },
   {
-    name: 'Corea del Sud',
+    name: 'Zuid-Korea',
     alpha2Code: 'KR',
     alpha3Code: 'KOR',
     numericCode: '410',
     callingCode: '+82'
   },
   {
-    name: 'Sudan del sud',
+    name: 'Zuid-Soedan',
     alpha2Code: 'SS',
     alpha3Code: 'SSD',
     numericCode: '728',
     callingCode: '+211'
   },
   {
-    name: 'Spagna',
+    name: 'Spanje',
     alpha2Code: 'ES',
     alpha3Code: 'ESP',
     numericCode: '724',
@@ -1500,7 +1500,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+94'
   },
   {
-    name: 'Sudan',
+    name: 'Soedan',
     alpha2Code: 'SD',
     alpha3Code: 'SDN',
     numericCode: '729',
@@ -1514,7 +1514,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+597'
   },
   {
-    name: 'Svalbard e Jan Mayen',
+    name: 'Svalbard en Jan Mayen',
     alpha2Code: 'SJ',
     alpha3Code: 'SJM',
     numericCode: '744',
@@ -1528,21 +1528,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+268'
   },
   {
-    name: 'Svezia',
+    name: 'Zweden',
     alpha2Code: 'SE',
     alpha3Code: 'SWE',
     numericCode: '752',
     callingCode: '+46'
   },
   {
-    name: 'Svizzera',
+    name: 'Zwitserland',
     alpha2Code: 'CH',
     alpha3Code: 'CHE',
     numericCode: '756',
     callingCode: '+41'
   },
   {
-    name: 'Siria',
+    name: 'Syrië',
     alpha2Code: 'SY',
     alpha3Code: 'SYR',
     numericCode: '760',
@@ -1556,7 +1556,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+886'
   },
   {
-    name: 'Tagikistan',
+    name: 'Tadzjikistan',
     alpha2Code: 'TJ',
     alpha3Code: 'TJK',
     numericCode: '762',
@@ -1570,14 +1570,14 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+255'
   },
   {
-    name: 'Tailandia',
+    name: 'Thailand',
     alpha2Code: 'TH',
     alpha3Code: 'THA',
     numericCode: '764',
     callingCode: '+66'
   },
   {
-    name: 'Timor Est',
+    name: 'Oost-Timor',
     alpha2Code: 'TL',
     alpha3Code: 'TLS',
     numericCode: '626',
@@ -1591,7 +1591,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+228'
   },
   {
-    name: 'Isole Tokelau',
+    name: 'Tokelau',
     alpha2Code: 'TK',
     alpha3Code: 'TKL',
     numericCode: '772',
@@ -1605,21 +1605,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+676'
   },
   {
-    name: 'Trinidad e Tobago',
+    name: 'Trinidad en Tobago',
     alpha2Code: 'TT',
     alpha3Code: 'TTO',
     numericCode: '780',
     callingCode: '+1868'
   },
   {
-    name: 'Tunisia',
+    name: 'Tunesië',
     alpha2Code: 'TN',
     alpha3Code: 'TUN',
     numericCode: '788',
     callingCode: '+216'
   },
   {
-    name: 'Turchia',
+    name: 'Turkije',
     alpha2Code: 'TR',
     alpha3Code: 'TUR',
     numericCode: '792',
@@ -1633,7 +1633,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+993'
   },
   {
-    name: 'Isole Turks e Caicos',
+    name: 'Turks- en Caicoseilanden',
     alpha2Code: 'TC',
     alpha3Code: 'TCA',
     numericCode: '796',
@@ -1647,35 +1647,35 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+688'
   },
   {
-    name: 'Uganda',
+    name: 'Oeganda',
     alpha2Code: 'UG',
     alpha3Code: 'UGA',
     numericCode: '800',
     callingCode: '+256'
   },
   {
-    name: 'Ucraina',
+    name: 'Oekraïne',
     alpha2Code: 'UA',
     alpha3Code: 'UKR',
     numericCode: '804',
     callingCode: '+380'
   },
   {
-    name: 'Emirati Arabi Uniti',
+    name: 'Verenigde Arabische Emiraten',
     alpha2Code: 'AE',
     alpha3Code: 'ARE',
     numericCode: '784',
     callingCode: '+971'
   },
   {
-    name: 'Regno Unito',
+    name: 'Verenigd Koninkrijk',
     alpha2Code: 'GB',
     alpha3Code: 'GBR',
     numericCode: '826',
     callingCode: '+44'
   },
   {
-    name: "Stati Uniti D'America",
+    name: 'Verenigde Staten',
     alpha2Code: 'US',
     alpha3Code: 'USA',
     numericCode: '840',
@@ -1689,7 +1689,7 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+598'
   },
   {
-    name: 'Uzbekistan',
+    name: 'Oezbekistan',
     alpha2Code: 'UZ',
     alpha3Code: 'UZB',
     numericCode: '860',
@@ -1717,21 +1717,21 @@ export const COUNTRIES_DB_IT: Country[] = [
     callingCode: '+84'
   },
   {
-    name: 'Wallis e Futuna',
+    name: 'Wallis en Futuna',
     alpha2Code: 'WF',
     alpha3Code: 'WLF',
     numericCode: '876',
     callingCode: '+681'
   },
   {
-    name: 'Sahara Occidentale',
+    name: 'Westelijke Sahara',
     alpha2Code: 'EH',
     alpha3Code: 'ESH',
     numericCode: '732',
     callingCode: '+212'
   },
   {
-    name: 'Yemen',
+    name: 'Jemen',
     alpha2Code: 'YE',
     alpha3Code: 'YEM',
     numericCode: '887',
