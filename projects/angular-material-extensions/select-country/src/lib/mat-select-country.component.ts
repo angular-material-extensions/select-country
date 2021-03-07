@@ -26,6 +26,7 @@ export interface Country {
   alpha2Code: string;
   alpha3Code: string;
   numericCode: string;
+  callingCode: string;
 }
 
 /**
@@ -58,6 +59,7 @@ export class MatSelectCountryComponent
   @Input() class: string;
   @Input() itemsLoadSize: number;
   @Input() loading: boolean;
+  @Input() showCallingCode = false;
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
@@ -76,8 +78,7 @@ export class MatSelectCountryComponent
   // tslint:disable-next-line: variable-name
   private _value: Country;
 
-  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string) {
-  }
+  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string) {}
 
   get value(): Country {
     return this._value;
@@ -132,7 +133,8 @@ export class MatSelectCountryComponent
             country.name.toUpperCase() === newValue ||
             country.alpha2Code === newValue ||
             country.alpha3Code === newValue ||
-            country.numericCode === newValue
+            country.numericCode === newValue ||
+            country.callingCode === newValue
         );
       } else {
         this.value = undefined;
@@ -218,13 +220,13 @@ export class MatSelectCountryComponent
 
   private _importLang(i18n: string): Promise<any> {
     switch (i18n) {
-      case 'de':
-        return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
+      case 'br':
+        return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => {
           this.countries = y;
           return y;
         });
-      case 'it':
-        return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
+      case 'de':
+        return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
           this.countries = y;
           return y;
         });
@@ -238,8 +240,27 @@ export class MatSelectCountryComponent
           this.countries = y;
           return y;
         });
+      case 'hr':
+        return import('./i18n/hr').then(result => result.COUNTRIES_DB_HR).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'it':
+        return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'nl':
+        return import('./i18n/nl').then(result => result.COUNTRIES_DB_NL).then(y => {
+          this.countries = y;
+          return y;
+        });
+      case 'pt':
+        return import('./i18n/pt').then(result => result.COUNTRIES_DB_PT).then(y => {
+          this.countries = y;
+          return y;
+        });
       default:
-        // console.log('running with default');
         return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => {
           this.countries = y;
           return y;

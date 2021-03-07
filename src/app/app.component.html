@@ -491,6 +491,18 @@
 
     <markdown src="assets/md/e4.md"></markdown>
 
+    <h2 class="div-ex2">Show calling code</h2>
+
+    <div fxLayoutAlign="center">
+        <mat-select-country appearance="outline"
+                            label="Country"
+                            [showCallingCode]="true"
+                            (onCountrySelected)="onCountrySelected($event)">
+        </mat-select-country>
+    </div>
+
+    <markdown src="assets/md/e7.md"></markdown>
+
     <h2 class="div-ex2">Reactive Forms and default value</h2>
 
     <div fxLayoutAlign="center">

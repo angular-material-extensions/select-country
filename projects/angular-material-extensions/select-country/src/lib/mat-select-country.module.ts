@@ -1,19 +1,24 @@
-import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { DomSanitizer } from '@angular/platform-browser';
+
 import { COUNTRIES_DB } from './i18n';
-import { JoinStringsPipe } from './join.pipe';
-import { MatSelectCountryComponent } from './mat-select-country.component';
+
 import { MatSelectCountryLangToken } from './tokens';
 
-export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
+import { JoinStringsPipe } from './join.pipe';
+
+import { MatSelectCountryComponent } from './mat-select-country.component';
+
+export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'it' | 'nl' | 'pt';
 
 /**
  * @author Anthony Nahas
@@ -43,10 +48,7 @@ export type MatSelectCountrySupportedLanguages = 'en' | 'de' | 'fr' | 'es' | 'it
   exports: [MatSelectCountryComponent],
 })
 export class MatSelectCountryModule {
-  constructor(
-    private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
-  ) {
+  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.registerCountries();
   }
 
