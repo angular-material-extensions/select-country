@@ -1,3 +1,11 @@
+# [4.1.0](https://github.com/angular-material-extensions/select-country/compare/4.0.3...4.1.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* **lib:** update docs ([67d10f4](https://github.com/angular-material-extensions/select-country/commit/67d10f4aae32f511ba162cf275f8408004b98c77))
+* **lib:** updated the dependencies ([87e1639](https://github.com/angular-material-extensions/select-country/commit/87e16393b708df9fcc07f19a325c7a98ad8dd93f))
+
 ## [4.0.3](https://github.com/angular-material-extensions/select-country/compare/4.0.2...4.0.3) (2021-01-17)
 
 
