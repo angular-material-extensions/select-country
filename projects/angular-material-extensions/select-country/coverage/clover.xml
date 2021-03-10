@@ -2,7 +2,7 @@
 <coverage generated="1574553666882" clover="3.2.0">
   <project timestamp="1574553666882" name="All files">
     <metrics statements="22" coveredstatements="22" conditionals="3" coveredconditionals="3" methods="7" coveredmethods="7" elements="32" coveredelements="32" complexity="0" loc="22" ncloc="22" packages="1" files="3" classes="3"/>
-    <file name="db.ts" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/db.ts">
+    <file name="en.ts" path="/Users/anthonynahas/git/angular-material-extensions/select-county/projects/angular-material-extensions/select-country/src/lib/en.ts">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <line num="3" count="1" type="stmt"/>
     </file>

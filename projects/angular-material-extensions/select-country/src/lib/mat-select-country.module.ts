@@ -1,24 +1,24 @@
-import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {MatSelectCountryComponent} from './mat-select-country.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatMenuModule} from '@angular/material/menu';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
-import {COUNTRIES_DB} from './db';
-import {MatSelectCountryDBToken} from './tokens';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-export type MatSelectCountrySupportLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
+import { COUNTRIES_DB } from './i18n';
 
-// export function loadDB(i18n?: string) {
-//   return import('./i18n/de').then(result => {
-//     return result.COUNTRIES_DB_DE;
-//   });
-// }
+import { MatSelectCountryLangToken } from './tokens';
+
+import { JoinStringsPipe } from './join.pipe';
+
+import { MatSelectCountryComponent } from './mat-select-country.component';
+
+export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'it' | 'nl' | 'pt';
 
 /**
  * @author Anthony Nahas
@@ -26,7 +26,10 @@ export type MatSelectCountrySupportLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
  */
 // @dynamic
 @NgModule({
-  declarations: [MatSelectCountryComponent],
+  declarations: [
+    MatSelectCountryComponent,
+    JoinStringsPipe
+  ],
   imports: [
     CommonModule,
 
@@ -39,28 +42,24 @@ export type MatSelectCountrySupportLanguages = 'en' | 'de' | 'fr' | 'es' | 'it';
     MatMenuModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule,
   ],
-  exports: [MatSelectCountryComponent]
+  exports: [MatSelectCountryComponent],
 })
 export class MatSelectCountryModule {
-
   constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.registerCountries();
   }
 
-  static forRoot(i18n: MatSelectCountrySupportLanguages = 'de'): ModuleWithProviders<MatSelectCountryModule> {
+  static forRoot(i18n: MatSelectCountrySupportedLanguages): ModuleWithProviders<MatSelectCountryModule> {
     return {
       ngModule: MatSelectCountryModule,
       providers:
         [
           {
-            provide: MatSelectCountryDBToken,
-            // useValue: null
-            // useFactory: () => import(`'./i18n/${i18n}'`).then(result => {
-            useFactory: () => import('./i18n/de').then(x => {
-              return x.COUNTRIES_DB_DE;
-            })
+            provide: MatSelectCountryLangToken,
+            useValue: i18n
           }
         ]
     };
@@ -69,10 +68,13 @@ export class MatSelectCountryModule {
   registerCountries() {
     for (const country of COUNTRIES_DB) {
       const countryAlpha2Code = country.alpha2Code.toLowerCase();
-      this.iconRegistry
-        .addSvgIcon(countryAlpha2Code, this.sanitizer
-          .bypassSecurityTrustResourceUrl(`assets/svg-country-flags/svg/${countryAlpha2Code}.svg`));
+      try {
+        this.iconRegistry
+          .addSvgIcon(countryAlpha2Code, this.sanitizer
+            .bypassSecurityTrustResourceUrl(`assets/svg-country-flags/svg/${countryAlpha2Code}.svg`));
+      } catch (err) {
+        console.error('Error: icon not found for ' + countryAlpha2Code, err);
+      }
     }
   }
-
 }

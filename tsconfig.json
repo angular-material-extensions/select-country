@@ -23,10 +23,12 @@
     ],
     "paths": {
       "@angular-material-extensions/select-country": [
+        "dist/angular-material-extensions/select-country/*",
         "dist/angular-material-extensions/select-country"
       ],
       "@angular-material-extensions/select-country/*": [
-        "dist/angular-material-extensions/select-country/*"
+        "libs/angular-material-extensions/select-country/*",
+        "libs/angular-material-extensions/select-country"
       ]
     }
   },

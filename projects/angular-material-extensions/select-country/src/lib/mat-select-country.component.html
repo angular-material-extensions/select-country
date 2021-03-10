@@ -1,19 +1,24 @@
-<form>
-  <mat-form-field [appearance]="appearance">
+<mat-form-field [appearance]="appearance">
     <mat-label *ngIf="label">{{label}}</mat-label>
-    <mat-icon [svgIcon]="this.value?.alpha2Code.toLowerCase()" class="mr-12 s-20 secondary-text"
+    <mat-icon *ngIf="this.value" [svgIcon]="this.value?.alpha2Code?.toLowerCase()" class="mr-12 s-20 secondary-text"
               matSuffix></mat-icon>
-    <input (blur)="onBlur()" (input)="inputChanged($event.target.value)" [class]="class" [disabled]="disabled"
-           [formControl]="countryFormControl" [matAutocomplete]="countryAutocomplete"
-           [placeholder]="placeHolder"
-           [readonly]="readonly" [value]="value?.name" aria-label="country"
+    <input (blur)="onBlur()" (input)="inputChanged($event?.target?.value)"
+           [class]="class"
+           [matAutocomplete]="this.countryAutocomplete"
+           [placeholder]="this.placeHolder"
+           [readonly]="this.readonly"
+           [value]="showCallingCode ? this.value?.callingCode : this.value?.name"
+           [required]="this.required"
+           [disabled]="this.disabled || this.loadingDB"
+           aria-label="country"
            matInput type="text">
+    <mat-progress-bar *ngIf="this.loadingDB || this.loading" mode="buffer"></mat-progress-bar>
     <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"
                       (optionSelected)="onOptionsSelected($event)">
-      <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
-        <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
-        <small>{{country?.name}} - {{country?.alpha3Code}}</small>
-      </mat-option>
+        <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
+            <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
+            <small *ngIf="!showCallingCode">{{ [country?.name, country?.alpha3Code] | joinStrings }}</small>
+            <small *ngIf="showCallingCode">{{ [country?.name, '(' + country?.callingCode + ')'] | joinStrings:' ' }}</small>
+        </mat-option>
     </mat-autocomplete>
-  </mat-form-field>
-</form>
+</mat-form-field>
