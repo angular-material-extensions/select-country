@@ -7,7 +7,7 @@
            matInput [value]="value?.name"
            [formControl]="countryFormControl"
            [matAutocomplete]="auto" [readonly]="readonly" [disabled]="disabled"
-           (blur)="onBlur()">
+           [tabIndex]="tabIndex" (blur)="onBlur()">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
       <mat-option *ngFor="let country of filteredOptions | async" [value]="country?.name">
         <mat-icon [svgIcon]="country?.alpha2Code.toLowerCase()"></mat-icon>
