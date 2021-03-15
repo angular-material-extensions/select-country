@@ -167,7 +167,6 @@ Other modules in your application like for lazy loading import `MatSelectCountry
 | nullable          | `Input()`  |        `boolean`         |                -                | Whether the component is able to emit `null`                                                       |
 | readonly          | `Input()`  |        `boolean`         |                -                | Whether the component is read only                                                                 |
 | tabIndex          | `Input()`  |    `number | string`     |                -                | Whether the component can be focused, and where it participates in sequential keyboard navigation  |
-| tabIndex      | `Input()`  | `number | string` | - |  Whether the component can be focused, and where it participates in 
 | showCallingCode   | `Input()`  |        `boolean`         |              false              | Whether the component to show the country's calling code in the label and selection                |
 | class             | `Input()`  |         `string`         |                -                | Class attribute apply style to input text or validation ignore (optional)                          |
 | onCountrySelected | `Output()` | `EventEmitter<Country>`  |                -                | emits the selected country as object (see the interface below)                                     |
