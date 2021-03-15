@@ -149,6 +149,7 @@ Other modules in your application like for lazy loading import ` MatSelectCountr
 | disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
 | nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
 | readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
+| tabIndex      | `Input()`  | `number | string` | - |  Whether the component can be focused, and where it participates in sequential keyboard navigation
 | onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
 
 
