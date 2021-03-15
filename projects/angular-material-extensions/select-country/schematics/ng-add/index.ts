@@ -1,8 +1,8 @@
-import {chain, noop, Rule, SchematicContext, Tree} from '@angular-devkit/schematics';
-import {NodePackageInstallTask} from '@angular-devkit/schematics/tasks';
-import {addPackageJsonDependency, NodeDependency, NodeDependencyType} from '../helpers';
-import {getWorkspace} from '@schematics/angular/utility/config';
-import {addModuleImportToRootModule, getProjectFromWorkspace,} from '@angular/cdk/schematics';
+import { chain, noop, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
+import { addModuleImportToRootModule, getProjectFromWorkspace } from '@angular/cdk/schematics';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { addPackageJsonDependency, NodeDependency, NodeDependencyType } from '../helpers';
 
 /** Loads the full version from the given Angular package gracefully. */
 function loadPackageVersionGracefully(): string | null {
@@ -22,9 +22,9 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default, version: loadPackageVersionGracefully()
-          || '1.3.0', name: '@angular-material-extensions/select-country'
+          || '4.0.0', name: '@angular-material-extensions/select-country'
       },
-      {type: NodeDependencyType.Default, version: '^1.2.6', name: 'svg-country-flags'},
+      { type: NodeDependencyType.Default, version: '^1.2.7', name: 'svg-country-flags' }
     ];
 
     dependencies.forEach(dependency => {
@@ -45,14 +45,20 @@ export function installPackageJsonDependencies(): Rule {
   };
 }
 
+
 export function addModuleToImports(options: any): Rule {
-  return (host: Tree, context: SchematicContext) => {
-    const workspace = getWorkspace(host);
+  // @ts-ignore
+  return async (host: Tree, context: SchematicContext) => {
+    const workspace = await getWorkspace(host);
     const project = getProjectFromWorkspace(
+      // @ts-ignore
       workspace,
       // Takes the first project in case it's not provided by CLI
       options.project ? options.project : Object.keys(workspace.projects)[0]
     );
+
+    // const workspace = await getWorkspace(host);
+    // const project = getProjectFromWorkspace(workspace, options.project);
 
     const moduleName = `MatSelectCountryModule`;
 

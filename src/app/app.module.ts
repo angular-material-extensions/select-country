@@ -1,20 +1,19 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSelectCountryModule} from '@angular-material-extensions/select-country';
-import {HttpClientModule} from '@angular/common/http';
-import {MarkdownModule} from 'ngx-markdown';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {BrowserModule} from '@angular/platform-browser';
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { MarkdownModule } from 'ngx-markdown';
 import { Angulartics2Module } from 'angulartics2';
-import {ReactiveFormsModule} from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
@@ -24,10 +23,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     FlexLayoutModule,
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
-    MatSelectCountryModule,
+    MatSelectCountryModule.forRoot('de'),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

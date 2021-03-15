@@ -1,3 +1,131 @@
+# [4.1.0](https://github.com/angular-material-extensions/select-country/compare/4.0.3...4.1.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* **lib:** update docs ([67d10f4](https://github.com/angular-material-extensions/select-country/commit/67d10f4aae32f511ba162cf275f8408004b98c77))
+* **lib:** updated the dependencies ([87e1639](https://github.com/angular-material-extensions/select-country/commit/87e16393b708df9fcc07f19a325c7a98ad8dd93f))
+
+## [4.0.3](https://github.com/angular-material-extensions/select-country/compare/4.0.2...4.0.3) (2021-01-17)
+
+
+### Bug Fixes
+
+* **lib:** match country on alpha2 ([d304873](https://github.com/angular-material-extensions/select-country/commit/d30487384455c87f49ea3df09c01d600f593e5f1))
+* **lib:** updated the dependencies ([fb0e6ee](https://github.com/angular-material-extensions/select-country/commit/fb0e6eebc29f71e8531ca470a506cb83dd39c123))
+
+## [4.0.2](https://github.com/angular-material-extensions/select-country/compare/4.0.1...4.0.2) (2021-01-07)
+
+
+### Bug Fixes
+
+* **lib:** removed json-utils helper file ([98a6ddc](https://github.com/angular-material-extensions/select-country/commit/98a6ddc7d73011f3bba56f626da4bd623c6521f1))
+* **lib:** updated the dependencies ([a779e00](https://github.com/angular-material-extensions/select-country/commit/a779e002f478e2c1b3db7e3799e8c4006ef37b18))
+
+## [4.0.1](https://github.com/angular-material-extensions/select-country/compare/4.0.0...4.0.1) (2020-11-20)
+
+# [4.0.0](https://github.com/angular-material-extensions/select-country/compare/3.0.4...4.0.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* **demo:** upgraded angular flexlayout to v11 ([fc7a45d](https://github.com/angular-material-extensions/select-country/commit/fc7a45d34ab8ee624f3f468e3799fe5e9f0e8540))
+* **lib:** fixed issue related to the schematics ([81eee08](https://github.com/angular-material-extensions/select-country/commit/81eee082d5dff61e8ea774a69bbcfc4ef8696786))
+* **lib:** updated dependencies ([d093dd9](https://github.com/angular-material-extensions/select-country/commit/d093dd91a564ccd1e6f09a15924755dc1a37a7ec))
+* **lib:** upgraded angular material to v11 ([ef9e51e](https://github.com/angular-material-extensions/select-country/commit/ef9e51e1ac21b06d67254f15cb1e5a9190b92fed))
+* **lib:** upgraded angular to v11 ([e7f1851](https://github.com/angular-material-extensions/select-country/commit/e7f18511a46323bf70abfec61945eafcea941209))
+* **lib:** upgraded nguniversal to v11 ([edcf027](https://github.com/angular-material-extensions/select-country/commit/edcf0279f53ba6f711aab0b2c0bade8f38c9d9ac))
+* **lib:** upgraded rxjs to v6.6.3 ([28f0cfa](https://github.com/angular-material-extensions/select-country/commit/28f0cfacd3cdce89a434917a3fa2c2314c061fcd))
+
+## [3.0.4](https://github.com/angular-material-extensions/select-country/compare/3.0.3...3.0.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* norway alpha2code correctly set ([f42390a](https://github.com/angular-material-extensions/select-country/commit/f42390a90da7561b278d7844889bdd4a44dd8c12))
+
+## [3.0.3](https://github.com/angular-material-extensions/select-country/compare/3.0.2...3.0.3) (2020-11-03)
+
+
+### Bug Fixes
+
+* **lib:** removed logs [#49](https://github.com/angular-material-extensions/select-country/issues/49) ([edc19ab](https://github.com/angular-material-extensions/select-country/commit/edc19abf3b606d9650819d50ba5c6a11d2e2b7ea))
+* **lib:** support of required attribute [#48](https://github.com/angular-material-extensions/select-country/issues/48) ([829c7d5](https://github.com/angular-material-extensions/select-country/commit/829c7d582013442fc7f62bfee3a6542d0d13cd03))
+
+## [3.0.2](https://github.com/angular-material-extensions/select-country/compare/3.0.1...3.0.2) (2020-10-23)
+
+
+### Bug Fixes
+
+* join country name and alpha3 code if specified ([13dcf4a](https://github.com/angular-material-extensions/select-country/commit/13dcf4aaa88ce447497e9ff8b1f04451ecf19212))
+* rebase mistake ([ab0cccd](https://github.com/angular-material-extensions/select-country/commit/ab0cccdea9d341abb3936ac727dc80e457a339c9))
+
+## [3.0.1](https://github.com/angular-material-extensions/select-country/compare/3.0.0...3.0.1) (2020-10-23)
+
+
+### Bug Fixes
+
+* **lib:** added the ability to disable the component using reactive forms [#45](https://github.com/angular-material-extensions/select-country/issues/45) ([19ed988](https://github.com/angular-material-extensions/select-country/commit/19ed988fe7e8b3b9000dba30fa0b27c3e75254c4))
+
+# [3.0.0](https://github.com/angular-material-extensions/select-country/compare/2.2.0...3.0.0) (2020-10-23)
+
+
+### Bug Fixes
+
+* **demo:** adapted the demo app to the latest version ([685c50b](https://github.com/angular-material-extensions/select-country/commit/685c50bc781ada08383754a6323ec02d6254a7b9))
+* **demo:** enhanced the demo app [#35](https://github.com/angular-material-extensions/select-country/issues/35) [#46](https://github.com/angular-material-extensions/select-country/issues/46) ([c8b2969](https://github.com/angular-material-extensions/select-country/commit/c8b2969e6122f16218c06982ce08185fd2ab99da))
+* **i18n:** improved i18n feature ([3aee9f5](https://github.com/angular-material-extensions/select-country/commit/3aee9f5abb361ae29deabf6331a9f6442075de6d))
+* **lib:** improved the lib - bug fixes - integration of i18n [#7](https://github.com/angular-material-extensions/select-country/issues/7) [#42](https://github.com/angular-material-extensions/select-country/issues/42) ([62ca478](https://github.com/angular-material-extensions/select-country/commit/62ca478d16f0ae23da4246403175b50a7e3f0aa0))
+* **lib:** integration of the default en language [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([8ac69d6](https://github.com/angular-material-extensions/select-country/commit/8ac69d67572b2f33c4da833199d8bc4dd3b2f770))
+* **lib:** removed country property --> please use `value` [#11](https://github.com/angular-material-extensions/select-country/issues/11) [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([7ad05b5](https://github.com/angular-material-extensions/select-country/commit/7ad05b5a8e4d1c5a7c2a4172cab9a014ef247456))
+* **lib:** solved default country bug [#11](https://github.com/angular-material-extensions/select-country/issues/11) [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([af00b88](https://github.com/angular-material-extensions/select-country/commit/af00b889c8e74f1fc5e731ab897ca6e6587d8cf0))
+* **lib:** solved minor bug [#35](https://github.com/angular-material-extensions/select-country/issues/35) ([7ade997](https://github.com/angular-material-extensions/select-country/commit/7ade997ccc97b3b5402c1e948a3d71aaa34f6046))
+
+
+### Features
+
+* **lib:** added 4 languages support | de fr es it [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([6253d00](https://github.com/angular-material-extensions/select-country/commit/6253d0043689360fa2f81e62b0224f81f6116a32))
+* **lib:** added 4 languages support | de fr es it [#7](https://github.com/angular-material-extensions/select-country/issues/7) ([a3b440b](https://github.com/angular-material-extensions/select-country/commit/a3b440b263c7481fe9d2b63af963f96f705e22aa))
+* **lib:** updated angular to the latest version ([513175a](https://github.com/angular-material-extensions/select-country/commit/513175a059b04ae8de52fb6d6f370b7936681742))
+
+# [2.2.0](https://github.com/angular-material-extensions/select-country/compare/2.1.0...2.2.0) (2020-08-30)
+
+# [2.1.0](https://github.com/angular-material-extensions/select-country/compare/2.0.0...2.1.0) (2020-08-30)
+
+
+### Bug Fixes
+
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([a0269ad](https://github.com/angular-material-extensions/select-country/commit/a0269ad961b40d5f1da6d3b54239cec11b33f329))
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([5db8bb8](https://github.com/angular-material-extensions/select-country/commit/5db8bb836093ee4f34104147b3d0dccebdb6d4f2))
+* **lib:** ability to predefince specific countries [#12](https://github.com/angular-material-extensions/select-country/issues/12) [#20](https://github.com/angular-material-extensions/select-country/issues/20) ([b3ecbb3](https://github.com/angular-material-extensions/select-country/commit/b3ecbb3dc5e0e76b5c4b3a628ba34649c86e445d))
+* **lib:** updated the dependencies ([1cbc85c](https://github.com/angular-material-extensions/select-country/commit/1cbc85c4a19b339a2057b3c00ec6595a0cdcd862))
+
+# [2.0.0](https://github.com/angular-material-extensions/select-country/compare/1.3.1...2.0.0) (2020-08-26)
+
+
+### Bug Fixes
+
+* **lib:** minor ([58323d8](https://github.com/angular-material-extensions/select-country/commit/58323d864b6f3cf9af013fca9974b817605a69f7))
+* **lib:** minor ([60ce3cc](https://github.com/angular-material-extensions/select-country/commit/60ce3cc684207bf5d7f25a472d71f11ce18126d7))
+* **lib:** minor ([4114362](https://github.com/angular-material-extensions/select-country/commit/411436239a42e0a3e5395cea8d1aa015584fab8e))
+* **lib:** updated the dependencies ([f2a5488](https://github.com/angular-material-extensions/select-country/commit/f2a548864e596ec16c02baf559826f20107473e8))
+* **lib:** upgraded to angular flex layout to v10 ([c2a8826](https://github.com/angular-material-extensions/select-country/commit/c2a88264a5f14c54ad1795cfeab1ae5acc7ad170))
+* **lib:** upgraded to angular material to v10 ([8fbc901](https://github.com/angular-material-extensions/select-country/commit/8fbc901d94dc4f7c7e7d96a4707713627f78a183))
+* **lib:** upgraded to angular v10 ([6909825](https://github.com/angular-material-extensions/select-country/commit/69098257d21838285377384f66e8051aa48e8e83))
+
+## [1.3.1](https://github.com/angular-material-extensions/select-country/compare/1.3.0...1.3.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* **lib:** downgraded ng-packagr related module to v9 [#31](https://github.com/angular-material-extensions/select-country/issues/31) [#25](https://github.com/angular-material-extensions/select-country/issues/25) [#24](https://github.com/angular-material-extensions/select-country/issues/24) [#22](https://github.com/angular-material-extensions/select-country/issues/22) ([2703ff2](https://github.com/angular-material-extensions/select-country/commit/2703ff2d44a06c39617cb7bef5d08f0a8ec4e381))
+* **lib:** fixed control value reset ([14768bc](https://github.com/angular-material-extensions/select-country/commit/14768bcdb385d1e5ef18a6852391f79d78e619d1))
+* **lib:** fixed github.io issue for deployed url ([501ff1f](https://github.com/angular-material-extensions/select-country/commit/501ff1ff203b3fe0e809a6442598af9ab7a3632c))
+* **lib:** minor ([2e3d1fe](https://github.com/angular-material-extensions/select-country/commit/2e3d1febc246a544409311245657a01062b03f55))
+* **lib:** removed again httpclient module from the library ([65a19dd](https://github.com/angular-material-extensions/select-country/commit/65a19dd157bf01b0d77b903d961338a513245fd3))
+* **lib:** updated the dependencies ([d1c5f38](https://github.com/angular-material-extensions/select-country/commit/d1c5f38269c0a60580889d5025c4aa66e61a1fdb))
+* **lib:** updated the dependencies ([7f115c1](https://github.com/angular-material-extensions/select-country/commit/7f115c1a80b9a8b86beec28335294e2533f1f351))
+
 # [1.3.0](https://github.com/angular-material-extensions/select-country/compare/1.2.1...1.3.0) (2020-07-08)
 
 

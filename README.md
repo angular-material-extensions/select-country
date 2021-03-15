@@ -1,10 +1,10 @@
 <p align="center">
   <img alt="angular-material-extensions's logo"
-   height="256px" width="256px" style="text-align: center;" 
+   height="256px" width="256px" style="text-align: center;"
    src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
 </p>
 
-# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V9 supported incl. schematics
+# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V11 supported incl. schematics
 
 [![npm version](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg)](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country)
 [![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/select-country)
@@ -16,7 +16,6 @@
 [![devDependency Status](https://david-dm.org/angular-material-extensions/select-country/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/select-country#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/select-country.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/select-country.svg?style=flat-square)](https://github.com/angular-material-extensions/select-country/blob/master/LICENSE)
-
 
 <p align="center">
   <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
@@ -32,7 +31,7 @@
 Do you have any question or suggestion ? Please do not hesitate to contact us!
 Alternatively, provide a PR | open an appropriate issue [here](https://github.com/angular-material-extensions/select-country/issues)
 
-If you like this project, support [angular-material-extensions](https://github.com/angular-material-extensions) 
+If you like this project, support [angular-material-extensions](https://github.com/angular-material-extensions)
 by starring :star: and sharing it :loudspeaker:
 
 ## Table of Contents
@@ -58,7 +57,6 @@ View all the directives and components in action at [https://angular-material-ex
 ## Library's components
 - `<mat-select-country>` used to display the main component
 
-
 ---
 
 <a name="dependencies"/>
@@ -81,9 +79,9 @@ Now add the library via the `angular schematics`
 ng add @angular-material-extensions/select-country
 ```
 
-## 2. Install via *npm*. (Alternative) 
+## 2. Install via *npm*. (Alternative)
 
-Install peer dependencies 
+Install peer dependencies
 ```shell
 npm i svg-country-flags -s
 ```
@@ -103,55 +101,76 @@ then update your `angular.json` like below (svg-country-flags)
 ```
 
 Now install `@angular-material-extensions/select-country` via:
+
 ```shell
 npm install --save @angular-material-extensions/select-country
 ```
-
 
 ### Import the library
 
 If you installed the library via angular schematics, you can skip this step
 
 Once installed you need to import the main module and the `HttpClientModule`:
+
 ```js
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
 ```
 
 ```typescript
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country'; 
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatSelectCountryModule, HttpClientModule, ...],  
+  imports: [
+              MatSelectCountryModule.forRoot('de'), // you can use 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'it' | 'nl' | 'pt' --> MatSelectCountrySupportedLanguages
+             HttpClientModule, ...],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-Other modules in your application like for lazy loading import ` MatSelectCountryModule ` into your feature module:
+in other modules
 
+```typescript
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+  declarations: [AppComponent, ...],
+  imports: [MatSelectCountryModule, HttpClientModule, ...],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+
+Other modules in your application like for lazy loading import `MatSelectCountryModule` into your feature module:
 
 <a name="api"/>
 
 ## API
 
-### `<mat-select-country>`  used to display the main component - [see the demo examples](https://angular-material-extensions.github.io/select-country/examples)
+### `<mat-select-country>` used to display the main component - [see the demo examples](https://angular-material-extensions.github.io/select-country/examples)
 
-| option | bind  |  type  |   default    | description  |
-|:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| value      | `Input()`  | `Country`    | - |  the selected country
-| appearance      | `Input()`  | `MatFormFieldAppearance`    | - |  Possible appearance styles for `mat-form-field` | 'legacy' | 'standard' | 'fill' | 'outline'
-| country      | `Input()`  | `string`    | - |  Value to be set to the input (possible values are `Country` interface properties, case-insensitive)
-| label      | `Input()`  | `boolean`    | - |  `mat-form-field` label's text
-| placeHolder      | `Input()`  | `boolean`    | - |  input placeholder text
-| disabled      | `Input()`  | `boolean`    | - |  Whether the component is disabled
-| nullable      | `Input()`  | `boolean`    | - |  Whether the component is able to emit `null`
-| readonly      | `Input()`  | `boolean`    | - |  Whether the component is read only
-| tabIndex      | `Input()`  | `number | string` | - |  Whether the component can be focused, and where it participates in sequential keyboard navigation
-| onCountrySelected  | `Output()` | `EventEmitter<Country>`    | - | emits the selected country as object (see the interface below)
-
+| option            |    bind    |           type           |             default             | description                                                                                        |
+| :---------------- | :--------: | :----------------------: | :-----------------------------: | :------------------------------------------------------------------------------------------------- |
+| value             | `Input()`  |        `Country`         |                -                | the selected country (pass an empty Country object with alpha2 code populated to do alpha2 lookup) |
+| appearance        | `Input()`  | `MatFormFieldAppearance` |                -                | Possible appearance styles for `mat-form-field` ('legacy', 'standard', 'fill' or 'outline')        |
+| countries         | `Input()`  |       `Country[]`        | All countries stored in the lib | Countries that should be loaded - predefine the countries that you only need!                      |
+| label             | `Input()`  |        `boolean`         |                -                | `mat-form-field` label's text                                                                      |
+| itemsLoadSize     | `Input()`  |         `number`         |                -                | the number of countries that should be fetched --> improves the performance                        |
+| placeHolder       | `Input()`  |        `boolean`         |                -                | input placeholder text                                                                             |
+| disabled          | `Input()`  |        `boolean`         |                -                | Whether the component is disabled                                                                  |
+| loading           | `Input()`  |        `boolean`         |                -                | Whether the component is loading                                                                   |
+| nullable          | `Input()`  |        `boolean`         |                -                | Whether the component is able to emit `null`                                                       |
+| readonly          | `Input()`  |        `boolean`         |                -                | Whether the component is read only                                                                 |
+| tabIndex          | `Input()`  |    `number | string`     |                -                | Whether the component can be focused, and where it participates in sequential keyboard navigation  |
+| tabIndex      | `Input()`  | `number | string` | - |  Whether the component can be focused, and where it participates in 
+| showCallingCode   | `Input()`  |        `boolean`         |              false              | Whether the component to show the country's calling code in the label and selection                |
+| class             | `Input()`  |         `string`         |                -                | Class attribute apply style to input text or validation ignore (optional)                          |
+| onCountrySelected | `Output()` | `EventEmitter<Country>`  |                -                | emits the selected country as object (see the interface below)                                     |
 
 ```typescript
 interface Country {
@@ -159,6 +178,7 @@ interface Country {
   alpha2Code: string;
   alpha3Code: string;
   numericCode: string;
+  callingCode: string;
 }
 ```
 
@@ -190,12 +210,12 @@ add the `<mat-select-country>` element to your template:
 </p>
 
 
-#### Use the library with reactive forms 
+#### Use the library with reactive forms
 
 ### option 1 with Reactive Forms
 
 ```html
-<mat-select-country appearance="outline" 
+<mat-select-country appearance="outline"
                     label="Country"
                     [formControl]="countryFormControl"
                     (onCountrySelected)="onCountrySelected($event)">
@@ -209,6 +229,7 @@ add the `<mat-select-country>` element to your template:
     <div fxLayoutAlign="center">
       <mat-select-country appearance="outline"
                           label="Country"
+                          class="className"
                           formControlName="country"
                           (onCountrySelected)="onCountrySelected($event)">
       </mat-select-country>
@@ -218,8 +239,9 @@ add the `<mat-select-country>` element to your template:
 
 ```typescript
 import {Component,OnInit} from '@angular/core';
-import {Country} from '@angular-material-extensions/select-country'; 
 import {FormControl} from '@angular/forms';
+
+import {Country} from '@angular-material-extensions/select-country';
 
 @Component({
   selector: 'app-root',
@@ -227,7 +249,7 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'select-county';
+  title = 'select-country';
 
   countryFormControl = new FormControl();
   countryFormGroup: FormGroup;
@@ -241,7 +263,7 @@ export class AppComponent implements OnInit{
     this.countryFormGroup = this.formBuilder.group({
       country: []
     });
-    
+
     this.countryFormGroup.get('country').valueChanges
 .subscribe(country => console
 .log('this.countryFormGroup.get("country").valueChanges', country));
@@ -258,6 +280,71 @@ export class AppComponent implements OnInit{
 }
 
 ```
+
+
+### Predefine your countries to load
+
+```html
+<mat-select-country appearance="outline"
+                    label="Country"
+                    [countries]="predefinedCountries"
+                    (onCountrySelected)="onCountrySelected($event)">
+</mat-select-country>
+```
+
+```typescript
+import {Country} from '@angular-material-extensions/select-country';
+
+predefinedCountries: Country[] = [
+  {
+    name: 'Germany',
+    alpha2Code: 'DE',
+    alpha3Code: 'DEU',
+    numericCode: '276',
+    callingCode: '+49'
+  },
+  {
+    name: 'Greece',
+    alpha2Code: 'GR',
+    alpha3Code: 'GRC',
+    numericCode: '300',
+    callingCode: '+30'
+  },
+  {
+    name: 'France',
+    alpha2Code: 'FR',
+    alpha3Code: 'FRA',
+    numericCode: '250',
+    callingCode: '+33'
+  },
+  {
+    name: 'Belgium',
+    alpha2Code: 'BE',
+    alpha3Code: 'BEL',
+    numericCode: '056',
+    callingCode: '+32'
+  }
+];
+```
+
+Result:
+
+<p align="center">
+  <img alt="@angular-material-extensions/select-country demonstration" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/select-country/HEAD/assets/v2.1.0/predefined.png">
+</p>
+
+
+### Improve performance - use the `itemsLoadSize` property
+
+```html
+<mat-select-country appearance="outline"
+                    label="Country"
+                    [itemsLoadSize]="5">
+</mat-select-country>
+```
+
+only 5 countries will fetched!
 
 
 
@@ -297,7 +384,7 @@ $ npm start
 + Drop an email to: [Anthony Nahas](mailto:anthony.na@hotmail.de)
 + or open an appropriate [issue](https://github.com/angular-material-extensions/select-country/issues)
 + let us chat on [Gitter](https://gitter.im/angular-material-extensions/Lobby)
- 
+
  Built by and for developers :heart: we will help you :punch:
 
 ---
@@ -312,5 +399,8 @@ This project is supported by [jetbrains](https://www.jetbrains.com/) with 1 ALL 
 
 ## License
 
-Copyright (c) 2019 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT)
-
+Copyright (c) 2020-2021 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
+                                                                                                            <img alt="angular-material-extensions's logo"
+                                                                                                             height="92px" width="92px" style="text-align: center;"
+                                                                                                             src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/badge_made-in-germany.svg">
+                                                                                                          </p>

@@ -1,19 +1,19 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {MatSelectCountryComponent} from './mat-select-country.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { SimpleChange } from '@angular/core';
+import {SimpleChange} from '@angular/core';
 
 describe('SelectCountryComponent', () => {
   let component: MatSelectCountryComponent;
   let fixture: ComponentFixture<MatSelectCountryComponent>;
   let inputElement: HTMLInputElement;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MatSelectCountryComponent],
       imports: [
@@ -54,7 +54,7 @@ describe('SelectCountryComponent', () => {
     expect(matOptions.length).toEqual(203);
   });
 
-  it('should load all countries (3) if the input value is equal to `ger` ', async () => {
+  it('should load all countries (4) if the input value is equal to `ger` ', async () => {
 
     prepare(inputElement, 'ger');
     fixture.detectChanges();
@@ -62,7 +62,7 @@ describe('SelectCountryComponent', () => {
     fixture.detectChanges();
 
     const matOptions = document.querySelectorAll('mat-option');
-    expect(matOptions.length).toEqual(3);
+    expect(matOptions.length).toEqual(4);
   });
 
   it('should find only germany ', async () => {
@@ -74,6 +74,8 @@ describe('SelectCountryComponent', () => {
 
     const matOptions = document.querySelectorAll('mat-option');
     expect(matOptions.length).toEqual(1);
+
+    await fixture.whenStable();
 
     const optionToClick = matOptions[0] as HTMLElement;
     optionToClick.click();
@@ -93,7 +95,7 @@ describe('SelectCountryComponent', () => {
       country: new SimpleChange(undefined, 'de', true)
     });
 
-    await fixture.whenStable();
+    fixture.detectChanges();
 
     expect(inputElement.value).toMatch('Germany');
   });
