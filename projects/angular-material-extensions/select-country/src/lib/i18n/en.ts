@@ -1549,7 +1549,7 @@ export const COUNTRIES_DB: Country[] = [
     callingCode: '+963'
   },
   {
-    name: 'Taiwan',
+    name: 'Taiwan, China',
     alpha2Code: 'TW',
     alpha3Code: 'TWN',
     numericCode: '158',
