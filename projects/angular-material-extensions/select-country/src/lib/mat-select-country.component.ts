@@ -56,6 +56,7 @@ export class MatSelectCountryComponent
   @Input() disabled: boolean;
   @Input() nullable: boolean;
   @Input() readonly: boolean;
+  @Input() tabIndex: number | string;
   @Input() class: string;
   @Input() itemsLoadSize: number;
   @Input() loading: boolean;
