@@ -1,4 +1,5 @@
 export * from './br';
+export * from './by';
 export * from './de';
 export * from './en';
 export * from './es';
