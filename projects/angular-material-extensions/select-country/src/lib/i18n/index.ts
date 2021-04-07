@@ -8,3 +8,4 @@ export * from './hr';
 export * from './it';
 export * from './nl';
 export * from './pt';
+export * from './ru';
