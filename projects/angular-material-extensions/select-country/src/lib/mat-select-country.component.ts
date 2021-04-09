@@ -271,6 +271,11 @@ export class MatSelectCountryComponent
           this.countries = y;
           return y;
         });
+      case 'ua':
+        return import('./i18n/ua').then(result => result.COUNTRIES_DB_UA).then(y => {
+          this.countries = y;
+          return y;
+        });
       default:
         return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => {
           this.countries = y;
