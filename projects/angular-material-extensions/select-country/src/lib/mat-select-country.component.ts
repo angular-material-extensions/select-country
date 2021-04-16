@@ -162,7 +162,7 @@ export class MatSelectCountryComponent
 
   writeValue(obj: any): void {
     if (obj) {
-      this._setValue(obj);
+      this.value = obj;
     }
   }
 
