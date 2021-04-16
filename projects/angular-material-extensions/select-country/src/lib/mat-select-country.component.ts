@@ -239,7 +239,7 @@ export class MatSelectCountryComponent
   }
 
   private _setValue(value: Country | null): void {
-    if (!value?.name || value?.name === 'Unknown') {
+    if (value && (!value.name || value.name === 'Unknown')) {
       // lookup name based on alpha2 values could be extended to lookup on other values too
       const matchingCountry = this.countries.find(
         (c) => c.alpha2Code === value.alpha2Code
