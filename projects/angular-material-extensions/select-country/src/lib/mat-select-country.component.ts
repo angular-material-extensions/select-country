@@ -14,7 +14,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
-import { fromEvent, Subject, Subscription } from 'rxjs';
+import { BehaviorSubject, combineLatest, fromEvent, Subject } from 'rxjs';
 import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 import { MatSelectCountryLangToken } from './tokens';
 
@@ -28,6 +28,9 @@ export interface Country {
   numericCode: string;
   callingCode: string;
 }
+
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<T>;
+type CountryOptionalMandatoryAlpha2Code = Optional<Country, 'alpha3Code' | 'name' | 'callingCode' | 'numericCode'>;
 
 /**
  * @author Anthony Nahas
@@ -61,6 +64,7 @@ export class MatSelectCountryComponent
   @Input() itemsLoadSize: number;
   @Input() loading: boolean;
   @Input() showCallingCode = false;
+  @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
@@ -73,8 +77,12 @@ export class MatSelectCountryComponent
   loadingDB: boolean;
   debounceTime = 300;
   filterString = '';
+
   private modelChanged: Subject<string> = new Subject<string>();
-  private subscription: Subscription;
+  private countries$ = new BehaviorSubject<Country[]>([]);
+  private excludedCountries$ = new BehaviorSubject<Country[]>([]);
+  private value$ = new BehaviorSubject<Country>(null);
+  private unsubscribe$ = new Subject<void>();
 
   // tslint:disable-next-line: variable-name
   private _value: Country;
@@ -87,36 +95,39 @@ export class MatSelectCountryComponent
 
   @Input()
   set value(value: Country) {
-    if (!value.name || value.name == "Unknown") {
-      //lookup name based on alpha2 values could be extended to lookup on other values too
-      const matchingCountry = this.countries.find(
-        (c) => c.alpha2Code == value.alpha2Code
-      );
-      if (!!matchingCountry) {
-        value = matchingCountry;
-      }
-    }
-    this._value = value;
-    this.propagateChange(this._value);
+    // setting a value on a reactive form (formControlName) doesn't trigger ngOnChanges but it does call this setter
+    this.value$.next(value);
   }
 
   propagateChange = (_: any) => {};
 
   ngOnInit() {
+    combineLatest([
+      this.countries$,
+      this.value$,
+      this.excludedCountries$
+    ])
+      .pipe(
+        // fixing the glitch on combineLatest https://blog.strongbrew.io/combine-latest-glitch/
+        debounceTime(0),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(( [countries, value, excludedCountries] ) => {
+        this._populateCountries(countries, excludedCountries);
+        if (value) {
+          this._setValue( value );
+        }
+      });
+
     if (!this.countries) {
-      // console.log('lang', this.i18n);
-      this.loadingDB = true;
-      this._importLang(this.i18n)
-        .then((res) => {
-          // console.log('countries', this.countries);
-        }).catch((err) => console.error('Error: ' + err))
-        .finally(() => this.loadingDB = false);
+      this._loadCountriesFromDb();
     }
 
-    this.subscription = this.modelChanged
+    this.modelChanged
       .pipe(
         startWith(''),
-        debounceTime(this.debounceTime)
+        debounceTime(this.debounceTime),
+        takeUntil(this.unsubscribe$)
       )
       .subscribe((value) => {
         this.filterString = value;
@@ -125,41 +136,33 @@ export class MatSelectCountryComponent
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log('changes', changes);
-    if (changes.country) {
-      if (changes.country.currentValue) {
-        const newValue = changes.country.currentValue.toUpperCase();
-        this.value = this.countries.find(
-          (country) =>
-            country.name.toUpperCase() === newValue ||
-            country.alpha2Code === newValue ||
-            country.alpha3Code === newValue ||
-            country.numericCode === newValue ||
-            country.callingCode === newValue
-        );
-      } else {
-        this.value = undefined;
-      }
+    if (changes.countries?.currentValue) {
+      this.countries$.next(changes.countries.currentValue);
+    }
+
+    if (changes.excludedCountries?.currentValue) {
+      this.excludedCountries$.next(changes.excludedCountries.currentValue);
     }
   }
 
   onBlur() {
     if (this.value && this.nullable) {
-      this.value = null;
+      this._setValue(null);
       this.onCountrySelected.emit(null);
     }
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    this.value = this.countries.find(
+    const value = this.countries.find(
       (country) => country.name === $event.option.value
     );
-    this.onCountrySelected.emit(this.value);
+    this._setValue(value);
+    this.onCountrySelected.emit(value);
   }
 
   writeValue(obj: any): void {
     if (obj) {
-      this.value = obj;
+      this._setValue(obj);
     }
   }
 
@@ -216,56 +219,60 @@ export class MatSelectCountryComponent
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  private _loadCountriesFromDb(): void {
+    this.loadingDB = true;
+    this._importLang(this.i18n)
+      .then((res) => {
+        this.countries$.next(res);
+      })
+      .catch((err) => console.error('Error: ' + err))
+      .finally(() => this.loadingDB = false);
+  }
+
+  private _populateCountries(countries: Country[], excludedCountries: CountryOptionalMandatoryAlpha2Code[]): void {
+    const excludeCountries = excludedCountries.map(c => c.alpha2Code);
+    this.countries = countries.filter(c => !excludeCountries.includes(c.alpha2Code));
+  }
+
+  private _setValue(value: Country | null): void {
+    if (!value?.name || value?.name === 'Unknown') {
+      // lookup name based on alpha2 values could be extended to lookup on other values too
+      const matchingCountry = this.countries.find(
+        (c) => c.alpha2Code === value.alpha2Code
+      );
+      if (!!matchingCountry) {
+        value = matchingCountry;
+      }
+    }
+
+    this._value = value;
+    this.propagateChange(this._value);
   }
 
   private _importLang(i18n: string): Promise<any> {
     switch (i18n) {
       case 'br':
-        return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => y);
       case 'de':
-        return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => y);
       case 'es':
-        return import('./i18n/es').then(result => result.COUNTRIES_DB_ES).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/es').then(result => result.COUNTRIES_DB_ES).then(y => y);
       case 'fr':
-        return import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => y);
       case 'hr':
-        return import('./i18n/hr').then(result => result.COUNTRIES_DB_HR).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/hr').then(result => result.COUNTRIES_DB_HR).then(y => y);
       case 'it':
-        return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => y);
       case 'nl':
-        return import('./i18n/nl').then(result => result.COUNTRIES_DB_NL).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/nl').then(result => result.COUNTRIES_DB_NL).then(y => y);
       case 'pt':
-        return import('./i18n/pt').then(result => result.COUNTRIES_DB_PT).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/pt').then(result => result.COUNTRIES_DB_PT).then(y => y);
       default:
-        return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => {
-          this.countries = y;
-          return y;
-        });
+        return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => y);
     }
   }
 
