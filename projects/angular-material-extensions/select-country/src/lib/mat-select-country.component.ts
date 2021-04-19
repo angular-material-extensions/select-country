@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   forwardRef,
@@ -9,7 +10,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
@@ -89,7 +90,10 @@ export class MatSelectCountryComponent
   // tslint:disable-next-line: variable-name
   private _value: Country;
 
-  constructor(@Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string) {}
+  constructor(
+    @Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   get value(): Country {
     return this._value;
@@ -292,5 +296,8 @@ export class MatSelectCountryComponent
           option.alpha3Code.toLowerCase().includes(filterValue)
       );
     }
+
+    // options in the UI are not updated when this component is used within a host component that uses OnPush
+    this.cdRef.markForCheck();
   }
 }
