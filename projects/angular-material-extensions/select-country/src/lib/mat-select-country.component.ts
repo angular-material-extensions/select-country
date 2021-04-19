@@ -17,6 +17,7 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { BehaviorSubject, combineLatest, fromEvent, Subject } from 'rxjs';
 import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 import { MatSelectCountryLangToken } from './tokens';
+import { MatInput } from '@angular/material/input';
 
 /**
  * Country interface ISO 3166
@@ -52,7 +53,7 @@ type CountryOptionalMandatoryAlpha2Code = Optional<Country, 'alpha3Code' | 'name
 export class MatSelectCountryComponent
   implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
   @Input() appearance: MatFormFieldAppearance;
-  @Input() countries: Country[];
+  @Input() countries: Country[] = [];
   @Input() label: string;
   @Input() placeHolder = 'Select country';
   @Input() required: boolean;
@@ -68,6 +69,7 @@ export class MatSelectCountryComponent
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
+  @ViewChild(MatInput) inputElement: MatInput;
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
@@ -119,7 +121,7 @@ export class MatSelectCountryComponent
         }
       });
 
-    if (!this.countries) {
+    if (!this.countries.length) {
       this._loadCountriesFromDb();
     }
 
@@ -146,7 +148,7 @@ export class MatSelectCountryComponent
   }
 
   onBlur() {
-    if (this.value && this.nullable) {
+    if (!this.inputElement.value && this.nullable && this.statesAutocompleteRef.panel) {
       this._setValue(null);
       this.onCountrySelected.emit(null);
     }
@@ -249,7 +251,7 @@ export class MatSelectCountryComponent
       }
     }
 
-    this._value = value;
+    this._value = value?.name ? value : null;
     this.propagateChange(this._value);
   }
 
