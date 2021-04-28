@@ -67,6 +67,7 @@ export class MatSelectCountryComponent
   @Input() loading: boolean;
   @Input() showCallingCode = false;
   @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
+  @Input() browserAutocomplete: string;
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
