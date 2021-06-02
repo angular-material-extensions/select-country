@@ -1,5 +1,3 @@
-import { experimental } from '@angular-devkit/core';
-
 export enum ProjectType {
   Application = 'application',
   Library = 'library'
@@ -59,6 +57,7 @@ export interface BrowserBuilderOptions extends BrowserBuilderBaseOptions {
 export interface ServeBuilderOptions {
   browserTarget: string;
 }
+
 export interface LibraryBuilderOptions {
   tsConfig: string;
   project: string;
@@ -119,28 +118,6 @@ export type ServeBuilderTarget = BuilderTarget<Builders.DevServer, ServeBuilderO
 export type ExtractI18nBuilderTarget = BuilderTarget<Builders.ExtractI18n, ExtractI18nOptions>;
 export type E2EBuilderTarget = BuilderTarget<Builders.Protractor, E2EOptions>;
 
-export interface WorkspaceSchema extends experimental.workspace.WorkspaceSchema {
-  projects: {
-    [key: string]: WorkspaceProject<ProjectType.Application | ProjectType.Library>;
-  };
-}
-
-export interface WorkspaceProject<TProjectType extends ProjectType = ProjectType.Application>
-  extends experimental.workspace.WorkspaceProject {
-  /**
-   * Project type.
-   */
-  projectType: ProjectType;
-
-  /**
-   * Tool options.
-   */
-  architect?: WorkspaceTargets<TProjectType>;
-  /**
-   * Tool options.
-   */
-  targets?: WorkspaceTargets<TProjectType>;
-}
 
 export interface WorkspaceTargets<TProjectType extends ProjectType = ProjectType.Application> {
   build?: TProjectType extends ProjectType.Library ? LibraryBuilderTarget : BrowserBuilderTarget;
