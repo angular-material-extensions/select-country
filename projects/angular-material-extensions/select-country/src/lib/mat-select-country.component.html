@@ -11,8 +11,10 @@
            [value]="showCallingCode ? this.value?.callingCode : this.value?.name"
            [required]="this.required"
            [disabled]="this.disabled || this.loadingDB"
+           [autocomplete]="browserAutocomplete"
            aria-label="country"
-           matInput type="text">
+           matInput type="text"
+           #inputElement>
     <mat-progress-bar *ngIf="this.loadingDB || this.loading" mode="buffer"></mat-progress-bar>
     <mat-autocomplete #countryAutocomplete="matAutocomplete" (opened)="autocompleteScroll()"
                       (optionSelected)="onOptionsSelected($event)">
