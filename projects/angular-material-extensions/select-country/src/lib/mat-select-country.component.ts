@@ -264,6 +264,8 @@ export class MatSelectCountryComponent
     switch (i18n) {
       case 'br':
         return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => y);
+      case 'by':
+        return import('./i18n/by').then(result => result.COUNTRIES_DB_BY).then(y => y);
       case 'de':
         return import('./i18n/de').then(result => result.COUNTRIES_DB_DE).then(y => y);
       case 'es':
@@ -278,6 +280,10 @@ export class MatSelectCountryComponent
         return import('./i18n/nl').then(result => result.COUNTRIES_DB_NL).then(y => y);
       case 'pt':
         return import('./i18n/pt').then(result => result.COUNTRIES_DB_PT).then(y => y);
+      case 'ru':
+        return import('./i18n/ru').then(result => result.COUNTRIES_DB_RU).then(y => y);
+      case 'ua':
+        return import('./i18n/ua').then(result => result.COUNTRIES_DB_UA).then(y => y);
       default:
         return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => y);
     }
