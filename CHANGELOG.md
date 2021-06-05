@@ -1,3 +1,11 @@
+# [5.0.0](https://github.com/angular-material-extensions/select-country/compare/4.3.0...5.0.0) (2021-06-05)
+
+
+### Bug Fixes
+
+* **lib:** upgraded angular material to v12 ([021293d](https://github.com/angular-material-extensions/select-country/commit/021293d89dce775a3d7fd0f1476d0330f5010e5d))
+* **lib:** upgraded to angular v12 ([23a7928](https://github.com/angular-material-extensions/select-country/commit/23a7928eb67a80e93a2f2ecb07dfc05c4a1a492c))
+
 # [4.3.0](https://github.com/angular-material-extensions/select-country/compare/4.1.0...4.3.0) (2021-06-02)
 
 
