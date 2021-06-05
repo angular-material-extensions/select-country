@@ -4,7 +4,7 @@
    src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
 </p>
 
-# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V11 supported incl. schematics
+# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V12 supported incl. schematics
 
 [![npm version](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg)](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country)
 [![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/select-country)
@@ -62,7 +62,7 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) developed and tested with `9.x`
+* [Angular](https://angular.io) developed and tested with `12.x`
 
 ---
 
