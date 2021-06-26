@@ -1,3 +1,28 @@
+# [5.0.0](https://github.com/angular-material-extensions/select-country/compare/4.3.0...5.0.0) (2021-06-05)
+
+
+### Bug Fixes
+
+* **lib:** upgraded angular material to v12 ([021293d](https://github.com/angular-material-extensions/select-country/commit/021293d89dce775a3d7fd0f1476d0330f5010e5d))
+* **lib:** upgraded to angular v12 ([23a7928](https://github.com/angular-material-extensions/select-country/commit/23a7928eb67a80e93a2f2ecb07dfc05c4a1a492c))
+
+# [4.3.0](https://github.com/angular-material-extensions/select-country/compare/4.1.0...4.3.0) (2021-06-02)
+
+
+### Bug Fixes
+
+* **lib:** fixed focus with tabindex ([998b259](https://github.com/angular-material-extensions/select-country/commit/998b2596452f3f9b1ca62a277d5bf0aa4c70a7bd))
+* **lib:** minor ([ae9442b](https://github.com/angular-material-extensions/select-country/commit/ae9442bfd008dacad175f490df280f0879c05753))
+* **lib:** updated the dependencies ([008e73f](https://github.com/angular-material-extensions/select-country/commit/008e73ff89e449ea4d504ca9cbf50f24f1c4fd71))
+* **lib:** updated the dependencies ([779ab27](https://github.com/angular-material-extensions/select-country/commit/779ab27ab50cb65fb9ff343d2c925a660ed70e91))
+
+
+### Features
+
+* **lib:** added Belarusian ([88983c3](https://github.com/angular-material-extensions/select-country/commit/88983c31abcf3a9e0b93f9fe6b00e6347911b4d0))
+* **lib:** added Russian ([883c1e4](https://github.com/angular-material-extensions/select-country/commit/883c1e47fd39379f21e22744097df22cb358400b))
+* **lib:** added Ukrainian ([5581bb7](https://github.com/angular-material-extensions/select-country/commit/5581bb7bc63c65b935aed4a44a43e9c0c11de90b))
+
 # [4.1.0](https://github.com/angular-material-extensions/select-country/compare/4.0.3...4.1.0) (2021-03-07)
 
 
