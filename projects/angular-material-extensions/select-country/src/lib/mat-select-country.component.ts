@@ -284,6 +284,12 @@ export class MatSelectCountryComponent
         return import('./i18n/ru').then(result => result.COUNTRIES_DB_RU).then(y => y);
       case 'ua':
         return import('./i18n/ua').then(result => result.COUNTRIES_DB_UA).then(y => y);
+      case 'gl':
+        return import('./i18n/gl').then(result => result.COUNTRIES_DB_GL).then(y => y);
+      case 'eu':
+        return import('./i18n/eu').then(result => result.COUNTRIES_DB_EU).then(y => y);
+      case 'ca':
+        return import('./i18n/ca').then(result => result.COUNTRIES_DB_CA).then(y => y);
       default:
         return import('./i18n/en').then(result => result.COUNTRIES_DB).then(y => y);
     }
