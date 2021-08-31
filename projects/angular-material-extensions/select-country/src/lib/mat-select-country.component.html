@@ -2,7 +2,7 @@
     <mat-label *ngIf="label">{{label}}</mat-label>
     <mat-icon *ngIf="this.value" [svgIcon]="this.value?.alpha2Code?.toLowerCase()" class="mr-12 s-20 secondary-text"
               matSuffix></mat-icon>
-    <input (blur)="onBlur()" (input)="inputChanged($event?.target?.value)"
+    <input #input (blur)="onBlur()" (input)="inputChanged($event?.target?.value)"
            [class]="class"
            [matAutocomplete]="this.countryAutocomplete"
            [placeholder]="this.placeHolder"
@@ -11,7 +11,7 @@
            [value]="showCallingCode ? this.value?.callingCode : this.value?.name"
            [required]="this.required"
            [disabled]="this.disabled || this.loadingDB"
-           [autocomplete]="browserAutocomplete"
+           [name]="this.name"
            aria-label="country"
            matInput type="text"
            #inputElement>

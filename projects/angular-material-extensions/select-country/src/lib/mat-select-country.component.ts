@@ -1,6 +1,8 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   EventEmitter,
   forwardRef,
   Inject,
@@ -52,7 +54,7 @@ type CountryOptionalMandatoryAlpha2Code = Optional<Country, 'alpha3Code' | 'name
   ],
 })
 export class MatSelectCountryComponent
-  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
+  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor, AfterViewInit {
   @Input() appearance: MatFormFieldAppearance;
   @Input() countries: Country[] = [];
   @Input() label: string;
@@ -68,10 +70,13 @@ export class MatSelectCountryComponent
   @Input() showCallingCode = false;
   @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
   @Input() browserAutocomplete: string;
+  @Input() language: string;
+  @Input() name: string = 'country';
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
   @ViewChild(MatInput) inputElement: MatInput;
+  @ViewChild('input') inputEl: ElementRef;
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
@@ -150,6 +155,18 @@ export class MatSelectCountryComponent
     if (changes.excludedCountries?.currentValue) {
       this.excludedCountries$.next(changes.excludedCountries.currentValue);
     }
+
+    if(changes.language?.currentValue) {
+      this.filterString = "";
+      this.inputChanged("");
+      this._setValue(null);
+      this.onCountrySelected.emit(null);
+      this._loadCountriesFromDb();
+    }
+  }
+  
+  ngAfterViewInit(): void {
+    this.inputEl.nativeElement.setAttribute('autocomplete', this.browserAutocomplete || 'no');
   }
 
   onBlur() {
@@ -232,7 +249,7 @@ export class MatSelectCountryComponent
 
   private _loadCountriesFromDb(): void {
     this.loadingDB = true;
-    this._importLang(this.i18n)
+    this._importLang()
       .then((res) => {
         this.countries$.next(res);
       })
@@ -260,8 +277,9 @@ export class MatSelectCountryComponent
     this.propagateChange(this._value);
   }
 
-  private _importLang(i18n: string): Promise<any> {
-    switch (i18n) {
+  private _importLang(): Promise<any> {
+    const lang = this.language || this.i18n;
+    switch (lang) {
       case 'br':
         return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => y);
       case 'by':

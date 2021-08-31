@@ -529,8 +529,28 @@
 
     <markdown src="assets/md/predefined/e1.md"></markdown>
 
-    <p>For more info, please read the official readme - see the links above GITHUB - DOCS - NPM</p>
+    <h2 class="div-ex2">Usage changing language</h2>
 
+    <div fxLayoutAlign="center">
+        <div class="mr-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose language</mat-label>
+                <mat-select [(value)]="languageSelected">
+                    <mat-option value="es">Spanish</mat-option>
+                    <mat-option value="en">English</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-select-country appearance="outline"
+                            label="Country"
+                            [language]="languageSelected"
+                            (onCountrySelected)="onCountrySelected($event)">
+        </mat-select-country>
+    </div>
+
+    <markdown src="assets/md/e8.md"></markdown>
+
+    <p>For more info, please read the official readme - see the links above GITHUB - DOCS - NPM</p>
     <!--  </div>-->
 
     <!-- Next Steps -->
