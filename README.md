@@ -169,6 +169,7 @@ Other modules in your application like for lazy loading import `MatSelectCountry
 | tabIndex          | `Input()`  |    `number | string`     |                -                | Whether the component can be focused, and where it participates in sequential keyboard navigation  |
 | showCallingCode   | `Input()`  |        `boolean`         |              false              | Whether the component to show the country's calling code in the label and selection                |
 | class             | `Input()`  |         `string`         |                -                | Class attribute apply style to input text or validation ignore (optional)                          |
+| language          | `Input()`  |         `string`         |                -                | the language, if not specified MatSelectCountryModule.forRoot('XX') will be used (optional)        |
 | onCountrySelected | `Output()` | `EventEmitter<Country>`  |                -                | emits the selected country as object (see the interface below)                                     |
 
 ```typescript
@@ -345,6 +346,14 @@ Result:
 
 only 5 countries will fetched!
 
+### Change language dynamically - use the `language` property
+```html
+<mat-select-country appearance="outline"
+                    label="Country"
+                    [language]="languageSelected"
+                    (onCountrySelected)="onCountrySelected($event)">
+</mat-select-country>
+```
 
 
 <a name="run-demo-app-locally"/>
