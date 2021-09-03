@@ -16,6 +16,9 @@ export class AppComponent implements OnInit {
   countryRequiredFormControl = new FormControl(null, [Validators.required]);
   countryFormGroup: FormGroup;
 
+  languageSelected = 'es';
+  showCallingCode = 'false';
+
   defaultValue: Country = {
     name: 'Deutschland',
     alpha2Code: 'DE',

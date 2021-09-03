@@ -1,6 +1,8 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   EventEmitter,
   forwardRef,
   Inject,
@@ -67,7 +69,9 @@ export class MatSelectCountryComponent
   @Input() loading: boolean;
   @Input() showCallingCode = false;
   @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
-  @Input() browserAutocomplete: string;
+  @Input() autocomplete: string;
+  @Input() language: string;
+  @Input() name: string = 'country';
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
@@ -150,6 +154,15 @@ export class MatSelectCountryComponent
     if (changes.excludedCountries?.currentValue) {
       this.excludedCountries$.next(changes.excludedCountries.currentValue);
     }
+
+    if(changes.language?.currentValue) {
+      let lastValue = this._value;
+      this.filterString = "";
+      this.inputChanged("");
+      this._setValue(null);
+      this.onCountrySelected.emit(null);
+      this._loadCountriesFromDb(lastValue?.alpha2Code);
+    }
   }
 
   onBlur() {
@@ -230,11 +243,12 @@ export class MatSelectCountryComponent
     this.unsubscribe$.complete();
   }
 
-  private _loadCountriesFromDb(): void {
+  private _loadCountriesFromDb(alpha2Code?: string): void {
     this.loadingDB = true;
-    this._importLang(this.i18n)
+    this._importLang()
       .then((res) => {
         this.countries$.next(res);
+        this._setValue(res.find(el => el.alpha2Code == alpha2Code));
       })
       .catch((err) => console.error('Error: ' + err))
       .finally(() => this.loadingDB = false);
@@ -260,8 +274,9 @@ export class MatSelectCountryComponent
     this.propagateChange(this._value);
   }
 
-  private _importLang(i18n: string): Promise<any> {
-    switch (i18n) {
+  private _importLang(): Promise<any> {
+    const lang = this.language || this.i18n;
+    switch (lang) {
       case 'br':
         return import('./i18n/br').then(result => result.COUNTRIES_DB_BR).then(y => y);
       case 'by':
