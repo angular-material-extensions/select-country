@@ -54,7 +54,7 @@ type CountryOptionalMandatoryAlpha2Code = Optional<Country, 'alpha3Code' | 'name
   ],
 })
 export class MatSelectCountryComponent
-  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor, AfterViewInit {
+  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
   @Input() appearance: MatFormFieldAppearance;
   @Input() countries: Country[] = [];
   @Input() label: string;
@@ -69,14 +69,13 @@ export class MatSelectCountryComponent
   @Input() loading: boolean;
   @Input() showCallingCode = false;
   @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
-  @Input() browserAutocomplete: string;
+  @Input() autocomplete: string;
   @Input() language: string;
   @Input() name: string = 'country';
 
   @ViewChild('countryAutocomplete') statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger: MatAutocompleteTrigger;
   @ViewChild(MatInput) inputElement: MatInput;
-  @ViewChild('input') inputEl: ElementRef;
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> = new EventEmitter<Country>();
@@ -157,16 +156,13 @@ export class MatSelectCountryComponent
     }
 
     if(changes.language?.currentValue) {
+      let lastValue = this._value;
       this.filterString = "";
       this.inputChanged("");
       this._setValue(null);
       this.onCountrySelected.emit(null);
-      this._loadCountriesFromDb();
+      this._loadCountriesFromDb(lastValue?.alpha2Code);
     }
-  }
-  
-  ngAfterViewInit(): void {
-    this.inputEl.nativeElement.setAttribute('autocomplete', this.browserAutocomplete || 'no');
   }
 
   onBlur() {
@@ -247,11 +243,12 @@ export class MatSelectCountryComponent
     this.unsubscribe$.complete();
   }
 
-  private _loadCountriesFromDb(): void {
+  private _loadCountriesFromDb(alpha2Code?: string): void {
     this.loadingDB = true;
     this._importLang()
       .then((res) => {
         this.countries$.next(res);
+        this._setValue(res.find(el => el.alpha2Code == alpha2Code));
       })
       .catch((err) => console.error('Error: ' + err))
       .finally(() => this.loadingDB = false);

@@ -544,6 +544,8 @@
         <mat-select-country appearance="outline"
                             label="Country"
                             [language]="languageSelected"
+                            [autocomplete]="'no'"
+                            [showCallingCode]="true"
                             (onCountrySelected)="onCountrySelected($event)">
         </mat-select-country>
     </div>

@@ -166,10 +166,12 @@ Other modules in your application like for lazy loading import `MatSelectCountry
 | loading           | `Input()`  |        `boolean`         |                -                | Whether the component is loading                                                                   |
 | nullable          | `Input()`  |        `boolean`         |                -                | Whether the component is able to emit `null`                                                       |
 | readonly          | `Input()`  |        `boolean`         |                -                | Whether the component is read only                                                                 |
-| tabIndex          | `Input()`  |    `number | string`     |                -                | Whether the component can be focused, and where it participates in sequential keyboard navigation  |
+| tabIndex          | `Input()`  |    `number \| string`    |                -                | Whether the component can be focused, and where it participates in sequential keyboard navigation  |
 | showCallingCode   | `Input()`  |        `boolean`         |              false              | Whether the component to show the country's calling code in the label and selection                |
 | class             | `Input()`  |         `string`         |                -                | Class attribute apply style to input text or validation ignore (optional)                          |
 | language          | `Input()`  |         `string`         |                -                | the language, if not specified MatSelectCountryModule.forRoot('XX') will be used (optional)        |
+| name              | `Input()`  |         `string`         |             'country'           | the attribute name of the input element                                                            |
+| autocomplete      | `Input()`  |         `string`         |                -                | the attribute autocomplete of the input element, to avoid suggestion of some browsers put 'no'     |
 | onCountrySelected | `Output()` | `EventEmitter<Country>`  |                -                | emits the selected country as object (see the interface below)                                     |
 
 ```typescript
