@@ -540,12 +540,19 @@
                     <mat-option value="en">English</mat-option>
                 </mat-select>
             </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose showCallingCode</mat-label>
+                <mat-select [(value)]="showCallingCode">
+                    <mat-option value="true">true</mat-option>
+                    <mat-option value="false">false</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <mat-select-country appearance="outline"
                             label="Country"
                             [language]="languageSelected"
                             [autocomplete]="'no'"
-                            [showCallingCode]="true"
+                            [showCallingCode]="showCallingCode == 'true'"
                             (onCountrySelected)="onCountrySelected($event)">
         </mat-select-country>
     </div>

@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   countryFormGroup: FormGroup;
 
   languageSelected = 'es';
+  showCallingCode = 'false';
 
   defaultValue: Country = {
     name: 'Deutschland',
