@@ -8,10 +8,11 @@
            [placeholder]="this.placeHolder"
            [readonly]="this.readonly"
            [tabIndex]="tabIndex"
-           [value]="showCallingCode ? this.value?.callingCode : this.value?.name"
+           [value]="showCallingCode ? (this.value ? (this.value?.name + ' (' + this.value?.callingCode + ')') : '') : this.value?.name"
            [required]="this.required"
            [disabled]="this.disabled || this.loadingDB"
-           [autocomplete]="browserAutocomplete"
+           [autocomplete]="this.autocomplete"
+           [name]="this.name"
            aria-label="country"
            matInput type="text"
            #inputElement>
