@@ -1,3 +1,12 @@
+# [5.1.0](https://github.com/angular-material-extensions/select-country/compare/5.0.1...5.1.0) (2021-10-14)
+
+
+### Bug Fixes
+
+* **lib:** minor ([d951458](https://github.com/angular-material-extensions/select-country/commit/d95145830345e932e09d68b34791c3ddd6d19667))
+* **lib:** minor ([a92e8fa](https://github.com/angular-material-extensions/select-country/commit/a92e8facae07a4f645b809c11488ffa4eb6f1b5e))
+* **lib:** minor ([628b1c6](https://github.com/angular-material-extensions/select-country/commit/628b1c65023ee801455ec91e0f3076f57a69b41f))
+
 ## [5.0.1](https://github.com/angular-material-extensions/select-country/compare/5.0.0...5.0.1) (2021-06-27)
 
 # [5.0.0](https://github.com/angular-material-extensions/select-country/compare/4.3.0...5.0.0) (2021-06-05)
