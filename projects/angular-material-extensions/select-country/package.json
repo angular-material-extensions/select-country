@@ -48,12 +48,12 @@
     "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
   },
   "peerDependencies": {
-    "@angular/common": "^12.x",
-    "@angular/core": "^12.x",
-    "@angular/forms": "^12.x",
-    "@angular/platform-browser": "^12.x",
-    "@angular/cdk": "~12.x",
-    "@angular/material": "~12.x",
+    "@angular/common": "^13.x",
+    "@angular/core": "^13.x",
+    "@angular/forms": "^13.x",
+    "@angular/platform-browser": "^13.x",
+    "@angular/cdk": "~13.x",
+    "@angular/material": "~13.x",
     "rxjs": "^6.6.x"
   },
   "engines": {
