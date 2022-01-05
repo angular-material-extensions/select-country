@@ -4,7 +4,7 @@
    src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/angular-material-extensions-logo.svg">
 </p>
 
-# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V12 supported incl. schematics
+# @angular-material-extensions/select-country - Angular Material component that allow users to select a country or nationality with an autocomplete feature - Angular V13 supported incl. schematics
 
 [![npm version](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country.svg)](https://badge.fury.io/js/%40angular-material-extensions%2Fselect-country)
 [![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/select-country)
@@ -12,8 +12,6 @@
 [![Join the chat at https://gitter.im/angular-material-extensions/Lobby](https://badges.gitter.im/angular-material-extensions/Lobby.svg)](https://gitter.im/angular-material-extensions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/angular-material-extensions/select-country.svg?branch=master)](https://travis-ci.org/angular-material-extensions/select-country)
 [![codecov](https://codecov.io/gh/angular-material-extensions/select-country/branch/master/graph/badge.svg)](https://codecov.io/gh/angular-material-extensions/select-country)
-[![dependency Status](https://david-dm.org/angular-material-extensions/select-country/status.svg)](https://david-dm.org/angular-material-extensions/select-country)
-[![devDependency Status](https://david-dm.org/angular-material-extensions/select-country/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/select-country#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/select-country.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/select-country.svg?style=flat-square)](https://github.com/angular-material-extensions/select-country/blob/master/LICENSE)
 
@@ -62,7 +60,7 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) developed and tested with `12.x`
+* [Angular](https://angular.io) developed and tested with `13.x`
 
 ---
 
@@ -387,6 +385,16 @@ $ npm start
 - [@angular-material-extensions/pages](https://github.com/angular-material-extensions/pages)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
 ---
+
+<a name="who_is_using_this_lib"/>
+
+## Who is using this library?
+
+[nahaus.de](https:/nahaus.de) - Digital and Automated Real Estate Management
+
+To put your project here, please drop an appropriate PR
+
+-----
 
 <a name="support"/>
 
