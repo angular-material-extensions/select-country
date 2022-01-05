@@ -1,3 +1,16 @@
+# [6.0.0](https://github.com/angular-material-extensions/select-country/compare/5.1.0...6.0.0) (2022-01-05)
+
+
+### Bug Fixes
+
+* **lib:** minor ([91635af](https://github.com/angular-material-extensions/select-country/commit/91635af8e58af2251af1b77ca7e7c62c8eb7287c))
+* **project:** upgraded angular material to v13 ([feb96cf](https://github.com/angular-material-extensions/select-country/commit/feb96cfa09e14705c3e0a2ed86ecd2ed872fbf62))
+* **project:** upgraded angular material to v13 ([c12f89d](https://github.com/angular-material-extensions/select-country/commit/c12f89d8389d055ac505a50e5df99c556558d08a))
+* **project:** upgraded angular material to v13 ([65d261a](https://github.com/angular-material-extensions/select-country/commit/65d261ade5589f4f7b919eeae79e3cad2962a62c))
+* **project:** upgraded angular material to v13 ([2d555fe](https://github.com/angular-material-extensions/select-country/commit/2d555fe98091a13aedeb5cfefa579c02083215e0))
+* **project:** upgraded angular material to v13 ([d3f45e2](https://github.com/angular-material-extensions/select-country/commit/d3f45e2d94c42d95227cd39305c066d84541f594))
+* **project:** upgraded angular to v13 ([c5973ce](https://github.com/angular-material-extensions/select-country/commit/c5973ce3ad3c9597dfed54dbd6f35ce28c4eb506))
+
 # [5.1.0](https://github.com/angular-material-extensions/select-country/compare/5.0.1...5.1.0) (2021-10-14)
 
 
