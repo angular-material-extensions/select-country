@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/angular-material-extensions/select-country/compare/6.0.0...6.0.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* **docs:** updated the readme ([da45022](https://github.com/angular-material-extensions/select-country/commit/da45022336dc2bbd704e6853477fdf653e663abf))
+
 # [6.0.0](https://github.com/angular-material-extensions/select-country/compare/5.1.0...6.0.0) (2022-01-05)
 
 
