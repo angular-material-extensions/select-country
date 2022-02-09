@@ -12,13 +12,13 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger} from '@angular/material/autocomplete';
-import {MatFormFieldAppearance} from '@angular/material/form-field';
-import {BehaviorSubject, combineLatest, fromEvent, Subject} from 'rxjs';
-import {debounceTime, startWith, takeUntil} from 'rxjs/operators';
-import {MatSelectCountryLangToken} from './tokens';
-import {MatInput} from '@angular/material/input';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { BehaviorSubject, combineLatest, fromEvent, Subject } from 'rxjs';
+import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
+import { MatSelectCountryLangToken } from './tokens';
+import { MatInput } from '@angular/material/input';
 
 /**
  * Country interface ISO 3166
