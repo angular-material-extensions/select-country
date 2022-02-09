@@ -18,7 +18,7 @@ import { JoinStringsPipe } from './join.pipe';
 
 import { MatSelectCountryComponent } from './mat-select-country.component';
 
-export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'it' | 'nl' | 'pt';
+export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'hu' | 'it' | 'nl' | 'pt';
 
 /**
  * @author Anthony Nahas
