@@ -1,3 +1,13 @@
+# [7.0.0](https://github.com/angular-material-extensions/select-country/compare/6.0.1...7.0.0) (2022-06-21)
+
+
+### Bug Fixes
+
+* **lib:** minor ([e7a7c5c](https://github.com/angular-material-extensions/select-country/commit/e7a7c5c026694d9fdd97f74346d2c5f92b3360a0))
+* **lib:** upgraded angular deps ([ae51ea4](https://github.com/angular-material-extensions/select-country/commit/ae51ea49b2457f7656ac41beeb9ede06fbee7b52))
+* **lib:** upgraded angular material deps ([b53a4e2](https://github.com/angular-material-extensions/select-country/commit/b53a4e28e0f3332a89f3782b4e7c0eec8433decd))
+* **lib:** upgraded angular universal deps ([7e9ad14](https://github.com/angular-material-extensions/select-country/commit/7e9ad14e1308a51b387b3cbcffd84a5a53a0265d))
+
 ## [6.0.1](https://github.com/angular-material-extensions/select-country/compare/6.0.0...6.0.1) (2022-01-05)
 
 
