@@ -1,3 +1,7 @@
+* Merge remote-tracking branch 'origin/master' (dca4528)
+* fix(lib): minor (7d5640f)
+* Create FUNDING.yml (05aba23)
+
 # [7.0.0](https://github.com/angular-material-extensions/select-country/compare/6.0.1...7.0.0) (2022-06-21)
 
 
