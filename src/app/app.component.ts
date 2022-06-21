@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { Country } from '@angular-material-extensions/select-country';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -12,9 +12,9 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 export class AppComponent implements OnInit {
   title = 'select-country';
 
-  countryFormControl = new FormControl();
-  countryRequiredFormControl = new FormControl(null, [Validators.required]);
-  countryFormGroup: FormGroup;
+  countryFormControl = new UntypedFormControl();
+  countryRequiredFormControl = new UntypedFormControl(null, [Validators.required]);
+  countryFormGroup: UntypedFormGroup;
 
   languageSelected = 'es';
   showCallingCode = 'false';
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     angulartics2GoogleAnalytics.startTracking();
   }

@@ -289,7 +289,6 @@
       }
     }
   },
-  "defaultProject": "select-country",
   "cli": {
     "analytics": "c343e13c-52a4-476c-b27c-263c72b09d52"
   }
