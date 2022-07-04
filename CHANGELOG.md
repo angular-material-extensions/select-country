@@ -1,3 +1,14 @@
+## [7.0.1](https://github.com/angular-material-extensions/select-country/compare/7.0.0...7.0.1) (2022-07-04)
+
+
+### Bug Fixes
+
+* **lib:** minor ([f7a6bc6](https://github.com/angular-material-extensions/select-country/commit/f7a6bc67918017cee9892cb4c4c8d29188d783d9))
+* **lib:** minor ([7d5640f](https://github.com/angular-material-extensions/select-country/commit/7d5640ff50d1dffca2150234cc783b912a356a30))
+* **lib:** upgeaded angular core and cli ([89e48a8](https://github.com/angular-material-extensions/select-country/commit/89e48a8560e46882dd3c6e792512546c820a2d40))
+* **lib:** upgeaded angular material ([4c4a9ec](https://github.com/angular-material-extensions/select-country/commit/4c4a9ec6872b737697e09592300a3cb884d10958))
+* **lib:** upgeaded angular universal ([1fad261](https://github.com/angular-material-extensions/select-country/commit/1fad261614cab1790e885368f3765f705f0c1288))
+
 * Merge remote-tracking branch 'origin/master' (dca4528)
 * fix(lib): minor (7d5640f)
 * Create FUNDING.yml (05aba23)
