@@ -1,8 +1,6 @@
 import {
-  AfterViewInit,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   forwardRef,
   Inject,
@@ -98,7 +96,8 @@ export class MatSelectCountryComponent
   constructor(
     @Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string,
     private cdRef: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   get value(): Country {
     return this._value;
@@ -110,7 +109,8 @@ export class MatSelectCountryComponent
     this.value$.next(value);
   }
 
-  propagateChange = (_: any) => {};
+  propagateChange = (_: any) => {
+  };
 
   ngOnInit() {
     combineLatest([
@@ -123,10 +123,10 @@ export class MatSelectCountryComponent
         debounceTime(0),
         takeUntil(this.unsubscribe$)
       )
-      .subscribe(( [countries, value, excludedCountries] ) => {
+      .subscribe(([countries, value, excludedCountries]) => {
         this._populateCountries(countries, excludedCountries);
         if (value) {
-          this._setValue( value );
+          this._setValue(value);
         }
       });
 
@@ -155,10 +155,10 @@ export class MatSelectCountryComponent
       this.excludedCountries$.next(changes.excludedCountries.currentValue);
     }
 
-    if(changes.language?.currentValue) {
+    if (changes.language?.currentValue) {
       let lastValue = this._value;
-      this.filterString = "";
-      this.inputChanged("");
+      this.filterString = '';
+      this.inputChanged('');
       this._setValue(null);
       this.onCountrySelected.emit(null);
       this._loadCountriesFromDb(lastValue?.alpha2Code);
@@ -289,6 +289,8 @@ export class MatSelectCountryComponent
         return import('./i18n/fr').then(result => result.COUNTRIES_DB_FR).then(y => y);
       case 'hr':
         return import('./i18n/hr').then(result => result.COUNTRIES_DB_HR).then(y => y);
+        case 'hu':
+        return import('./i18n/hu').then(result => result.COUNTRIES_DB_HU).then(y => y);
       case 'it':
         return import('./i18n/it').then(result => result.COUNTRIES_DB_IT).then(y => y);
       case 'nl':

@@ -121,7 +121,7 @@ import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [
-              MatSelectCountryModule.forRoot('de'), // you can use 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'it' | 'nl' | 'pt' --> MatSelectCountrySupportedLanguages
+              MatSelectCountryModule.forRoot('de'), // you can use 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'hu' | 'it' | 'nl' | 'pt' --> MatSelectCountrySupportedLanguages
              HttpClientModule, ...],
   bootstrap: [AppComponent]
 })
