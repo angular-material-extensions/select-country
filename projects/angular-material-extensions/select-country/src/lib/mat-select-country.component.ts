@@ -13,12 +13,12 @@ import {
   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { MatLegacyAutocomplete as MatAutocomplete, MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent, MatLegacyAutocompleteTrigger as MatAutocompleteTrigger } from '@angular/material/legacy-autocomplete';
+import { MatLegacyFormFieldAppearance as MatFormFieldAppearance } from '@angular/material/legacy-form-field';
 import { BehaviorSubject, combineLatest, fromEvent, Subject } from 'rxjs';
 import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 import { MatSelectCountryLangToken } from './tokens';
-import { MatInput } from '@angular/material/input';
+import { MatLegacyInput as MatInput } from '@angular/material/legacy-input';
 
 /**
  * Country interface ISO 3166

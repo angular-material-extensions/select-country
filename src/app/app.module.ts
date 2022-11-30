@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MatSelectModule } from '@angular/material/select';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { MarkdownModule } from 'ngx-markdown';
 import { Angulartics2Module } from 'angulartics2';
