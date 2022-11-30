@@ -6,9 +6,8 @@ const routes: Routes = [];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledNonBlocking',
-      relativeLinkResolution: 'legacy'
-    }),
+    initialNavigation: 'enabledNonBlocking'
+}),
   ],
   exports: [RouterModule]
 })
