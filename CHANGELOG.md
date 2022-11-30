@@ -1,3 +1,14 @@
+# [8.0.0](https://github.com/angular-material-extensions/select-country/compare/7.1.0...8.0.0) (2022-11-30)
+
+
+### Bug Fixes
+
+* **lib:** adapt lib to v15 ([4c26efe](https://github.com/angular-material-extensions/select-country/commit/4c26efee5e68a8ee6da2ceb50a4104ac8a1314e7))
+* **lib:** upgraded angular core and cli to v15 ([b7ac710](https://github.com/angular-material-extensions/select-country/commit/b7ac710a84b1c9a6108f9bd3dec9fbf28590db4d))
+* **lib:** upgraded angular material to v15 ([b494af5](https://github.com/angular-material-extensions/select-country/commit/b494af5d3bd6c7a99fe7fff11154c07106a6a6ec))
+* **lib:** upgraded angular peer deps ([82f3fcc](https://github.com/angular-material-extensions/select-country/commit/82f3fccde7f74191a158a89a4e1f841fde09a6af))
+* **lib:** upgraded angular universal ([427c32b](https://github.com/angular-material-extensions/select-country/commit/427c32b72dd71b352cb71a44425c45e7179544e5))
+
 # [7.1.0](https://github.com/angular-material-extensions/select-country/compare/7.0.1...7.1.0) (2022-11-18)
 
 ## [7.0.1](https://github.com/angular-material-extensions/select-country/compare/7.0.0...7.0.1) (2022-07-04)
