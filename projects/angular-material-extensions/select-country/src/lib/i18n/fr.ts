@@ -548,7 +548,7 @@ export const COUNTRIES_DB_FR: Country[] = [
     callingCode: '+33'
   },
   {
-    name: 'Guayane',
+    name: 'Guyane française',
     alpha2Code: 'GF',
     alpha3Code: 'GUF',
     numericCode: '254',
