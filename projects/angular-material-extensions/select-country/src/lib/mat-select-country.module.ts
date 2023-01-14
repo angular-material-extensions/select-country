@@ -1,24 +1,35 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { DomSanitizer } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModuleWithProviders, NgModule } from "@angular/core";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { DomSanitizer } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 
-import { COUNTRIES_DB } from './i18n';
+import { COUNTRIES_DB } from "./i18n";
 
-import { MatSelectCountryLangToken } from './tokens';
+import { MatSelectCountryLangToken } from "./tokens";
 
-import { JoinStringsPipe } from './join.pipe';
+import { JoinStringsPipe } from "./join.pipe";
 
-import { MatSelectCountryComponent } from './mat-select-country.component';
+import { MatSelectCountryComponent } from "./mat-select-country.component";
 
-export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'hu' | 'it' | 'nl' | 'pt';
+export type MatSelectCountrySupportedLanguages =
+  | "br"
+  | "de"
+  | "en"
+  | "es"
+  | "fr"
+  | "hr"
+  | "hu"
+  | "it"
+  | "nl"
+  | "pt";
 
 /**
  * @author Anthony Nahas
@@ -26,10 +37,7 @@ export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr
  */
 // @dynamic
 @NgModule({
-  declarations: [
-    MatSelectCountryComponent,
-    JoinStringsPipe
-  ],
+  declarations: [MatSelectCountryComponent, JoinStringsPipe],
   imports: [
     CommonModule,
 
@@ -44,24 +52,29 @@ export type MatSelectCountrySupportedLanguages = 'br' | 'de' | 'en' | 'es' | 'fr
     MatAutocompleteModule,
     MatIconModule,
     MatProgressBarModule,
+    MatFormFieldModule,
   ],
   exports: [MatSelectCountryComponent],
 })
 export class MatSelectCountryModule {
-  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
     this.registerCountries();
   }
 
-  static forRoot(i18n: MatSelectCountrySupportedLanguages): ModuleWithProviders<MatSelectCountryModule> {
+  static forRoot(
+    i18n: MatSelectCountrySupportedLanguages
+  ): ModuleWithProviders<MatSelectCountryModule> {
     return {
       ngModule: MatSelectCountryModule,
-      providers:
-        [
-          {
-            provide: MatSelectCountryLangToken,
-            useValue: i18n
-          }
-        ]
+      providers: [
+        {
+          provide: MatSelectCountryLangToken,
+          useValue: i18n,
+        },
+      ],
     };
   }
 
@@ -69,11 +82,14 @@ export class MatSelectCountryModule {
     for (const country of COUNTRIES_DB) {
       const countryAlpha2Code = country.alpha2Code.toLowerCase();
       try {
-        this.iconRegistry
-          .addSvgIcon(countryAlpha2Code, this.sanitizer
-            .bypassSecurityTrustResourceUrl(`assets/svg-country-flags/svg/${countryAlpha2Code}.svg`));
+        this.iconRegistry.addSvgIcon(
+          countryAlpha2Code,
+          this.sanitizer.bypassSecurityTrustResourceUrl(
+            `assets/svg-country-flags/svg/${countryAlpha2Code}.svg`
+          )
+        );
       } catch (err) {
-        console.error('Error: icon not found for ' + countryAlpha2Code, err);
+        console.error("Error: icon not found for " + countryAlpha2Code, err);
       }
     }
   }

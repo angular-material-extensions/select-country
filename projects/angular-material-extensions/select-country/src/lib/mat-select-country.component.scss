@@ -1,0 +1,17 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+.pos-rel {
+    position: relative;
+}
+.country-list-item {        
+    float: right;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.d-flex {    
+    display: flex;
+    width: 100%;
+}
