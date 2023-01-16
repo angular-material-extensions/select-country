@@ -10,6 +10,7 @@ import {
 
 import { Country } from "@angular-material-extensions/select-country";
 import { Angulartics2GoogleAnalytics } from "angulartics2/ga";
+import { GERMANY_COUNTRY } from "./examples/contants";
 
 @Component({
   selector: "app-root",
@@ -19,6 +20,7 @@ import { Angulartics2GoogleAnalytics } from "angulartics2/ga";
 export class AppComponent implements OnInit {
   title = "select-country";
 
+  defaultValue = { ...GERMANY_COUNTRY };
   countryFormControl = new UntypedFormControl();
   countryRequiredFormControl = new UntypedFormControl(null, [
     Validators.required,
@@ -28,15 +30,9 @@ export class AppComponent implements OnInit {
   languageSelected = "es";
   showCallingCode = "false";
 
-  defaultValue: Country = {
-    name: "Deutschland",
-    alpha2Code: "DE",
-    alpha3Code: "DEU",
-    numericCode: "276",
-    callingCode: "+49",
-  };
-
-  countryMandatoryFormControl = new FormControl(null, [Validators.required]);
+  countryMandatoryFormControl = new FormControl(this.defaultValue.name, [
+    Validators.required,
+  ]);
 
   predefinedCountries: Country[] = [
     {
@@ -78,18 +74,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryFormGroup = this.formBuilder.group({
-      country: [
-        {
-          value: {
-            name: "Deutschland",
-            alpha2Code: "DE",
-            alpha3Code: "DEU",
-            numericCode: "276",
-            callingCode: "+49",
-          },
-          disabled: false,
-        },
-      ],
+      country: [{ ...this.defaultValue }],
     });
 
     this.countryMandatoryFormControl.valueChanges.subscribe((country) => {

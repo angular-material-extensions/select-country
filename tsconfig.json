@@ -11,16 +11,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "jest"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest", "tslib"],
+    "lib": ["es2018", "dom"],
     "paths": {
       "@angular-material-extensions/select-country": [
         "dist/angular-material-extensions/select-country/*",

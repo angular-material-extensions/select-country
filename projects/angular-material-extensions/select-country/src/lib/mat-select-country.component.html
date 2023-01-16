@@ -9,7 +9,7 @@
   <input
     *ngIf="!!formControl"
     (blur)="onBlur()"
-    (input)="inputChanged($event?.target?.value)"
+    autocomplete="off"
     [class]="class"
     [matAutocomplete]="this.countryAutocomplete"
     [placeholder]="this.placeHolder"
@@ -17,7 +17,6 @@
     [tabIndex]="tabIndex"
     [value]="formControl.value?.name"
     [formControl]="formControl"
-    [autocomplete]="this.autocomplete"
     [name]="this.name"
     aria-label="country"
     matInput
@@ -28,6 +27,7 @@
     *ngIf="!formControl"
     (blur)="onBlur()"
     (input)="inputChanged($event?.target?.value)"
+    autocomplete="off"
     [class]="class"
     [matAutocomplete]="this.countryAutocomplete"
     [placeholder]="this.placeHolder"
@@ -42,7 +42,6 @@
     "
     [required]="this.required"
     [disabled]="this.disabled || this.loadingDB"
-    [autocomplete]="this.autocomplete"
     [name]="this.name"
     aria-label="country"
     matInput
@@ -54,11 +53,12 @@
     mode="buffer"
   ></mat-progress-bar>
   <mat-autocomplete
+    [panelWidth]="panelWidth"
     #countryAutocomplete="matAutocomplete"
     (opened)="autocompleteScroll()"
     (optionSelected)="onOptionsSelected($event)"
   >
-    <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
+    <mat-option *ngFor="let country of filteredOptions" [value]="country.name">
       <div class="d-flex">
         <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
         <small

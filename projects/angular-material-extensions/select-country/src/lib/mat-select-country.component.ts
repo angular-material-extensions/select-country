@@ -1,6 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
+  DoCheck,
   EventEmitter,
   forwardRef,
   Inject,
@@ -15,29 +16,27 @@ import {
 import {
   ControlValueAccessor,
   FormControl,
-  FormControlName,
   NG_VALUE_ACCESSOR,
 } from "@angular/forms";
 import {
-  MatLegacyAutocomplete as MatAutocomplete,
-  MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent,
-  MatLegacyAutocompleteTrigger as MatAutocompleteTrigger,
-} from "@angular/material/legacy-autocomplete";
-import { MatLegacyFormFieldAppearance as MatFormFieldAppearance } from "@angular/material/legacy-form-field";
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+  MatAutocompleteTrigger,
+} from "@angular/material/autocomplete";
 import { BehaviorSubject, combineLatest, fromEvent, Subject } from "rxjs";
 import { debounceTime, startWith, takeUntil } from "rxjs/operators";
 import { MatSelectCountryLangToken } from "./tokens";
-import { MatLegacyInput as MatInput } from "@angular/material/legacy-input";
+import { MatInput } from "@angular/material/input";
 
 /**
  * Country interface ISO 3166
  */
 export interface Country {
-  name: string;
+  name?: string;
   alpha2Code: string;
-  alpha3Code: string;
-  numericCode: string;
-  callingCode: string;
+  alpha3Code?: string;
+  numericCode?: string;
+  callingCode?: string;
 }
 
 type Optional<T, K extends keyof T> = Omit<T, K> & Partial<T>;
@@ -64,7 +63,7 @@ type CountryOptionalMandatoryAlpha2Code = Optional<
   ],
 })
 export class MatSelectCountryComponent
-  implements OnInit, OnChanges, OnDestroy, ControlValueAccessor
+  implements OnInit, OnChanges, ControlValueAccessor, DoCheck
 {
   @Input() appearance: "fill" | "outline" = "outline";
   @Input() countries: Country[] = [];
@@ -76,16 +75,17 @@ export class MatSelectCountryComponent
   @Input() readonly: boolean;
   @Input() tabIndex: number | string;
   @Input() class: string;
-  @Input() itemsLoadSize: number;
+  @Input() itemsLoadSize: number = 20;
   @Input() loading: boolean;
   @Input() showCallingCode = false;
   @Input() excludedCountries: CountryOptionalMandatoryAlpha2Code[] = [];
-  @Input() autocomplete: string;
   @Input() language: string;
   @Input() name: string = "country";
   @Input() error: string = "";
   @Input() cleareable: boolean = false;
   @Input() formControl?: FormControl | undefined = undefined;
+  @Input() panelWidth: string | number = "";
+  @Input("value") _value?: Country | undefined = undefined;
 
   @ViewChild("countryAutocomplete") statesAutocompleteRef: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger)
@@ -102,83 +102,164 @@ export class MatSelectCountryComponent
   debounceTime = 300;
   filterString = "";
 
-  private modelChanged: Subject<string> = new Subject<string>();
-  private countries$ = new BehaviorSubject<Country[]>([]);
-  private excludedCountries$ = new BehaviorSubject<Country[]>([]);
-  private value$ = new BehaviorSubject<Country>(null);
-  private unsubscribe$ = new Subject<void>();
-
-  // tslint:disable-next-line: variable-name
-  private _value: Country;
+  onChange: any = () => {};
+  onTouched: any = () => {};
+  debounceTimeout: any;
 
   constructor(
     @Inject(forwardRef(() => MatSelectCountryLangToken)) public i18n: string,
     private cdRef: ChangeDetectorRef
   ) {}
 
-  get value(): Country {
+  get value(): Country | null {
     return this._value;
   }
 
-  @Input()
-  set value(value: Country) {
-    // setting a value on a reactive form (formControlName) doesn't trigger ngOnChanges but it does call this setter
-    this.value$.next(value);
+  set value(val: Country | null) {
+    this._value = val;
+    this.onChange(val);
+    this.onTouched();
   }
 
-  propagateChange = (_: any) => {};
+  ngDoCheck() {
+    // console.log("Do check component select-country");
+    // console.log({
+    //   value: this.value,
+    //   filteredOptions: this.filteredOptions,
+    //   appearance: this.appearance,
+    //   countries: this.countries,
+    //   label: this.label,
+    //   placeHolder: this.placeHolder,
+    //   required: this.required,
+    //   disabled: this.disabled,
+    //   nullable: this.nullable,
+    //   readonly: this.readonly,
+    //   tabIndex: this.tabIndex,
+    //   class: this.class,
+    //   itemsLoadSize: this.itemsLoadSize,
+    //   loading: this.loading,
+    //   showCallingCode: this.showCallingCode,
+    //   excludedCountries: this.excludedCountries,
+    //   autocomplete: this.autocomplete,
+    //   language: this.language,
+    //   name: this.name,
+    //   error: this.error,
+    //   cleareable: this.cleareable,
+    //   formControl: this.formControl,
+    //   panelWidth: this.panelWidth,
+    // });
+  }
 
-  ngOnInit() {
-    combineLatest([this.countries$, this.value$, this.excludedCountries$])
-      .pipe(
-        // fixing the glitch on combineLatest https://blog.strongbrew.io/combine-latest-glitch/
-        debounceTime(0),
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe(([countries, value, excludedCountries]) => {
-        this._populateCountries(countries, excludedCountries);
-        if (value) {
-          this._setValue(value);
-        }
-      });
-
+  async ngOnInit() {
     if (!this.countries.length) {
-      this._loadCountriesFromDb();
+      await this._loadCountriesFromDb(this.value?.alpha2Code);
     }
+    this._applyFilters(this._value?.name);
 
-    this.modelChanged
-      .pipe(
-        startWith(""),
-        debounceTime(this.debounceTime),
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe((value) => {
-        this.filterString = value;
-        this._filter(value);
-      });
+    // combineLatest([this.countries$, this.value$, this.excludedCountries$])
+    //   .pipe(
+    //     // fixing the glitch on combineLatest https://blog.strongbrew.io/combine-latest-glitch/
+    //     debounceTime(0),
+    //     takeUntil(this.unsubscribe$)
+    //   )
+    //   .subscribe(([countries, value, excludedCountries]) => {
+    //     this._populateCountries(countries, excludedCountries);
+    //     if (value) {
+    //       this._setValue(value);
+    //     }
+    //   });
+    //
+    // if (!this.countries.length) {
+    //   this._loadCountriesFromDb();
+    // }
+    // this.modelChanged
+    //   .pipe(
+    //     startWith(""),
+    //     debounceTime(this.debounceTime),
+    //     takeUntil(this.unsubscribe$)
+    //   )
+    //   .subscribe((value) => {
+    //     this.filterString = value;
+    //     this._filter(value);
+    //   });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.countries?.currentValue) {
-      this.countries$.next(changes.countries.currentValue);
-    }
-
-    if (changes.excludedCountries?.currentValue) {
-      this.excludedCountries$.next(changes.excludedCountries.currentValue);
-    }
-
+    console.log("changes select-country", changes);
     if (
-      changes.language?.currentValue &&
-      changes.language.currentValue !== changes.language.previousValue
+      this.countries &&
+      this.countries.length &&
+      changes._value?.currentValue
     ) {
-      console.log("Change on language detected", changes.language);
-      let lastValue = this._value;
-      this.filterString = "";
-      this.inputChanged("");
-      this._setValue(null);
-      this.onCountrySelected.emit(null);
-      this._loadCountriesFromDb(lastValue?.alpha2Code);
+      const country = this.countries.find(
+        (country) =>
+          country.alpha2Code === changes._value?.currentValue.alpha2Code
+      );
+      this.value = country;
+      if (
+        this.value?.alpha2Code !== changes._value?.previousValue?.alpha2Code
+      ) {
+        this.onCountrySelected.emit(this.value);
+      }
     }
+    if (
+      changes.appearance?.currentValue ??
+      "outline" !== changes.appearance?.previousValue
+    ) {
+      this.appearance = changes.appearance?.currentValue ?? "outline";
+    }
+    if (changes.label?.currentValue !== changes.label?.previousValue) {
+      this.label = changes.label?.currentValue;
+    }
+    if (
+      changes.placeHolder?.currentValue ??
+      "Select country" !== changes.placeHolder?.previousValue
+    ) {
+      this.placeHolder = changes.placeHolder?.currentValue ?? "Select country";
+    }
+    if (changes.class?.currentValue !== changes.class?.previousValue) {
+      this.class = changes.class?.currentValue;
+    }
+    if (
+      changes.name?.currentValue ??
+      "country" !== changes.name?.previousValue
+    ) {
+      this.name = changes.name?.currentValue ?? "country";
+    }
+    if (changes.error?.currentValue !== changes.error?.previousValue) {
+      this.error = changes.error?.currentValue;
+    }
+    // if (changes.countries?.currentValue) {
+    //   this.countries$.next(changes.countries.currentValue);
+    // }
+    //
+    // if (changes.excludedCountries?.currentValue) {
+    //   this.excludedCountries$.next(changes.excludedCountries.currentValue);
+    // }
+    //
+    // if (
+    //   changes.language?.currentValue &&
+    //   changes.language.currentValue !== changes.language.previousValue
+    // ) {
+    //   console.log("Change on language detected", changes.language);
+    //   // let lastValue = this._value;
+    //   // this.filterString = "";
+    //   // this._value = null;
+    //   // this.onCountrySelected.emit(null);
+    //   this._loadCountriesFromDb(this._value?.alpha2Code);
+    // }
+  }
+
+  inputChanged(value: string): void {
+    console.log("input change detected: ", value);
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    this.debounceTimeout = setTimeout(
+      () => this._applyFilters(value),
+      this.debounceTime
+    );
+    this._applyFilters(value);
   }
 
   onBlur() {
@@ -193,29 +274,29 @@ export class MatSelectCountryComponent
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    const value = this.countries.find(
+    const country = this.countries.find(
       (country) => country.name === $event.option.value
     );
-    this._setValue(value);
-    this.onCountrySelected.emit(value);
-  }
-
-  writeValue(obj: any): void {
-    if (obj) {
-      this.value = obj;
+    this.filterString = country.name;
+    this._applyFilters(country.name);
+    if (this.value?.alpha2Code !== country.alpha2Code) {
+      this.value = country;
+      this.onCountrySelected.emit(this.value);
     }
   }
 
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
+  writeValue(value) {
+    if (value) {
+      this.value = value;
+    }
   }
 
-  registerOnTouched(fn: any): void {
-    // throw new Error('Method not implemented.');
+  registerOnChange(fn) {
+    this.onChange = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  registerOnTouched(fn) {
+    this.onTouched = fn;
   }
 
   autocompleteScroll() {
@@ -254,15 +335,6 @@ export class MatSelectCountryComponent
     }
   }
 
-  inputChanged(value: string): void {
-    this.modelChanged.next(value);
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-
   clear() {
     this.filterString = "";
     this.inputChanged("");
@@ -270,15 +342,18 @@ export class MatSelectCountryComponent
     this.onCountrySelected.emit(null);
   }
 
-  private _loadCountriesFromDb(alpha2Code?: string): void {
+  async _loadCountriesFromDb(alpha2Code?: string): Promise<void> {
     this.loadingDB = true;
-    this._importLang()
-      .then((res) => {
-        this.countries$.next(res);
-        this._setValue(res.find((el) => el.alpha2Code == alpha2Code));
-      })
-      .catch((err) => console.error("Error: " + err))
-      .finally(() => (this.loadingDB = false));
+    try {
+      const translatedCountries = await this._importLang();
+      this.countries = translatedCountries;
+      this.value = translatedCountries.find(
+        (el) => el.alpha2Code == alpha2Code
+      );
+    } catch (err) {
+      console.error("Error: " + err);
+    }
+    this.loadingDB = false;
   }
 
   private _populateCountries(
@@ -302,7 +377,8 @@ export class MatSelectCountryComponent
       }
     }
     this._value = value?.name ? value : null;
-    this.propagateChange(this._value);
+    this.onChange(this._value);
+    this.formControl?.setValue(this._value ? this._value.name : null);
   }
 
   private _importLang(): Promise<any> {
@@ -375,12 +451,12 @@ export class MatSelectCountryComponent
     }
   }
 
-  private _filter(value: string) {
-    const filterValue = value.toLowerCase();
+  private _applyFilters(value?: string) {
+    const filterValue = (value ?? "").toLowerCase();
 
     // if not filtered, fetch reduced array
     if (this.itemsLoadSize && filterValue === "") {
-      this.filteredOptions = this.countries.slice(0, this.itemsLoadSize);
+      this.filteredOptions = this.countries;
     } else {
       this.filteredOptions = this.countries.filter(
         (option: Country) =>
@@ -388,6 +464,9 @@ export class MatSelectCountryComponent
           option.alpha2Code.toLowerCase().includes(filterValue) ||
           option.alpha3Code.toLowerCase().includes(filterValue)
       );
+    }
+    if (this.itemsLoadSize) {
+      this.filteredOptions = this.filteredOptions.slice(0, this.itemsLoadSize);
     }
 
     // options in the UI are not updated when this component is used within a host component that uses OnPush
