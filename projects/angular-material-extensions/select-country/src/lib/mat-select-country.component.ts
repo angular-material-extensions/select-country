@@ -17,6 +17,7 @@ import {
   ControlValueAccessor,
   FormControl,
   NG_VALUE_ACCESSOR,
+  Validators,
 } from "@angular/forms";
 import {
   MatAutocomplete,
@@ -27,6 +28,7 @@ import { BehaviorSubject, combineLatest, fromEvent, Subject } from "rxjs";
 import { debounceTime, startWith, takeUntil } from "rxjs/operators";
 import { MatSelectCountryLangToken } from "./tokens";
 import { MatInput } from "@angular/material/input";
+import { deprecate } from "util";
 
 /**
  * Country interface ISO 3166
@@ -69,9 +71,10 @@ export class MatSelectCountryComponent
   @Input() countries: Country[] = [];
   @Input() label: string;
   @Input() placeHolder = "Select country";
-  @Input() required: boolean;
+  @Input() required: boolean = false;
   @Input() disabled: boolean;
-  @Input() nullable: boolean;
+  /** @deprecated Use clearable to allow user unselect country.*/
+  @Input() nullable: boolean = true;
   @Input() readonly: boolean;
   @Input() tabIndex: number | string;
   @Input() class: string;
@@ -83,14 +86,10 @@ export class MatSelectCountryComponent
   @Input() name: string = "country";
   @Input() error: string = "";
   @Input() cleareable: boolean = false;
-  @Input() formControl?: FormControl | undefined = undefined;
-  @Input() panelWidth: string | number = "";
-  @Input("value") _value?: Country | undefined = undefined;
-
-  @ViewChild("countryAutocomplete") statesAutocompleteRef: MatAutocomplete;
-  @ViewChild(MatAutocompleteTrigger)
-  autocompleteTrigger: MatAutocompleteTrigger;
-  @ViewChild("inputElement") inputElement: MatInput;
+  @Input() formControl?: FormControl | undefined;
+  @Input() panelWidth?: string | undefined;
+  @Input("value") _value?: Country | undefined;
+  @Input() extendWidth = false;
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onCountrySelected: EventEmitter<Country> =
@@ -250,27 +249,27 @@ export class MatSelectCountryComponent
     // }
   }
 
+  clear() {
+    this.filterString = "";
+    this._applyFilters("");
+    this.value = null;
+    if (!this.formControl) {
+      this.onCountrySelected.emit(null);
+    }
+  }
+
   inputChanged(value: string): void {
     console.log("input change detected: ", value);
+    if (!value) {
+      this.clear();
+      return;
+    }
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    this.debounceTimeout = setTimeout(
-      () => this._applyFilters(value),
-      this.debounceTime
-    );
-    this._applyFilters(value);
-  }
-
-  onBlur() {
-    if (
-      this.nullable &&
-      !this.inputElement.value &&
-      this.statesAutocompleteRef.panel
-    ) {
-      this._setValue(null);
-      this.onCountrySelected.emit(null);
-    }
+    this.debounceTimeout = setTimeout(() => {
+      this._applyFilters(value ?? "");
+    }, this.debounceTime);
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
@@ -286,9 +285,7 @@ export class MatSelectCountryComponent
   }
 
   writeValue(value) {
-    if (value) {
-      this.value = value;
-    }
+    this.value = value;
   }
 
   registerOnChange(fn) {
@@ -299,48 +296,41 @@ export class MatSelectCountryComponent
     this.onTouched = fn;
   }
 
-  autocompleteScroll() {
-    if (this.itemsLoadSize) {
-      setTimeout(() => {
-        if (
-          this.statesAutocompleteRef &&
-          this.autocompleteTrigger &&
-          this.statesAutocompleteRef.panel
-        ) {
-          fromEvent(this.statesAutocompleteRef.panel.nativeElement, "scroll")
-            .pipe(takeUntil(this.autocompleteTrigger.panelClosingActions))
-            .subscribe(() => {
-              const scrollTop =
-                this.statesAutocompleteRef.panel.nativeElement.scrollTop;
-              const scrollHeight =
-                this.statesAutocompleteRef.panel.nativeElement.scrollHeight;
-              const elementHeight =
-                this.statesAutocompleteRef.panel.nativeElement.clientHeight;
-              const atBottom = scrollHeight === scrollTop + elementHeight;
-              if (atBottom) {
-                // fetch more data if not filtered
-                if (this.filterString === "") {
-                  const fromIndex = this.filteredOptions.length;
-                  const toIndex: number =
-                    +this.filteredOptions.length + +this.itemsLoadSize;
-                  this.filteredOptions = [
-                    ...this.filteredOptions,
-                    ...this.countries.slice(fromIndex, toIndex),
-                  ];
-                }
-              }
-            });
-        }
-      });
-    }
-  }
-
-  clear() {
-    this.filterString = "";
-    this.inputChanged("");
-    this._setValue(null);
-    this.onCountrySelected.emit(null);
-  }
+  // autocompleteScroll() {
+  //   if (this.itemsLoadSize) {
+  //     setTimeout(() => {
+  //       if (
+  //         this.statesAutocompleteRef &&
+  //         this.autocompleteTrigger &&
+  //         this.statesAutocompleteRef.panel
+  //       ) {
+  //         fromEvent(this.statesAutocompleteRef.panel.nativeElement, "scroll")
+  //           .pipe(takeUntil(this.autocompleteTrigger.panelClosingActions))
+  //           .subscribe(() => {
+  //             const scrollTop =
+  //               this.statesAutocompleteRef.panel.nativeElement.scrollTop;
+  //             const scrollHeight =
+  //               this.statesAutocompleteRef.panel.nativeElement.scrollHeight;
+  //             const elementHeight =
+  //               this.statesAutocompleteRef.panel.nativeElement.clientHeight;
+  //             const atBottom = scrollHeight === scrollTop + elementHeight;
+  //             if (atBottom) {
+  //               // fetch more data if not filtered
+  //               if (this.filterString === "") {
+  //                 const fromIndex = this.filteredOptions.length;
+  //                 const toIndex: number =
+  //                   +this.filteredOptions.length + +this.itemsLoadSize;
+  //                 this.filteredOptions = [
+  //                   ...this.filteredOptions,
+  //                   ...this.countries.slice(fromIndex, toIndex),
+  //                 ];
+  //               }
+  //             }
+  //           });
+  //       }
+  //     });
+  //   }
+  // }
 
   async _loadCountriesFromDb(alpha2Code?: string): Promise<void> {
     this.loadingDB = true;

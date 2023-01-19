@@ -16,6 +16,9 @@ import { MinimalComponent } from "./examples/minimal/minimal.component";
 import { DefaultComponent } from "./examples/default/default.component";
 import { MatInputModule } from "@angular/material/input";
 import { AllComponent } from "./examples/all/all.component";
+import { AllFormControlComponent } from "./examples/all-formcontrol/all-formcontrol.component";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatSliderModule } from "@angular/material/slider";
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AllComponent } from "./examples/all/all.component";
     MinimalComponent,
     DefaultComponent,
     AllComponent,
+    AllFormControlComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -39,6 +43,8 @@ import { AllComponent } from "./examples/all/all.component";
     MarkdownModule.forRoot(),
     MatSelectCountryModule.forRoot("de"),
     MatInputModule,
+    MatCheckboxModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

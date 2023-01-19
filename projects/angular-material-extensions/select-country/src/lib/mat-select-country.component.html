@@ -1,14 +1,11 @@
-<mat-form-field [appearance]="appearance">
+<mat-form-field
+  [appearance]="appearance"
+  [class.d-block]="extendWidth"
+  [class.mdc-text-field--invalid]="this.required && !this.value"
+>
   <mat-label *ngIf="label">{{ label }}</mat-label>
-  <mat-icon
-    *ngIf="this.value"
-    [svgIcon]="this.value?.alpha2Code?.toLowerCase()"
-    class="mr-12 s-20 secondary-text"
-    matSuffix
-  ></mat-icon>
   <input
     *ngIf="!!formControl"
-    (blur)="onBlur()"
     autocomplete="off"
     [class]="class"
     [matAutocomplete]="this.countryAutocomplete"
@@ -21,11 +18,9 @@
     aria-label="country"
     matInput
     type="text"
-    #inputElement
   />
   <input
     *ngIf="!formControl"
-    (blur)="onBlur()"
     (input)="inputChanged($event?.target?.value)"
     autocomplete="off"
     [class]="class"
@@ -46,7 +41,6 @@
     aria-label="country"
     matInput
     type="text"
-    #inputElement
   />
   <mat-progress-bar
     *ngIf="this.loadingDB || this.loading"
@@ -55,7 +49,6 @@
   <mat-autocomplete
     [panelWidth]="panelWidth"
     #countryAutocomplete="matAutocomplete"
-    (opened)="autocompleteScroll()"
     (optionSelected)="onOptionsSelected($event)"
   >
     <mat-option *ngFor="let country of filteredOptions" [value]="country.name">
@@ -82,12 +75,25 @@
       </div>
     </mat-option>
   </mat-autocomplete>
-  <mat-icon
-    class="cursor-pointer pos-rel"
-    matSuffix
-    *ngIf="cleareable && !!value"
-    (click)="clear()"
-    >cancel</mat-icon
+  <div class="d-flex mr-1" matSuffix>
+    <mat-icon
+      *ngIf="this.value"
+      [svgIcon]="this.value?.alpha2Code?.toLowerCase()"
+      class="ml-1 s-20 secondary-text"
+    ></mat-icon>
+    <mat-icon
+      class="ml-1"
+      class="ml-1 cursor-pointer pos-rel"
+      *ngIf="cleareable && !!value"
+      (click)="clear()"
+      >cancel</mat-icon
+    >
+  </div>
+  <mat-error
+    *ngIf="
+      (formControl && formControl.invalid) ||
+      (!formControl && required && !this.value)
+    "
+    >{{ error }}</mat-error
   >
-  <mat-error *ngIf="formControl && formControl.invalid">{{ error }}</mat-error>
 </mat-form-field>

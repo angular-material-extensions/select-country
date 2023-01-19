@@ -1,19 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { Country } from "@angular-material-extensions/select-country";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { GERMANY_COUNTRY } from "../contants";
 
 @Component({
-  selector: "app-all",
-  templateUrl: "./all.component.html",
-  styleUrls: ["./all.component.scss"],
+  selector: "app-all-formcontrol",
+  templateUrl: "./all-formcontrol.component.html",
+  styleUrls: ["./all-formcontrol.component.scss"],
 })
-export class AllComponent implements OnInit {
+export class AllFormControlComponent implements OnInit {
   appearance: "fill" | "outline" = "outline";
   countries: Country[] = [];
   label: string = "Label";
   placeHolder = "Select country";
-  required: boolean;
-  disabled: boolean;
   readonly: boolean;
   tabIndex: number | string;
   class: string;
@@ -26,7 +25,10 @@ export class AllComponent implements OnInit {
   // error: string = "";
   cleareable: boolean = false;
   extendWidth: boolean = false;
-  // formControl?: FormControl | undefined = undefined;
+  formControl?: FormControl = new FormControl(
+    { value: { ...GERMANY_COUNTRY }, disabled: false },
+    [Validators.required]
+  );
   _panelWidth?: string | undefined;
   value: Country | null = null;
 
@@ -43,8 +45,6 @@ export class AllComponent implements OnInit {
       Validators.required,
     ]),
     placeHolder: new FormControl("Select country", [Validators.required]),
-    required: new FormControl(),
-    disabled: new FormControl(),
     readonly: new FormControl(),
     // tabIndex: new FormControl(),
     class: new FormControl(),
@@ -93,12 +93,6 @@ export class AllComponent implements OnInit {
         if (this.name !== this.countryFormGroup.value.name) {
           this.name = this.countryFormGroup.value.name;
         }
-        if (this.required !== this.countryFormGroup.value.required) {
-          this.required = this.countryFormGroup.value.required;
-        }
-        if (this.disabled !== this.countryFormGroup.value.disabled) {
-          this.disabled = this.countryFormGroup.value.disabled;
-        }
         if (this.readonly !== this.countryFormGroup.value.readonly) {
           this.readonly = this.countryFormGroup.value.readonly;
         }
@@ -128,6 +122,6 @@ export class AllComponent implements OnInit {
   }
 
   onCountrySelected($event: Country): void {
-    console.log("All example: onCountrySelected", $event);
+    console.log("All formControl example: onCountrySelected", $event);
   }
 }

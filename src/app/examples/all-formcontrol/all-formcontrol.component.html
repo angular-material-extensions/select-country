@@ -1,4 +1,4 @@
-<h2>All Posible Inputs</h2>
+<h2>All Posible Inputs using formControl</h2>
 
 <div class="grid1x2">
   <mat-select-country
@@ -7,8 +7,6 @@
     [countries]="countries"
     [label]="label"
     [placeHolder]="placeHolder"
-    [required]="required"
-    [disabled]="disabled"
     [readonly]="readonly"
     [tabIndex]="tabIndex"
     [class]="class"
@@ -21,6 +19,7 @@
     [cleareable]="cleareable"
     [panelWidth]="_panelWidth"
     [extendWidth]="extendWidth"
+    [formControl]="formControl"
     [error]="'Mandatory'"
     (onCountrySelected)="onCountrySelected($event)"
   >
@@ -74,8 +73,6 @@
       </mat-form-field>
     </form>
     <section>
-      <mat-checkbox formControlName="required">Required</mat-checkbox>
-      <mat-checkbox formControlName="disabled">Disabled</mat-checkbox>
       <mat-checkbox formControlName="readonly">Readonly</mat-checkbox>
       <mat-checkbox formControlName="showCallingCode"
         >ShowCallingCode</mat-checkbox
