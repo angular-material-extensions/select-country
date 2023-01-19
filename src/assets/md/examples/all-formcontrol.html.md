@@ -1,0 +1,26 @@
+```html
+  <mat-select-country
+    [value]="value"
+    [appearance]="appearance"
+    [countries]="countries"
+    [label]="label"
+    [placeHolder]="placeHolder"
+    [required]="required"
+    [disabled]="disabled"
+    [nullable]="nullable"
+    [readonly]="readonly"
+    [tabIndex]="tabIndex"
+    [class]="class"
+    [itemsLoadSize]="itemsLoadSize"
+    [loading]="loading"
+    [showCallingCode]="showCallingCode"
+    [excludedCountries]="excludedCountries"
+    [language]="language"
+    [name]="name"
+    [error]="error"
+    [cleareable]="cleareable"
+    [formControl]="formControl"
+    [panelWidth]="panelWidth"
+    (onCountrySelected)="onCountrySelected($event)"
+  >
+```

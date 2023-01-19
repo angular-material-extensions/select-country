@@ -228,6 +228,20 @@
     </div>
   </div>
 
+  <div class="content">
+    <!-- Install -->
+    <h2>TODO</h2>
+    <p>
+      Cambiar el componente para que internamente use un formControl privado,
+      para poder hacer uso del mat-error. Si el usuario pasa un formControl,
+      este no se vinculará directamente al html. Si no que se apuntará para
+      escuchar cambios y cuando haya que actualizarlo le hará un setValue al
+      formControl del usuario o similar. Con esto funcionará igual se use o no
+      un formControl y se podrá modificar el input sin romper el formControl
+      original, así como usar el mat-error sin hacks.
+    </p>
+  </div>
+
   <div class="text-center">
     <!-- Usage -->
     <app-minimal></app-minimal>
