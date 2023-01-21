@@ -1,3 +1,5 @@
+# [8.1.0](https://github.com/angular-material-extensions/select-country/compare/8.0.0...8.1.0) (2023-01-14)
+
 # [8.0.0](https://github.com/angular-material-extensions/select-country/compare/7.1.0...8.0.0) (2022-11-30)
 
 
