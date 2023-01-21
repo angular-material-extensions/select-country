@@ -23,16 +23,36 @@ export class AllComponent implements OnInit {
   excludedCountries: Country[] = [];
   language: string;
   name: string = "country";
-  // error: string = "";
+  error?: string | undefined;
   cleareable: boolean = false;
   extendWidth: boolean = false;
-  // formControl?: FormControl | undefined = undefined;
   _panelWidth?: string | undefined;
   value: Country | null = null;
+  hint?: string | undefined;
 
   // helper variables
   panelWidth: number = 100;
   panelDisabled = true;
+
+  availableLanguages: { value: string; viewValue: string }[] = [
+    { value: "br", viewValue: "Breton" },
+    { value: "be", viewValue: "Belarusian" },
+    { value: "de", viewValue: "German" },
+    { value: "en", viewValue: "English" },
+    { value: "es", viewValue: "Spanish" },
+    { value: "fr", viewValue: "French" },
+    { value: "hr", viewValue: "Croatian" },
+    { value: "hu", viewValue: "Hungarian" },
+    { value: "it", viewValue: "Italian" },
+    { value: "gl", viewValue: "Galician" },
+    { value: "ca", viewValue: "Catalan" },
+    { value: "eu", viewValue: "Basque" },
+    { value: "nl", viewValue: "Flemish" },
+    { value: "pt", viewValue: "Portuguese" },
+    { value: "ru", viewValue: "Russian" },
+    { value: "uk", viewValue: "Ukrainian" },
+  ];
+  languageControl = new FormControl("en");
 
   countryFormGroup = new FormGroup({
     appearance: new FormControl({ value: "outline", disabled: false }, [
@@ -46,17 +66,15 @@ export class AllComponent implements OnInit {
     required: new FormControl(),
     disabled: new FormControl(),
     readonly: new FormControl(),
-    // tabIndex: new FormControl(),
     class: new FormControl(),
-    // itemsLoadSize: new FormControl(),
+    itemsLoadSize: new FormControl(this.itemsLoadSize),
     loading: new FormControl(),
     showCallingCode: new FormControl(false, [Validators.required]),
     // excludedCountries: new FormControl(),
-    // language: new FormControl(),
     name: new FormControl("country", [Validators.required]),
+    error: new FormControl(),
     cleareable: new FormControl(false, [Validators.required]),
     extendWidth: new FormControl(false, [Validators.required]),
-    // formControl: new FormControl(),
     panelWidth: new FormControl(this.panelWidth),
     panelDisabled: new FormControl(this.panelDisabled, [Validators.required]),
     value: new FormGroup({
@@ -64,6 +82,8 @@ export class AllComponent implements OnInit {
         Validators.pattern(/^[A-Z]{2}$/),
       ]),
     }),
+    hint: new FormControl(),
+    lang: this.languageControl,
   });
 
   ngOnInit() {
@@ -93,6 +113,9 @@ export class AllComponent implements OnInit {
         if (this.name !== this.countryFormGroup.value.name) {
           this.name = this.countryFormGroup.value.name;
         }
+        if (this.error !== this.countryFormGroup.value.error) {
+          this.error = this.countryFormGroup.value.error;
+        }
         if (this.required !== this.countryFormGroup.value.required) {
           this.required = this.countryFormGroup.value.required;
         }
@@ -113,6 +136,12 @@ export class AllComponent implements OnInit {
         if (this.extendWidth !== this.countryFormGroup.value.extendWidth) {
           this.extendWidth = this.countryFormGroup.value.extendWidth;
         }
+        if (this.loading !== this.countryFormGroup.value.loading) {
+          this.loading = this.countryFormGroup.value.loading;
+        }
+        if (this.language !== this.countryFormGroup.value.lang) {
+          this.language = this.countryFormGroup.value.lang;
+        }
         if (this.panelWidth !== this.countryFormGroup.value.panelWidth) {
           this.panelWidth = this.countryFormGroup.value.panelWidth;
           this._panelWidth = this.panelWidth + "px";
@@ -122,6 +151,12 @@ export class AllComponent implements OnInit {
           this._panelWidth = this.panelDisabled
             ? undefined
             : this.panelWidth + "px";
+        }
+        if (this.hint !== this.countryFormGroup.value.hint) {
+          this.hint = this.countryFormGroup.value.hint;
+        }
+        if (this.itemsLoadSize !== this.countryFormGroup.value.itemsLoadSize) {
+          this.itemsLoadSize = this.countryFormGroup.value.itemsLoadSize;
         }
       }
     });

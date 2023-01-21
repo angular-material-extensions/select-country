@@ -1,26 +1,20 @@
-<mat-form-field
-  [appearance]="appearance"
-  [class.d-block]="extendWidth"
-  [class.mdc-text-field--invalid]="this.required && !this.value"
->
+<mat-form-field [appearance]="appearance" [class.d-block]="extendWidth">
   <mat-label *ngIf="label">{{ label }}</mat-label>
   <input
-    *ngIf="!!formControl"
     autocomplete="off"
     [class]="class"
     [matAutocomplete]="this.countryAutocomplete"
     [placeholder]="this.placeHolder"
     [readonly]="this.readonly"
     [tabIndex]="tabIndex"
-    [value]="formControl.value?.name"
-    [formControl]="formControl"
+    [formControl]="_formControl"
     [name]="this.name"
     aria-label="country"
     matInput
     type="text"
   />
-  <input
-    *ngIf="!formControl"
+  <!--input
+    *ngIf="!true"
     (input)="inputChanged($event?.target?.value)"
     autocomplete="off"
     [class]="class"
@@ -41,7 +35,7 @@
     aria-label="country"
     matInput
     type="text"
-  />
+  /-->
   <mat-progress-bar
     *ngIf="this.loadingDB || this.loading"
     mode="buffer"
@@ -54,24 +48,9 @@
     <mat-option *ngFor="let country of filteredOptions" [value]="country.name">
       <div class="d-flex">
         <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
-        <small
-          class="country-list-item"
-          [title]="[country?.name, country?.alpha3Code] | joinStrings"
-          *ngIf="!showCallingCode"
-          >{{ [country?.name, country?.alpha3Code] | joinStrings }}</small
-        >
-        <small
-          class="country-list-item"
-          [title]="
-            [country?.name, '(' + country?.callingCode + ')']
-              | joinStrings : ' '
-          "
-          *ngIf="showCallingCode"
-          >{{
-            [country?.name, "(" + country?.callingCode + ")"]
-              | joinStrings : " "
-          }}</small
-        >
+        <small class="country-list-item" [title]="getValueLabel(country)">{{
+          getValueLabel(country)
+        }}</small>
       </div>
     </mat-option>
   </mat-autocomplete>
@@ -89,11 +68,8 @@
       >cancel</mat-icon
     >
   </div>
-  <mat-error
-    *ngIf="
-      (formControl && formControl.invalid) ||
-      (!formControl && required && !this.value)
-    "
-    >{{ error }}</mat-error
-  >
+  <mat-error *ngIf="_formControl && _formControl.invalid">{{
+    error
+  }}</mat-error>
+  <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
 </mat-form-field>
