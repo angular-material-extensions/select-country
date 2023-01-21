@@ -138,7 +138,6 @@ export class MatSelectCountryComponent
       this.control.valueChanges
         .pipe(distinctUntilChanged()) // Workaround for Angular Issue: https://github.com/angular/angular/issues/12540
         .subscribe((el: Country) => {
-          console.log("Parent form control cahnged!", el);
           this._formControl.setValue(this.getValueLabel(el));
           this._applyFilters(el?.name ?? el?.alpha2Code);
           // this.inputChanged(this.getValueLabel(el));
@@ -172,21 +171,18 @@ export class MatSelectCountryComponent
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log("changes select-country", changes);
     let mustUpdateValueAndFilters = false;
     if (changes.countries !== undefined) {
       if (
         !changes.countries?.currentValue ||
         changes.countries?.currentValue.length === 0
       ) {
-        console.log("Se han vaciado las coutries, recargamos de BD");
         this._loadCountriesFromDb().then((transCountries) => {
           this.countries = transCountries;
           this._formControl.setValue(this.getValueLabel(this.value));
           this._applyFilters(this._value?.name);
         });
       } else {
-        console.log("Hay filtro de countries.");
         this.countries = changes.countries?.currentValue ?? [];
         this.value = this.countries.find(
           (el) =>
@@ -501,7 +497,6 @@ export class MatSelectCountryComponent
   }
 
   private _applyFilters(value?: string) {
-    console.log("Aplicamoss filtros a ", this.countries);
     const filterValue = (value ?? "").toLowerCase();
 
     if (!filterValue) {
