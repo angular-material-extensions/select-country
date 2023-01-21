@@ -2,7 +2,6 @@
 
 <div class="grid1x2">
   <mat-select-country
-    [value]="value"
     [appearance]="appearance"
     [countries]="countries"
     [label]="label"
@@ -95,12 +94,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <form class="d-inline" [formGroup]="countryFormGroup.get('value')">
-      <mat-form-field appearance="outline">
-        <mat-label>Alpha 2-Code</mat-label>
-        <input matInput type="text" formControlName="alpha2Code" />
-      </mat-form-field>
-    </form>
     <section>
       <mat-checkbox formControlName="required">Required</mat-checkbox>
       <mat-checkbox formControlName="disabled">Disabled</mat-checkbox>
@@ -134,6 +127,28 @@
         >PanelWidth disabled</mat-checkbox
       >
       <p class="hint">This width only applies to sub-options.</p>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Predefined Countries</mat-label>
+        <mat-select [formControl]="countriesControl" multiple>
+          <mat-option
+            *ngFor="let country of selectablecountries"
+            [value]="country.alpha2Code"
+            >{{ country?.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Excluded Countries</mat-label>
+        <mat-select [formControl]="excludedCountriesControl" multiple>
+          <mat-option
+            *ngFor="let country of selectablecountries"
+            [value]="country.alpha2Code"
+            >{{ country?.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
     </section>
   </form>
 </div>

@@ -10,11 +10,10 @@ import { Country } from "@angular-material-extensions/select-country";
 export class AllComponent implements OnInit {
   appearance: "fill" | "outline" = "outline";
   countries: Country[] = [];
-  label: string;
+  label: string = "Label";
   placeHolder = "Select country";
   required: boolean;
   disabled: boolean;
-  nullable: boolean;
   readonly: boolean;
   tabIndex: number | string;
   class: string;
@@ -24,12 +23,15 @@ export class AllComponent implements OnInit {
   excludedCountries: Country[] = [];
   language: string;
   name: string = "country";
+  error?: string | undefined;
   cleareable: boolean = false;
-  panelWidth: string | number = "";
-  value: Country | null = null;
+  extendWidth: boolean = false;
+  _panelWidth?: string | undefined;
+  hint?: string | undefined;
 
   onCountrySelected($event: Country): void {
     console.log("All example: onCountrySelected", $event);
   }
 }
+
 ```

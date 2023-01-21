@@ -19,6 +19,7 @@ import { AllComponent } from "./examples/all/all.component";
 import { AllFormControlComponent } from "./examples/all-formcontrol/all-formcontrol.component";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatSliderModule } from "@angular/material/slider";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatSliderModule } from "@angular/material/slider";
     MatInputModule,
     MatCheckboxModule,
     MatSliderModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

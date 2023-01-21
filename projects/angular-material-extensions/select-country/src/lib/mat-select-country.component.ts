@@ -1,20 +1,17 @@
 import {
   ChangeDetectorRef,
   Component,
-  DoCheck,
   EventEmitter,
   forwardRef,
   Host,
   Inject,
   Input,
   OnChanges,
-  OnDestroy,
   OnInit,
   Optional,
   Output,
   SimpleChanges,
   SkipSelf,
-  ViewChild,
 } from "@angular/core";
 import {
   AbstractControl,
@@ -24,17 +21,9 @@ import {
   NG_VALUE_ACCESSOR,
   Validators,
 } from "@angular/forms";
-import {
-  MatAutocomplete,
-  MatAutocompleteSelectedEvent,
-  MatAutocompleteTrigger,
-} from "@angular/material/autocomplete";
-import { BehaviorSubject, combineLatest, fromEvent, Subject } from "rxjs";
-import { debounceTime, startWith, takeUntil } from "rxjs/operators";
+import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
 import { MatSelectCountryLangToken } from "./tokens";
-import { MatInput } from "@angular/material/input";
-import { deprecate } from "util";
-import * as e from "express";
+import { distinctUntilChanged } from "rxjs/operators";
 
 /**
  * Country interface ISO 3166
@@ -71,7 +60,7 @@ type CountryOptionalMandatoryAlpha2Code = CustomOptional<
   ],
 })
 export class MatSelectCountryComponent
-  implements OnInit, OnChanges, ControlValueAccessor, DoCheck
+  implements OnInit, OnChanges, ControlValueAccessor
 {
   @Input() appearance: "fill" | "outline" = "outline";
   @Input() countries: Country[] = [];
@@ -137,47 +126,23 @@ export class MatSelectCountryComponent
     this.onTouched();
   }
 
-  ngDoCheck() {
-    // console.log("Do check component select-country");
-    // console.log({
-    //   value: this.value,
-    //   filteredOptions: this.filteredOptions,
-    //   appearance: this.appearance,
-    //   countries: this.countries,
-    //   label: this.label,
-    //   placeHolder: this.placeHolder,
-    //   required: this.required,
-    //   disabled: this.disabled,
-    //   nullable: this.nullable,
-    //   readonly: this.readonly,
-    //   tabIndex: this.tabIndex,
-    //   class: this.class,
-    //   itemsLoadSize: this.itemsLoadSize,
-    //   loading: this.loading,
-    //   showCallingCode: this.showCallingCode,
-    //   excludedCountries: this.excludedCountries,
-    //   autocomplete: this.autocomplete,
-    //   language: this.language,
-    //   name: this.name,
-    //   error: this.error,
-    //   cleareable: this.cleareable,
-    //   formControl: this.formControl,
-    //   panelWidth: this.panelWidth,
-    // });
-  }
-
   async ngOnInit() {
     if (this.formControlName && this.controlContainer) {
       this.control = this.controlContainer.control.get(this.formControlName);
       this._formControl = new FormControl(
         { value: this.control.value?.name, disabled: this.disabled },
-        this.required ? [Validators.required] : []
+        this.control.hasValidator(Validators.required)
+          ? [Validators.required]
+          : []
       );
-      this.control.valueChanges.subscribe((el) => {
-        console.log("Parent form control cahnged!");
-        this._formControl.setValue(this.getValueLabel(el));
-        this.inputChanged(this.getValueLabel(el));
-      });
+      this.control.valueChanges
+        .pipe(distinctUntilChanged()) // Workaround for Angular Issue: https://github.com/angular/angular/issues/12540
+        .subscribe((el: Country) => {
+          console.log("Parent form control cahnged!", el);
+          this._formControl.setValue(this.getValueLabel(el));
+          this._applyFilters(el?.name ?? el?.alpha2Code);
+          // this.inputChanged(this.getValueLabel(el));
+        });
     } else if (this.formControlName && !this.controlContainer) {
       console.warn("Can't find parent FormGroup directive");
       this._formControl = new FormControl(
@@ -191,49 +156,56 @@ export class MatSelectCountryComponent
       );
     }
     this._formControl.valueChanges.subscribe((el) => {
-      console.log("Value Selected Noticed in _formControl: " + el);
       this.inputChanged(el);
     });
 
     if (!this.countries.length) {
-      await this._loadCountriesFromDb();
-      this.value = this.countries.find(
-        (el) => el.alpha2Code == this.value?.alpha2Code
-      );
-      this._formControl.setValue(this.getValueLabel(this.value));
+      this.countries = await this._loadCountriesFromDb();
     }
+    this.value = this.countries.find(
+      (el) =>
+        el.alpha2Code == this.value?.alpha2Code &&
+        !this.excludedCountries.find((el2) => el2.alpha2Code == el.alpha2Code)
+    );
+    this._formControl.setValue(this.getValueLabel(this.value));
     this._applyFilters(this._value?.name);
-
-    // combineLatest([this.countries$, this.value$, this.excludedCountries$])
-    //   .pipe(
-    //     // fixing the glitch on combineLatest https://blog.strongbrew.io/combine-latest-glitch/
-    //     debounceTime(0),
-    //     takeUntil(this.unsubscribe$)
-    //   )
-    //   .subscribe(([countries, value, excludedCountries]) => {
-    //     this._populateCountries(countries, excludedCountries);
-    //     if (value) {
-    //       this._setValue(value);
-    //     }
-    //   });
-    //
-    // if (!this.countries.length) {
-    //   this._loadCountriesFromDb();
-    // }
-    // this.modelChanged
-    //   .pipe(
-    //     startWith(""),
-    //     debounceTime(this.debounceTime),
-    //     takeUntil(this.unsubscribe$)
-    //   )
-    //   .subscribe((value) => {
-    //     this.filterString = value;
-    //     this._filter(value);
-    //   });
   }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("changes select-country", changes);
+    let mustUpdateValueAndFilters = false;
+    if (changes.countries !== undefined) {
+      if (
+        !changes.countries?.currentValue ||
+        changes.countries?.currentValue.length === 0
+      ) {
+        console.log("Se han vaciado las coutries, recargamos de BD");
+        this._loadCountriesFromDb().then((transCountries) => {
+          this.countries = transCountries;
+          this._formControl.setValue(this.getValueLabel(this.value));
+          this._applyFilters(this._value?.name);
+        });
+      } else {
+        console.log("Hay filtro de countries.");
+        this.countries = changes.countries?.currentValue ?? [];
+        this.value = this.countries.find(
+          (el) =>
+            el.alpha2Code == this.value?.alpha2Code &&
+            !this.excludedCountries.find(
+              (el2) => el2.alpha2Code == el.alpha2Code
+            )
+        );
+        mustUpdateValueAndFilters = true;
+      }
+    }
+    if (changes.excludedCountries?.currentValue) {
+      this.value = this.countries.find(
+        (el) =>
+          el.alpha2Code == this.value?.alpha2Code &&
+          !this.excludedCountries.find((el2) => el2.alpha2Code == el.alpha2Code)
+      );
+      mustUpdateValueAndFilters = true;
+    }
     if (
       this.countries &&
       this.countries.length &&
@@ -246,11 +218,13 @@ export class MatSelectCountryComponent
       );
       const country = this.countries.find(
         (country) =>
-          country.alpha2Code === changes._value?.currentValue.alpha2Code
+          country.alpha2Code === changes._value?.currentValue.alpha2Code &&
+          !this.excludedCountries.find(
+            (el2) => el2.alpha2Code == country.alpha2Code
+          )
       );
       this.value = country;
       this._formControl.setValue(this.getValueLabel(this.value));
-      // this._formControl.updateValueAndValidity();
       if (
         this.value?.alpha2Code !== changes._value?.previousValue?.alpha2Code
       ) {
@@ -331,27 +305,46 @@ export class MatSelectCountryComponent
       changes.itemsLoadSize?.previousValue
     ) {
       this.itemsLoadSize = changes.itemsLoadSize?.currentValue;
-      this._applyFilters(this.value?.name);
+      mustUpdateValueAndFilters = true;
     }
-    // if (changes.countries?.currentValue) {
-    //   this.countries$.next(changes.countries.currentValue);
-    // }
-    //
-    // if (changes.excludedCountries?.currentValue) {
-    //   this.excludedCountries$.next(changes.excludedCountries.currentValue);
-    // }
-    //
+    if (
+      changes.showCallingCode?.currentValue !==
+      changes.showCallingCode?.previousValue
+    ) {
+      this.showCallingCode = changes.showCallingCode?.currentValue;
+      this._formControl.setValue(this.getValueLabel(this.value));
+    }
+    if (changes.countries?.currentValue) {
+      this.countries = changes.countries.currentValue;
+    }
+    if (changes.excludedCountries?.currentValue) {
+      this.excludedCountries = changes.excludedCountries.currentValue;
+    }
     if (
       changes.language?.currentValue &&
       changes.language.currentValue !== changes.language.previousValue
     ) {
-      this._loadCountriesFromDb().then(() => {
-        this.value = this.countries.find(
-          (el) => el.alpha2Code == this.value?.alpha2Code
+      this._loadCountriesFromDb().then((transCountries) => {
+        this.countries = transCountries.filter(
+          (el) =>
+            this.countries.findIndex(
+              (el2) => el2.alpha2Code == el.alpha2Code
+            ) >= 0
         );
-        this._applyFilters(this._value?.name);
+        this.value = this.countries.find(
+          (el) =>
+            el.alpha2Code == this.value?.alpha2Code &&
+            !this.excludedCountries.find(
+              (el2) => el2.alpha2Code == el.alpha2Code
+            )
+        );
         this._formControl.setValue(this.getValueLabel(this.value));
+        this._applyFilters(this._value?.name);
       });
+    }
+    if (mustUpdateValueAndFilters) {
+      this._applyFilters(this._value?.name);
+      this._formControl.setValue(this.getValueLabel(this.value));
     }
   }
 
@@ -369,13 +362,6 @@ export class MatSelectCountryComponent
 
   inputChanged(value?: string | null): void {
     if (value != this.value?.name) {
-      console.log(
-        "input change detected before[" +
-          this.value?.name +
-          "] -> now[" +
-          value +
-          "]"
-      );
       if (!value) {
         this.clear();
         return;
@@ -390,12 +376,10 @@ export class MatSelectCountryComponent
   }
 
   onOptionsSelected($event: MatAutocompleteSelectedEvent) {
-    console.log("Option selected!", $event);
     const country = this.countries.find(
       (country) => country.name === $event.option.value
     );
     this.filterString = country.name;
-    this._applyFilters(country.name);
     if (this.value?.alpha2Code !== country.alpha2Code) {
       this.value = country;
       this._formControl.setValue(this.getValueLabel(this.value));
@@ -415,42 +399,6 @@ export class MatSelectCountryComponent
     this.onTouched = fn;
   }
 
-  // autocompleteScroll() {
-  //   if (this.itemsLoadSize) {
-  //     setTimeout(() => {
-  //       if (
-  //         this.statesAutocompleteRef &&
-  //         this.autocompleteTrigger &&
-  //         this.statesAutocompleteRef.panel
-  //       ) {
-  //         fromEvent(this.statesAutocompleteRef.panel.nativeElement, "scroll")
-  //           .pipe(takeUntil(this.autocompleteTrigger.panelClosingActions))
-  //           .subscribe(() => {
-  //             const scrollTop =
-  //               this.statesAutocompleteRef.panel.nativeElement.scrollTop;
-  //             const scrollHeight =
-  //               this.statesAutocompleteRef.panel.nativeElement.scrollHeight;
-  //             const elementHeight =
-  //               this.statesAutocompleteRef.panel.nativeElement.clientHeight;
-  //             const atBottom = scrollHeight === scrollTop + elementHeight;
-  //             if (atBottom) {
-  //               // fetch more data if not filtered
-  //               if (this.filterString === "") {
-  //                 const fromIndex = this.filteredOptions.length;
-  //                 const toIndex: number =
-  //                   +this.filteredOptions.length + +this.itemsLoadSize;
-  //                 this.filteredOptions = [
-  //                   ...this.filteredOptions,
-  //                   ...this.countries.slice(fromIndex, toIndex),
-  //                 ];
-  //               }
-  //             }
-  //           });
-  //       }
-  //     });
-  //   }
-  // }
-
   getValueLabel(el?: Country) {
     if (!el) return "";
     const mainValue = el.name
@@ -464,12 +412,12 @@ export class MatSelectCountryComponent
     return mainValue;
   }
 
-  async _loadCountriesFromDb(): Promise<void> {
+  async _loadCountriesFromDb(): Promise<Country[]> {
     this._formControl.disable();
     this.loadingDB = true;
+    let translatedCountries = [];
     try {
-      const translatedCountries = await this._importLang();
-      this.countries = translatedCountries;
+      translatedCountries = await this._importLang();
     } catch (err) {
       console.error("Error: " + err);
     }
@@ -479,6 +427,7 @@ export class MatSelectCountryComponent
     } else {
       this._formControl.enable();
     }
+    return translatedCountries;
   }
 
   private _importLang(): Promise<any> {
@@ -552,16 +501,26 @@ export class MatSelectCountryComponent
   }
 
   private _applyFilters(value?: string) {
+    console.log("Aplicamoss filtros a ", this.countries);
     const filterValue = (value ?? "").toLowerCase();
 
     if (!filterValue) {
-      this.filteredOptions = this.countries;
+      this.filteredOptions = this.countries.filter(
+        (el) =>
+          !this.excludedCountries.find((el2) => el2.alpha2Code == el.alpha2Code)
+      );
     } else {
       this.filteredOptions = this.countries.filter(
         (option: Country) =>
-          option.name.toLowerCase().includes(filterValue) ||
-          option.alpha2Code.toLowerCase().includes(filterValue) ||
-          option.alpha3Code.toLowerCase().includes(filterValue)
+          !this.excludedCountries.find(
+            (el2) => el2.alpha2Code == option.alpha2Code
+          ) &&
+          (option.name?.toLowerCase().includes(filterValue) ||
+            option.alpha2Code.toLowerCase().includes(filterValue) ||
+            option.alpha3Code?.toLowerCase().includes(filterValue) ||
+            this.getValueLabel(option)
+              .toLocaleLowerCase()
+              .includes(filterValue))
       );
     }
     if (this.itemsLoadSize) {

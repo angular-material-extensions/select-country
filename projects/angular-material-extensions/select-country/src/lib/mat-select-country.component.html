@@ -13,29 +13,6 @@
     matInput
     type="text"
   />
-  <!--input
-    *ngIf="!true"
-    (input)="inputChanged($event?.target?.value)"
-    autocomplete="off"
-    [class]="class"
-    [matAutocomplete]="this.countryAutocomplete"
-    [placeholder]="this.placeHolder"
-    [readonly]="this.readonly"
-    [tabIndex]="tabIndex"
-    [value]="
-      showCallingCode
-        ? this.value
-          ? this.value?.name + ' (' + this.value?.callingCode + ')'
-          : ''
-        : this.value?.name
-    "
-    [required]="this.required"
-    [disabled]="this.disabled || this.loadingDB"
-    [name]="this.name"
-    aria-label="country"
-    matInput
-    type="text"
-  /-->
   <mat-progress-bar
     *ngIf="this.loadingDB || this.loading"
     mode="buffer"

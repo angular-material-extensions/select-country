@@ -9,6 +9,30 @@ import { GERMANY_COUNTRY } from "../contants";
   styleUrls: ["./all-formcontrol.component.scss"],
 })
 export class AllFormControlComponent implements OnInit {
+  selectablecountries: Country[] = [
+    {
+      name: "Afghanistan",
+      alpha2Code: "AF",
+      alpha3Code: "AFG",
+      numericCode: "004",
+      callingCode: "+93",
+    },
+    {
+      name: "Åland Islands",
+      alpha2Code: "AX",
+      alpha3Code: "ALA",
+      numericCode: "248",
+      callingCode: "+358",
+    },
+    {
+      name: "Albania",
+      alpha2Code: "AL",
+      alpha3Code: "ALB",
+      numericCode: "008",
+      callingCode: "+355",
+    },
+  ];
+
   appearance: "fill" | "outline" = "outline";
   countries: Country[] = [];
   label: string = "Label";
@@ -22,19 +46,52 @@ export class AllFormControlComponent implements OnInit {
   excludedCountries: Country[] = [];
   language: string;
   name: string = "country";
-  // error: string = "";
+  error?: string | undefined;
   cleareable: boolean = false;
   extendWidth: boolean = false;
-  formControl?: FormControl = new FormControl(
-    { value: { ...GERMANY_COUNTRY }, disabled: false },
-    [Validators.required]
-  );
   _panelWidth?: string | undefined;
-  value: Country | null = null;
+  hint?: string | undefined;
+  _countries: string[];
+  _excludedCountries: string[];
 
   // helper variables
   panelWidth: number = 100;
   panelDisabled = true;
+
+  availableLanguages: { value: string; viewValue: string }[] = [
+    { value: "br", viewValue: "Breton" },
+    { value: "be", viewValue: "Belarusian" },
+    { value: "de", viewValue: "German" },
+    { value: "en", viewValue: "English" },
+    { value: "es", viewValue: "Spanish" },
+    { value: "fr", viewValue: "French" },
+    { value: "hr", viewValue: "Croatian" },
+    { value: "hu", viewValue: "Hungarian" },
+    { value: "it", viewValue: "Italian" },
+    { value: "gl", viewValue: "Galician" },
+    { value: "ca", viewValue: "Catalan" },
+    { value: "eu", viewValue: "Basque" },
+    { value: "nl", viewValue: "Flemish" },
+    { value: "pt", viewValue: "Portuguese" },
+    { value: "ru", viewValue: "Russian" },
+    { value: "uk", viewValue: "Ukrainian" },
+  ];
+  languageControl = new FormControl("en");
+  countriesControl = new FormControl({
+    value: this.countries,
+    disabled: false,
+  });
+  excludedCountriesControl = new FormControl({
+    value: this.excludedCountries,
+    disabled: false,
+  });
+
+  countryComponentFormGroup = new FormGroup({
+    country: new FormControl(
+      { value: null /*{ ...GERMANY_COUNTRY }*/, disabled: false },
+      [Validators.required]
+    ),
+  });
 
   countryFormGroup = new FormGroup({
     appearance: new FormControl({ value: "outline", disabled: false }, [
@@ -46,36 +103,26 @@ export class AllFormControlComponent implements OnInit {
     ]),
     placeHolder: new FormControl("Select country", [Validators.required]),
     readonly: new FormControl(),
-    // tabIndex: new FormControl(),
     class: new FormControl(),
-    // itemsLoadSize: new FormControl(),
+    itemsLoadSize: new FormControl(20),
     loading: new FormControl(),
     showCallingCode: new FormControl(false, [Validators.required]),
     // excludedCountries: new FormControl(),
-    // language: new FormControl(),
     name: new FormControl("country", [Validators.required]),
+    error: new FormControl(),
     cleareable: new FormControl(false, [Validators.required]),
     extendWidth: new FormControl(false, [Validators.required]),
-    // formControl: new FormControl(),
     panelWidth: new FormControl(this.panelWidth),
     panelDisabled: new FormControl(this.panelDisabled, [Validators.required]),
-    value: new FormGroup({
-      alpha2Code: new FormControl(this.value?.alpha2Code, [
-        Validators.pattern(/^[A-Z]{2}$/),
-      ]),
-    }),
+    hint: new FormControl(),
+    lang: this.languageControl,
+    countries: this.countriesControl,
+    excludedCountries: this.excludedCountriesControl,
   });
 
   ngOnInit() {
     this.countryFormGroup.valueChanges.subscribe((change) => {
       if (this.countryFormGroup.valid) {
-        if (
-          this.value?.alpha2Code != this.countryFormGroup.value.value.alpha2Code
-        ) {
-          this.value = {
-            alpha2Code: this.countryFormGroup.value.value.alpha2Code,
-          };
-        }
         if (this.appearance !== this.countryFormGroup.value.appearance) {
           this.appearance = this.countryFormGroup.value.appearance as
             | "fill"
@@ -93,6 +140,9 @@ export class AllFormControlComponent implements OnInit {
         if (this.name !== this.countryFormGroup.value.name) {
           this.name = this.countryFormGroup.value.name;
         }
+        if (this.error !== this.countryFormGroup.value.error) {
+          this.error = this.countryFormGroup.value.error;
+        }
         if (this.readonly !== this.countryFormGroup.value.readonly) {
           this.readonly = this.countryFormGroup.value.readonly;
         }
@@ -107,6 +157,12 @@ export class AllFormControlComponent implements OnInit {
         if (this.extendWidth !== this.countryFormGroup.value.extendWidth) {
           this.extendWidth = this.countryFormGroup.value.extendWidth;
         }
+        if (this.loading !== this.countryFormGroup.value.loading) {
+          this.loading = this.countryFormGroup.value.loading;
+        }
+        if (this.language !== this.countryFormGroup.value.lang) {
+          this.language = this.countryFormGroup.value.lang;
+        }
         if (this.panelWidth !== this.countryFormGroup.value.panelWidth) {
           this.panelWidth = this.countryFormGroup.value.panelWidth;
           this._panelWidth = this.panelWidth + "px";
@@ -117,7 +173,42 @@ export class AllFormControlComponent implements OnInit {
             ? undefined
             : this.panelWidth + "px";
         }
+        if (this.hint !== this.countryFormGroup.value.hint) {
+          this.hint = this.countryFormGroup.value.hint;
+        }
+        if (this.itemsLoadSize !== this.countryFormGroup.value.itemsLoadSize) {
+          this.itemsLoadSize = this.countryFormGroup.value.itemsLoadSize;
+        }
+        if (
+          this._countries !==
+          (this.countryFormGroup.value.countries as unknown as string[])
+        ) {
+          this._countries = this.countryFormGroup.value
+            .countries as unknown as string[];
+          this.countries = this.selectablecountries.filter((el) =>
+            this._countries.includes(el.alpha2Code)
+          );
+        }
+        if (
+          this._excludedCountries !==
+          (this.countryFormGroup.value.excludedCountries as unknown as string[])
+        ) {
+          this._excludedCountries = this.countryFormGroup.value
+            .excludedCountries as unknown as string[];
+          this.excludedCountries = this.selectablecountries.filter((el) =>
+            this._excludedCountries.includes(el.alpha2Code)
+          );
+        }
       }
+    });
+  }
+
+  nothing() {}
+
+  setGermany() {
+    console.log("SetGermany");
+    this.countryComponentFormGroup.setValue({
+      country: { ...GERMANY_COUNTRY },
     });
   }
 

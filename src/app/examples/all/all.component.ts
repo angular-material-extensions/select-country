@@ -8,6 +8,30 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./all.component.scss"],
 })
 export class AllComponent implements OnInit {
+  selectablecountries: Country[] = [
+    {
+      name: "Afghanistan",
+      alpha2Code: "AF",
+      alpha3Code: "AFG",
+      numericCode: "004",
+      callingCode: "+93",
+    },
+    {
+      name: "Åland Islands",
+      alpha2Code: "AX",
+      alpha3Code: "ALA",
+      numericCode: "248",
+      callingCode: "+358",
+    },
+    {
+      name: "Albania",
+      alpha2Code: "AL",
+      alpha3Code: "ALB",
+      numericCode: "008",
+      callingCode: "+355",
+    },
+  ];
+
   appearance: "fill" | "outline" = "outline";
   countries: Country[] = [];
   label: string = "Label";
@@ -27,12 +51,13 @@ export class AllComponent implements OnInit {
   cleareable: boolean = false;
   extendWidth: boolean = false;
   _panelWidth?: string | undefined;
-  value: Country | null = null;
   hint?: string | undefined;
 
   // helper variables
   panelWidth: number = 100;
   panelDisabled = true;
+  _countries: string[];
+  _excludedCountries: string[];
 
   availableLanguages: { value: string; viewValue: string }[] = [
     { value: "br", viewValue: "Breton" },
@@ -53,6 +78,14 @@ export class AllComponent implements OnInit {
     { value: "uk", viewValue: "Ukrainian" },
   ];
   languageControl = new FormControl("en");
+  countriesControl = new FormControl({
+    value: this.countries,
+    disabled: false,
+  });
+  excludedCountriesControl = new FormControl({
+    value: this.excludedCountries,
+    disabled: false,
+  });
 
   countryFormGroup = new FormGroup({
     appearance: new FormControl({ value: "outline", disabled: false }, [
@@ -77,25 +110,15 @@ export class AllComponent implements OnInit {
     extendWidth: new FormControl(false, [Validators.required]),
     panelWidth: new FormControl(this.panelWidth),
     panelDisabled: new FormControl(this.panelDisabled, [Validators.required]),
-    value: new FormGroup({
-      alpha2Code: new FormControl(this.value?.alpha2Code, [
-        Validators.pattern(/^[A-Z]{2}$/),
-      ]),
-    }),
     hint: new FormControl(),
     lang: this.languageControl,
+    countries: this.countriesControl,
+    excludedCountries: this.excludedCountriesControl,
   });
 
   ngOnInit() {
     this.countryFormGroup.valueChanges.subscribe((change) => {
       if (this.countryFormGroup.valid) {
-        if (
-          this.value?.alpha2Code != this.countryFormGroup.value.value.alpha2Code
-        ) {
-          this.value = {
-            alpha2Code: this.countryFormGroup.value.value.alpha2Code,
-          };
-        }
         if (this.appearance !== this.countryFormGroup.value.appearance) {
           this.appearance = this.countryFormGroup.value.appearance as
             | "fill"
@@ -157,6 +180,26 @@ export class AllComponent implements OnInit {
         }
         if (this.itemsLoadSize !== this.countryFormGroup.value.itemsLoadSize) {
           this.itemsLoadSize = this.countryFormGroup.value.itemsLoadSize;
+        }
+        if (
+          this._countries !==
+          (this.countryFormGroup.value.countries as unknown as string[])
+        ) {
+          this._countries = this.countryFormGroup.value
+            .countries as unknown as string[];
+          this.countries = this.selectablecountries.filter((el) =>
+            this._countries.includes(el.alpha2Code)
+          );
+        }
+        if (
+          this._excludedCountries !==
+          (this.countryFormGroup.value.excludedCountries as unknown as string[])
+        ) {
+          this._excludedCountries = this.countryFormGroup.value
+            .excludedCountries as unknown as string[];
+          this.excludedCountries = this.selectablecountries.filter((el) =>
+            this._excludedCountries.includes(el.alpha2Code)
+          );
         }
       }
     });

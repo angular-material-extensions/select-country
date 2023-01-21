@@ -1,15 +1,13 @@
 ```html
   <mat-select-country
-    [value]="value"
     [appearance]="appearance"
     [countries]="countries"
     [label]="label"
     [placeHolder]="placeHolder"
     [required]="required"
     [disabled]="disabled"
-    [nullable]="nullable"
     [readonly]="readonly"
-    [tabIndex]="tabIndex"
+    [tabIndex]="2"
     [class]="class"
     [itemsLoadSize]="itemsLoadSize"
     [loading]="loading"
@@ -17,10 +15,12 @@
     [excludedCountries]="excludedCountries"
     [language]="language"
     [name]="name"
-    [error]="error"
     [cleareable]="cleareable"
-    [formControl]="formControl"
-    [panelWidth]="panelWidth"
+    [panelWidth]="_panelWidth"
+    [extendWidth]="extendWidth"
+    [error]="error"
+    [hint]="hint"
     (onCountrySelected)="onCountrySelected($event)"
   >
+  </mat-select-country>
 ```
