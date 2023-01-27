@@ -1,0 +1,7 @@
+.grid1x2 {
+    display: grid; 
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: 1fr; 
+    gap: 0px 20px; 
+    grid-template-areas: ". ."; 
+}

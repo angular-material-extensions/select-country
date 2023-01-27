@@ -1,0 +1,26 @@
+```html
+  <mat-select-country
+    [appearance]="appearance"
+    [countries]="countries"
+    [label]="label"
+    [placeHolder]="placeHolder"
+    [required]="required"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [tabIndex]="2"
+    [class]="class"
+    [itemsLoadSize]="itemsLoadSize"
+    [loading]="loading"
+    [showCallingCode]="showCallingCode"
+    [excludedCountries]="excludedCountries"
+    [language]="language"
+    [name]="name"
+    [cleareable]="cleareable"
+    [panelWidth]="_panelWidth"
+    [extendWidth]="extendWidth"
+    [error]="error"
+    [hint]="hint"
+    (onCountrySelected)="onCountrySelected($event)"
+  >
+  </mat-select-country>
+```

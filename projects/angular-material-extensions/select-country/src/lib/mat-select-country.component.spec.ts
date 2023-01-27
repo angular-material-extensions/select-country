@@ -1,79 +1,76 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
-import {MatSelectCountryComponent} from './mat-select-country.component';
-import {MatLegacyAutocompleteModule as MatAutocompleteModule} from '@angular/material/legacy-autocomplete';
-import {MatIconModule} from '@angular/material/icon';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {SimpleChange} from '@angular/core';
+import { MatSelectCountryComponent } from "./mat-select-country.component";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { SimpleChange } from "@angular/core";
 
-describe('SelectCountryComponent', () => {
+describe("SelectCountryComponent", () => {
   let component: MatSelectCountryComponent;
   let fixture: ComponentFixture<MatSelectCountryComponent>;
   let inputElement: HTMLInputElement;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    declarations: [MatSelectCountryComponent],
-    imports: [
+      declarations: [MatSelectCountryComponent],
+      imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
         FormsModule,
         MatInputModule,
         MatAutocompleteModule,
         MatIconModule,
-    ],
-    teardown: { destroyAfterEach: false }
-})
-      .compileComponents();
+      ],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MatSelectCountryComponent);
     component = fixture.componentInstance;
-    inputElement = fixture.nativeElement.querySelector('input');
+    inputElement = fixture.nativeElement.querySelector("input");
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load 203 countries', () => {
+  it("should load 203 countries", () => {
     expect(component.countries.length).toEqual(203);
   });
 
-  it('should load all countries (203) if the input value is empty', async () => {
-    prepare(inputElement, '');
+  it("should load all countries (203) if the input value is empty", async () => {
+    prepare(inputElement, "");
 
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
 
-    const matOptions = document.querySelectorAll('mat-option');
+    const matOptions = document.querySelectorAll("mat-option");
     expect(matOptions.length).toEqual(203);
   });
 
-  it('should load all countries (4) if the input value is equal to `ger` ', async () => {
-
-    prepare(inputElement, 'ger');
+  it("should load all countries (4) if the input value is equal to `ger` ", async () => {
+    prepare(inputElement, "ger");
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
 
-    const matOptions = document.querySelectorAll('mat-option');
+    const matOptions = document.querySelectorAll("mat-option");
     expect(matOptions.length).toEqual(4);
   });
 
-  it('should find only germany ', async () => {
-
-    prepare(inputElement, 'germany');
+  it("should find only germany ", async () => {
+    prepare(inputElement, "germany");
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
 
-    const matOptions = document.querySelectorAll('mat-option');
+    const matOptions = document.querySelectorAll("mat-option");
     expect(matOptions.length).toEqual(1);
 
     await fixture.whenStable();
@@ -83,67 +80,63 @@ describe('SelectCountryComponent', () => {
     fixture.detectChanges();
 
     expect(component.value).toStrictEqual({
-      name: 'Germany',
-      alpha2Code: 'DE',
-      alpha3Code: 'DEU',
-      numericCode: '276'
+      name: "Germany",
+      alpha2Code: "DE",
+      alpha3Code: "DEU",
+      numericCode: "276",
     });
   });
 
-  it('should set correct value', async () => {
-
+  it("should set correct value", async () => {
     component.ngOnChanges({
-      country: new SimpleChange(undefined, 'de', true)
+      country: new SimpleChange(undefined, "de", true),
     });
 
     fixture.detectChanges();
 
-    expect(inputElement.value).toMatch('Germany');
+    expect(inputElement.value).toMatch("Germany");
   });
 
-  it('should set empty value', async () => {
-
+  it("should set empty value", async () => {
     component.ngOnChanges({
-      country: new SimpleChange(undefined, 'de', true)
+      country: new SimpleChange(undefined, "de", true),
     });
     component.ngOnChanges({
-      country: new SimpleChange('de', undefined, false)
-    });
-
-    await fixture.whenStable();
-
-    expect(inputElement.value).toMatch('');
-  });
-
-  it('should rollback input', async () => {
-
-    component.ngOnChanges({
-      country: new SimpleChange(undefined, 'de', true)
+      country: new SimpleChange("de", undefined, false),
     });
 
     await fixture.whenStable();
 
-    inputElement.value = 'test';
-    inputElement.dispatchEvent(new Event('input'));
-    inputElement.dispatchEvent(new Event('blur'));
+    expect(inputElement.value).toMatch("");
+  });
+
+  it("should rollback input", async () => {
+    component.ngOnChanges({
+      country: new SimpleChange(undefined, "de", true),
+    });
 
     await fixture.whenStable();
 
-    expect(inputElement.value).toMatch('Germany');
+    inputElement.value = "test";
+    inputElement.dispatchEvent(new Event("input"));
+    inputElement.dispatchEvent(new Event("blur"));
+
+    await fixture.whenStable();
+
+    expect(inputElement.value).toMatch("Germany");
   });
 
-  it('should reset value', async () => {
-
+  it("should reset value", async () => {
     component.nullable = true;
     component.ngOnChanges({
-      country: new SimpleChange(undefined, 'de', true)
+      country: new SimpleChange(undefined, "de", true),
     });
 
     await fixture.whenStable();
 
-    inputElement.value = '';
-    inputElement.dispatchEvent(new Event('input'));
-    inputElement.dispatchEvent(new Event('blur'));
+    inputElement.value = "";
+    inputElement.dispatchEvent(new Event("input"));
+    inputElement.dispatchEvent(new Event("blur"));
 
     await fixture.whenStable();
 
@@ -152,8 +145,8 @@ describe('SelectCountryComponent', () => {
 });
 
 function prepare(inputElement: HTMLInputElement, value: string) {
-  inputElement.dispatchEvent(new Event('input'));
-  inputElement.dispatchEvent(new Event('focusin'));
+  inputElement.dispatchEvent(new Event("input"));
+  inputElement.dispatchEvent(new Event("focusin"));
   inputElement.value = value;
-  inputElement.dispatchEvent(new Event('input'));
+  inputElement.dispatchEvent(new Event("input"));
 }

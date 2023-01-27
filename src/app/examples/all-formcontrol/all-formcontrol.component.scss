@@ -1,0 +1,51 @@
+.grid1x2 {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 20px; 
+    grid-template-areas: ". ."; 
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.example-label-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px 0;
+    max-width: 284px;
+}
+
+.example-margin {
+    margin: 8px;
+}
+
+.mat-mdc-slider {
+    max-width: 300px;
+    width: 100%;
+}
+
+.hint {
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+    font-size: var(--mdc-typography-caption-font-size, 12px);
+    line-height: var(--mdc-typography-caption-line-height, 20px);
+    font-weight: var(--mdc-typography-caption-font-weight, 400);
+    letter-spacing: var(--mdc-typography-caption-letter-spacing, 0.0333333333em);
+    -webkit-text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
+    text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
+    text-transform: var(--mdc-typography-caption-text-transform, none);
+}

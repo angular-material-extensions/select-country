@@ -1,0 +1,35 @@
+<h2>Default Value Usage</h2>
+
+<div class="grid1x2">
+  <mat-select-country
+    [value]="defaultCountry"
+    (onCountrySelected)="onCountrySelected($event)"
+  >
+  </mat-select-country>
+  <form [formGroup]="countryFormGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Alpha 2-Code</mat-label>
+      <input matInput type="text" formControlName="alpha2Code" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Alpha 3-Code</mat-label>
+      <input matInput type="text" formControlName="alpha3Code" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Numeric Code</mat-label>
+      <input matInput type="number" formControlName="numericCode" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Calling Code</mat-label>
+      <input matInput type="text" formControlName="callingCode" />
+    </mat-form-field>
+  </form>
+</div>
+
+<markdown src="assets/md/examples/default.html.md"></markdown>
+<markdown src="assets/md/examples/default.ts.md"></markdown>

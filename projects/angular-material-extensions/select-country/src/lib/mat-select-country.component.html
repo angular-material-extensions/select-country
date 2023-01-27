@@ -1,93 +1,52 @@
-<mat-form-field [appearance]="appearance">
+<mat-form-field [appearance]="appearance" [class.d-block]="extendWidth">
   <mat-label *ngIf="label">{{ label }}</mat-label>
-  <mat-icon
-    *ngIf="this.value"
-    [svgIcon]="this.value?.alpha2Code?.toLowerCase()"
-    class="mr-12 s-20 secondary-text"
-    matSuffix
-  ></mat-icon>
   <input
-    *ngIf="!!formControl"
-    (blur)="onBlur()"
-    (input)="inputChanged($event?.target?.value)"
+    autocomplete="off"
     [class]="class"
     [matAutocomplete]="this.countryAutocomplete"
     [placeholder]="this.placeHolder"
     [readonly]="this.readonly"
     [tabIndex]="tabIndex"
-    [value]="formControl.value?.name"
-    [formControl]="formControl"
-    [autocomplete]="this.autocomplete"
+    [formControl]="_formControl"
     [name]="this.name"
     aria-label="country"
     matInput
     type="text"
-    #inputElement
-  />
-  <input
-    *ngIf="!formControl"
-    (blur)="onBlur()"
-    (input)="inputChanged($event?.target?.value)"
-    [class]="class"
-    [matAutocomplete]="this.countryAutocomplete"
-    [placeholder]="this.placeHolder"
-    [readonly]="this.readonly"
-    [tabIndex]="tabIndex"
-    [value]="
-      showCallingCode
-        ? this.value
-          ? this.value?.name + ' (' + this.value?.callingCode + ')'
-          : ''
-        : this.value?.name
-    "
-    [required]="this.required"
-    [disabled]="this.disabled || this.loadingDB"
-    [autocomplete]="this.autocomplete"
-    [name]="this.name"
-    aria-label="country"
-    matInput
-    type="text"
-    #inputElement
   />
   <mat-progress-bar
     *ngIf="this.loadingDB || this.loading"
     mode="buffer"
   ></mat-progress-bar>
   <mat-autocomplete
+    [panelWidth]="panelWidth"
     #countryAutocomplete="matAutocomplete"
-    (opened)="autocompleteScroll()"
     (optionSelected)="onOptionsSelected($event)"
   >
-    <mat-option *ngFor="let country of filteredOptions" [value]="country?.name">
+    <mat-option *ngFor="let country of filteredOptions" [value]="country.name">
       <div class="d-flex">
         <mat-icon [svgIcon]="country?.alpha2Code?.toLowerCase()"></mat-icon>
-        <small
-          class="country-list-item"
-          [title]="[country?.name, country?.alpha3Code] | joinStrings"
-          *ngIf="!showCallingCode"
-          >{{ [country?.name, country?.alpha3Code] | joinStrings }}</small
-        >
-        <small
-          class="country-list-item"
-          [title]="
-            [country?.name, '(' + country?.callingCode + ')']
-              | joinStrings : ' '
-          "
-          *ngIf="showCallingCode"
-          >{{
-            [country?.name, "(" + country?.callingCode + ")"]
-              | joinStrings : " "
-          }}</small
-        >
+        <small class="country-list-item" [title]="getValueLabel(country)">{{
+          getValueLabel(country)
+        }}</small>
       </div>
     </mat-option>
   </mat-autocomplete>
-  <mat-icon
-    class="cursor-pointer pos-rel"
-    matSuffix
-    *ngIf="cleareable && !!value"
-    (click)="clear()"
-    >cancel</mat-icon
-  >
-  <mat-error *ngIf="formControl && formControl.invalid">{{ error }}</mat-error>
+  <div class="d-flex mr-1" matSuffix>
+    <mat-icon
+      *ngIf="this.value"
+      [svgIcon]="this.value?.alpha2Code?.toLowerCase()"
+      class="ml-1 s-20 secondary-text"
+    ></mat-icon>
+    <mat-icon
+      class="ml-1"
+      class="ml-1 cursor-pointer pos-rel"
+      *ngIf="cleareable && !!value"
+      (click)="clear()"
+      >cancel</mat-icon
+    >
+  </div>
+  <mat-error *ngIf="_formControl && _formControl.invalid">{{
+    error
+  }}</mat-error>
+  <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
 </mat-form-field>
