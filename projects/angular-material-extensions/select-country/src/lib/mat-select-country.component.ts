@@ -24,12 +24,21 @@ import {
 import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
 import { MatSelectCountryLangToken } from "./tokens";
 import { distinctUntilChanged } from "rxjs/operators";
+import { COUNTRIES_LANGS } from "./i18n/all";
 
 /**
  * Country interface ISO 3166
  */
 export interface Country {
   name?: string;
+  alpha2Code: string;
+  alpha3Code?: string;
+  numericCode?: string;
+  callingCode?: string;
+}
+
+export interface CountryMin {
+  name?: { [key: string]: string };
   alpha2Code: string;
   alpha3Code?: string;
   numericCode?: string;
@@ -413,7 +422,7 @@ export class MatSelectCountryComponent
     this.loadingDB = true;
     let translatedCountries = [];
     try {
-      translatedCountries = await this._importLang();
+      translatedCountries = this._importLang();
     } catch (err) {
       console.error("Error: " + err);
     }
@@ -426,74 +435,15 @@ export class MatSelectCountryComponent
     return translatedCountries;
   }
 
-  private _importLang(): Promise<any> {
-    const lang = ((this.language || this.i18n) ?? "").toLowerCase();
-    switch (lang) {
-      case "be":
-        return import("./i18n/be")
-          .then((result) => result.COUNTRIES_DB_BY)
-          .then((y) => y);
-      case "br":
-        return import("./i18n/br")
-          .then((result) => result.COUNTRIES_DB_BR)
-          .then((y) => y);
-      case "ca":
-        return import("./i18n/ca")
-          .then((result) => result.COUNTRIES_DB_CA)
-          .then((y) => y);
-      case "de":
-        return import("./i18n/de")
-          .then((result) => result.COUNTRIES_DB_DE)
-          .then((y) => y);
-      case "es":
-        return import("./i18n/es")
-          .then((result) => result.COUNTRIES_DB_ES)
-          .then((y) => y);
-      case "eu":
-        return import("./i18n/eu")
-          .then((result) => result.COUNTRIES_DB_EU)
-          .then((y) => y);
-      case "fr":
-        return import("./i18n/fr")
-          .then((result) => result.COUNTRIES_DB_FR)
-          .then((y) => y);
-      case "gl":
-        return import("./i18n/gl")
-          .then((result) => result.COUNTRIES_DB_GL)
-          .then((y) => y);
-      case "hr":
-        return import("./i18n/hr")
-          .then((result) => result.COUNTRIES_DB_HR)
-          .then((y) => y);
-      case "hu":
-        return import("./i18n/hu")
-          .then((result) => result.COUNTRIES_DB_HU)
-          .then((y) => y);
-      case "it":
-        return import("./i18n/it")
-          .then((result) => result.COUNTRIES_DB_IT)
-          .then((y) => y);
-      case "nl":
-        return import("./i18n/nl")
-          .then((result) => result.COUNTRIES_DB_NL)
-          .then((y) => y);
-      case "pt":
-        return import("./i18n/pt")
-          .then((result) => result.COUNTRIES_DB_PT)
-          .then((y) => y);
-      case "ru":
-        return import("./i18n/ru")
-          .then((result) => result.COUNTRIES_DB_RU)
-          .then((y) => y);
-      case "uk":
-        return import("./i18n/uk")
-          .then((result) => result.COUNTRIES_DB_UA)
-          .then((y) => y);
-      default:
-        return import("./i18n/en")
-          .then((result) => result.COUNTRIES_DB)
-          .then((y) => y);
-    }
+  private _importLang(): Country[] {
+    const lang = ((this.language || this.i18n) ?? "en").toLowerCase();
+    return COUNTRIES_LANGS.map((el) => ({
+      name: el.name[lang],
+      alpha2Code: el.alpha2Code,
+      alpha3Code: el.alpha3Code,
+      callingCode: el.callingCode,
+      numericCode: el.numericCode,
+    }));
   }
 
   private _applyFilters(value?: string) {
