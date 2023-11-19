@@ -1,5 +1,15 @@
 
 
+# [17.0.0](https://github.com/angular-material-extensions/select-country/compare/16.0.0...17.0.0) (2023-11-19)
+
+
+### Bug Fixes
+
+* **project:** minor ([8f393fc](https://github.com/angular-material-extensions/select-country/commit/8f393fc6e69e901cb10b38caa52423ed802a2497))
+* **project:** upgraded angular material to v17 ([98e426d](https://github.com/angular-material-extensions/select-country/commit/98e426d4e64c6fadd5a59486308fd94b8a95587c))
+* **project:** upgraded angular to v17 ([1aff047](https://github.com/angular-material-extensions/select-country/commit/1aff0471c0aca03b625f290c4a58168c561e6c25))
+* **project:** upgraded release it ([6826638](https://github.com/angular-material-extensions/select-country/commit/6826638ce14a5fef9ef0ba4af622c8578775dcb1))
+
 # [16.0.0](https://github.com/angular-material-extensions/select-country/compare/8.1.0...16.0.0) (2023-11-19)
 
 
