@@ -1,3 +1,17 @@
+
+
+# [16.0.0](https://github.com/angular-material-extensions/select-country/compare/8.1.0...16.0.0) (2023-11-19)
+
+
+### Bug Fixes
+
+* **project:** minor ([a04507f](https://github.com/angular-material-extensions/select-country/commit/a04507fb45e7de3cea3197aac110a9ac9e8bff8d))
+* **project:** updated deps ([fbfba2c](https://github.com/angular-material-extensions/select-country/commit/fbfba2c8740177702bcd7895a2945484d711427a))
+* **project:** updated release it deps ([2d4003b](https://github.com/angular-material-extensions/select-country/commit/2d4003b7fee0835a4687e4d956dbe0e0481ecaf3))
+* **project:** upgraded angular to v16 ([825f87d](https://github.com/angular-material-extensions/select-country/commit/825f87d5d9f1ece34f4af35a16af44889d41d574))
+* **project:** upgraded angular universal to v16 ([0193e83](https://github.com/angular-material-extensions/select-country/commit/0193e83772656ccf3a03e3758fc1892c2551add7))
+* **project:** upgraded flex layout ([e0f885a](https://github.com/angular-material-extensions/select-country/commit/e0f885a415aeda8b36e63469d3c64357dd0192b7))
+
 # [8.1.0](https://github.com/angular-material-extensions/select-country/compare/8.0.0...8.1.0) (2023-01-14)
 
 # [8.0.0](https://github.com/angular-material-extensions/select-country/compare/7.1.0...8.0.0) (2022-11-30)
@@ -501,4 +515,3 @@
 * **package:** integration of release-it ([e6d2933](https://github.com/angular-material-extensions/select-country/commit/e6d293386a82f2db1eae539e6a9f616b7c488834))
 * **package:** integration of ssr ([9dff4ec](https://github.com/angular-material-extensions/select-country/commit/9dff4ecfe19536e0db77634aea9650eb15ba1917))
 * **project:** added angular material ([dd5b81c](https://github.com/angular-material-extensions/select-country/commit/dd5b81c1106b0653f76451a2a451edfd48fe2afa))
-
