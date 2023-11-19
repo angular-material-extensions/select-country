@@ -60,7 +60,7 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) developed and tested with `16.x`
+* [Angular](https://angular.io) developed and tested with `17.x`
 
 ---
 
