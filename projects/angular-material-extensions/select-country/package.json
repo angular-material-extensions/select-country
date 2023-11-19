@@ -42,18 +42,18 @@
     "release:patch": "../../../node_modules/.bin/release-it --patch --ci ",
     "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
     "release:major": "../../../node_modules/.bin/release-it --major --ci --no-git.requireCleanWorkingDir",
-    "release:version": "../../../node_modules/.bin/release-it 16.0.0 --ci --no-git.requireCleanWorkingDir",
+    "release:version": "../../../node_modules/.bin/release-it 17.0.0 --ci --no-git.requireCleanWorkingDir",
     "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/select-country",
     "test": "../../../node_modules/.bin/jest --coverage",
     "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
   },
   "peerDependencies": {
-    "@angular/common": "^16.x",
-    "@angular/core": "^16.x",
-    "@angular/forms": "^16.x",
-    "@angular/platform-browser": "^16.x",
-    "@angular/cdk": "~16.x",
-    "@angular/material": "~16.x",
+    "@angular/common": "^17.x",
+    "@angular/core": "^17.x",
+    "@angular/forms": "^17.x",
+    "@angular/platform-browser": "^17.x",
+    "@angular/cdk": "~17.x",
+    "@angular/material": "~17.x",
     "rxjs": "^7.x"
   },
   "engines": {
