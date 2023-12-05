@@ -344,7 +344,7 @@ Result:
 </mat-select-country>
 ```
 
-only 5 countries will fetched!
+only 5 countries will be fetched!
 
 ### Change language dynamically - use the `language` property
 ```html
