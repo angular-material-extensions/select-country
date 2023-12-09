@@ -29,7 +29,8 @@ export type MatSelectCountrySupportedLanguages =
   | "hu"
   | "it"
   | "nl"
-  | "pt";
+  | "pt"
+  | "se";
 
 /**
  * @author Anthony Nahas
