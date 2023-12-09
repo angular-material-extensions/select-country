@@ -140,7 +140,7 @@ export const COUNTRIES_DB_SE = [
         "callingCode": "+1246"
     },
     {
-        "name": "Vitryssland",
+        "name": "Belarus",
         "alpha2Code": "BY",
         "alpha3Code": "BLR",
         "numericCode": 112,
