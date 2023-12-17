@@ -30,7 +30,7 @@ export type MatSelectCountrySupportedLanguages =
   | "it"
   | "nl"
   | "pt"
-  | "se";
+  | "sv";
 
 /**
  * @author Anthony Nahas

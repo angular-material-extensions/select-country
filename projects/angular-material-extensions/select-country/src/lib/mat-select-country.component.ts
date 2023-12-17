@@ -485,9 +485,9 @@ export class MatSelectCountryComponent
         return import("./i18n/ru")
           .then((result) => result.COUNTRIES_DB_RU)
           .then((y) => y);
-      case "se":
-        return import("./i18n/se")
-          .then((result) => result.COUNTRIES_DB_SE)
+      case "sv":
+        return import("./i18n/sv")
+          .then((result) => result.COUNTRIES_DB_SV)
           .then((y) => y);
       case "uk":
         return import("./i18n/uk")

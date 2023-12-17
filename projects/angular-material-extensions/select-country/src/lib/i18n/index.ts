@@ -13,5 +13,5 @@ export * from "./eu"; //Basque
 export * from "./nl";
 export * from "./pt";
 export * from "./ru";
-export * from "./se"; //Swedish
+export * from "./sv"; //Swedish
 export * from "./uk";

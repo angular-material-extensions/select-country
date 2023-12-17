@@ -1,4 +1,4 @@
-export const COUNTRIES_DB_SE = [
+export const COUNTRIES_DB_SV = [
     {
         "name": "Afganistan",
         "alpha2Code": "AF",
