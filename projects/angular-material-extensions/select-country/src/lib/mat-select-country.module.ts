@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 
-import { COUNTRIES_DB } from "./i18n";
+import { COUNTRIES_LANGS } from "./i18n";
 
 import { MatSelectCountryLangToken } from "./tokens";
 
@@ -20,16 +20,22 @@ import { JoinStringsPipe } from "./join.pipe";
 import { MatSelectCountryComponent } from "./mat-select-country.component";
 
 export type MatSelectCountrySupportedLanguages =
-  | "br"
-  | "de"
   | "en"
+  | "be"
+  | "br"
+  | "ca"
+  | "de"
   | "es"
+  | "eu"
   | "fr"
+  | "gl"
   | "hr"
   | "hu"
   | "it"
   | "nl"
-  | "pt";
+  | "pt"
+  | "ru"
+  | "uk";
 
 /**
  * @author Anthony Nahas
@@ -79,7 +85,7 @@ export class MatSelectCountryModule {
   }
 
   registerCountries() {
-    for (const country of COUNTRIES_DB) {
+    for (const country of COUNTRIES_LANGS) {
       const countryAlpha2Code = country.alpha2Code.toLowerCase();
       try {
         this.iconRegistry.addSvgIcon(
