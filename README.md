@@ -60,7 +60,7 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) developed and tested with `14.x`
+* [Angular](https://angular.io) developed and tested with `17.x`
 
 ---
 
@@ -417,7 +417,7 @@ This project is supported by [jetbrains](https://www.jetbrains.com/) with 1 ALL 
 
 ## License
 
-Copyright (c) 2020-2022 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
+Copyright (c) 2020-2024 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
                                                                                                             <img alt="angular-material-extensions's logo"
                                                                                                              height="92px" width="92px" style="text-align: center;"
                                                                                                              src="https://cdn.jsdelivr.net/gh/angular-material-extensions/select-country@master/assets/badge_made-in-germany.svg">

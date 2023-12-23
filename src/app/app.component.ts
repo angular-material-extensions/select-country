@@ -1,16 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import {
-  FormControl,
-  FormGroup,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from "@angular/forms";
+import {Component, OnInit} from "@angular/core";
+import {FormControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators,} from "@angular/forms";
 
-import { Country } from "@angular-material-extensions/select-country";
-import { Angulartics2GoogleAnalytics } from "angulartics2/ga";
-import { GERMANY_COUNTRY } from "./examples/contants";
+import {Country} from "@angular-material-extensions/select-country";
+import {Angulartics2GoogleAnalytics} from 'angulartics2';
+import {GERMANY_COUNTRY} from "./examples/contants";
 
 @Component({
   selector: "app-root",
@@ -20,7 +13,7 @@ import { GERMANY_COUNTRY } from "./examples/contants";
 export class AppComponent implements OnInit {
   title = "select-country";
 
-  defaultValue = { ...GERMANY_COUNTRY };
+  defaultValue = {...GERMANY_COUNTRY};
   countryFormControl = new UntypedFormControl();
   countryRequiredFormControl = new UntypedFormControl(null, [
     Validators.required,
@@ -74,7 +67,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryFormGroup = this.formBuilder.group({
-      country: [{ ...this.defaultValue }],
+      country: [{...this.defaultValue}],
     });
 
     this.countryMandatoryFormControl.valueChanges.subscribe((country) => {
@@ -87,11 +80,11 @@ export class AppComponent implements OnInit {
     this.countryFormGroup
       .get("country")
       .valueChanges.subscribe((country) =>
-        console.log(
-          "this.countryFormGroup.get('country').valueChanges",
-          country
-        )
-      );
+      console.log(
+        "this.countryFormGroup.get('country').valueChanges",
+        country
+      )
+    );
 
     this.countryFormControl.valueChanges.subscribe((country) =>
       console.log("this.countryFormControl.valueChanges", country)
