@@ -46,3 +46,4 @@ testem.log
 .DS_Store
 Thumbs.db
 !/projects/angular-material-extensions/select-country/coverage/
+!/projects/angular-material-extensions/select-country/node_modules/
