@@ -20,16 +20,22 @@ import { JoinStringsPipe } from "./join.pipe";
 import { MatSelectCountryComponent } from "./mat-select-country.component";
 
 export type MatSelectCountrySupportedLanguages =
+  | "be"
   | "br"
+  | "ca"
   | "de"
   | "en"
   | "es"
+  | "eu"
   | "fr"
+  | "gl"
   | "hr"
   | "hu"
   | "it"
   | "nl"
-  | "pt";
+  | "pt"
+  | "ru"
+  | "uk";
 
 /**
  * @author Anthony Nahas
